@@ -1,0 +1,70 @@
+{
+    "apollon": {
+        "name": "apollon.ap.welcome.name",
+        "title": "apollon.ap.welcome.title",
+        "description": "apollon.ap.welcome.desc",
+        "icon": "dashicons-laptop",
+        "position": 3,
+        "sections": {
+
+            "gettingstarted": {
+                "title": "apollon.ap.welcome.gettingstarted.title",
+                "name": "apollon.ap.welcome.gettingstarted.title",
+                "submit": false,
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "content": "apollon.ap.welcome.gettingstarted.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "content": "apollon.ap.welcome.gettingstarted.step1"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "content": "apollon.ap.welcome.gettingstarted.step2"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "content": "apollon.ap.welcome.gettingstarted.step3"
+                    }
+                ]
+            },
+
+
+
+            "whatsnew": {
+                "title": "apollon.ap.welcome.whatsnew.title",
+                "name": "apollon.ap.welcome.whatsnew.title",
+                "submit": false,
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "content": "apollon.ap.welcome.whatsnew.desc"
+                    }
+                ]
+            },
+
+
+
+            "credits": {
+                "title": "apollon.ap.welcome.credits.title",
+                "name": "apollon.ap.welcome.credits.title",
+                "submit": false,
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "content": "apollon.ap.welcome.credits.desc"
+                    }
+                ]
+            }
+
+        }
+    }
+}

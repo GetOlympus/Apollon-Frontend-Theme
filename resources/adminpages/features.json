@@ -1,0 +1,734 @@
+{
+    "features": {
+        "name": "apollon.ap.features.name",
+        "title": "apollon.ap.features.name",
+        "description": "apollon.ap.features.desc",
+        "sections": {
+
+            "main": {
+                "title": "apollon.ap.features.main.title",
+                "name": "apollon.ap.features.main.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.main.core.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-searchform",
+                        "title": "apollon.ap.features.main.core.searchform.title",
+                        "default": false,
+                        "description": "apollon.ap.features.main.core.searchform.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-sidebar",
+                        "title": "apollon.ap.features.main.core.sidebar.title",
+                        "default": false,
+                        "description": "apollon.ap.features.main.core.sidebar.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-comments",
+                        "title": "apollon.ap.features.main.core.comments.title",
+                        "default": false,
+                        "description": "apollon.ap.features.main.core.comments.desc"
+                    },
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.main.extra.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-nav",
+                        "title": "apollon.ap.features.main.extra.nav.title",
+                        "default": false,
+                        "description": "apollon.ap.features.main.extra.nav.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-ads",
+                        "title": "apollon.ap.features.main.extra.ads.title",
+                        "default": false,
+                        "description": "apollon.ap.features.main.extra.ads.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-adblocker",
+                        "title": "apollon.ap.features.main.extra.adblocker.title",
+                        "default": false,
+                        "description": "apollon.ap.features.main.extra.adblocker.desc"
+                    }
+                ]
+            },
+
+
+
+            "searchform": {
+                "title": "apollon.ap.features.main.core.searchform.title",
+                "name": "apollon.ap.features.main.core.searchform.title",
+                "depends": {
+                    "features-searchform": true
+                },
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.searchform.optimisation.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-searchform-posttypes",
+                        "title": "apollon.ap.features.searchform.optimisation.posttypes.title",
+                        "default": "__posttypes__",
+                        "description": "apollon.ap.features.searchform.optimisation.posttypes.desc",
+                        "multiple": true,
+                        "options": "__posttypes__"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-searchform-titleonly",
+                        "title": "apollon.ap.features.searchform.optimisation.titleonly.title",
+                        "default": false,
+                        "description": "apollon.ap.features.searchform.optimisation.titleonly.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "features-searchform-postsperpage",
+                        "title": "apollon.ap.features.searchform.optimisation.postsperpage.title",
+                        "default": "__postsperpage__",
+                        "description": "apollon.ap.features.searchform.optimisation.postsperpage.desc",
+                        "type": "number"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-searchform-livesearch",
+                        "title": "apollon.ap.features.searchform.optimisation.livesearch.title",
+                        "default": false,
+                        "description": "apollon.ap.features.searchform.optimisation.livesearch.desc"
+                    },
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.searchform.layout.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-searchform-headerlayout",
+                        "title": "apollon.ap.features.searchform.layout.headerlayout.title",
+                        "default": "default",
+                        "description": "apollon.ap.features.searchform.layout.headerlayout.desc",
+                        "options": {
+                            "default": "apollon.ap.features.searchform.layout.headerlayout.default",
+                            "drop": "apollon.ap.features.searchform.layout.headerlayout.drop",
+                            "dropdown": "apollon.ap.features.searchform.layout.headerlayout.dropdown",
+                            "modal": "apollon.ap.features.searchform.layout.headerlayout.modal"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-searchform-pagelayout",
+                        "title": "apollon.ap.features.searchform.layout.pagelayout.title",
+                        "default": "default",
+                        "description": "apollon.ap.features.searchform.layout.pagelayout.desc",
+                        "options": {
+                            "default": "apollon.ap.features.searchform.layout.pagelayout.default"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-searchform-posttypesdropdown",
+                        "title": "apollon.ap.features.searchform.layout.posttypesdropdown.title",
+                        "default": false,
+                        "description": "apollon.ap.features.searchform.layout.posttypesdropdown.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-searchform-submitbutton",
+                        "title": "apollon.ap.features.searchform.layout.submitbutton.title",
+                        "default": false,
+                        "description": "apollon.ap.features.searchform.layout.submitbutton.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-searchform-pagination",
+                        "title": "apollon.ap.features.searchform.layout.pagination.title",
+                        "default": "default",
+                        "description": "apollon.ap.features.searchform.layout.pagination.desc",
+                        "options": {
+                            "default": "apollon.ap.features.searchform.layout.pagination.default",
+                            "infinite": "apollon.ap.features.searchform.layout.pagination.infinite",
+                            "loadmore": "apollon.ap.features.searchform.layout.pagination.loadmore"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-searchform-excerpt",
+                        "title": "apollon.ap.features.searchform.layout.excerpt.title",
+                        "default": false,
+                        "description": "apollon.ap.features.searchform.layout.excerpt.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "features-searchform-excerptlength",
+                        "title": "apollon.ap.features.searchform.layout.excerptlength.title",
+                        "default": 20,
+                        "description": "apollon.ap.features.searchform.layout.excerptlength.desc",
+                        "type": "number"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-searchform-thumbnail",
+                        "title": "apollon.ap.features.searchform.layout.thumbnail.title",
+                        "default": false,
+                        "description": "apollon.ap.features.searchform.layout.thumbnail.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-searchform-metas",
+                        "title": "apollon.ap.features.searchform.layout.metas.title",
+                        "default": ["date", "categories", "comments", "readmore"],
+                        "description": "apollon.ap.features.searchform.layout.metas.desc",
+                        "mode": "group",
+                        "multiple": true,
+                        "options": {
+                            "categories": "apollon.ap.features.searchform.layout.metas.categories",
+                            "author": "apollon.ap.features.searchform.layout.metas.author",
+                            "tags": "apollon.ap.features.searchform.layout.metas.tags",
+                            "comments": "apollon.ap.features.searchform.layout.metas.comments",
+                            "date": "apollon.ap.features.searchform.layout.metas.date",
+                            "readmore": "apollon.ap.features.searchform.layout.metas.readmore",
+                            "posttype": "apollon.ap.features.searchform.layout.metas.posttype"
+                        }
+                    }
+                ]
+            },
+
+
+
+            "sidebar": {
+                "title": "apollon.ap.features.main.core.sidebar.title",
+                "name": "apollon.ap.features.main.core.sidebar.title",
+                "depends": {
+                    "features-sidebar": true
+                },
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.sidebar.layout1.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-sidebar-1-mobile",
+                        "title": "apollon.ap.features.sidebar.layout1.mobile.title",
+                        "default": false,
+                        "description": "apollon.ap.features.sidebar.layout1.mobile.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-sidebar-1-sticky",
+                        "title": "apollon.ap.features.sidebar.layout1.sticky.title",
+                        "default": false,
+                        "description": "apollon.ap.features.sidebar.layout1.sticky.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-sidebar-1-size",
+                        "title": "apollon.ap.features.sidebar.layout1.size.title",
+                        "default": "1-5",
+                        "description": "apollon.ap.features.sidebar.layout1.size.desc",
+                        "options": {
+                            "1-6": "apollon.ap._.1-6",
+                            "1-5": "apollon.ap._.1-5",
+                            "1-4": "apollon.ap._.1-4",
+                            "1-3": "apollon.ap._.1-3",
+                            "1-2": "apollon.ap._.1-2"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-sidebar-1-background",
+                        "title": "apollon.ap.features.sidebar.layout1.background.title",
+                        "default": "none",
+                        "description": "apollon.ap.features.sidebar.layout1.background.desc",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "primary": "apollon.ap._.primary",
+                            "secondary": "apollon.ap._.secondary",
+                            "muted": "apollon.ap._.muted"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-1-paddingh",
+                        "title": "apollon.ap.features.sidebar.layout1.paddingh.title",
+                        "default": "small",
+                        "description": "apollon.ap.features.sidebar.layout1.paddingh.desc",
+                        "mode": "group",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-1-paddingv",
+                        "title": "apollon.ap.features.sidebar.layout1.paddingv.title",
+                        "default": "small",
+                        "description": "apollon.ap.features.sidebar.layout1.paddingv.desc",
+                        "mode": "group",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large"
+                        }
+                    },
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.sidebar.layout2.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-sidebar-2-mobile",
+                        "title": "apollon.ap.features.sidebar.layout2.mobile.title",
+                        "default": false,
+                        "description": "apollon.ap.features.sidebar.layout2.mobile.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-sidebar-2-sticky",
+                        "title": "apollon.ap.features.sidebar.layout2.sticky.title",
+                        "default": false,
+                        "description": "apollon.ap.features.sidebar.layout2.sticky.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-sidebar-2-size",
+                        "title": "apollon.ap.features.sidebar.layout2.size.title",
+                        "default": "1-5",
+                        "description": "apollon.ap.features.sidebar.layout2.size.desc",
+                        "options": {
+                            "1-6": "apollon.ap._.1-6",
+                            "1-5": "apollon.ap._.1-5",
+                            "1-4": "apollon.ap._.1-4",
+                            "1-3": "apollon.ap._.1-3",
+                            "1-2": "apollon.ap._.1-2"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-sidebar-2-background",
+                        "title": "apollon.ap.features.sidebar.layout2.background.title",
+                        "default": "none",
+                        "description": "apollon.ap.features.sidebar.layout2.background.desc",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "primary": "apollon.ap._.primary",
+                            "secondary": "apollon.ap._.secondary",
+                            "muted": "apollon.ap._.muted"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-2-paddingh",
+                        "title": "apollon.ap.features.sidebar.layout2.paddingh.title",
+                        "default": "small",
+                        "description": "apollon.ap.features.sidebar.layout2.paddingh.desc",
+                        "mode": "group",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-2-paddingv",
+                        "title": "apollon.ap.features.sidebar.layout2.paddingv.title",
+                        "default": "small",
+                        "description": "apollon.ap.features.sidebar.layout2.paddingv.desc",
+                        "mode": "group",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large"
+                        }
+                    },
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.sidebar.pages.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.sidebar.pages.globalpage.title",
+                        "class": "zeus-title-h4",
+                        "level": 4
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-page-display",
+                        "title": "apollon.ap.features.sidebar.pages.pagedisplay.title",
+                        "default": "none",
+                        "description": "apollon.ap.features.sidebar.pages.pagedisplay.desc",
+                        "mode": "group",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "sidebar1": "apollon.ap._.sidebar1",
+                            "sidebar2": "apollon.ap._.sidebar2",
+                            "both": "apollon.ap._.both"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-page-order",
+                        "title": "apollon.ap.features.sidebar.pages.pageorder.title",
+                        "default": "right",
+                        "description": "apollon.ap.features.sidebar.pages.pageorder.desc",
+                        "mode": "image",
+                        "options": {
+                            "left": {
+                                "label": "apollon.ap._.leftside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-left.png"
+                            },
+                            "center": {
+                                "label": "apollon.ap._.centerside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-center.png"
+                            },
+                            "right": {
+                                "label": "apollon.ap._.rightside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-right.png"
+                            }
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.sidebar.pages.globalblog.title",
+                        "class": "zeus-title-h4",
+                        "level": 4
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-blog-display",
+                        "title": "apollon.ap.features.sidebar.pages.blogdisplay.title",
+                        "default": "none",
+                        "description": "apollon.ap.features.sidebar.pages.blogdisplay.desc",
+                        "mode": "group",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "sidebar1": "apollon.ap._.sidebar1",
+                            "sidebar2": "apollon.ap._.sidebar2",
+                            "both": "apollon.ap._.both"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-blog-order",
+                        "title": "apollon.ap.features.sidebar.pages.blogorder.title",
+                        "default": "right",
+                        "description": "apollon.ap.features.sidebar.pages.blogorder.desc",
+                        "mode": "image",
+                        "options": {
+                            "left": {
+                                "label": "apollon.ap._.leftside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-left.png"
+                            },
+                            "center": {
+                                "label": "apollon.ap._.centerside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-center.png"
+                            },
+                            "right": {
+                                "label": "apollon.ap._.rightside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-right.png"
+                            }
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-sidebar-blog-content",
+                        "title": "apollon.ap.features.sidebar.pages.blogcontent.title",
+                        "default": false,
+                        "description": "apollon.ap.features.sidebar.pages.blogcontent.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.sidebar.pages.globalarchive.title",
+                        "class": "zeus-title-h4",
+                        "level": 4
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-archive-display",
+                        "title": "apollon.ap.features.sidebar.pages.archivedisplay.title",
+                        "default": "none",
+                        "description": "apollon.ap.features.sidebar.pages.archivedisplay.desc",
+                        "mode": "group",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "sidebar1": "apollon.ap._.sidebar1",
+                            "sidebar2": "apollon.ap._.sidebar2",
+                            "both": "apollon.ap._.both"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-archive-order",
+                        "title": "apollon.ap.features.sidebar.pages.archiveorder.title",
+                        "default": "right",
+                        "description": "apollon.ap.features.sidebar.pages.archiveorder.desc",
+                        "mode": "image",
+                        "overlay": true,
+                        "options": {
+                            "left": {
+                                "label": "apollon.ap._.leftside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-left.png"
+                            },
+                            "center": {
+                                "label": "apollon.ap._.centerside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-center.png"
+                            },
+                            "right": {
+                                "label": "apollon.ap._.rightside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-right.png"
+                            }
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-sidebar-archive-content",
+                        "title": "apollon.ap.features.sidebar.pages.archivecontent.title",
+                        "default": false,
+                        "description": "apollon.ap.features.sidebar.pages.archivecontent.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.sidebar.pages.globalsearch.title",
+                        "class": "zeus-title-h4",
+                        "level": 4
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-search-display",
+                        "title": "apollon.ap.features.sidebar.pages.searchdisplay.title",
+                        "default": "none",
+                        "description": "apollon.ap.features.sidebar.pages.searchdisplay.desc",
+                        "mode": "group",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "sidebar1": "apollon.ap._.sidebar1",
+                            "sidebar2": "apollon.ap._.sidebar2",
+                            "both": "apollon.ap._.both"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "features-sidebar-search-order",
+                        "title": "apollon.ap.features.sidebar.pages.searchorder.title",
+                        "default": "right",
+                        "description": "apollon.ap.features.sidebar.pages.searchorder.desc",
+                        "mode": "image",
+                        "options": {
+                            "left": {
+                                "label": "apollon.ap._.leftside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-left.png"
+                            },
+                            "center": {
+                                "label": "apollon.ap._.centerside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-center.png"
+                            },
+                            "right": {
+                                "label": "apollon.ap._.rightside",
+                                "image": "__theme_uri__/theme/img/sidebar-order-right.png"
+                            }
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-sidebar-search-content",
+                        "title": "apollon.ap.features.sidebar.pages.searchcontent.title",
+                        "default": false,
+                        "description": "apollon.ap.features.sidebar.pages.searchcontent.desc"
+                    }
+                ]
+            },
+
+
+
+            "comments": {
+                "title": "apollon.ap.features.main.core.comments.title",
+                "name": "apollon.ap.features.main.core.comments.title",
+                "depends": {
+                    "features-comments": true
+                },
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.comments.optimisation.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-comments-avatar",
+                        "title": "apollon.ap.features.comments.optimisation.avatar.title",
+                        "default": true,
+                        "description": "apollon.ap.features.comments.optimisation.avatar.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-comments-website",
+                        "title": "apollon.ap.features.comments.optimisation.website.title",
+                        "default": true,
+                        "description": "apollon.ap.features.comments.optimisation.website.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-comments-htmltags",
+                        "title": "apollon.ap.features.comments.optimisation.htmltags.title",
+                        "default": false,
+                        "description": "apollon.ap.features.comments.optimisation.htmltags.desc"
+                    },
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.comments.layout.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-comments-title",
+                        "title": "apollon.ap.features.comments.layout.title.title",
+                        "default": true,
+                        "description": "apollon.ap.features.comments.layout.title.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-comments-tpl-list",
+                        "title": "apollon.ap.features.comments.layout.listlayout.title",
+                        "default": "default",
+                        "description": "apollon.ap.features.comments.layout.listlayout.desc",
+                        "options": {
+                            "default": "apollon.ap.features.comments.layout.layout.default",
+                            "facebook": "apollon.ap.features.comments.layout.layout.facebook"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-comments-tpl-form",
+                        "title": "apollon.ap.features.comments.layout.formlayout.title",
+                        "default": "default",
+                        "description": "apollon.ap.features.comments.layout.formlayout.desc",
+                        "options": {
+                            "default": "apollon.ap.features.comments.layout.layout.default",
+                            "facebook": "apollon.ap.features.comments.layout.layout.facebook"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-comments-formstacked",
+                        "title": "apollon.ap.features.comments.layout.formstacked.title",
+                        "default": false,
+                        "description": "apollon.ap.features.comments.layout.formstacked.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "features-comments-highlight",
+                        "title": "apollon.ap.features.comments.layout.highlight.title",
+                        "default": false,
+                        "description": "apollon.ap.features.comments.layout.highlight.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-comments-formposition",
+                        "title": "apollon.ap.features.comments.layout.formposition.title",
+                        "default": "bottom",
+                        "description": "apollon.ap.features.comments.layout.formposition.desc",
+                        "options": {
+                            "bottom": "apollon.ap.features.comments.layout.formposition.bottom",
+                            "top": "apollon.ap.features.comments.layout.formposition.top"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "features-comments-navsposition",
+                        "title": "apollon.ap.features.comments.layout.navsposition.title",
+                        "default": "bottom",
+                        "description": "apollon.ap.features.comments.layout.navsposition.desc",
+                        "options": {
+                            "bottom": "apollon.ap._.bottom",
+                            "top": "apollon.ap._.top"
+                        }
+                    }
+                ]
+            },
+
+
+
+            "nav": {
+                "title": "apollon.ap.features.main.extra.nav.title",
+                "name": "apollon.ap.features.main.extra.nav.title",
+                "depends": {
+                    "features-nav": true
+                },
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.nav.title"
+                    }
+                ]
+            },
+
+
+
+            "ads": {
+                "title": "apollon.ap.features.main.extra.ads.title",
+                "name": "apollon.ap.features.main.extra.ads.title",
+                "depends": {
+                    "features-ads": true
+                },
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.ads.title"
+                    }
+                ]
+            },
+
+
+
+            "adblocker": {
+                "title": "apollon.ap.features.main.extra.adblocker.title",
+                "name": "apollon.ap.features.main.extra.adblocker.title",
+                "depends": {
+                    "features-adblocker": true
+                },
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.features.adblocker.title"
+                    }
+                ]
+            }
+
+        }
+    }
+}

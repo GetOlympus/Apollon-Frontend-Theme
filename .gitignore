@@ -1,0 +1,19 @@
+##############################################
+# @package olympus-apollon-frontend-theme
+# @author Achraf Chouk <achrafchouk@gmail.com>
+# @since 0.0.1
+##############################################
+
+# Composer
+node_modules/
+vendor/
+composer.lock
+
+# Useless auto-generated files
+.DS_Store
+.idea/
+Thumbs.db
+
+# Cache
+cache/*
+!cache/.gitkeep

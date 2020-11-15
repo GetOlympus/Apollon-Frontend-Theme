@@ -1,0 +1,736 @@
+{
+    "options": {
+        "name": "apollon.ap.options.name",
+        "title": "apollon.ap.options.title",
+        "description": "apollon.ap.options.description",
+        "position": 3,
+        "icon": "dashicons-laptop",
+        "sections": {
+
+            "general": {
+                "comment": "layout - responsive - typography - colors",
+
+                "title": "apollon.ap.options.general.title",
+                "name": "apollon.ap.options.general.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "title": "",
+                        "content": "h2..apollon.ap.options.general.layout.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "options-general-layout",
+                        "title": "apollon.ap.options.general.layout.title",
+                        "default": "boxed",
+                        "description": "apollon.ap.options.general.layout.description",
+                        "options": {
+                            "boxed": "apollon.ap.options.general.layout.boxed",
+                            "wide": "apollon.ap.options.general.layout.wide"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-general-sitewidth",
+                        "title": "apollon.ap.options.general.sitewidth.title",
+                        "default": "1375px",
+                        "description": "apollon.ap.options.general.sitewidth.description",
+                        "settings": {
+                            "attrs": "style=\"max-width:100px\""
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-general-sitepadding",
+                        "title": "apollon.ap.options.general.sitepadding.title",
+                        "default": "30px",
+                        "description": "apollon.ap.options.general.sitepadding.description",
+                        "settings": {
+                            "attrs": "style=\"max-width:100px\""
+                        }
+                    },
+
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "title": "",
+                        "content": "h2..apollon.ap.options.general.responsive.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "options-general-enableresponsive",
+                        "title": "apollon.ap.options.general.enableresponsive.title",
+                        "default": true,
+                        "description": "apollon.ap.options.general.enableresponsive.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "options-general-enableadaptative",
+                        "title": "apollon.ap.options.general.enableadaptative.title",
+                        "default": false,
+                        "description": "apollon.ap.options.general.enableadaptative.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "options-general-enabledevicezoom",
+                        "title": "apollon.ap.options.general.enabledevicezoom.title",
+                        "default": true,
+                        "description": "apollon.ap.options.general.enabledevicezoom.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-general-sensitivity",
+                        "title": "apollon.ap.options.general.sensitivity.title",
+                        "default": 0.27,
+                        "description": "apollon.ap.options.general.sensitivity.description",
+                        "type": "range",
+                        "settings": {
+                            "min": 0,
+                            "max": 1,
+                            "step": 0.01
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-general-sizefactor",
+                        "title": "apollon.ap.options.general.sizefactor.title",
+                        "default": 1.50,
+                        "description": "apollon.ap.options.general.sizefactor.description",
+                        "type": "range",
+                        "settings": {
+                            "min": 0,
+                            "max": 4,
+                            "step": 0.01
+                        }
+                    },
+
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "title": "",
+                        "content": "h2..apollon.ap.options.general.typography.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Font",
+                        "_id": "options-general-fontbody",
+                        "title": "apollon.ap.options.general.fontbody.title",
+                        "default": {
+                            "family": "Lora",
+                            "backup": "Georgia, serif",
+                            "subset": "latin",
+                            "variant": "regular",
+                            "size": "19px",
+                            "lineheight": 1.75,
+                            "letterspacing": 0,
+                            "color": "#030303"
+                        },
+                        "description": "apollon.ap.options.general.fontbody.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Font",
+                        "_id": "options-general-fonth1",
+                        "title": "apollon.ap.options.general.fonth1.title",
+                        "default": {
+                            "family": "Bebas Neue",
+                            "backup": "Arial, Helvetica, sans-serif",
+                            "subset": "latin",
+                            "variant": "regular",
+                            "size": "70px",
+                            "lineheight": 1.2,
+                            "letterspacing": 0,
+                            "color": "#030303"
+                        },
+                        "description": "apollon.ap.options.general.fonth1.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Font",
+                        "_id": "options-general-fonth2",
+                        "title": "apollon.ap.options.general.fonth2.title",
+                        "default": {
+                            "family": "Bebas Neue",
+                            "backup": "Arial, Helvetica, sans-serif",
+                            "subset": "latin",
+                            "variant": "regular",
+                            "size": "31px",
+                            "lineheight": 1.5,
+                            "letterspacing": 0,
+                            "color": "#030303"
+                        },
+                        "description": "apollon.ap.options.general.fonth2.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Font",
+                        "_id": "options-general-fonth3",
+                        "title": "apollon.ap.options.general.fonth3.title",
+                        "default": {
+                            "family": "Bebas Neue",
+                            "backup": "Arial, Helvetica, sans-serif",
+                            "subset": "latin",
+                            "variant": "regular",
+                            "size": "31px",
+                            "lineheight": 1.5,
+                            "letterspacing": 0,
+                            "color": "#030303"
+                        },
+                        "description": "apollon.ap.options.general.fonth3.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Font",
+                        "_id": "options-general-fonth4",
+                        "title": "apollon.ap.options.general.fonth4.title",
+                        "default": {
+                            "family": "Bebas Neue",
+                            "backup": "Arial, Helvetica, sans-serif",
+                            "subset": "latin",
+                            "variant": "regular",
+                            "size": "31px",
+                            "lineheight": 1.5,
+                            "letterspacing": 0,
+                            "color": "#030303"
+                        },
+                        "description": "apollon.ap.options.general.fonth4.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Font",
+                        "_id": "options-general-fonth5",
+                        "title": "apollon.ap.options.general.fonth5.title",
+                        "default": {
+                            "family": "Bebas Neue",
+                            "backup": "Arial, Helvetica, sans-serif",
+                            "subset": "latin",
+                            "variant": "regular",
+                            "size": "12px",
+                            "lineheight": 1.5,
+                            "letterspacing": 0,
+                            "color": "#030303"
+                        },
+                        "description": "apollon.ap.options.general.fonth5.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Font",
+                        "_id": "options-general-fonth6",
+                        "title": "apollon.ap.options.general.fonth6.title",
+                        "default": {
+                            "family": "Bebas Neue",
+                            "backup": "Arial, Helvetica, sans-serif",
+                            "subset": "latin",
+                            "variant": "regular",
+                            "size": "14px",
+                            "lineheight": 1.5,
+                            "letterspacing": "0.09em",
+                            "color": "#030303"
+                        },
+                        "description": "apollon.ap.options.general.fonth6.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Font",
+                        "_id": "options-general-fontposttitle",
+                        "title": "apollon.ap.options.general.fontposttitle.title",
+                        "default": {
+                            "family": "Bebas Neue",
+                            "backup": "Arial, Helvetica, sans-serif",
+                            "subset": "latin",
+                            "variant": "regular",
+                            "size": "31px",
+                            "lineheight": 1.5,
+                            "letterspacing": 0,
+                            "color": "#030303"
+                        },
+                        "description": "apollon.ap.options.general.fontposttitle.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Font",
+                        "_id": "options-general-fontexcerpttitle",
+                        "title": "apollon.ap.options.general.fontexcerpttitle.title",
+                        "default": {
+                            "family": "Lora",
+                            "backup": "Georgia, serif",
+                            "subset": "latin",
+                            "variant": "regular",
+                            "size": "18px",
+                            "lineheight": 1.5,
+                            "letterspacing": 0,
+                            "color": "#030303"
+                        },
+                        "description": "apollon.ap.options.general.fontexcerpttitle.description"
+                    },
+
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "title": "",
+                        "content": "h2..apollon.ap.options.general.colors.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "options-general-layouttheme",
+                        "title": "apollon.ap.options.general.layouttheme.title",
+                        "default": "light",
+                        "description": "apollon.ap.options.general.layouttheme.description",
+                        "options": {
+                            "light": "apollon.ap.options.general.layouttheme.light",
+                            "dark": "apollon.ap.options.general.layouttheme.dark"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Color",
+                        "_id": "options-general-colorprimary",
+                        "title": "apollon.ap.options.general.colorprimary.title",
+                        "default": "#030303",
+                        "description": "apollon.ap.options.general.colorprimary.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Color",
+                        "_id": "options-general-colorsecondary",
+                        "title": "apollon.ap.options.general.colorsecondary.title",
+                        "default": "#030303",
+                        "description": "apollon.ap.options.general.colorsecondary.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Color",
+                        "_id": "options-general-colorlink",
+                        "title": "apollon.ap.options.general.colorlink.title",
+                        "default": "#030303",
+                        "description": "apollon.ap.options.general.colorlink.description"
+                    }
+                ]
+            },
+
+
+            "logo": {
+                "comment": "logo - favicon",
+
+                "title": "apollon.ap.options.logo.title",
+                "name": "apollon.ap.options.logo.name",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "title": "",
+                        "content": "h2..apollon.ap.options.logo.logo.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "options-logo-logodefault",
+                        "title": "apollon.ap.options.logo.logodefault.title",
+                        "default": "",
+                        "description": "apollon.ap.options.logo.logodefault.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "options-logo-logoretina",
+                        "title": "apollon.ap.options.logo.logoretina.title",
+                        "default": "",
+                        "description": "apollon.ap.options.logo.logoretina.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "options-logo-logosticky",
+                        "title": "apollon.ap.options.logo.logosticky.title",
+                        "default": "",
+                        "description": "apollon.ap.options.logo.logosticky.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "options-logo-logomobile",
+                        "title": "apollon.ap.options.logo.logomobile.title",
+                        "default": "",
+                        "description": "apollon.ap.options.logo.logomobile.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "options-logo-enablelogobackground",
+                        "title": "apollon.ap.options.logo.enablelogobackground.title",
+                        "default": false,
+                        "description": "apollon.ap.options.logo.enablelogobackground.description"
+                    },
+
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "title": "",
+                        "content": "h2..apollon.ap.options.logo.favicon.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "options-logo-favicon",
+                        "title": "apollon.ap.options.logo.favicon.title",
+                        "description": "apollon.ap.options.logo.favicon.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "options-logo-iphoneicon",
+                        "title": "apollon.ap.options.logo.iphoneicon.title",
+                        "description": "apollon.ap.options.logo.iphoneicon.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "options-logo-ipadicon",
+                        "title": "apollon.ap.options.logo.ipadicon.title",
+                        "description": "apollon.ap.options.logo.ipadicon.description"
+                    }
+                ]
+            },
+
+
+            "header": {
+                "comment": "header - menu - mobile version",
+
+                "title": "apollon.ap.options.header.title",
+                "name": "apollon.ap.options.header.name",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "title": "",
+                        "content": "h2..apollon.ap.options.header.header.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "options-header-position",
+                        "title": "apollon.ap.options.header.position.title",
+                        "default": "top",
+                        "description": "apollon.ap.options.header.position.description",
+                        "options": {
+                            "top": "apollon.ap.options.header.position.top",
+                            "left": "apollon.ap.options.header.position.left",
+                            "right": "apollon.ap.options.header.position.right",
+                            "bottom": "apollon.ap.options.header.position.bottom"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "options-header-layout",
+                        "title": "apollon.ap.options.header.layout.title",
+                        "default": "default",
+                        "description": "apollon.ap.options.header.layout.description",
+                        "options": {
+                            "default": "apollon.ap.options.header.layout.default",
+
+                            "therocks": "apollon.ap.options.header.layout.therocks",
+                            "madebyfield": "apollon.ap.options.header.layout.madebyfield",
+                            "handwrytten": "apollon.ap.options.header.layout.handwrytten",
+                            "internationalmotordays": "apollon.ap.options.header.layout.internationalmotordays",
+                            "controva": "apollon.ap.options.header.layout.controva",
+                            "elis": "apollon.ap.options.header.layout.elis",
+                            "mytraffic": "apollon.ap.options.header.layout.mytraffic",
+                            "loopearplugs": "apollon.ap.options.header.layout.loopearplugs",
+
+                            "handsome": "apollon.ap.options.header.layout.handsome",
+                            "tillamook": "apollon.ap.options.header.layout.tillamook",
+                            "nikereact": "apollon.ap.options.header.layout.nikereact",
+
+                            "amazon": "apollon.ap.options.header.layout.amazon",
+                            "disqus": "apollon.ap.options.header.layout.disqus",
+                            "right": "apollon.ap.options.header.layout.right"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "options-header-burger",
+                        "title": "apollon.ap.options.header.burger.title",
+                        "default": "default",
+                        "description": "apollon.ap.options.header.burger.description",
+                        "options": {
+                            "default": "apollon.ap.options.header.burger.default",
+
+                            "studiosasch": "apollon.ap.options.header.burger.studiosasch",
+                            "dnfashion": "apollon.ap.options.header.burger.dnfashion",
+                            "mcdonalds": "apollon.ap.options.header.burger.mcdonalds",
+                            "werecycle": "apollon.ap.options.header.burger.werecycle",
+                            "toke": "apollon.ap.options.header.burger.toke",
+                            "bliiida": "apollon.ap.options.header.burger.bliiida",
+                            "loopearplugs": "apollon.ap.options.header.burger.loopearplugs"
+                        }
+                    },
+
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "title": "",
+                        "content": "h2..apollon.ap.options.header.menu.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-header-menumainheight",
+                        "title": "apollon.ap.options.general.menumainheight.title",
+                        "default": "70px",
+                        "description": "apollon.ap.options.general.menumainheight.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "options-header-menumainstyle",
+                        "title": "apollon.ap.options.header.menumainstyle.title",
+                        "default": "topbar",
+                        "description": "apollon.ap.options.header.menumainstyle.description",
+                        "options": {
+                            "topbar": "apollon.ap.options.header.menumainstyle.topbar",
+                            "bottombar": "apollon.ap.options.header.menumainstyle.bottombar",
+                            "array": "apollon.ap.options.header.menumainstyle.array",
+                            "background": "apollon.ap.options.header.menumainstyle.background",
+                            "color": "apollon.ap.options.header.menumainstyle.color"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-header-menumainbar",
+                        "title": "apollon.ap.options.header.menumainbar.title",
+                        "default": 4,
+                        "description": "apollon.ap.options.header.menumainbar.description",
+                        "type": "range",
+                        "settings": {
+                            "min": 0,
+                            "max": 20,
+                            "step": 1
+                        }
+                    }
+                ]
+            },
+
+
+            "footer": {
+                "comment": "footer style",
+
+                "title": "apollon.ap.options.footer.title",
+                "name": "apollon.ap.options.footer.name",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "options-footer-enablewidgets",
+                        "title": "apollon.ap.options.footer.enablewidgets.title",
+                        "default": true,
+                        "description": "apollon.ap.options.footer.enablewidgets.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-footer-footercolumns",
+                        "title": "apollon.ap.options.footer.footercolumns.title",
+                        "default": 4,
+                        "description": "apollon.ap.options.footer.footercolumns.description",
+                        "type": "range",
+                        "settings": {
+                            "min": 0,
+                            "max": 6,
+                            "step": 1
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "options-footer-enablecenter",
+                        "title": "apollon.ap.options.footer.enablecenter.title",
+                        "default": true,
+                        "description": "apollon.ap.options.footer.enablecenter.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "options-footer-enablecopyright",
+                        "title": "apollon.ap.options.footer.enablecopyright.title",
+                        "default": true,
+                        "description": "apollon.ap.options.footer.enablecopyright.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-footer-copyright",
+                        "title": "apollon.ap.options.footer.copyright.title",
+                        "default": "apollon.ap.options.footer.copyright.default",
+                        "description": "apollon.ap.options.footer.copyright.description"
+                    }
+                ]
+            },
+
+
+
+
+
+
+
+
+            "menus": {
+                "title": "apollon.ap.options.menus.title",
+                "name": "apollon.ap.options.menus.name",
+                "fields": []
+            },
+
+            "sidebars": {
+                "title": "apollon.ap.options.sidebars.title",
+                "name": "apollon.ap.options.sidebars.name",
+                "fields": []
+            },
+
+            "breadcrumbs": {
+                "title": "apollon.ap.options.breadcrumbs.title",
+                "name": "apollon.ap.options.breadcrumbs.name",
+                "fields": []
+            },
+
+
+
+            "layouts": {
+                "title": "apollon.ap.options.layouts.title",
+                "name": "apollon.ap.options.layouts.name",
+                "fields": [
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-layouts-pagepadding",
+                        "title": "apollon.ap.options.layouts.pagepadding.title",
+                        "default": "60px",
+                        "description": "apollon.ap.options.layouts.pagepadding.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-layouts-widthpadding",
+                        "title": "apollon.ap.options.layouts.widthpadding.title",
+                        "default": "30px",
+                        "description": "apollon.ap.options.layouts.widthpadding.description"
+                    },
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-layouts-sidebarwidth",
+                        "title": "apollon.ap.options.layouts.sidebarwidth.title",
+                        "default": "24%",
+                        "description": "apollon.ap.options.layouts.sidebarwidth.description"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "options-layouts-sidebargutter",
+                        "title": "apollon.ap.options.layouts.sidebargutter.title",
+                        "default": "6%",
+                        "description": "apollon.ap.options.layouts.sidebargutter.description"
+                    }
+
+                ]
+            },
+
+            "posts": {
+                "title": "apollon.ap.options.posts.title",
+                "name": "apollon.ap.options.posts.name",
+                "fields": []
+            },
+
+            "pages": {
+                "title": "apollon.ap.options.pages.title",
+                "name": "apollon.ap.options.pages.name",
+                "fields": []
+            },
+
+            "archives": {
+                "title": "apollon.ap.options.archives.title",
+                "name": "apollon.ap.options.archives.name",
+                "fields": []
+            },
+
+            "search": {
+                "title": "apollon.ap.options.search.title",
+                "name": "apollon.ap.options.search.name",
+                "fields": []
+            },
+
+            "404": {
+                "title": "apollon.ap.options.404.title",
+                "name": "apollon.ap.options.404.name",
+                "fields": []
+            },
+
+
+
+            "woocommerce": {
+                "title": "apollon.ap.options.woocommerce.title",
+                "name": "apollon.ap.options.woocommerce.name",
+                "fields": []
+            },
+
+
+
+            "extras": {
+                "title": "apollon.ap.options.extras.title",
+                "name": "apollon.ap.options.extras.name",
+                "fields": []
+            },
+
+            "advanced": {
+                "title": "apollon.ap.options.advanced.title",
+                "name": "apollon.ap.options.advanced.name",
+                "fields": []
+            },
+
+
+
+            "old-header": {
+                "title": "apollon.ap.layouts.header.title",
+                "name": "apollon.ap.layouts.header.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Header",
+                        "_id": "layouts-header-contents",
+                        "title": "apollon.ap.layouts.header.contents.title",
+                        "description": "apollon.ap.layouts.header.contents.desc",
+                        "mode": "layouts-site-main-header"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "layouts-header-shadow",
+                        "title": "apollon.ap.layouts.header.shadow.title",
+                        "default": "none",
+                        "description": "apollon.ap.layouts.header.shadow.desc",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large",
+                            "xlarge": "apollon.ap._.xlarge"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "layouts-header-sticky",
+                        "title": "apollon.ap.layouts.header.sticky.title",
+                        "default": false,
+                        "description": "apollon.ap.layouts.header.sticky.desc"
+                    }
+                ]
+            },
+
+
+
+            "old-footer": {
+                "title": "apollon.ap.layouts.footer.title",
+                "name": "apollon.ap.layouts.footer.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Header",
+                        "_id": "layouts-footer-contents",
+                        "title": "apollon.ap.layouts.footer.contents.title",
+                        "description": "apollon.ap.layouts.footer.contents.desc",
+                        "options": {
+                            "overall": false,
+                            "main": "apollon.ap.layouts.footer.contents.main",
+                            "secondary": "apollon.ap.layouts.footer.contents.secondary"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "layouts-footer-background",
+                        "title": "apollon.ap.layouts.footer.background.title",
+                        "default": "muted",
+                        "description": "apollon.ap.layouts.footer.background.desc",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "primary": "apollon.ap._.primary",
+                            "secondary": "apollon.ap._.secondary",
+                            "muted": "apollon.ap._.muted"
+                        }
+                    }
+                ]
+            }
+
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "getolympus/olympus-apollon-frontend-theme",
+  "type": "wordpress-theme",
+  "description": "Olympus Apollon is a frontend WordPress theme built with the Olympus Zeus Core framework system. Apollon is an incredibly powerful and flexible WordPress theme, light weight and unbelievably fast. Build with ♥ for WordPress developers.",
+  "keywords": ["olympus", "apollon", "frontend", "theme", "fast", "secure", "template", "developer", "menu", "sidebar", "metabox", "custom post type", "snippet"],
+  "homepage": "https://github.com/GetOlympus/Apollon-Frontend-Theme",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Achraf Chouk",
+      "homepage": "https://github.com/crewstyle"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4",
+    "composer/composer": "~1.0.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*"
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpcs --standard=phpcs.xml ."
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="Olympus">
+    <description>Olympus Apollon Frontend Theme theme coding standard in PSR2.</description>
+
+    <exclude-pattern>.git/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+    <exclude-pattern>vendor/*</exclude-pattern>
+
+    <arg name="report-width" value="auto"/>
+    <arg value="-colors"/>
+    <arg value="np"/>
+
+    <rule ref="PSR2"/>
+</ruleset>

@@ -1,0 +1,69 @@
+//
+// Component: Link
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+// Custom
+
+@link-heading-decoration:            true;
+@link-primary-color:                 @global-color-primary;
+@link-text-decoration:               true;
+
+
+// Muted
+// ========================================================================
+
+.hook-link-muted() {}
+.hook-link-muted-hover() {}
+
+
+// Text
+// ========================================================================
+
+.hook-link-text() { text-decoration: if(@link-text-decoration, underline, inherit); }
+.hook-link-text-hover() { text-decoration: if(@link-text-decoration, underline, inherit); }
+
+
+// Heading
+// ========================================================================
+
+.hook-link-heading() {
+    text-decoration: if(@link-heading-decoration, underline, inherit);
+
+    .uk-text-lead { transition: @base-link-transition; }
+}
+.hook-link-heading-hover() {
+    text-decoration: if(@link-heading-decoration, underline, inherit);
+
+    .uk-text-lead { color: @link-heading-hover-color; }
+}
+
+
+// Reset
+// ========================================================================
+
+.hook-link-reset() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-link-misc() {
+    a.uk-link-primary, .uk-link-primary a { color: @link-primary-color; }
+    a.uk-link-primary:hover, .uk-link-primary a:hover { text-decoration: underline; }
+}
+
+
+// Inverse
+// ========================================================================
+
+.hook-inverse-link-muted() {}
+.hook-inverse-link-muted-hover() {}
+
+.hook-inverse-link-text-hover() {}
+
+.hook-inverse-link-heading-hover() {}

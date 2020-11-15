@@ -1,0 +1,174 @@
+{
+    "logotypos": {
+        "name": "apollon.ap.logotypos.name",
+        "title": "apollon.ap.logotypos.name",
+        "description": "apollon.ap.logotypos.desc",
+        "sections": {
+
+            "logo": {
+                "title": "apollon.ap.logotypos.logo.title",
+                "name": "apollon.ap.logotypos.logo.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.logotypos.logo.optimisation.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Toggle",
+                        "_id": "logotypos-logo-slogan",
+                        "title": "apollon.ap.logotypos.logo.optimisation.slogan.title",
+                        "default": false,
+                        "description": "apollon.ap.logotypos.logo.optimisation.slogan.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "logotypos-logo-spacing-h",
+                        "title": "apollon.ap.logotypos.logo.optimisation.spacing.h.title",
+                        "default": "default",
+                        "description": "apollon.ap.logotypos.logo.optimisation.spacing.h.desc",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "default": "apollon.ap._.default",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "logotypos-logo-spacing-v",
+                        "title": "apollon.ap.logotypos.logo.optimisation.spacing.v.title",
+                        "default": "default",
+                        "description": "apollon.ap.logotypos.logo.optimisation.spacing.v.desc",
+                        "options": {
+                            "none": "apollon.ap._.none",
+                            "default": "apollon.ap._.default",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large"
+                        }
+                    },
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.logotypos.logo.logos.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.logotypos.logo.logos.globaldefault.title",
+                        "class": "zeus-title-h4",
+                        "level": 4
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "logotypos-logo-default",
+                        "title": "apollon.ap.logotypos.logo.logos.default.title",
+                        "default": "",
+                        "description": "apollon.ap.logotypos.logo.logos.default.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "logotypos-logo-defaultretina",
+                        "title": "apollon.ap.logotypos.logo.logos.defaultretina.title",
+                        "default": "",
+                        "description": "apollon.ap.logotypos.logo.logos.defaultretina.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.logotypos.logo.logos.globalsticky.title",
+                        "class": "zeus-title-h4",
+                        "level": 4
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "logotypos-logo-sticky",
+                        "title": "apollon.ap.logotypos.logo.logos.sticky.title",
+                        "default": "",
+                        "description": "apollon.ap.logotypos.logo.logos.sticky.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "logotypos-logo-stickyretina",
+                        "title": "apollon.ap.logotypos.logo.logos.stickyretina.title",
+                        "default": "",
+                        "description": "apollon.ap.logotypos.logo.logos.stickyretina.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.logotypos.logo.logos.globalmobile.title",
+                        "class": "zeus-title-h4",
+                        "level": 4
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "logotypos-logo-mobile",
+                        "title": "apollon.ap.logotypos.logo.logos.mobile.title",
+                        "default": "",
+                        "description": "apollon.ap.logotypos.logo.logos.mobile.desc"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Upload",
+                        "_id": "logotypos-logo-mobileretina",
+                        "title": "apollon.ap.logotypos.logo.logos.mobileretina.title",
+                        "default": "",
+                        "description": "apollon.ap.logotypos.logo.logos.mobileretina.desc"
+                    }
+                ]
+            },
+
+
+
+            "favicons": {
+                "title": "apollon.ap.logotypos.favicons.title",
+                "name": "apollon.ap.logotypos.favicons.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "logotypos-favicons-main",
+                        "title": "apollon.ap.logotypos.favicons.main.title",
+                        "default": "",
+                        "description": "apollon.ap.logotypos.favicons.main.desc",
+                        "type": "url"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "logotypos-favicons-iphone",
+                        "title": "apollon.ap.logotypos.favicons.iphone.title",
+                        "default": "",
+                        "description": "apollon.ap.logotypos.favicons.iphone.desc",
+                        "type": "url"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Text",
+                        "_id": "logotypos-favicons-ipad",
+                        "title": "apollon.ap.logotypos.favicons.ipad.title",
+                        "default": "",
+                        "description": "apollon.ap.logotypos.favicons.ipad.desc",
+                        "type": "url"
+                    }
+                ]
+            },
+
+
+
+            "typos": {
+                "title": "apollon.ap.logotypos.typos.title",
+                "name": "apollon.ap.logotypos.typos.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.logotypos.typos.main.title"
+                    }
+
+                ]
+            }
+
+        }
+    }
+}

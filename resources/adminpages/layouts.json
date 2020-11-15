@@ -1,0 +1,178 @@
+{
+    "layouts": {
+        "name": "apollon.ap.layouts.name",
+        "title": "apollon.ap.layouts.name",
+        "description": "apollon.ap.layouts.desc",
+        "sections": {
+
+            "site": {
+                "title": "apollon.ap.layouts.site.title",
+                "name": "apollon.ap.layouts.site.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.layouts.site.main.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "layouts-site-main-size",
+                        "title": "apollon.ap.layouts.site.main.size.title",
+                        "default": "expand",
+                        "description": "apollon.ap.layouts.site.main.size.desc",
+                        "options": {
+                            "xsmall": "apollon.ap._.xsmall",
+                            "small": "apollon.ap._.small",
+                            "large": "apollon.ap._.large",
+                            "xlarge": "apollon.ap._.xlarge",
+                            "expand": "apollon.ap._.expand"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "layouts-site-main-padding",
+                        "title": "apollon.ap.layouts.site.main.padding.title",
+                        "default": "remove",
+                        "description": "apollon.ap.layouts.site.main.padding.desc",
+                        "options": {
+                            "remove": "apollon.ap._.none",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large",
+                            "default": "apollon.ap._.default"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Radio",
+                        "_id": "layouts-site-main-header",
+                        "title": "apollon.ap.layouts.site.main.header.title",
+                        "default": "top",
+                        "description": "apollon.ap.layouts.site.main.header.desc",
+                        "mode": "group",
+                        "options": {
+                            "top": "apollon.ap._.top",
+                            "left": "apollon.ap._.left",
+                            "right": "apollon.ap._.right"
+                        }
+                    },
+
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.layouts.site.content.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "layouts-site-content-size",
+                        "title": "apollon.ap.layouts.site.content.size.title",
+                        "default": "large",
+                        "description": "apollon.ap.layouts.site.content.size.desc",
+                        "options": {
+                            "xsmall": "apollon.ap._.xsmall",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large",
+                            "xlarge": "apollon.ap._.xlarge",
+                            "expand": "apollon.ap._.expand"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "layouts-site-content-padding",
+                        "title": "apollon.ap.layouts.site.content.padding.title",
+                        "default": "default",
+                        "description": "apollon.ap.layouts.site.content.padding.desc",
+                        "options": {
+                            "remove": "apollon.ap._.none",
+                            "small": "apollon.ap._.small",
+                            "medium": "apollon.ap._.medium",
+                            "large": "apollon.ap._.large",
+                            "default": "apollon.ap._.default"
+                        }
+                    }
+                ]
+            },
+
+
+
+            "template": {
+                "title": "apollon.ap.layouts.template.title",
+                "name": "apollon.ap.layouts.template.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.layouts.template.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "layouts-template-format",
+                        "title": "apollon.ap.layouts.template.format.title",
+                        "default": "default",
+                        "description": "apollon.ap.layouts.template.format.desc",
+                        "options": {
+                            "default": "apollon.ap.layouts.template.format.default",
+                            "dribbble": "apollon.ap.layouts.template.format.dribbble",
+                            "text": "apollon.ap.layouts.template.format.text",
+                            "vertical": "apollon.ap.layouts.template.format.vertical"
+                        }
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Select",
+                        "_id": "layouts-template-single",
+                        "title": "apollon.ap.layouts.template.single.title",
+                        "default": "default",
+                        "description": "apollon.ap.layouts.template.single.desc",
+                        "options": {
+                            "default": "apollon.ap.layouts.template.single.default",
+                            "dribbble": "apollon.ap.layouts.template.single.dribbble"
+                        }
+                    }
+                ]
+            },
+
+
+
+            "header": {
+                "title": "apollon.ap.layouts.header.title",
+                "name": "apollon.ap.layouts.header.title",
+                "fields": [
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.layouts.header.overall.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "content": "No configuration for now. Coming soon."
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.layouts.header.main.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "content": "No configuration for now. Coming soon."
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Title",
+                        "_id": false,
+                        "title": "apollon.ap.layouts.header.alt.title"
+                    },
+                    {
+                        "_field": "\\GetOlympus\\Dionysos\\Field\\Content",
+                        "_id": false,
+                        "content": "No configuration for now. Coming soon."
+                    }
+
+                ]
+            }
+
+
+
+        }
+    }
+}
