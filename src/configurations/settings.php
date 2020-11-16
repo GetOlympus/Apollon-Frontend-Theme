@@ -46,7 +46,11 @@ return [
      *
      * @see     https://developer.wordpress.org/reference/hooks/admin_footer_text/
      */
-    'admin-footer' => 'Build with ♥ by <a href="https://github.com/crewstyle" target="_blank">Achraf Chouk</a>, with <a href="http://www.wordpress.org/" title="Wordpress">WordPress</a> and for <b>WordPress developers</b>.',
+    'admin-footer' => sprintf('Build with ♥ by %s, with %s and for %s.',
+        '<a href="https://github.com/crewstyle" target="_blank">Achraf Chouk</a>',
+        '<a href="http://www.wordpress.org/" title="Wordpress">WordPress</a>',
+        '<b>WordPress developers</b>'
+    ),
 
     /**
      * @var     string  $key    The setting uniq key.
@@ -97,7 +101,7 @@ return [
         // ['dashboard_recent_drafts', 'dashboard', 'side'],
         // ['dashboard_secondary', 'dashboard', 'side'],
 
-        ['add', 'dashboard_google_nba', 'Tendances Google "NBA"', '<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1280_RC06/embed_loader.js"></script><script type="text/javascript">trends.embed.renderExploreWidget("RELATED_QUERIES", {"comparisonItem":[{"keyword":"nba","geo":"FR","time":"today 12-m"}],"category":20,"property":""}, {"exploreQuery":"cat=20&geo=FR&q=nba&date=today 12-m","guestPath":"https://trends.google.com:443/trends/embed/"});</script>'],
+        ['add', 'dashboard_hello', 'Hi there :)', 'Welcome to your dashboard. Here is a simple box.'],
     ],
 
     /**

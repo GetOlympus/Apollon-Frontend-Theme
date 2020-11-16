@@ -7,7 +7,10 @@
  *
  * Theme Name:  Olympus Apollon
  *
- * Description: Olympus Apollon is a frontend WordPress theme built with the Olympus Zeus Core framework system. Apollon is an incredibly powerful and flexible WordPress theme, light weight and unbelievably fast. Build with ♥ for WordPress developers.
+ * Description: Olympus Apollon is a frontend WordPress theme built with the Olympus Zeus Core framework system.
+ * Apollon is an incredibly powerful and flexible WordPress theme, light weight and unbelievably fast.
+ * Build with ♥ for WordPress developers.
+ *
  * Author:      Achraf Chouk <achrafchouk@gmail.com>
  * Version:     0.0.1
  *

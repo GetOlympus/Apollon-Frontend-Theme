@@ -106,9 +106,15 @@ add_filter('ol.apollon.comments_build_data', function ($data = []) {
         'email'     => __('Email', OL_APOLLON_DICTIONARY),
         'url'       => __('Website', OL_APOLLON_DICTIONARY),
         'mustlogin' => __('You must <a href="%s">log in</a> to comment.', OL_APOLLON_DICTIONARY),
-        'loggedas'  => __('You are logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out">Log out ?</a>', OL_APOLLON_DICTIONARY),
+        'loggedas'  => __(
+            'You are logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out">Log out ?</a>',
+            OL_APOLLON_DICTIONARY
+        ),
         'before'    => __('Your email will not be displayed.', OL_APOLLON_DICTIONARY),
-        'after'     => __('You can use these <abbr title="HyperText Markup Language">HTML</abbr> tags: %s', OL_APOLLON_DICTIONARY),
+        'after'     => __(
+            'You can use these <abbr title="HyperText Markup Language">HTML</abbr> tags: %s',
+            OL_APOLLON_DICTIONARY
+        ),
         'closed'    => __('Comments are closed.', OL_APOLLON_DICTIONARY),
         'leave'     => __('Leave a comment', OL_APOLLON_DICTIONARY),
     ];
@@ -258,7 +264,10 @@ add_filter('ol.apollon.comments_build_list_open', function ($comment, $args, $de
             'before'     => '',
             'after'      => '',
         ])),
-        'text'      => ('0' == $comment->comment_approved ? '<em class="comment-awaiting-moderation">'.__('Your comment is awaiting for moderation.', OL_APOLLON_DICTIONARY).'</em>' : '').get_comment_text(),
+        'text'      => ('0' == $comment->comment_approved ? sprintf(
+                '<em class="comment-awaiting-moderation">%s</em>',
+                __('Your comment is awaiting for moderation.', OL_APOLLON_DICTIONARY)
+            ) : '').get_comment_text(),
         'time'      => [
             'c' => get_comment_time('c'),
             'f' => get_comment_time(),

@@ -20,14 +20,16 @@ $data['_']['avatar'] = !$data['_']['avatar'] ? '' : sprintf(
 $data['_']['class'] = !$data['_']['highlight']
     ? ' class="uk-comment uk-grid-small"'
     : comment_class('uk-comment uk-grid-small', null, null, false);
-$data['_']['content'] = false === strpos($data['_']['class'], 'bypostauthor') ? 'uk-background-muted' : 'uk-background-secondary uk-light';
+$data['_']['content'] = false === strpos($data['_']['class'], 'bypostauthor')
+    ? 'uk-background-muted'
+    : 'uk-background-secondary uk-light';
 
 return sprintf(
     '
 <article %s uk-grid>
     %s
     <div class="uk-width-expand">
-        <div class="%s uk-padding-small-vertical uk-padding-medium-horizontal uk-border-rounded uk-link-primary uk-text-small">%s · %s</div>
+        <div class="%s%s">%s · %s</div>
         <small class="uk-margin-small-top">%s · <time datetime="%s">%s</time></small>
     </div>
 </article>
@@ -35,6 +37,7 @@ return sprintf(
     $data['_']['class'],
     $data['_']['avatar'],
     $data['_']['content'],
+    ' uk-padding-small-vertical uk-padding-medium-horizontal uk-border-rounded uk-link-primary uk-text-small',
     $data['_']['author'],
     $data['_']['text'],
     str_replace('comment-reply-link', 'comment-reply-link uk-link-primary', $data['_']['reply']),

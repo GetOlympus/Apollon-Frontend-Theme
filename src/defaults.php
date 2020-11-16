@@ -13,6 +13,13 @@ $posts_per_page = get_option('posts_per_page');
 $post_types     = get_post_types();
 $show_on_front  = get_option('show_on_front');
 
+// Set default fonts
+$mainfonts  = '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans",';
+$mainfonts .= ' "Droid Sans", "Helvetica Neue", sans-serif';
+
+$secondaryfonts  = '"SFMono-Medium", "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono",';
+$secondaryfonts .= ' Menlo, Consolas, Courier, monospace';
+
 return [
     // WORDPRESS
 
@@ -70,8 +77,8 @@ return [
     'logos_maxheight' => 0,
     'logos_slogan'    => false,
 
-    'typo_mainfont'        => '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-    'typo_secondaryfont'   => '"SFMono-Medium", "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier, monospace',
+    'typo_mainfont'        => $mainfonts,
+    'typo_secondaryfont'   => $secondaryfonts,
     'typo_alternativefont' => 'sans-serif',
     'typo_bodysize'        => 14,
     'typo_lineheight'      => 20,

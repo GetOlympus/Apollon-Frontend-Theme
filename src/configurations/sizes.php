@@ -20,8 +20,5 @@ return [
      * @param   string      $name   Add to media selection dropdown ~~ Put an empty string if you do not want this ~~
      */
     //'size_key'    => [size_width,     size_height,    size_crop_or_not,   size_label_in_dropdown],
-    'rvs-large'     => [1100, 673, true, __('Large featured image – 1100px width.', OL_APOLLON_DICTIONARY)],
-    'rvs-cover-big' => [646, 380, true, __('Cover featured image – 646px width, 380px height.', OL_APOLLON_DICTIONARY)],
-    'rvs-cover'     => [313, 380, true, __('Cover featured image – 313px width, 380px height.', OL_APOLLON_DICTIONARY)],
-    'rvs-default'   => [313, 180, true, __('Default featured image – 313px width, 180px height.', OL_APOLLON_DICTIONARY)],
+    'feat-large'    => [1100, 673, true, __('Featured image – 1100px width.', OL_APOLLON_DICTIONARY)],
 ];

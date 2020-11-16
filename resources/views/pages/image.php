@@ -50,10 +50,12 @@ get_header() ?>
         </aside>
 
         <main class="p-content">
-            <a href="<?php echo $_post['parent']['link'] ?>" title="<?php echo esc_html($_post['parent']['title']) ?>" class="huge fluid basic ui left labeled icon button">
-                <i class="left arrow icon"></i>
-                <?php echo $_post['parent']['title'] ?>
-            </a>
+            <?php echo sprintf(
+                '<a href="%s" title="%s" class="huge fluid basic ui left labeled icon button">%s</a>',
+                $_post['parent']['link'],
+                esc_html($_post['parent']['title']),
+                '<i class="left arrow icon"></i>'.$_post['parent']['title']
+            ) ?>
         </main>
 
         <footer class="p-footer extra content">

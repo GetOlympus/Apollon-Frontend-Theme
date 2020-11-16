@@ -30,6 +30,7 @@ $_searchform['html'] = [
         ),
     ],
     'icon'  => '<a href="#" class="uk-navbar-toggle" uk-search-icon></a>',
+    'drop'  => 'mode:click;cls-drop:uk-navbar-dropdown;boundary:!nav;pos:bottom-justify;boundary-align:true;',
 ];
 
 $_searchform['html']['form'] = sprintf(
@@ -51,7 +52,7 @@ do_action('ol.apollon.searchform_part_dropdown_before', $_searchform);
 <div class="uk-navbar-item <?php echo $_searchform['args']['navbarcss'] ?>">
     <?php echo $_searchform['html']['icon'] ?>
 
-    <div class="uk-navbar-dropdown" uk-drop="mode:click; cls-drop:uk-navbar-dropdown; boundary:!nav; pos:bottom-justify; boundary-align:true;">
+    <div class="uk-navbar-dropdown" uk-drop="<?php echo $_searchform['html']['drop'] ?>">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
             <div class="uk-width-expand">
                 <?php echo $_searchform['html']['form'] ?>

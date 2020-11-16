@@ -55,7 +55,7 @@ $_format_item['html'] = [
         'uk-text-lead uk-margin-remove-vertical',
         $_format_item['title']
     ),
-    'opentag'  => empty($_format_item['images']) ? '' : '<div class="uk-width-1-1@s uk-width-expand@m uk-padding-small">',
+    'opentag'  => empty($_format_item['images']) ? '' : '<div class="uk-width-expand@m uk-padding-small">',
     'closetag' => empty($_format_item['images']) ? '' : '</div>',
 ];
 
@@ -75,7 +75,11 @@ $_format_item['html']['meta'] = sprintf(
  *
  * @return array
  */
-$_format_item['html'] = apply_filters('ol.apollon.format_post_default_default_html', $_format_item['html'], $_format_item);
+$_format_item['html'] = apply_filters(
+    'ol.apollon.format_post_default_default_html',
+    $_format_item['html'],
+    $_format_item
+);
 
 
 /**

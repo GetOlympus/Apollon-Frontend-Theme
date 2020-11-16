@@ -39,8 +39,10 @@ class ApollonCustomSection extends \GetOlympus\Zeus\Section\Section
      */
     protected function render_template()
     {
+        $css = 'accordion-section control-section control-section-{{ data.type }} cannot-expand';
+
         ?>
-        <li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand">
+        <li id="accordion-section-{{ data.id }}" class="<?php echo $css ?>">
             <h3 class="accordion-section-title" {{{ data.section_style }}}>
                 <# if (data.url) { #>
                     <a href="{{{ data.url }}}" target="_blank" {{{ data.link_style }}}>{{ data.title }}</a>
@@ -49,7 +51,9 @@ class ApollonCustomSection extends \GetOlympus\Zeus\Section\Section
                 <# } #>
 
                 <# if (data.description) { #>
-                    <small class="customize-control-description" {{{ data.description_style }}}>{{{ data.description }}}</small>
+                    <small class="customize-control-description" {{{ data.description_style }}}>
+                        {{{ data.description }}}
+                    </small>
                 <# } #>
             </h3>
         </li>
