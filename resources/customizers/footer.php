@@ -28,8 +28,14 @@ return [
 
                 'controls'    => [
                     'topsection_enable' => [
-                        'label'       => __('apollon.ct.footer.topsection.enable.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.enable.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.enable.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.enable.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -41,12 +47,21 @@ return [
                     ],
 
                     'topsection_contents' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.footer.topsection.contents.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.contents.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'topsection_content_1' => [
-                        'label'       => __('apollon.ct.footer.topsection.contents.content_1.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.contents.content_1.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.contents.content_1.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.contents.content_1.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -58,8 +73,14 @@ return [
                         ],
                     ],
                     'topsection_content_2' => [
-                        'label'       => __('apollon.ct.footer.topsection.contents.content_2.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.contents.content_2.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.contents.content_2.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.contents.content_2.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -71,8 +92,14 @@ return [
                         ],
                     ],
                     'topsection_content_3' => [
-                        'label'       => __('apollon.ct.footer.topsection.contents.content_3.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.contents.content_3.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.contents.content_3.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.contents.content_3.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -84,8 +111,14 @@ return [
                         ],
                     ],
                     'topsection_content_4' => [
-                        'label'       => __('apollon.ct.footer.topsection.contents.content_4.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.contents.content_4.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.contents.content_4.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.contents.content_4.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -98,12 +131,21 @@ return [
                     ],
 
                     'topsection_layout' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.footer.topsection.layout.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'topsection_size_1' => [
-                        'label'       => __('apollon.ct.footer.topsection.layout.size_1.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.layout.size_1.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.size_1.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.layout.size_1.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -121,8 +163,14 @@ return [
                         ],
                     ],
                     'topsection_size_2' => [
-                        'label'       => __('apollon.ct.footer.topsection.layout.size_2.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.layout.size_2.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.size_2.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.layout.size_2.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -140,8 +188,14 @@ return [
                         ],
                     ],
                     'topsection_size_3' => [
-                        'label'       => __('apollon.ct.footer.topsection.layout.size_3.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.layout.size_3.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.size_3.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.layout.size_3.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -159,8 +213,14 @@ return [
                         ],
                     ],
                     'topsection_size_4' => [
-                        'label'       => __('apollon.ct.footer.topsection.layout.size_4.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.layout.size_4.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.size_4.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.layout.size_4.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -178,8 +238,14 @@ return [
                         ],
                     ],
                     'topsection_fullwidth' => [
-                        'label'       => __('apollon.ct.footer.topsection.layout.fullwidth.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.layout.fullwidth.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.fullwidth.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.layout.fullwidth.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -190,8 +256,14 @@ return [
                         ],
                     ],
                     'topsection_background' => [
-                        'label'       => __('apollon.ct.footer.topsection.layout.background.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.layout.background.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.background.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.layout.background.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -202,8 +274,14 @@ return [
                         ],
                     ],
                     'topsection_fontsize' => [
-                        'label'       => __('apollon.ct.footer.topsection.layout.fontsize.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.layout.fontsize.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.fontsize.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.layout.fontsize.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -219,8 +297,14 @@ return [
                         ],
                     ],
                     'topsection_lineheight' => [
-                        'label'       => __('apollon.ct.footer.topsection.layout.lineheight.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.layout.lineheight.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.lineheight.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.layout.lineheight.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -236,8 +320,14 @@ return [
                         ],
                     ],
                     'topsection_padding' => [
-                        'label'       => __('apollon.ct.footer.topsection.layout.padding.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.topsection.layout.padding.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.topsection.layout.padding.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.topsection.layout.padding.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -262,8 +352,14 @@ return [
 
                 'controls'    => [
                     'mainsection_enable' => [
-                        'label'       => __('apollon.ct.footer.mainsection.enable.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.enable.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.enable.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.enable.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -275,12 +371,21 @@ return [
                     ],
 
                     'mainsection_contents' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.footer.mainsection.contents.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.contents.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'mainsection_content_1' => [
-                        'label'       => __('apollon.ct.footer.mainsection.contents.content_1.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.contents.content_1.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.contents.content_1.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.contents.content_1.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -292,8 +397,14 @@ return [
                         ],
                     ],
                     'mainsection_content_2' => [
-                        'label'       => __('apollon.ct.footer.mainsection.contents.content_2.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.contents.content_2.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.contents.content_2.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.contents.content_2.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -305,8 +416,14 @@ return [
                         ],
                     ],
                     'mainsection_content_3' => [
-                        'label'       => __('apollon.ct.footer.mainsection.contents.content_3.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.contents.content_3.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.contents.content_3.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.contents.content_3.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -318,8 +435,14 @@ return [
                         ],
                     ],
                     'mainsection_content_4' => [
-                        'label'       => __('apollon.ct.footer.mainsection.contents.content_4.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.contents.content_4.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.contents.content_4.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.contents.content_4.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -332,12 +455,21 @@ return [
                     ],
 
                     'mainsection_layout' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'mainsection_size_1' => [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.size_1.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.layout.size_1.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.size_1.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.layout.size_1.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -355,8 +487,14 @@ return [
                         ],
                     ],
                     'mainsection_size_2' => [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.size_2.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.layout.size_2.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.size_2.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.layout.size_2.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -374,8 +512,14 @@ return [
                         ],
                     ],
                     'mainsection_size_3' => [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.size_3.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.layout.size_3.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.size_3.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.layout.size_3.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -393,8 +537,14 @@ return [
                         ],
                     ],
                     'mainsection_size_4' => [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.size_4.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.layout.size_4.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.size_4.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.layout.size_4.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -412,8 +562,14 @@ return [
                         ],
                     ],
                     'mainsection_fullwidth' => [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.fullwidth.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.layout.fullwidth.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.fullwidth.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.layout.fullwidth.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -424,8 +580,14 @@ return [
                         ],
                     ],
                     'mainsection_background' => [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.background.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.layout.background.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.background.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.layout.background.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -436,8 +598,14 @@ return [
                         ],
                     ],
                     'mainsection_fontsize' => [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.fontsize.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.layout.fontsize.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.fontsize.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.layout.fontsize.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -453,8 +621,14 @@ return [
                         ],
                     ],
                     'mainsection_lineheight' => [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.lineheight.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.layout.lineheight.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.lineheight.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.layout.lineheight.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -470,8 +644,14 @@ return [
                         ],
                     ],
                     'mainsection_padding' => [
-                        'label'       => __('apollon.ct.footer.mainsection.layout.padding.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.mainsection.layout.padding.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.mainsection.layout.padding.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.mainsection.layout.padding.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -496,8 +676,14 @@ return [
 
                 'controls'    => [
                     'subsection_enable' => [
-                        'label'       => __('apollon.ct.footer.subsection.enable.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.enable.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.enable.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.enable.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -509,12 +695,21 @@ return [
                     ],
 
                     'subsection_contents' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.footer.subsection.contents.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.contents.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'subsection_content_1' => [
-                        'label'       => __('apollon.ct.footer.subsection.contents.content_1.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.contents.content_1.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.contents.content_1.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.contents.content_1.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -526,8 +721,14 @@ return [
                         ],
                     ],
                     'subsection_content_2' => [
-                        'label'       => __('apollon.ct.footer.subsection.contents.content_2.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.contents.content_2.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.contents.content_2.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.contents.content_2.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -539,8 +740,14 @@ return [
                         ],
                     ],
                     'subsection_content_3' => [
-                        'label'       => __('apollon.ct.footer.subsection.contents.content_3.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.contents.content_3.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.contents.content_3.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.contents.content_3.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -552,8 +759,14 @@ return [
                         ],
                     ],
                     'subsection_content_4' => [
-                        'label'       => __('apollon.ct.footer.subsection.contents.content_4.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.contents.content_4.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.contents.content_4.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.contents.content_4.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => $_contents,
@@ -566,12 +779,21 @@ return [
                     ],
 
                     'subsection_layout' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.footer.subsection.layout.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'subsection_size_1' => [
-                        'label'       => __('apollon.ct.footer.subsection.layout.size_1.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.layout.size_1.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.size_1.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.layout.size_1.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -589,8 +811,14 @@ return [
                         ],
                     ],
                     'subsection_size_2' => [
-                        'label'       => __('apollon.ct.footer.subsection.layout.size_2.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.layout.size_2.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.size_2.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.layout.size_2.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -608,8 +836,14 @@ return [
                         ],
                     ],
                     'subsection_size_3' => [
-                        'label'       => __('apollon.ct.footer.subsection.layout.size_3.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.layout.size_3.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.size_3.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.layout.size_3.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -627,8 +861,14 @@ return [
                         ],
                     ],
                     'subsection_size_4' => [
-                        'label'       => __('apollon.ct.footer.subsection.layout.size_4.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.layout.size_4.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.size_4.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.layout.size_4.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -646,8 +886,14 @@ return [
                         ],
                     ],
                     'subsection_fullwidth' => [
-                        'label'       => __('apollon.ct.footer.subsection.layout.fullwidth.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.layout.fullwidth.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.fullwidth.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.layout.fullwidth.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -658,8 +904,14 @@ return [
                         ],
                     ],
                     'subsection_background' => [
-                        'label'       => __('apollon.ct.footer.subsection.layout.background.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.layout.background.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.background.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.layout.background.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -670,8 +922,14 @@ return [
                         ],
                     ],
                     'subsection_fontsize' => [
-                        'label'       => __('apollon.ct.footer.subsection.layout.fontsize.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.layout.fontsize.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.fontsize.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.layout.fontsize.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -687,8 +945,14 @@ return [
                         ],
                     ],
                     'subsection_lineheight' => [
-                        'label'       => __('apollon.ct.footer.subsection.layout.lineheight.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.layout.lineheight.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.lineheight.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.layout.lineheight.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -704,8 +968,14 @@ return [
                         ],
                     ],
                     'subsection_padding' => [
-                        'label'       => __('apollon.ct.footer.subsection.layout.padding.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.footer.subsection.layout.padding.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.footer.subsection.layout.padding.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.footer.subsection.layout.padding.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [

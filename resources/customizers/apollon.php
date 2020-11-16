@@ -9,6 +9,8 @@
  */
 
 $priority = 200;
+$css  = 'background-color:#bf26ff;background-image:linear-gradient(to right top,#bf26ff,#b42dff,#aa32ff,';
+$css .= '#9f37ff,#933bff,#8743ff,#7b49ff,#6f4fff,#5f58ff,#4e5fff,#3a65ff,#1f6bff);order:none;padding-left:18px';
 
 return [
     'apollon-intro' => array_merge($this->contents['section_title'], [
@@ -22,7 +24,7 @@ return [
         'type'          => 'apollon-custom',
         'url'           => 'https://github.com/GetOlympus/',
         'link_style'    => 'color:#fff;font-weight:700;text-decoration:none',
-        'section_style' => 'background-color:#bf26ff;background-image:linear-gradient(to right top,#bf26ff,#b42dff,#aa32ff,#9f37ff,#933bff,#8743ff,#7b49ff,#6f4fff,#5f58ff,#4e5fff,#3a65ff,#1f6bff);border:none;padding-left:18px',
+        'section_style' => $css,
         '_classname'    => 'ApollonFrontendTheme\\Src\\Sections\\ApollonCustomSection',
     ],
 
