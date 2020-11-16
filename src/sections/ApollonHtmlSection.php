@@ -19,8 +19,10 @@ class ApollonHtmlSection extends \GetOlympus\Zeus\Section\Section
      */
     protected function render_template()
     {
+        $css = 'accordion-section control-section control-section-{{ data.type }} cannot-expand';
+
         ?>
-        <li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand" title="{{{ data.title }}}">
+        <li id="accordion-section-{{ data.id }}" class="<?php echo $css ?>" title="{{{ data.title }}}">
             {{{ data.html }}}
         </li>
         <?php

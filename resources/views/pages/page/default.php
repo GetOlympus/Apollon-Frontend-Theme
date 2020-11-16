@@ -39,7 +39,13 @@ $_page_item['attrs'] = apply_filters('ol.apollon.build_attrs', [
     'header'    => [
         'class'   => 'uk-flex-middle uk-grid uk-padding',
         'uk-grid' => false,
-        'style'   => 'background:linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 45%,rgba(233,162,188,.1) 45%,rgba(233,162,188,.1) 45%);',
+        'style'   => 'background:linear-gradient(
+            90deg,
+            rgba(0,0,0,0) 0%,
+            rgba(0,0,0,0) 45%,
+            rgba(233,162,188,.1) 45%,
+            rgba(233,162,188,.1) 45%
+        );',
     ],
     'thumbnail' => [
         'class'   => 'uk-width-3-5@m uk-flex-first uk-padding-small uk-image',

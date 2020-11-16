@@ -65,7 +65,11 @@ $_format_item['html']['meta'] = sprintf(
  *
  * @return array
  */
-$_format_item['html'] = apply_filters('ol.apollon.format_post_default_text_html', $_format_item['html'], $_format_item);
+$_format_item['html'] = apply_filters(
+    'ol.apollon.format_post_default_text_html',
+    $_format_item['html'],
+    $_format_item
+);
 
 
 /**

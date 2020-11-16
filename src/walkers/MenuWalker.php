@@ -105,7 +105,10 @@ class MenuWalker extends Walker_Nav_Menu
         $item_output .= $args->link_before.apply_filters('the_title', $item->title, $item->ID).$args->link_after;
 
         if ($args->has_children) {
-            $item_output .= apply_filters('ol.apollon.menu_walker_children_icon', '<i class="uk-margin-xsmall-left" uk-icon="icon:chevron-down; ratio:.75;"></i>');
+            $item_output .= apply_filters(
+                'ol.apollon.menu_walker_children_icon',
+                '<i class="uk-margin-xsmall-left" uk-icon="icon:chevron-down; ratio:.75;"></i>'
+            );
         }
 
         $item_output .= '</a>';
@@ -117,7 +120,10 @@ class MenuWalker extends Walker_Nav_Menu
 
         // Build children
         if ($args->has_children) {
-            $output .= apply_filters('ol.apollon.menu_walker_before_children_dropdown', '<div class="uk-navbar-dropdown"><ul class="uk-nav uk-navbar-dropdown-nav">');
+            $output .= apply_filters(
+                'ol.apollon.menu_walker_before_children_dropdown',
+                '<div class="uk-navbar-dropdown"><ul class="uk-nav uk-navbar-dropdown-nav">'
+            );
         }
     }
 

@@ -49,7 +49,7 @@ if (!$chquery || !$chquery->have_posts()) {
             unset($description);
         ?>
 
-        <a href="<?php echo get_post_type_archive_link('video') ?>page/2/" class="item fluid ui large button main" rel="next">
+        <a href="<?php echo get_post_type_archive_link('video') ?>page/2/" class="item fluid" rel="next">
             <span>VOIR PLUS DE CONTENUS</span>
         </a>
     </div>

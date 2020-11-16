@@ -93,10 +93,13 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
          * Fires after registering contents through customizer.
          */
         add_action('ol.zeus.customizerhook_register_after', function ($wp_customize, $customizer) {
+            $hp = 'lt-homepage';
+            $st = 'static_front_page';
+
             // Move default homepage controls to Apollon
-            $wp_customize->get_section('lt-homepage')->description = $wp_customize->get_section('static_front_page')->description;
+            $wp_customize->get_section($hp)->description = $wp_customize->get_section($st)->description;
             $wp_customize->get_control('show_on_front')->section = 'lt-homepage';
-            $wp_customize->remove_section('static_front_page');
+            $wp_customize->remove_section($st);
 
             // Add logo definition into title tagline section
             $wp_customize->get_control('logos_default')->section = 'title_tagline';

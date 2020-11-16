@@ -23,7 +23,7 @@ do_action('ol.apollon.searchform_part_overlay_before', $_searchform);
 ?>
 
 <div class="uk-navbar-item <?php echo $_searchform['args']['navbarcss'] ?>">
-    <a href="#" class="uk-navbar-toggle" uk-search-icon uk-toggle="target:.nav-overlay; animation:uk-animation-fade"></a>
+    <a href="#" class="uk-navbar-toggle" uk-search-icon uk-toggle="target:.nav-overlay;animation:uk-animation-fade"></a>
 </div>
 
 <?php
