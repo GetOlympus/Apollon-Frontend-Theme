@@ -24,12 +24,21 @@ return [
 
                 'controls'    => [
                     'css_location' => [
-                        'label'       => __('apollon.ct.general.stylesheet.location.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.stylesheet.location.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'radio',
                         'choices'     => [
-                            'inline' => __('apollon.ct.general.stylesheet.location.inline', OL_APOLLON_DICTIONARY),
-                            'css'    => __('apollon.ct.general.stylesheet.location.css', OL_APOLLON_DICTIONARY),
+                            'inline' => __(
+                                'apollon.ct.general.stylesheet.location.inline',
+                                OL_APOLLON_DICTIONARY
+                            ),
+                            'css'    => __(
+                                'apollon.ct.general.stylesheet.location.css',
+                                OL_APOLLON_DICTIONARY
+                            ),
                         ],
                         'settings'    => [
                             [
@@ -49,8 +58,14 @@ return [
 
                 'controls'    => [
                     'og_enable' => [
-                        'label'       => __('apollon.ct.general.opengraph.enable.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.opengraph.enable.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.opengraph.enable.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.opengraph.enable.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -61,11 +76,17 @@ return [
                         ],
                     ],
                     'og_twitter' => [
-                        'label'       => __('apollon.ct.general.opengraph.twitter.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.opengraph.twitter.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'text',
                         'input_attrs' => [
-                            'placeholder' => __('apollon.ct.general.opengraph.twitter.placeholder', OL_APOLLON_DICTIONARY),
+                            'placeholder' => __(
+                                'apollon.ct.general.opengraph.twitter.placeholder',
+                                OL_APOLLON_DICTIONARY
+                            ),
                         ],
                         'settings'    => [
                             [
@@ -75,11 +96,17 @@ return [
                         ],
                     ],
                     'og_facebook' => [
-                        'label'       => __('apollon.ct.general.opengraph.facebook.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.opengraph.facebook.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'text',
                         'input_attrs' => [
-                            'placeholder' => __('apollon.ct.general.opengraph.facebook.placeholder', OL_APOLLON_DICTIONARY),
+                            'placeholder' => __(
+                                'apollon.ct.general.opengraph.facebook.placeholder',
+                                OL_APOLLON_DICTIONARY
+                            ),
                         ],
                         'settings'    => [
                             [
@@ -89,11 +116,17 @@ return [
                         ],
                     ],
                     'og_facebookapp' => [
-                        'label'       => __('apollon.ct.general.opengraph.facebookapp.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.opengraph.facebookapp.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'text',
                         'input_attrs' => [
-                            'placeholder' => __('apollon.ct.general.opengraph.facebookapp.placeholder', OL_APOLLON_DICTIONARY),
+                            'placeholder' => __(
+                                'apollon.ct.general.opengraph.facebookapp.placeholder',
+                                OL_APOLLON_DICTIONARY
+                            ),
                         ],
                         'settings'    => [
                             [
@@ -121,14 +154,26 @@ return [
                 'controls'    => [
     // PRIMARY
                     'main_header' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.general.color.main.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.main.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.main.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.main.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
 
                     'color_primary' => [
-                        'label'       => __('apollon.ct.general.color.main.primary.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.main.primary.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.main.primary.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.main.primary.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -139,8 +184,14 @@ return [
                         ],
                     ],
                     'color_neutral' => [
-                        'label'       => __('apollon.ct.general.color.main.neutral.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.main.neutral.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.main.neutral.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.main.neutral.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -151,8 +202,14 @@ return [
                         ],
                     ],
                     'color_background' => [
-                        'label'       => __('apollon.ct.general.color.main.background.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.main.background.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.main.background.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.main.background.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -165,14 +222,26 @@ return [
 
     // SECONDARY
                     'secondary_header' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.general.color.secondary.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.secondary.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.secondary.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.secondary.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
 
                     'color_red' => [
-                        'label'       => __('apollon.ct.general.color.secondary.red.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.secondary.red.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.secondary.red.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.secondary.red.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -183,8 +252,14 @@ return [
                         ],
                     ],
                     'color_yellow' => [
-                        'label'       => __('apollon.ct.general.color.secondary.yellow.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.secondary.yellow.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.secondary.yellow.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.secondary.yellow.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -195,8 +270,14 @@ return [
                         ],
                     ],
                     'color_green' => [
-                        'label'       => __('apollon.ct.general.color.secondary.green.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.secondary.green.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.secondary.green.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.secondary.green.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -207,8 +288,14 @@ return [
                         ],
                     ],
                     'color_blue' => [
-                        'label'       => __('apollon.ct.general.color.secondary.blue.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.secondary.blue.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.secondary.blue.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.secondary.blue.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -219,8 +306,14 @@ return [
                         ],
                     ],
                     'color_teal' => [
-                        'label'       => __('apollon.ct.general.color.secondary.teal.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.secondary.teal.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.secondary.teal.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.secondary.teal.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -231,8 +324,14 @@ return [
                         ],
                     ],
                     'color_purple' => [
-                        'label'       => __('apollon.ct.general.color.secondary.purple.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.secondary.purple.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.secondary.purple.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.secondary.purple.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -245,17 +344,29 @@ return [
 
     // EXTENDED
                     'extended_header' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.general.color.extended.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.color.extended.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.extended.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
 
                     'neutral_palette' => array_merge($this->contents['control_subtitle'], [
-                        'label'       => __('apollon.ct.general.color.extended.neutral.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.neutral.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'color_darkneutral_dark' => [
-                        'label'       => __('apollon.ct.general.color.extended.darkneutral.dark.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.darkneutral.dark.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -266,7 +377,10 @@ return [
                         ],
                     ],
                     'color_darkneutral_light' => [
-                        'label'       => __('apollon.ct.general.color.extended.darkneutral.light.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.darkneutral.light.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -277,7 +391,10 @@ return [
                         ],
                     ],
                     'color_midneutral_dark' => [
-                        'label'       => __('apollon.ct.general.color.extended.midneutral.dark.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.midneutral.dark.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -288,7 +405,10 @@ return [
                         ],
                     ],
                     'color_midneutral_light' => [
-                        'label'       => __('apollon.ct.general.color.extended.midneutral.light.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.midneutral.light.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -299,7 +419,10 @@ return [
                         ],
                     ],
                     'color_lightneutral_dark' => [
-                        'label'       => __('apollon.ct.general.color.extended.lightneutral.dark.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.lightneutral.dark.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -310,7 +433,10 @@ return [
                         ],
                     ],
                     'color_lightneutral_light' => [
-                        'label'       => __('apollon.ct.general.color.extended.lightneutral.light.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.lightneutral.light.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -322,11 +448,17 @@ return [
                     ],
 
                     'secondary_palette' => array_merge($this->contents['control_subtitle'], [
-                        'label'       => __('apollon.ct.general.color.extended.secondary.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.secondary.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'color_red_dark' => [
-                        'label'       => __('apollon.ct.general.color.extended.red.dark.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.red.dark.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -337,7 +469,10 @@ return [
                         ],
                     ],
                     'color_red_light' => [
-                        'label'       => __('apollon.ct.general.color.extended.red.light.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.red.light.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -349,7 +484,10 @@ return [
                     ],
 
                     'color_yellow_dark' => [
-                        'label'       => __('apollon.ct.general.color.extended.yellow.dark.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.yellow.dark.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -360,7 +498,10 @@ return [
                         ],
                     ],
                     'color_yellow_light' => [
-                        'label'       => __('apollon.ct.general.color.extended.yellow.light.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.yellow.light.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -372,7 +513,10 @@ return [
                     ],
 
                     'color_green_dark' => [
-                        'label'       => __('apollon.ct.general.color.extended.green.dark.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.green.dark.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -383,7 +527,10 @@ return [
                         ],
                     ],
                     'color_green_light' => [
-                        'label'       => __('apollon.ct.general.color.extended.green.light.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.green.light.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -395,7 +542,10 @@ return [
                     ],
 
                     'color_blue_dark' => [
-                        'label'       => __('apollon.ct.general.color.extended.blue.dark.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.blue.dark.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -406,7 +556,10 @@ return [
                         ],
                     ],
                     'color_blue_light' => [
-                        'label'       => __('apollon.ct.general.color.extended.blue.light.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.blue.light.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -418,7 +571,10 @@ return [
                     ],
 
                     'color_teal_dark' => [
-                        'label'       => __('apollon.ct.general.color.extended.teal.dark.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.teal.dark.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -429,7 +585,10 @@ return [
                         ],
                     ],
                     'color_teal_light' => [
-                        'label'       => __('apollon.ct.general.color.extended.teal.light.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.teal.light.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -441,7 +600,10 @@ return [
                     ],
 
                     'color_purple_dark' => [
-                        'label'       => __('apollon.ct.general.color.extended.purple.dark.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.purple.dark.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -452,7 +614,10 @@ return [
                         ],
                     ],
                     'color_purple_light' => [
-                        'label'       => __('apollon.ct.general.color.extended.purple.light.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.color.extended.purple.light.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'color',
                         'settings'    => [
@@ -473,8 +638,14 @@ return [
 
                 'controls'    => [
                     'grid_container' => [
-                        'label'       => __('apollon.ct.general.grid.container.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.grid.container.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.grid.container.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.grid.container.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -493,8 +664,14 @@ return [
                         ],
                     ],
                     'grid_columngap' => [
-                        'label'       => __('apollon.ct.general.grid.columngap.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.grid.columngap.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.grid.columngap.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.grid.columngap.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -512,8 +689,14 @@ return [
                         ],
                     ],
                     'grid_rowgap' => [
-                        'label'       => __('apollon.ct.general.grid.rowgap.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.grid.rowgap.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.grid.rowgap.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.grid.rowgap.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -531,8 +714,14 @@ return [
                         ],
                     ],
                     'grid_divider' => [
-                        'label'       => __('apollon.ct.general.grid.divider.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.grid.divider.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.grid.divider.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.grid.divider.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -543,8 +732,14 @@ return [
                         ],
                     ],
                     'grid_matchheight' => [
-                        'label'       => __('apollon.ct.general.grid.matchheight.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.grid.matchheight.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.grid.matchheight.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.grid.matchheight.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -565,7 +760,10 @@ return [
 
                 'controls'    => [
                     'logos_default' => [
-                        'label'       => __('apollon.ct.general.logos.default.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.logos.default.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'image',
                         'settings'    => [
@@ -576,7 +774,10 @@ return [
                         ],
                     ],
                     'logos_retina' => [
-                        'label'       => __('apollon.ct.general.logos.retina.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.logos.retina.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'image',
                         'settings'    => [
@@ -587,8 +788,14 @@ return [
                         ],
                     ],
                     'logos_maxwidth' => [
-                        'label'       => __('apollon.ct.general.logos.maxwidth.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.logos.maxwidth.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.logos.maxwidth.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.logos.maxwidth.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -604,8 +811,14 @@ return [
                         ],
                     ],
                     'logos_maxheight' => [
-                        'label'       => __('apollon.ct.general.logos.maxheight.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.logos.maxheight.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.logos.maxheight.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.logos.maxheight.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'text',
                         'input_attrs' => [
@@ -621,8 +834,14 @@ return [
                         ],
                     ],
                     'logos_slogan' => [
-                        'label'       => __('apollon.ct.general.logos.slogan.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.logos.slogan.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.logos.slogan.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.logos.slogan.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
@@ -644,14 +863,26 @@ return [
                 'controls'    => [
     // FONTS
                     'fontstacks_header' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.general.typography.fontstacks.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.typography.fontstacks.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.fontstacks.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.typography.fontstacks.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
 
                     'typo_mainfont' => [
-                        'label'       => __('apollon.ct.general.typography.fontstacks.mainfont.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.typography.fontstacks.mainfont.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.fontstacks.mainfont.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.typography.fontstacks.mainfont.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'text',
                         'settings'    => [
@@ -662,8 +893,14 @@ return [
                         ],
                     ],
                     'typo_secondaryfont' => [
-                        'label'       => __('apollon.ct.general.typography.fontstacks.secondaryfont.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.typography.fontstacks.secondaryfont.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.fontstacks.secondaryfont.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.typography.fontstacks.secondaryfont.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'text',
                         'settings'    => [
@@ -674,8 +911,14 @@ return [
                         ],
                     ],
                     'typo_alternativefont' => [
-                        'label'       => __('apollon.ct.general.typography.fontstacks.alternativefont.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.typography.fontstacks.alternativefont.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.fontstacks.alternativefont.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.typography.fontstacks.alternativefont.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'text',
                         'settings'    => [
@@ -688,13 +931,22 @@ return [
 
     // FORMATTING
                     'formatting_header' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.general.typography.formatting.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.typography.formatting.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.formatting.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.typography.formatting.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
 
                     'typo_bodysize' => [
-                        'label'       => __('apollon.ct.general.typography.formatting.bodysize.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.formatting.bodysize.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -710,7 +962,10 @@ return [
                         ],
                     ],
                     'typo_lineheight' => [
-                        'label'       => __('apollon.ct.general.typography.formatting.lineheight.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.formatting.lineheight.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -726,7 +981,10 @@ return [
                         ],
                     ],
                     'typo_smallsize' => [
-                        'label'       => __('apollon.ct.general.typography.formatting.smallsize.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.formatting.smallsize.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -742,7 +1000,10 @@ return [
                         ],
                     ],
                     'typo_listsize' => [
-                        'label'       => __('apollon.ct.general.typography.formatting.listsize.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.formatting.listsize.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -758,7 +1019,10 @@ return [
                         ],
                     ],
                     'typo_listlineheight' => [
-                        'label'       => __('apollon.ct.general.typography.formatting.listlineheight.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.formatting.listlineheight.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -776,17 +1040,29 @@ return [
 
     // HEADINGS
                     'headings_header' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.general.typography.headings.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.general.typography.headings.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.typography.headings.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
 
                     'headings_headerfont' => array_merge($this->contents['control_subtitle'], [
-                        'label'       => __('apollon.ct.general.typography.headings.font.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.font.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'typo_headingfont' => [
-                        'label'       => __('apollon.ct.general.typography.headings.headingfont.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.headingfont.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -803,11 +1079,17 @@ return [
                     ],
 
                     'headings_headersizes' => array_merge($this->contents['control_subtitle'], [
-                        'label'       => __('apollon.ct.general.typography.headings.sizes.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.sizes.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'typo_h1size' => [
-                        'label'       => __('apollon.ct.general.typography.headings.h1size.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.h1size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -823,7 +1105,10 @@ return [
                         ],
                     ],
                     'typo_h2size' => [
-                        'label'       => __('apollon.ct.general.typography.headings.h2size.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.h2size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -839,7 +1124,10 @@ return [
                         ],
                     ],
                     'typo_h3size' => [
-                        'label'       => __('apollon.ct.general.typography.headings.h3size.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.h3size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -855,7 +1143,10 @@ return [
                         ],
                     ],
                     'typo_h4size' => [
-                        'label'       => __('apollon.ct.general.typography.headings.h4size.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.h4size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -871,7 +1162,10 @@ return [
                         ],
                     ],
                     'typo_h5size' => [
-                        'label'       => __('apollon.ct.general.typography.headings.h5size.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.h5size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [
@@ -887,7 +1181,10 @@ return [
                         ],
                     ],
                     'typo_h6size' => [
-                        'label'       => __('apollon.ct.general.typography.headings.h6size.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.general.typography.headings.h6size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'number',
                         'input_attrs' => [

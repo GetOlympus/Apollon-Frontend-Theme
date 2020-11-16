@@ -23,8 +23,14 @@ $layouts = [
 
                 'controls'    => [
                     'layout_posttypes' => [
-                        'label'       => __('apollon.ct.layouts.homepage.posttypes.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.homepage.posttypes.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.homepage.posttypes.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.homepage.posttypes.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'choices'     => $this->contents['posttypes'],
@@ -36,8 +42,14 @@ $layouts = [
                         ],
                     ],
                     'layout_container' => [
-                        'label'       => __('apollon.ct.layouts.homepage.container.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.homepage.container.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.homepage.container.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.homepage.container.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -56,8 +68,14 @@ $layouts = [
                         ],
                     ],
                     'layout_size' => [
-                        'label'       => __('apollon.ct.layouts.homepage.size.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.homepage.size.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.homepage.size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.homepage.size.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -91,12 +109,21 @@ $layouts = [
 
                 'controls'    => [
                     'layoutposts_list' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.layouts.default.posts.list.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.posts.list.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'layoutposts_posttypes' => [
-                        'label'       => __('apollon.ct.layouts.default.posts.posttypes.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.posts.posttypes.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.posts.posttypes.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.posts.posttypes.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'choices'     => $this->contents['posttypes'],
@@ -108,8 +135,14 @@ $layouts = [
                         ],
                     ],
                     'layoutposts_container' => [
-                        'label'       => __('apollon.ct.layouts.default.posts.container.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.posts.container.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.posts.container.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.posts.container.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -128,8 +161,14 @@ $layouts = [
                         ],
                     ],
                     'layoutposts_size' => [
-                        'label'       => __('apollon.ct.layouts.default.posts.size.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.posts.size.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.posts.size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.posts.size.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -148,8 +187,14 @@ $layouts = [
                         ],
                     ],
                     'layoutposts_template' => [
-                        'label'       => __('apollon.ct.layouts.default.posts.template.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.posts.template.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.posts.template.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.posts.template.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -167,12 +212,21 @@ $layouts = [
                     ],
 
                     'layoutpost_detail' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.layouts.default.posts.detail.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.posts.detail.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'layoutpost_container' => [
-                        'label'       => __('apollon.ct.layouts.default.posts.container.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.posts.container.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.posts.container.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.posts.container.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -191,8 +245,14 @@ $layouts = [
                         ],
                     ],
                     'layoutpost_size' => [
-                        'label'       => __('apollon.ct.layouts.default.posts.size.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.posts.size.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.posts.size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.posts.size.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -220,12 +280,21 @@ $layouts = [
 
                 'controls' => [
                     'layoutmedia_detail' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.layouts.default.medias.detail.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.medias.detail.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'layoutmedia_container' => [
-                        'label'       => __('apollon.ct.layouts.default.medias.container.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.medias.container.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.medias.container.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.medias.container.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -244,8 +313,14 @@ $layouts = [
                         ],
                     ],
                     'layoutmedia_size' => [
-                        'label'       => __('apollon.ct.layouts.default.medias.size.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.medias.size.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.medias.size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.medias.size.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -273,12 +348,21 @@ $layouts = [
 
                 'controls' => [
                     'layoutpage_detail' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.layouts.default.pages.detail.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.pages.detail.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'layoutpage_container' => [
-                        'label'       => __('apollon.ct.layouts.default.pages.container.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.pages.container.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.pages.container.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.pages.container.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -297,8 +381,14 @@ $layouts = [
                         ],
                     ],
                     'layoutpage_size' => [
-                        'label'       => __('apollon.ct.layouts.default.pages.size.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.pages.size.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.pages.size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.pages.size.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -326,12 +416,21 @@ $layouts = [
 
                 'controls' => [
                     'layoutsearch_list' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.layouts.default.search.list.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.search.list.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'layoutsearch_posttypes' => [
-                        'label'       => __('apollon.ct.layouts.default.search.posttypes.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.search.posttypes.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.search.posttypes.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.search.posttypes.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'choices'     => $this->contents['posttypes'],
@@ -343,8 +442,14 @@ $layouts = [
                         ],
                     ],
                     'layoutsearch_container' => [
-                        'label'       => __('apollon.ct.layouts.default.search.container.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.search.container.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.search.container.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.search.container.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -363,8 +468,14 @@ $layouts = [
                         ],
                     ],
                     'layoutsearch_size' => [
-                        'label'       => __('apollon.ct.layouts.default.search.size.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.search.size.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.search.size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.search.size.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -383,8 +494,14 @@ $layouts = [
                         ],
                     ],
                     'layoutsearch_template' => [
-                        'label'       => __('apollon.ct.layouts.default.search.template.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.search.template.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.search.template.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.search.template.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -410,12 +527,21 @@ $layouts = [
 
                 'controls' => [
                     'layout404_detail' => array_merge($this->contents['control_title'], [
-                        'label'       => __('apollon.ct.layouts.default.404.detail.title', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.404.detail.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                     ]),
                     'layout404_container' => [
-                        'label'       => __('apollon.ct.layouts.default.404.container.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.404.container.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.404.container.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.404.container.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
@@ -434,8 +560,14 @@ $layouts = [
                         ],
                     ],
                     'layout404_size' => [
-                        'label'       => __('apollon.ct.layouts.default.404.size.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.default.404.size.desc', OL_APOLLON_DICTIONARY),
+                        'label'       => __(
+                            'apollon.ct.layouts.default.404.size.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.layouts.default.404.size.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
