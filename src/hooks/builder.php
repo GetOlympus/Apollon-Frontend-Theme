@@ -26,19 +26,13 @@ add_filter('ol.apollon.archives_files', function ($files) {
 
 // PARTS BUILDERS
 add_filter('ol.apollon.menu_account_before_check', function ($opts) {
-    $_inc = [
-        'filename' => 'searchform.php',
-        'part'     => true,
-        'vars'     => [
-            'template' => 'modal',
-            'args'     => [
-                'navbar'     => true,
-                'searchicon' => true,
-            ],
+    apollonGetPart('searchform.php', [
+        'template' => 'modal',
+        'args'     => [
+            'navbar'     => true,
+            'searchicon' => true,
         ],
-    ];
-
-    include OL_APOLLON_VIEWSPATH.'_inc.php';
+    ]);
 });/**/
 
 
@@ -106,22 +100,6 @@ add_filter('ol.apollon.build_categories', function ($categories, $use_link = tru
     }
 
     return $cats;
-}, 10, 3);
-
-/**
- * Build included files.
- *
- * @param  array   $files
- *
- * @return array
- */
-add_filter('ol.apollon.build_inc_files', function ($files) {
-    $show_on_front = apollonGetOption('wp_showonfront', 'wp_showonfront');
-
-    return array_merge($files, [
-        // Front page special case
-        'front-page.php' => ('page' === $show_on_front ? 'pages' : 'archives').S.'front-page.php',
-    ]);
 }, 10, 3);
 
 /**

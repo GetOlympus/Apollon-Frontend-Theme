@@ -37,7 +37,7 @@ class ApollonCustomSection extends \GetOlympus\Zeus\Section\Section
     /**
      * Render template.
      */
-    protected function render_template()
+    protected function render_template() // phpcs:ignore
     {
         $css = 'accordion-section control-section control-section-{{ data.type }} cannot-expand';
 
@@ -63,7 +63,7 @@ class ApollonCustomSection extends \GetOlympus\Zeus\Section\Section
     /**
      * JSON
      */
-    public function json()
+    public function json() // phpcs:ignore
     {
         $json = parent::json();
 

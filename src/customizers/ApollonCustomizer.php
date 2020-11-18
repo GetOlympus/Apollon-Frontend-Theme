@@ -37,7 +37,8 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
     /**
      * @var string
      */
-    protected $preview = OL_APOLLON_SRCPATH.'customizers'.S.'apollon-customizer.js';
+    //protected $preview = OL_APOLLON_SRCPATH.'customizers'.S.'apollon-customizer.js';
+    protected $preview = __DIR__.S.'apollon-customizer.js';
 
     /**
      * Prepare variables.
@@ -68,7 +69,7 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
         ];
 
         // Main PHP resources path
-        $path = OL_APOLLON_RESOURCESPATH.'customizers'.S;
+        $path = __DIR__.S.'src'.S;
 
         // Iterate on all PHPs
         foreach ($phps as $php) {

@@ -22,7 +22,7 @@ class ApollonHeaderControl extends \GetOlympus\Zeus\Control\Control
     /**
      * An Underscore (JS) template for this control's content (but not its container).
      */
-    protected function content_template()
+    protected function content_template() // phpcs:ignore
     {
         ?>
         <h3 class="{{ data.class }}" {{{ data.style }}}>{{{ data.label }}}</h3>
@@ -33,7 +33,7 @@ class ApollonHeaderControl extends \GetOlympus\Zeus\Control\Control
     /**
      * JSON
      */
-    public function json()
+    public function json() // phpcs:ignore
     {
         $json = parent::json();
 

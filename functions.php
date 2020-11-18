@@ -1,6 +1,6 @@
 <?php
 
-//namespace ApollonFrontendTheme;
+namespace ApollonFrontendTheme;
 
 /**
  * OLYMPUS APOLLON FRONTEND THEME
@@ -56,6 +56,8 @@ if (!defined('ABSPATH')) {
 
 // Directory separator
 defined('S')          or define('S', DIRECTORY_SEPARATOR);
+// Current path
+defined('DIRPATH')    or define('DIRPATH', rtrim(realpath(dirname(__FILE__)), S).S);
 // Vendor path ~ Only needed this if Olympus is not used
 defined('VENDORPATH') or define('VENDORPATH', realpath(dirname(__DIR__)).S.'vendor'.S);
 
@@ -65,92 +67,32 @@ defined('VENDORPATH') or define('VENDORPATH', realpath(dirname(__DIR__)).S.'vend
  */
 
 // Dictionary name
-define('OL_APOLLON_DICTIONARY',    'olympus-apollon');
-// Admin panel or not
-define('OL_APOLLON_ISADMIN',       defined('OL_ISADMIN') ? defined('OL_ISADMIN') : is_admin());
-// Current directory path
-define('OL_APOLLON_PATH',          rtrim(realpath(dirname(__FILE__)), S).S);
-// Languages path
-define('OL_APOLLON_LANGUAGESPATH', OL_APOLLON_PATH.'languages');
-// Resources path
-define('OL_APOLLON_RESOURCESPATH', OL_APOLLON_PATH.'resources'.S);
-// Sources path
-define('OL_APOLLON_SRCPATH',       OL_APOLLON_PATH.'src'.S);
-// Configurations path
-define('OL_APOLLON_CONFIGSPATH',   OL_APOLLON_SRCPATH.'configurations'.S);
-// Views path
-define('OL_APOLLON_VIEWSPATH',     OL_APOLLON_RESOURCESPATH.'views'.S);
+define('OL_APOLLON_DICTIONARY', 'olympus-apollon');
+
+// Admin panel or not ~ Never used for now
+//define('OL_APOLLON_ISADMIN', defined('OL_ISADMIN') ? defined('OL_ISADMIN') : is_admin());
 // Customizer preview mode
-define('OL_APOLLON_CUSTOMIZER',    is_customize_preview());
+define('OL_APOLLON_ISCUSTOMIZER', is_customize_preview());
+// Resources path
+define('OL_APOLLON_RESOURCESPATH', DIRPATH.'resources'.S);
+// Sources path
+define('OL_APOLLON_SRCPATH', DIRPATH.'src'.S);
 
 
 /**
  * Apollon variables
  */
 
-$apollon = get_theme_mods();
-$apollon_defaults = include_once OL_APOLLON_SRCPATH.'defaults.php';
-
-// Override via filter
-$apollon = apply_filters('ol.apollon.global_apollon', $apollon);
-$apollon_defaults = apply_filters('ol.apollon.global_defaults', $apollon_defaults);
+$apollon = apply_filters('ol.apollon.global_apollon', get_theme_mods());
+$apollon_defaults = apply_filters('ol.apollon.global_defaults', include_once OL_APOLLON_SRCPATH.'defaults.php');
 
 
 /**
- * Apollon functions
+ * Apollon requires
  */
 
-if (!function_exists('apollonGetDefault')) {
-    /**
-     * Main getter Apollon function to retrieve default option.
-     *
-     * @param  string  $option
-     *
-     * @return mixed
-     */
-    function apollonGetDefault($option)
-    {
-        global $apollon_defaults;
-
-        if (empty($option)) {
-            return '';
-        }
-
-        return isset($apollon_defaults[$option]) ? $apollon_defaults[$option] : $option;
-    }
-}
-
-if (!function_exists('apollonGetOption')) {
-    /**
-     * Main getter Apollon function to resolve customizer preview.
-     *
-     * @param  string  $option
-     * @param  string  $default
-     * @param  bool    $escape_db
-     *
-     * @return mixed
-     */
-    function apollonGetOption($option = '', $default = '', $escape_db = false)
-    {
-        global $apollon;
-
-        // Get all options
-        if (empty($option)) {
-            return $apollon;
-        }
-
-        $apdefault = apollonGetDefault($option);
-        $default = !is_null($apdefault) ? $apdefault : $default;
-
-        // Retrieve data from DB in Customizer preview mode
-        if (OL_APOLLON_CUSTOMIZER && !$escape_db) {
-            return get_theme_mod($option, $default);
-        }
-
-        // Check value from global $apollon variable
-        return !isset($apollon[$option]) ? $default : $apollon[$option];
-    }
-}
+require_once OL_APOLLON_SRCPATH.'funcs.php';
+require_once OL_APOLLON_SRCPATH.'walkers'.S.'MenuWalker.php';
 
 
 /**
@@ -178,19 +120,20 @@ if (!class_exists('ApollonFrontendTheme')) {
         ];
 
         protected $configurations = [
-            'AccessManagement' => OL_APOLLON_CONFIGSPATH.'access-management.php',
-            'AdminThemes'      => OL_APOLLON_CONFIGSPATH.'admin-themes.php',
-            'Assets'           => OL_APOLLON_CONFIGSPATH.'assets.php',
-            'Menus'            => OL_APOLLON_CONFIGSPATH.'menus.php',
-            'Settings'         => OL_APOLLON_CONFIGSPATH.'settings.php',
-            'Shortcodes'       => OL_APOLLON_CONFIGSPATH.'shortcodes.php',
-            'Sidebars'         => OL_APOLLON_CONFIGSPATH.'sidebars.php',
-            'Sizes'            => OL_APOLLON_CONFIGSPATH.'sizes.php',
-            'Supports'         => OL_APOLLON_CONFIGSPATH.'supports.php',
+            'AccessManagement' => OL_APOLLON_SRCPATH.'configurations'.S.'access-management.php',
+            'AdminThemes'      => OL_APOLLON_SRCPATH.'configurations'.S.'admin-themes.php',
+            'Assets'           => OL_APOLLON_SRCPATH.'configurations'.S.'assets.php',
+            'Menus'            => OL_APOLLON_SRCPATH.'configurations'.S.'menus.php',
+            'Settings'         => OL_APOLLON_SRCPATH.'configurations'.S.'settings.php',
+            'Shortcodes'       => OL_APOLLON_SRCPATH.'configurations'.S.'shortcodes.php',
+            'Sidebars'         => OL_APOLLON_SRCPATH.'configurations'.S.'sidebars.php',
+            'Sizes'            => OL_APOLLON_SRCPATH.'configurations'.S.'sizes.php',
+            'Supports'         => OL_APOLLON_SRCPATH.'configurations'.S.'supports.php',
         ];
 
         protected $translations = [
-            'olympus-apollon'  => OL_APOLLON_LANGUAGESPATH,
+            //'olympus-apollon'  => DIRPATH.'languages',
+            OL_APOLLON_DICTIONARY => DIRPATH.'languages',
         ];
 
         /**
@@ -207,14 +150,25 @@ if (!class_exists('ApollonFrontendTheme')) {
              * Apollon constants overrider
              */
 
-            // Menu walker
-            require_once OL_APOLLON_SRCPATH.'walkers'.S.'MenuWalker.php';
+            // Include BUILDER & INC FILES hooks
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'builder.php';
 
-            // Include all hooks
-            include_once OL_APOLLON_SRCPATH.'hooks.php';
+            // Include FEATURES hooks
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'features.php';
+
+            // Include HEADER & LOGO & WRAPPERS hooks
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'header.php';
+
+            // Include LAYOUTS hooks
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'formats.php';
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'singles.php';
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'sidebars.php';
+
+            // Include FOOTER hooks
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'footer.php';
         }
     }
 }
 
-// Instanciate ApollonFrontendTheme
+// Instanciate main Apollon class
 return new ApollonFrontendTheme();

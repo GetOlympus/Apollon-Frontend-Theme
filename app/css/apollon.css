@@ -5595,7 +5595,7 @@ ul.uk-nav-sub {
 /* Divider modifier
  ========================================================================== */
 /*
- * Set gutter 
+ * Set gutter
  */
 .uk-subnav-divider {
   margin-left: -40px;
@@ -5614,7 +5614,7 @@ ul.uk-nav-sub {
 .uk-subnav-divider > ::before {
   content: "";
   height: 1.5em;
-  margin-left: 0px;
+  margin-left: 0;
   margin-right: 20px;
   border-left: 0 solid transparent;
 }

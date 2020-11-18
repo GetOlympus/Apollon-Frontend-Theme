@@ -21,15 +21,11 @@ let config = {
     },
 
     module: {
-        rules: [
-        {
+        rules: [{
             test: /\.less$/,
             use: [
                 { loader: MiniCssExtractPlugin.loader },
-                {
-                    loader: 'css-loader',
-                    options: { importLoaders: 1 }
-                },
+                { loader: 'css-loader', options: {importLoaders: 1} },
                 { loader: 'resolve-url-loader' },
                 { loader: 'less-loader' }
             ]
@@ -45,8 +41,8 @@ let config = {
                 'file-loader',
                 { loader: 'image-webpack-loader' }
             ]
-        }
-    ]},
+        }]
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'css/apollon.css',
