@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Apollon singles hooks
+ * Apollon posts hooks
  *
  * @package    ApollonFrontendTheme
  * @author     Achraf Chouk <achrafchouk@gmail.com>
@@ -9,23 +9,25 @@
  */
 
 
-// SINGLES
+// POSTS
 
-add_filter('ol.apollon.single_contents', function ($posttype) {
+add_filter('ol.apollon.post_contents', function ($posttype) {
     // Get vars from DB
-    $contents = apollonGetOption('layout_'.$posttype.'_contents');
-    $metas    = apollonGetOption('layout_'.$posttype.'_metas');
+    $elements   = apollonGetOption('layout_'.$posttype.'s_elements');
+    $metas      = apollonGetOption('layout_'.$posttype.'s_metas');
+    $usecontent = apollonGetOption('layout_'.$posttype.'s_usecontent');
 
     $return = [];
 
-    // Iterate on contents
-    foreach ($contents as $content) {
-        $return[$content] = [];
+    // Iterate on elements
+    foreach ($elements as $element) {
+        $element = 'excerpt' === $element && $usecontent ? 'content' : $element;
+        $return[$element] = [];
 
-        if ('metas' === $content) {
+        if ('metas' === $element) {
             // Iterate on metas
             foreach ($metas as $meta) {
-                $return[$content][$meta] = [];
+                $return[$element][$meta] = [];
             }
         }
     }
@@ -33,12 +35,12 @@ add_filter('ol.apollon.single_contents', function ($posttype) {
     return $return;
 });
 
-add_filter('ol.apollon.single_template', function ($posttype) {
-    return apollonGetOption('layout_'.$posttype.'_template');
+add_filter('ol.apollon.post_template', function ($posttype) {
+    return apollonGetOption('layout_'.$posttype.'s_template');
 });
 
-add_filter('ol.apollon.single_vars', function ($single = []) {
-    $single['data'] = isset($single['data']) ? $single['data'] : [];
+add_filter('ol.apollon.post_vars', function ($post = []) {
+    $post['data'] = isset($post['data']) ? $post['data'] : [];
 
     // Build defaults data
     $data = array_merge([
@@ -56,8 +58,8 @@ add_filter('ol.apollon.single_vars', function ($single = []) {
         'image_css'  => 'blog-featured uk-width-1-1',
         'date'       => 'j.m.Y - H:i',
         'display'    => 'default',
-        'length'     => false,
-        'thumbnail'  => 'large',
+        'length'     => 20,
+        'thumbnail'  => 'thumbnail',
 
         'author'     => [],
         'categories' => [],
@@ -65,15 +67,13 @@ add_filter('ol.apollon.single_vars', function ($single = []) {
         'dates'      => [],
         'images'     => [],
         'tags'       => [],
-    ], $single['data']);
+    ], $post['data']);
 
 
     // Data details
-    //$data['length']     = apollonGetOption('layout_'.$data['posttype'].'s_excerpt');
-    //$data['thumbnail']  = apollonGetOption('layout_'.$data['posttype'].'_thumbnail');
-    //$data['linkable']   = apollonGetOption('layout_'.$data['posttype'].'_categorylink');
-    $data['linkable']   = true;
-    $data['use_avatar'] = apollonGetOption('layout_'.$data['posttype'].'_avatar');
+    $data['length']    = apollonGetOption('layout_'.$data['posttype'].'s_excerpt');
+    $data['thumbnail'] = apollonGetOption('layout_'.$data['posttype'].'s_thumbnail');
+    $data['linkable']  = apollonGetOption('layout_'.$data['posttype'].'s_categorylink');
 
 
     // Build details
@@ -144,25 +144,23 @@ add_filter('ol.apollon.single_vars', function ($single = []) {
 
 
     // Build author details
-    if ($data['use_avatar']) {
-        $author_id  = get_post_field('post_author', $data['id']);
-        $author_img = get_avatar_data(get_the_author_meta('user_email', $author_id), [
-            'size' => $data['avatar'],
-        ]);
+    $author_id  = get_post_field('post_author', $data['id']);
+    $author_img = get_avatar_data(get_the_author_meta('user_email', $author_id), [
+        'size' => $data['avatar'],
+    ]);
 
-        $data['author'] = [
-            'link'   => get_author_posts_url($author_id),
-            'name'   => get_the_author_meta('display_name', $author_id),
-            'avatar' => [
-                'full' => $author_img,
-                'url'  => $author_img['url'],
-            ],
-        ];
+    $data['author'] = [
+        'link'   => get_author_posts_url($author_id),
+        'name'   => get_the_author_meta('display_name', $author_id),
+        'avatar' => [
+            'full' => $author_img,
+            'url'  => $author_img['url'],
+        ],
+    ];
 
-        // Freedom
-        unset($author_id);
-        unset($author_img);
-    }
+    // Freedom
+    unset($author_id);
+    unset($author_img);
 
 
     // Build dates
@@ -180,7 +178,9 @@ add_filter('ol.apollon.single_vars', function ($single = []) {
 
 
     // Build posttype
-    $data['posttype'] = empty($data['posttype']) ? 'post' : $data['posttype'];
+    $data['posttype'] = empty($data['posttype']) || !in_array($data['posttype'], $post['available'])
+        ? 'post'
+        : $data['posttype'];
 
 
     // Build readingtime
@@ -189,27 +189,45 @@ add_filter('ol.apollon.single_vars', function ($single = []) {
 
 
     // Update data
-    $single['data'] = $data;
+    $post['data'] = $data;
 
 
     /**
-     * Check whether single contents to display.
+     * Check whether post post to display.
      *
      * @param  string  $posttype
      *
      * @return string
      */
-    $single['contents'] = apply_filters('ol.apollon.single_contents', $single['data']['posttype']);
+    $post['contents'] = apply_filters('ol.apollon.post_contents', $post['data']['posttype']);
 
 
     /**
-     * Override single template.
+     * Override post template.
      *
      * @param  string  $posttype
      *
      * @return string
      */
-    $single['template'] = apply_filters('ol.apollon.single_template', $single['data']['posttype']);
+    $post['template'] = apply_filters('ol.apollon.post_template', $post['data']['posttype']);
 
-    return $single;
+    return $post;
 });
+
+// POST CONTENTS
+
+/*add_action('ol.apollon.post_default_post_content', function ($post) {
+    // Get post format
+    apollonGetPart('format.php', [
+        'template' => $post['template'],
+        'vars'     => $post,
+    ]);
+});
+
+add_action('ol.apollon.post_default_image_content', function ($post) {
+    // Get post format
+    apollonGetPart('format.php', [
+        'template' => $post['template'],
+        'vars'     => $post,
+    ]);
+});*/

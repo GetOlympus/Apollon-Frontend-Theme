@@ -93,7 +93,7 @@ add_filter('ol.apollon.build_categories', function ($categories, $use_link = tru
     foreach ($categories as $cat) {
         $cats .= (!empty($cats) ? $separator : '');
         $cats .= !$use_link ? strip_tags($cat->cat_name) : sprintf(
-            __('<a href="%s">%s</a>'),
+            '<a href="%s">%s</a>',
             get_category_link($cat),
             strip_tags($cat->cat_name)
         );
