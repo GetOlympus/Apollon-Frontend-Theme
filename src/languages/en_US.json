@@ -70,11 +70,6 @@
     "apollon._.span": "SPAN",
     "apollon._.div": "DIV",
 
-    "apollon._.tpl.cover": "Cover",
-    "apollon._.tpl.horizontal": "Horizontal",
-    "apollon._.tpl.text": "Text",
-    "apollon._.tpl.vertical": "Vertical",
-
     "apollon._.contents.none": "No content",
     "apollon._.contents.logo": "Logo",
     "apollon._.contents.copyright": "The main theme copyright",
@@ -101,6 +96,7 @@
     "apollon._.cpt.comments": "Comments",
     "apollon._.cpt.readingtime": "Reading time",
     "apollon._.cpt.readmore": "Read more",
+    "apollon._.cpt.share": "Share this",
     "apollon._.cpt.by": "by",
     "apollon._.cpt.on": "on",
 
@@ -642,6 +638,10 @@
     "apollon.ct.layouts.cpt._.avatar.desc": "Turn on to display author's avatar next to his name.",
     "apollon.ct.layouts.cpt._.template.title": "Template",
     "apollon.ct.layouts.cpt._.template.desc": "Controls the layout in list pages.",
+    "apollon.ct.layouts.cpt._.template.cover": "Cover",
+    "apollon.ct.layouts.cpt._.template.horizontal": "Horizontal",
+    "apollon.ct.layouts.cpt._.template.text": "Text",
+    "apollon.ct.layouts.cpt._.template.vertical": "Vertical",
     "apollon.ct.layouts.cpt._.thumbnail.title": "Thumbnail size",
     "apollon.ct.layouts.cpt._.thumbnail.desc": "Define thumbnail size to display in list pages.",
     "apollon.ct.layouts.cpt._.titletag.title": "Title tag",
@@ -723,6 +723,18 @@
 
 
 
+    "apollon.th.share.twitter": "Share on Twitter",
+    "apollon.th.share.facebook": "Share on Facebook",
+    "apollon.th.share.google-plus": "Share on Google plus",
+    "apollon.th.share.pinterest": "Share on Pinterest",
+    "apollon.th.share.linkedin": "Share on LinkedIn",
+    "apollon.th.share.viber": "Share on Viber",
+    "apollon.th.share.vk": "Share on VK.com",
+    "apollon.th.share.reddit": "Share on Reddit",
+    "apollon.th.share.tumblr": "Share on Tumblr",
+    "apollon.th.share.viadeo": "Share on Viadeo",
+    "apollon.th.share.whatsapp": "Share on WhatsApp",
+
     "apollon.th.comments.comments": "Comments",
     "apollon.th.comments.comment": "Comment",
     "apollon.th.comments.textarea": "Message",
@@ -743,9 +755,11 @@
     "apollon.th.comments.replies": "%1$s replies on &ldquo;%2$s&rdquo;",
     "apollon.th.comments.addcomment": "Reply",
 
-
+    "apollon.th.nextprev.nextpost": "Next <span uk-pagination-next></span>",
+    "apollon.th.nextprev.prevpost": "<span uk-pagination-previous></span> Previous",
 
     "apollon.th.404.title": "Oops! That page can't be found.",
     "apollon.th.404.desc": "It looks like nothing was found at this location. Maybe try a search?",
+
     "apollon.th.footer.copyright": "<a href=\"https://github.com/crewstyle\" target=\"_blank\">created with ♥ by crewstyle</a>"
 }
