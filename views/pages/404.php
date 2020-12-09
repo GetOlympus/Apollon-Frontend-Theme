@@ -60,3 +60,6 @@ get_footer();
  * @param  array   $_page
  */
 do_action('ol.apollon.page_404_after', $_page);
+
+// Freedom
+unset($_page);
