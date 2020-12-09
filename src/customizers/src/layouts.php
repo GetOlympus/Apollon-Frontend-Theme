@@ -572,8 +572,6 @@ $layouts = [
                         'choices'     => [
                             'thumbnail'   => __('apollon._.cpt.thumbnail', OL_APOLLON_DICTIONARY),
                             'title'       => __('apollon._.cpt.title', OL_APOLLON_DICTIONARY),
-                            'categories'  => __('apollon._.cpt.categories', OL_APOLLON_DICTIONARY),
-                            'author'      => __('apollon._.cpt.author', OL_APOLLON_DICTIONARY),
                             'comments'    => __('apollon._.cpt.comments', OL_APOLLON_DICTIONARY),
                             'readingtime' => __('apollon._.cpt.readingtime', OL_APOLLON_DICTIONARY),
                         ],
@@ -596,15 +594,9 @@ $layouts = [
                         'choices'     => [
                             'thumbnail'  => __('apollon._.cpt.thumbnail', OL_APOLLON_DICTIONARY),
                             'title'      => __('apollon._.cpt.title', OL_APOLLON_DICTIONARY),
-                            'categories' => __('apollon._.cpt.categories', OL_APOLLON_DICTIONARY),
                             'metas'      => __('apollon._.cpt.metas', OL_APOLLON_DICTIONARY),
-                            'excerpt'    => __('apollon._.cpt.excerpt', OL_APOLLON_DICTIONARY),
                             'content'    => __('apollon._.cpt.content', OL_APOLLON_DICTIONARY),
-                            'tags'       => __('apollon._.cpt.tags', OL_APOLLON_DICTIONARY),
                             'social'     => __('apollon._.cpt.social', OL_APOLLON_DICTIONARY),
-                            'nextprev'   => __('apollon._.cpt.nextprev', OL_APOLLON_DICTIONARY),
-                            'author'     => __('apollon._.cpt.author', OL_APOLLON_DICTIONARY),
-                            'related'    => __('apollon._.cpt.related', OL_APOLLON_DICTIONARY),
                             'comments'   => __('apollon._.cpt.comments', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
@@ -627,7 +619,6 @@ $layouts = [
                             'author'      => __('apollon._.cpt.author', OL_APOLLON_DICTIONARY),
                             'date'        => __('apollon._.cpt.date', OL_APOLLON_DICTIONARY),
                             'comments'    => __('apollon._.cpt.comments', OL_APOLLON_DICTIONARY),
-                            'readingtime' => __('apollon._.cpt.readingtime', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
                             [
@@ -831,10 +822,10 @@ foreach ($this->contents['posttypes'] as $type) {
                 'type'        => 'select',
                 'choices'     => [
                     'default'    => __('apollon._.default', OL_APOLLON_DICTIONARY),
-                    'cover'      => __('apollon._.tpl.cover', OL_APOLLON_DICTIONARY),
-                    'text'       => __('apollon._.tpl.text', OL_APOLLON_DICTIONARY),
-                    'horizontal' => __('apollon._.tpl.horizontal', OL_APOLLON_DICTIONARY),
-                    'vertical'   => __('apollon._.tpl.vertical', OL_APOLLON_DICTIONARY),
+                    'cover'      => __('apollon.ct.layouts.cpt._.template.cover', OL_APOLLON_DICTIONARY),
+                    'text'       => __('apollon.ct.layouts.cpt._.template.text', OL_APOLLON_DICTIONARY),
+                    'horizontal' => __('apollon.ct.layouts.cpt._.template.horizontal', OL_APOLLON_DICTIONARY),
+                    'vertical'   => __('apollon.ct.layouts.cpt._.template.vertical', OL_APOLLON_DICTIONARY),
                 ],
                 'settings'    => [
                     [
