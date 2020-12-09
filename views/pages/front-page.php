@@ -12,9 +12,13 @@ if (!defined('ABSPATH')) {
     die('You are not authorized to directly access to this page');
 }
 
-$_page = [
-    'template' => 'front-page',
-];
+
+/**
+ * Override front page vars.
+ *
+ * @return array
+ */
+$_page = apply_filters('ol.apollon.page_front_vars', []);
 
 
 /**
@@ -24,8 +28,11 @@ $_page = [
  */
 do_action('ol.apollon.page_front_before', $_page);
 
-// Include template
-include __DIR__.S.'page'.S.'_page.php';
+get_header();
+
+the_content();
+
+get_footer();
 
 
 /**
@@ -34,6 +41,3 @@ include __DIR__.S.'page'.S.'_page.php';
  * @param  array   $_page
  */
 do_action('ol.apollon.page_front_after', $_page);
-
-// Freedom
-unset($_page);
