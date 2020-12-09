@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// BACK TO TOP
-
 add_filter('ol.apollon.backtotop_options', function ($options) {
     return [
         'label'    => apollonGetOption('backtotop_label'),

@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// SIDEBARS
-
 add_filter('ol.apollon.sidebar_vars', function ($sidebar) {
     // Define sidebar layout
     $layout = '_2' === substr($sidebar['sidebar'], -2) ? '_2' : '_1';

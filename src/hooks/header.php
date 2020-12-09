@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// HEADER
-
 add_action('ol.apollon.header_build_navbar', function ($nav, $level, $options) {
     // Build useful vars
     $level = (string) $level;

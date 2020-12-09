@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// PAGINATION
-
 add_filter('ol.apollon.pagination_options', function ($options) {
     return [
         'title'         => apollonGetOption('pagination_title'),

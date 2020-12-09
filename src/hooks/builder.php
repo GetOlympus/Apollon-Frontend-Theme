@@ -35,9 +35,6 @@ add_filter('ol.apollon.menu_account_before_check', function ($opts) {
     ]);
 });/**/
 
-
-// BUILDER
-
 /**
  * Build attributes.
  *

@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// FOOTER
-
 add_action('ol.apollon.footer_build_navbar', function ($section, $level, $contents) {
     // Build useful vars
     $level = (string) $level;

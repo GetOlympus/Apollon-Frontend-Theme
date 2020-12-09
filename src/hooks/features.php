@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// FEATURES
-
 add_filter('ol.apollon.searchform_start', function ($status) {
     return (bool) !!apollonGetOption('searchform_enable');
 });
@@ -36,8 +33,7 @@ add_filter('ol.apollon.adblocker_start', function ($status) {
     return (bool) !!apollonGetOption('adblocker_enable');
 });
 
-
-// Includes
+// INCLUDES
 
 include __DIR__.S.'features'.S.'archives.php';
 include __DIR__.S.'features'.S.'backtotop.php';

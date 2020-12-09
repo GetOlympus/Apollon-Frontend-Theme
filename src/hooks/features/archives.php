@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// ARCHIVES
-
 add_filter('ol.apollon.archive_sidebar_order', function ($tpl) {
     return /*isset($apollon['features-sidebar-'.$tpl.'-order'])
         ? $apollon['features-sidebar-'.$tpl.'-order']

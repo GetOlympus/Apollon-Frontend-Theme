@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// COMMENTS
-
 add_filter('ol.apollon.comments_labels', function ($comments = []) {
     return [
         'comments'     => __('apollon.th.comments.comments', OL_APOLLON_DICTIONARY),
