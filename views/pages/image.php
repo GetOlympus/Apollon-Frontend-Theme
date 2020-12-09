@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Image template
+ * Image page template
  *
- * @package ApollonFrontendTheme
- * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 0.0.1
+ * @package    ApollonFrontendTheme
+ * @author     Achraf Chouk <achrafchouk@gmail.com>
+ * @since      0.0.1
  */
 
 if (!defined('ABSPATH')) {
@@ -13,55 +13,68 @@ if (!defined('ABSPATH')) {
 }
 
 the_post();
-//$_post = include OL_APOLLON_VIEWSPATH.'loops'.S.'formats'.S.'_format.php';
+
+
+/**
+ * Override image page vars.
+ *
+ * @return array
+ */
+$_page = apply_filters('ol.apollon.page_image_vars', []);
 
 // Details
-$_post['parent'] = [
+$_page['parent'] = [
     'link'  => get_permalink($post->post_parent),
     'title' => get_the_title($post->post_parent),
 ];
-$_post['image'] = wp_get_attachment_image($_post['id'], 'original', false, [
-    'alt'       => $_post['esc_title'],
+$_page['image'] = wp_get_attachment_image(get_the_ID(), 'full', false, [
+    'alt'       => esc_html($_page['parent']['title']),
     'itemprop'  => 'contentURL',
     'class'     => 'img-fluid',
 ]);
 
-// Extract image src attribute
-preg_match('/src="([^"]*)"/i', $_post['image'], $img);
-$_post['src'] = !empty($img) ? $img[1] : '';
 
-get_header() ?>
+/**
+ * Fires before displaying image page.
+ *
+ * @param  array   $_page
+ */
+do_action('ol.apollon.page_image_before', $_page);
 
-    <?php echo getJsonLD($_post, 'image') ?>
+get_header();
 
-    <article class="p-post p-image ui computer centered grid" role="article">
-        <header class="p-header">
-            <?php edit_post_link(__('Edit'), '', '') ?>
-            <h1 class="p-title header"><?php echo $_post['title'] ?></h1>
-            <?php //echo getAuthor($_post['author'], $_post['date']) ?>
-        </header>
+?>
 
-        <figure class="p-thumbnail ui image" role="img">
-            <?php echo $_post['image'] ?>
+<!-- container -->
+<section class="uk-section uk-section-default" uk-height-viewport="expand: true">
+    <div class="uk-container">
+        <h1 class="uk-h3 uk-text-center">
+            <?php echo $_page['parent']['title'] ?>
+        </h1>
+
+        <figure class="uk-text-center" role="img">
+            <?php echo $_page['image'] ?>
         </figure>
 
-        <aside id="rs" class="p-social extra content">
-            <?php echo getSocialButtons($_post['esc_title'], $_post['esc_link'], $_post['src']) ?>
-        </aside>
-
-        <main class="p-content">
+        <div class="uk-text-center">
             <?php echo sprintf(
-                '<a href="%s" title="%s" class="huge fluid basic ui left labeled icon button">%s</a>',
-                $_post['parent']['link'],
-                esc_html($_post['parent']['title']),
-                '<i class="left arrow icon"></i>'.$_post['parent']['title']
+                '<a href="%s" title="%s" class="uk-button">%s</a>',
+                $_page['parent']['link'],
+                esc_html($_page['parent']['title']),
+                '<span uk-icon="arrow-left"></span> '.$_page['parent']['title']
             ) ?>
-        </main>
-
-        <footer class="p-footer extra content">
-            <?php echo getBreadcrumb() ?>
-        </footer>
-    </article>
+        </div>
+    </div>
+</section>
 
 <?php
+
 get_footer();
+
+
+/**
+ * Fires after displaying image page.
+ *
+ * @param  array   $_page
+ */
+do_action('ol.apollon.page_image_after', $_page);
