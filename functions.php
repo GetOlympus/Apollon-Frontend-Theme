@@ -56,10 +56,12 @@ if (!defined('ABSPATH')) {
 
 // Directory separator
 defined('S')          or define('S', DIRECTORY_SEPARATOR);
-// Current path
-defined('DIRPATH')    or define('DIRPATH', rtrim(realpath(dirname(__FILE__)), S).S);
+// Root path ~ Define theme root path
+defined('ROOTPATH')   or define('ROOTPATH', rtrim(realpath(dirname(__FILE__)), S).S);
+// Cache path ~ Only needed this if Olympus is not used
+defined('CACHEPATH')  or define('CACHEPATH', ROOTPATH.'cache'.S);
 // Vendor path ~ Only needed this if Olympus is not used
-defined('VENDORPATH') or define('VENDORPATH', realpath(dirname(__DIR__)).S.'vendor'.S);
+defined('VENDORPATH') or define('VENDORPATH', ROOTPATH.'vendor'.S);
 
 
 /**
@@ -74,9 +76,9 @@ define('OL_APOLLON_DICTIONARY', 'olympus-apollon');
 // Customizer preview mode
 define('OL_APOLLON_ISCUSTOMIZER', is_customize_preview());
 // Resources path
-define('OL_APOLLON_RESOURCESPATH', DIRPATH.'resources'.S);
+define('OL_APOLLON_RESOURCESPATH', ROOTPATH.'resources'.S);
 // Sources path
-define('OL_APOLLON_SRCPATH', DIRPATH.'src'.S);
+define('OL_APOLLON_SRCPATH', ROOTPATH.'src'.S);
 
 
 /**
@@ -132,8 +134,7 @@ if (!class_exists('ApollonFrontendTheme')) {
         ];
 
         protected $translations = [
-            //'olympus-apollon'  => DIRPATH.'languages',
-            OL_APOLLON_DICTIONARY => DIRPATH.'languages',
+            OL_APOLLON_DICTIONARY => ROOTPATH.'languages',
         ];
 
         /**
@@ -160,8 +161,7 @@ if (!class_exists('ApollonFrontendTheme')) {
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'header.php';
 
             // Include LAYOUTS hooks
-            include_once OL_APOLLON_SRCPATH.'hooks'.S.'formats.php';
-            include_once OL_APOLLON_SRCPATH.'hooks'.S.'singles.php';
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'posttypes.php';
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'sidebars.php';
 
             // Include FOOTER hooks
