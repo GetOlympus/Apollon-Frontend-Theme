@@ -12,8 +12,6 @@ if (!isset($_format)) {
     die('You are not authorized to directly access to this page');
 }
 
-the_post();
-
 // Content starts
 $_format = array_merge([
     'contents' => [],

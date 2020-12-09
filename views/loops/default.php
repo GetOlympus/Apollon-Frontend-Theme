@@ -45,13 +45,17 @@ get_header();
 
 <?php if (!empty($_loop['title'])) : ?>
     <!-- title -->
-    <h3 class="uk-margin-remove uk-text-center">
-        <?php if (!empty($_loop['meta'])) : ?>
-            <?php echo $_loop['meta'] ?>
-        <?php endif ?>
+    <header class="uk-section uk-section-default uk-padding-remove-bottom" uk-height-viewport="expand: true">
+        <div class="uk-container">
+            <h3 class="uk-h2 uk-text-center">
+                <?php if (!empty($_loop['meta'])) : ?>
+                    <?php echo $_loop['meta'] ?>
+                <?php endif ?>
 
-        <?php echo $_loop['title'] ?>
-    </h3>
+                <?php echo $_loop['title'] ?>
+            </h3>
+        </div>
+    </header>
 <?php endif ?>
 
 <!-- container -->
