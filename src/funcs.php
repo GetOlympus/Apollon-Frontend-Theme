@@ -21,11 +21,17 @@ if (!function_exists('apollonGetDefault')) {
     {
         global $apollon_defaults;
 
+        // Special layout case
+        if ('layout_' === substr($option, 0, 7)) {
+            $type = explode('_', $option);
+            $option = 'layout_default_'.$type[2];
+        }
+
         if (empty($option)) {
             return '';
         }
 
-        return isset($apollon_defaults[$option]) ? $apollon_defaults[$option] : $option;
+        return isset($apollon_defaults[$option]) ? $apollon_defaults[$option] : null;
     }
 }
 
@@ -81,44 +87,57 @@ if (!function_exists('apollonGetPart')) {
          * @return array
          */
         $files = apply_filters('ol.apollon.build_getpart_files', [
+            // Loops
+            'archive.php'     => 'loops'.S.'archive',
+            'author.php'      => 'loops'.S.'author',
+            'category.php'    => 'loops'.S.'category',
+            'date.php'        => 'loops'.S.'date',
+            'index.php'       => 'loops'.S.'index',
+            'search.php'      => 'loops'.S.'search',
+            'tag.php'         => 'loops'.S.'tag',
+            'taxonomy.php'    => 'loops'.S.'taxonomy',
+
             // Pages
-            'single.php'      => 'pages'.S.'_custom-single',
+            'page.php'        => 'pages'.S.'page',
             '404.php'         => 'pages'.S.'404',
             'image.php'       => 'pages'.S.'image',
-            'page.php'        => 'pages'.S.'page',
-            'single-post.php' => 'pages'.S.'single-post',
 
-            // Archives
-            'archive.php'     => 'archives'.S.'_custom-archive',
-            'author.php'      => 'archives'.S.'author',
-            'category.php'    => 'archives'.S.'category',
-            'date.php'        => 'archives'.S.'date',
-            'index.php'       => 'archives'.S.'index',
-            'search.php'      => 'archives'.S.'search',
-            'tag.php'         => 'archives'.S.'tag',
-            'taxonomy.php'    => 'archives'.S.'taxonomy',
+            // Front page special case
+            'front-page.php'  => ('page' === $show_on_front ? 'pages' : 'loops').S.'front-page',
 
-            // Parts
-            '404-part.php'    => 'parts'.S.'404',
+            // Parts ~ WordPress & Apollon cases
+            'adblocker.php'   => 'parts'.S.'adblocker',
+            'ads.php'         => 'parts'.S.'ads',
+            'backtotop.php'   => 'parts'.S.'backtotop',
             'comments.php'    => 'parts'.S.'comments',
             'footer.php'      => 'parts'.S.'footer',
             'header.php'      => 'parts'.S.'header',
+            'post.php'        => 'parts'.S.'post',
             'searchform.php'  => 'parts'.S.'searchform',
             'sidebar.php'     => 'parts'.S.'sidebar',
-
-            // Front page special case
-            'front-page.php'  => ('page' === $show_on_front ? 'pages' : 'archives').S.'front-page',
-
-            // Apollon special cases
+            // ~
+            'block.php'       => 'parts'.S.'block',
             'format.php'      => 'parts'.S.'format',
+            'element.php'     => 'parts'.S.'element',
             'logo.php'        => 'parts'.S.'logo',
             'menu.php'        => 'parts'.S.'menu',
             'pagination.php'  => 'parts'.S.'pagination',
+            'widget.php'      => 'parts'.S.'widget',
+
+            // Singles
+            'single.php'      => 'singles'.S.'default',
+            'single-post.php' => 'singles'.S.'post',
         ]);
 
         // Build template
-        $_tpl = !array_key_exists($file, $files) ? $files['404.php'] : $files[$file];
-        $_tpl = 'views'.S.$_tpl;
+        if (!array_key_exists($file, $files)) {
+            throw new \Exception(sprintf(
+                __('apollon.errors.requested_part_does_not_exist', OL_APOLLON_DICTIONARY),
+                $file
+            ));
+        }
+
+        $_tpl = 'views'.S.$files[$file];
 
 
         /**
