@@ -154,12 +154,24 @@ return [
                         'type'        => 'select',
                         'choices'     => [
                             'default'  => __('apollon._.default', OL_APOLLON_DICTIONARY),
+                            'overlay'     => __(
+                                'apollon.ct.features.searchform.layout.headerlayout.overlay',
+                                OL_APOLLON_DICTIONARY
+                            ),
                             'drop'     => __(
                                 'apollon.ct.features.searchform.layout.headerlayout.drop',
                                 OL_APOLLON_DICTIONARY
                             ),
                             'dropdown' => __(
                                 'apollon.ct.features.searchform.layout.headerlayout.dropdown',
+                                OL_APOLLON_DICTIONARY
+                            ),
+                            'justify' => __(
+                                'apollon.ct.features.searchform.layout.headerlayout.justify',
+                                OL_APOLLON_DICTIONARY
+                            ),
+                            'dropbar' => __(
+                                'apollon.ct.features.searchform.layout.headerlayout.dropbar',
                                 OL_APOLLON_DICTIONARY
                             ),
                             'modal'    => __(
@@ -170,6 +182,34 @@ return [
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('searchform_headerlayout'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
+                            ]
+                        ],
+                    ],
+                    'searchform_dropbar' => [
+                        'label'       => __(
+                            'apollon.ct.features.searchform.layout.dropbar.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.features.searchform.layout.dropbar.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'select',
+                        'choices'     => [
+                            'slide' => __(
+                                'apollon.ct.features.searchform.layout.dropbar.slide',
+                                OL_APOLLON_DICTIONARY
+                            ),
+                            'push'  => __(
+                                'apollon.ct.features.searchform.layout.dropbar.push',
+                                OL_APOLLON_DICTIONARY
+                            ),
+                        ],
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('searchform_dropbar'),
                                 'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
                             ]
                         ],
@@ -259,15 +299,7 @@ return [
                         ],
                     ],
 
-                    'sidebar_layout' => array_merge($this->contents['control_title'], [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.layout.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                    ]),
-
-                    'sidebar_1' => array_merge($this->contents['control_subtitle'], [
+                    'sidebar_1' => array_merge($this->contents['control_title'], [
                         'label'       => __(
                             'apollon.ct.features.sidebar.layout1.title',
                             OL_APOLLON_DICTIONARY
@@ -322,11 +354,18 @@ return [
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
-                            '1-6' => __('apollon._.1-6', OL_APOLLON_DICTIONARY),
-                            '1-5' => __('apollon._.1-5', OL_APOLLON_DICTIONARY),
-                            '1-4' => __('apollon._.1-4', OL_APOLLON_DICTIONARY),
-                            '1-3' => __('apollon._.1-3', OL_APOLLON_DICTIONARY),
-                            '1-2' => __('apollon._.1-2', OL_APOLLON_DICTIONARY),
+                            '1-6'    => __('apollon._.1-6', OL_APOLLON_DICTIONARY),
+                            '1-5'    => __('apollon._.1-5', OL_APOLLON_DICTIONARY),
+                            '1-4'    => __('apollon._.1-4', OL_APOLLON_DICTIONARY),
+                            '1-3'    => __('apollon._.1-3', OL_APOLLON_DICTIONARY),
+                            '2-5'    => __('apollon._.2-5', OL_APOLLON_DICTIONARY),
+                            '1-2'    => __('apollon._.1-2', OL_APOLLON_DICTIONARY),
+                            '3-5'    => __('apollon._.3-5', OL_APOLLON_DICTIONARY),
+                            '2-3'    => __('apollon._.2-3', OL_APOLLON_DICTIONARY),
+                            '3-4'    => __('apollon._.3-4', OL_APOLLON_DICTIONARY),
+                            '4-5'    => __('apollon._.4-5', OL_APOLLON_DICTIONARY),
+                            '5-6'    => __('apollon._.5-6', OL_APOLLON_DICTIONARY),
+                            '1-1'    => __('apollon._.1-1', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
                             [
@@ -347,10 +386,10 @@ return [
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
-                            'none'      => __('apollon._.none', OL_APOLLON_DICTIONARY),
-                            'primary'   => __('apollon._.primary', OL_APOLLON_DICTIONARY),
-                            'secondary' => __('apollon._.secondary', OL_APOLLON_DICTIONARY),
-                            'muted'     => __('apollon._.muted', OL_APOLLON_DICTIONARY),
+                            'transparent' => __('apollon._.none', OL_APOLLON_DICTIONARY),
+                            'primary'     => __('apollon._.primary', OL_APOLLON_DICTIONARY),
+                            'secondary'   => __('apollon._.secondary', OL_APOLLON_DICTIONARY),
+                            'muted'       => __('apollon._.muted', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
                             [
@@ -360,7 +399,7 @@ return [
                         ],
                     ],
 
-                    'sidebar_2' => array_merge($this->contents['control_subtitle'], [
+                    'sidebar_2' => array_merge($this->contents['control_title'], [
                         'label'       => __(
                             'apollon.ct.features.sidebar.layout2.title',
                             OL_APOLLON_DICTIONARY
@@ -415,11 +454,18 @@ return [
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
-                            '1-6' => __('apollon._.1-6', OL_APOLLON_DICTIONARY),
-                            '1-5' => __('apollon._.1-5', OL_APOLLON_DICTIONARY),
-                            '1-4' => __('apollon._.1-4', OL_APOLLON_DICTIONARY),
-                            '1-3' => __('apollon._.1-3', OL_APOLLON_DICTIONARY),
-                            '1-2' => __('apollon._.1-2', OL_APOLLON_DICTIONARY),
+                            '1-6'    => __('apollon._.1-6', OL_APOLLON_DICTIONARY),
+                            '1-5'    => __('apollon._.1-5', OL_APOLLON_DICTIONARY),
+                            '1-4'    => __('apollon._.1-4', OL_APOLLON_DICTIONARY),
+                            '1-3'    => __('apollon._.1-3', OL_APOLLON_DICTIONARY),
+                            '2-5'    => __('apollon._.2-5', OL_APOLLON_DICTIONARY),
+                            '1-2'    => __('apollon._.1-2', OL_APOLLON_DICTIONARY),
+                            '3-5'    => __('apollon._.3-5', OL_APOLLON_DICTIONARY),
+                            '2-3'    => __('apollon._.2-3', OL_APOLLON_DICTIONARY),
+                            '3-4'    => __('apollon._.3-4', OL_APOLLON_DICTIONARY),
+                            '4-5'    => __('apollon._.4-5', OL_APOLLON_DICTIONARY),
+                            '5-6'    => __('apollon._.5-6', OL_APOLLON_DICTIONARY),
+                            '1-1'    => __('apollon._.1-1', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
                             [
@@ -440,297 +486,15 @@ return [
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
-                            'none'      => __('apollon._.none', OL_APOLLON_DICTIONARY),
-                            'primary'   => __('apollon._.primary', OL_APOLLON_DICTIONARY),
-                            'secondary' => __('apollon._.secondary', OL_APOLLON_DICTIONARY),
-                            'muted'     => __('apollon._.muted', OL_APOLLON_DICTIONARY),
+                            'transparent' => __('apollon._.none', OL_APOLLON_DICTIONARY),
+                            'primary'     => __('apollon._.primary', OL_APOLLON_DICTIONARY),
+                            'secondary'   => __('apollon._.secondary', OL_APOLLON_DICTIONARY),
+                            'muted'       => __('apollon._.muted', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('sidebar_2_background'),
                                 'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                            ]
-                        ],
-                    ],
-
-                    'sidebar_display' => array_merge($this->contents['control_title'], [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.display.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                    ]),
-
-                    'sidebar_default' => array_merge($this->contents['control_subtitle'], [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.default.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                    ]),
-                    'sidebar_default_display' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.default.display.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.default.display.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'radio',
-                        'choices'     => [
-                            'none'     => __('apollon._.none', OL_APOLLON_DICTIONARY),
-                            'sidebar1' => __('apollon._.sidebar1', OL_APOLLON_DICTIONARY),
-                            'sidebar2' => __('apollon._.sidebar2', OL_APOLLON_DICTIONARY),
-                            'both'     => __('apollon._.both', OL_APOLLON_DICTIONARY),
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_default_display'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                            ]
-                        ],
-                    ],
-                    'sidebar_default_order' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.default.order.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.default.order.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'radio',
-                        'choices'     => [
-                            'left'   => __('apollon._.leftside', OL_APOLLON_DICTIONARY),
-                            'center' => __('apollon._.centerside', OL_APOLLON_DICTIONARY),
-                            'right'  => __('apollon._.rightside', OL_APOLLON_DICTIONARY),
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_default_order'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                            ]
-                        ],
-                    ],
-
-                    'sidebar_blog' => array_merge($this->contents['control_subtitle'], [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.blog.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                    ]),
-                    'sidebar_blog_display' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.blog.display.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.blog.display.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'radio',
-                        'choices'     => [
-                            'none'     => __('apollon._.none', OL_APOLLON_DICTIONARY),
-                            'sidebar1' => __('apollon._.sidebar1', OL_APOLLON_DICTIONARY),
-                            'sidebar2' => __('apollon._.sidebar2', OL_APOLLON_DICTIONARY),
-                            'both'     => __('apollon._.both', OL_APOLLON_DICTIONARY),
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_blog_display'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                            ]
-                        ],
-                    ],
-                    'sidebar_blog_order' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.blog.order.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.blog.order.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'radio',
-                        'choices'     => [
-                            'left'   => __('apollon._.leftside', OL_APOLLON_DICTIONARY),
-                            'center' => __('apollon._.centerside', OL_APOLLON_DICTIONARY),
-                            'right'  => __('apollon._.rightside', OL_APOLLON_DICTIONARY),
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_blog_order'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                            ]
-                        ],
-                    ],
-                    'sidebar_blog_content' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.blog.content.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.blog.content.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'checkbox',
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_blog_content'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                            ]
-                        ],
-                    ],
-
-                    'sidebar_archive' => array_merge($this->contents['control_subtitle'], [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.archive.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                    ]),
-                    'sidebar_archive_display' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.archive.display.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.archive.display.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'radio',
-                        'choices'     => [
-                            'none'     => __('apollon._.none', OL_APOLLON_DICTIONARY),
-                            'sidebar1' => __('apollon._.sidebar1', OL_APOLLON_DICTIONARY),
-                            'sidebar2' => __('apollon._.sidebar2', OL_APOLLON_DICTIONARY),
-                            'both'     => __('apollon._.both', OL_APOLLON_DICTIONARY),
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_archive_display'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                            ]
-                        ],
-                    ],
-                    'sidebar_archive_order' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.archive.order.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.archive.order.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'radio',
-                        'choices'     => [
-                            'left'   => __('apollon._.leftside', OL_APOLLON_DICTIONARY),
-                            'center' => __('apollon._.centerside', OL_APOLLON_DICTIONARY),
-                            'right'  => __('apollon._.rightside', OL_APOLLON_DICTIONARY),
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_archive_order'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                            ]
-                        ],
-                    ],
-                    'sidebar_archive_content' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.archive.content.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.archive.content.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'checkbox',
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_archive_content'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                            ]
-                        ],
-                    ],
-
-                    'sidebar_search' => array_merge($this->contents['control_subtitle'], [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.search.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                    ]),
-                    'sidebar_search_display' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.search.display.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.search.display.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'radio',
-                        'choices'     => [
-                            'none'     => __('apollon._.none', OL_APOLLON_DICTIONARY),
-                            'sidebar1' => __('apollon._.sidebar1', OL_APOLLON_DICTIONARY),
-                            'sidebar2' => __('apollon._.sidebar2', OL_APOLLON_DICTIONARY),
-                            'both'     => __('apollon._.both', OL_APOLLON_DICTIONARY),
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_search_display'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                            ]
-                        ],
-                    ],
-                    'sidebar_search_order' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.search.order.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.search.order.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'radio',
-                        'choices'     => [
-                            'left'   => __('apollon._.leftside', OL_APOLLON_DICTIONARY),
-                            'center' => __('apollon._.centerside', OL_APOLLON_DICTIONARY),
-                            'right'  => __('apollon._.rightside', OL_APOLLON_DICTIONARY),
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_search_order'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                            ]
-                        ],
-                    ],
-                    'sidebar_search_content' => [
-                        'label'       => __(
-                            'apollon.ct.features.sidebar.search.content.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.sidebar.search.content.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'checkbox',
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('sidebar_search_content'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
                             ]
                         ],
                     ],
@@ -863,7 +627,7 @@ return [
                         'choices'     => [
                             'default'  => __('apollon._.default', OL_APOLLON_DICTIONARY),
                             'facebook' => __(
-                                'apollon.ct.features.comments.layout.listyout.facebook',
+                                'apollon.ct.features.comments.layout._.facebook',
                                 OL_APOLLON_DICTIONARY
                             ),
                         ],
@@ -888,7 +652,7 @@ return [
                         'choices'     => [
                             'default'  => __('apollon._.default', OL_APOLLON_DICTIONARY),
                             'facebook' => __(
-                                'apollon.ct.features.comments.layout.formlayout.facebook',
+                                'apollon.ct.features.comments.layout._.facebook',
                                 OL_APOLLON_DICTIONARY
                             ),
                         ],
@@ -947,12 +711,12 @@ return [
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
-                            'bottom' => __(
-                                'apollon.ct.features.comments.layout.formposition.bottom',
-                                OL_APOLLON_DICTIONARY
-                            ),
                             'top'    => __(
                                 'apollon.ct.features.comments.layout.formposition.top',
+                                OL_APOLLON_DICTIONARY
+                            ),
+                            'bottom' => __(
+                                'apollon.ct.features.comments.layout.formposition.bottom',
                                 OL_APOLLON_DICTIONARY
                             ),
                         ],
@@ -975,8 +739,14 @@ return [
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
-                            'bottom' => __('apollon._.bottom', OL_APOLLON_DICTIONARY),
-                            'top'    => __('apollon._.top', OL_APOLLON_DICTIONARY),
+                            'top'    => __(
+                                'apollon.ct.features.comments.layout.navsposition.top',
+                                OL_APOLLON_DICTIONARY
+                            ),
+                            'bottom' => __(
+                                'apollon.ct.features.comments.layout.navsposition.bottom',
+                                OL_APOLLON_DICTIONARY
+                            ),
                         ],
                         'settings'    => [
                             [
@@ -1097,26 +867,25 @@ return [
                         ),
                         'priority'    => ++$priority,
                     ]),
-                    'backtotop_bottom' => [
+                    'backtotop_margin' => [
                         'label'       => __(
-                            'apollon.ct.features.backtotop.layout.bottom.title',
+                            'apollon.ct.features.backtotop.layout.margin.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.features.backtotop.layout.bottom.desc',
+                            'apollon.ct.features.backtotop.layout.margin.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
-                        'type'        => 'number',
-                        'input_attrs' => [
-                            'min'  => 0,
-                            'max'  => 200,
-                            'step' => 1,
+                        'type'        => 'select',
+                        'choices'     => [
+                            'small' => __('apollon._.small', OL_APOLLON_DICTIONARY),
+                            'large' => __('apollon._.large', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
                             [
-                                'default'           => apollonGetDefault('backtotop_bottom'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
+                                'default'           => apollonGetDefault('backtotop_margin'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
                             ]
                         ],
                     ],
@@ -1132,8 +901,9 @@ return [
                         'priority'    => ++$priority,
                         'type'        => 'select',
                         'choices'     => [
-                            'left'  => __('apollon._.left', OL_APOLLON_DICTIONARY),
-                            'right' => __('apollon._.right', OL_APOLLON_DICTIONARY),
+                            'left'   => __('apollon._.left', OL_APOLLON_DICTIONARY),
+                            'center' => __('apollon._.center', OL_APOLLON_DICTIONARY),
+                            'right'  => __('apollon._.right', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
                             [
@@ -1142,80 +912,31 @@ return [
                             ]
                         ],
                     ],
-                    'backtotop_width' => [
+                    'backtotop_style' => [
                         'label'       => __(
-                            'apollon.ct.features.backtotop.layout.width.title',
+                            'apollon.ct.features.backtotop.layout.style.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.features.backtotop.layout.width.desc',
+                            'apollon.ct.features.backtotop.layout.style.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
-                        'type'        => 'number',
-                        'input_attrs' => [
-                            'min'  => 0,
-                            'max'  => 200,
-                            'step' => 1,
+                        'type'        => 'select',
+                        'choices'     => [
+                            'default'   => __('apollon._.default', OL_APOLLON_DICTIONARY),
+                            'muted'     => __('apollon._.muted', OL_APOLLON_DICTIONARY),
+                            'secondary' => __('apollon._.secondary', OL_APOLLON_DICTIONARY),
+                            'primary'   => __('apollon._.primary', OL_APOLLON_DICTIONARY),
+                            'link'      => __('apollon._.link', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
                             [
-                                'default'           => apollonGetDefault('backtotop_width'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
+                                'default'           => apollonGetDefault('backtotop_style'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
                             ]
                         ],
                     ],
-                    'backtotop_fontsize' => [
-                        'label'       => __(
-                            'apollon.ct.features.backtotop.layout.fontsize.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.backtotop.layout.fontsize.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'number',
-                        'input_attrs' => [
-                            'min'  => 10,
-                            'max'  => 70,
-                            'step' => 1,
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('backtotop_fontsize'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
-                            ]
-                        ],
-                    ],
-                    'backtotop_borderradius' => [
-                        'label'       => __(
-                            'apollon.ct.features.backtotop.layout.borderradius.title',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'description' => __(
-                            'apollon.ct.features.backtotop.layout.borderradius.desc',
-                            OL_APOLLON_DICTIONARY
-                        ),
-                        'priority'    => ++$priority,
-                        'type'        => 'number',
-                        'input_attrs' => [
-                            'min'  => 0,
-                            'max'  => 100,
-                            'step' => 1,
-                        ],
-                        'settings'    => [
-                            [
-                                'default'           => apollonGetDefault('backtotop_borderradius'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
-                            ]
-                        ],
-                    ],
-
-                    // COLORS ??
-                    /**
-                     * @todo
-                     */
                 ],
             ],
 
@@ -1251,20 +972,20 @@ return [
                         ),
                         'priority'    => ++$priority,
                     ]),
-                    'pagination_label' => [
+                    'pagination_first' => [
                         'label'       => __(
-                            'apollon.ct.features.pagination.optimisation.label.title',
+                            'apollon.ct.features.pagination.optimisation.first.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.features.pagination.optimisation.label.desc',
+                            'apollon.ct.features.pagination.optimisation.first.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
                             [
-                                'default'           => apollonGetDefault('pagination_label'),
+                                'default'           => apollonGetDefault('pagination_first'),
                                 'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
                             ]
                         ],
@@ -1279,17 +1000,11 @@ return [
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
-                        'type'        => 'text',
-                        'input_attrs' => [
-                            'placeholder' => __(
-                                'apollon.ct.features.pagination.optimisation.previous.placeholder',
-                                OL_APOLLON_DICTIONARY
-                            ),
-                        ],
+                        'type'        => 'checkbox',
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('pagination_previous'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeHtml'],
+                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
                             ]
                         ],
                     ],
@@ -1303,17 +1018,47 @@ return [
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
-                        'type'        => 'text',
-                        'input_attrs' => [
-                            'placeholder' => __(
-                                'apollon.ct.features.pagination.optimisation.next.placeholder',
-                                OL_APOLLON_DICTIONARY
-                            ),
-                        ],
+                        'type'        => 'checkbox',
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('pagination_next'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeHtml'],
+                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
+                            ]
+                        ],
+                    ],
+                    'pagination_last' => [
+                        'label'       => __(
+                            'apollon.ct.features.pagination.optimisation.last.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.features.pagination.optimisation.last.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'checkbox',
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('pagination_last'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
+                            ]
+                        ],
+                    ],
+                    'pagination_icons' => [
+                        'label'       => __(
+                            'apollon.ct.features.pagination.optimisation.icons.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.features.pagination.optimisation.icons.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'checkbox',
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('pagination_icons'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
                             ]
                         ],
                     ],
@@ -1337,6 +1082,48 @@ return [
                             [
                                 'default'           => apollonGetDefault('pagination_range'),
                                 'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
+                            ]
+                        ],
+                    ],
+                    'pagination_separator' => [
+                        'label'       => __(
+                            'apollon.ct.features.pagination.optimisation.separator.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.features.pagination.optimisation.separator.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'text',
+                        'input_attrs' => [
+                            'placeholder' => __(
+                                'apollon.ct.features.pagination.optimisation.separator.placeholder',
+                                OL_APOLLON_DICTIONARY
+                            ),
+                        ],
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('pagination_separator'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeHtml'],
+                            ]
+                        ],
+                    ],
+                    'pagination_nums' => [
+                        'label'       => __(
+                            'apollon.ct.features.pagination.optimisation.nums.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.features.pagination.optimisation.nums.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'checkbox',
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('pagination_nums'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
                             ]
                         ],
                     ],
@@ -1396,11 +1183,36 @@ return [
                             'left'   => __('apollon._.left', OL_APOLLON_DICTIONARY),
                             'center' => __('apollon._.center', OL_APOLLON_DICTIONARY),
                             'right'  => __('apollon._.right', OL_APOLLON_DICTIONARY),
+                            'expand' => __('apollon._.expand', OL_APOLLON_DICTIONARY),
                         ],
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('pagination_position'),
                                 'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
+                            ]
+                        ],
+                    ],
+                    'pagination_title' => [
+                        'label'       => __(
+                            'apollon.ct.features.pagination.layout.title.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.features.pagination.layout.title.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'text',
+                        'input_attrs' => [
+                            'placeholder' => __(
+                                'apollon.ct.features.pagination.layout.title.placeholder',
+                                OL_APOLLON_DICTIONARY
+                            ),
+                        ],
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('pagination_title'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeText'],
                             ]
                         ],
                     ],

@@ -43,7 +43,7 @@ return [
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('css_location'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
+                                'sanitize_callback' => [$this, 'zeusSanitizeRadio'],
                             ],
                         ],
                     ],
@@ -179,6 +179,42 @@ return [
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('color_primary'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeColor'],
+                            ],
+                        ],
+                    ],
+                    'color_secondary' => [
+                        'label'       => __(
+                            'apollon.ct.general.color.main.secondary.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.main.secondary.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'color',
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('color_secondary'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeColor'],
+                            ],
+                        ],
+                    ],
+                    'color_muted' => [
+                        'label'       => __(
+                            'apollon.ct.general.color.main.muted.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.general.color.main.muted.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'color',
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('color_muted'),
                                 'sanitize_callback' => [$this, 'zeusSanitizeColor'],
                             ],
                         ],

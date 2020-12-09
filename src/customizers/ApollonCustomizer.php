@@ -45,17 +45,25 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
      */
     protected function setVars() : void
     {
-        // Define extra usefull ocntents
+        // Post types
         $this->contents['posttypes']      = get_post_types();
+        $this->contents['posttypes']      = array_diff($this->contents['posttypes'], [
+            'attachment', 'media', 'nav_menu_item', 'customize_changeset',
+            'revision', 'custom_css', 'oembed_cache', 'user_request', 'wp_block'
+        ]);
+        // Posts per page
         $this->contents['posts_per_page'] = get_option('posts_per_page');
+        // List all sidebars
         $this->contents['sidebars']       = $GLOBALS['wp_registered_sidebars'];
+        // Nav & section contents
         $this->contents['navs_contents']  = [
-            ''        => __('apollon._.contents.none', OL_APOLLON_DICTIONARY),
-            'logo'    => __('apollon._.contents.logo', OL_APOLLON_DICTIONARY),
-            'custom'  => __('apollon._.contents.custom', OL_APOLLON_DICTIONARY),
-            'menu'    => __('apollon._.contents.menu', OL_APOLLON_DICTIONARY),
-            'search'  => __('apollon._.contents.search', OL_APOLLON_DICTIONARY),
-            'sidebar' => __('apollon._.contents.sidebar', OL_APOLLON_DICTIONARY),
+            ''          => __('apollon._.contents.none', OL_APOLLON_DICTIONARY),
+            'logo'      => __('apollon._.contents.logo', OL_APOLLON_DICTIONARY),
+            'copyright' => __('apollon._.contents.copyright', OL_APOLLON_DICTIONARY),
+            'custom'    => __('apollon._.contents.custom', OL_APOLLON_DICTIONARY),
+            'menu'      => __('apollon._.contents.menu', OL_APOLLON_DICTIONARY),
+            'search'    => __('apollon._.contents.search', OL_APOLLON_DICTIONARY),
+            'sidebar'   => __('apollon._.contents.sidebar', OL_APOLLON_DICTIONARY),
         ];
 
         // Get PHPs
@@ -96,15 +104,16 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
         add_action('ol.zeus.customizerhook_register_after', function ($wp_customize, $customizer) {
             $hp = 'lt-homepage';
             $st = 'static_front_page';
+            $tt = 'title_tagline';
 
             // Move default homepage controls to Apollon
             $wp_customize->get_section($hp)->description = $wp_customize->get_section($st)->description;
-            $wp_customize->get_control('show_on_front')->section = 'lt-homepage';
+            $wp_customize->get_control('show_on_front')->section = $hp;
             $wp_customize->remove_section($st);
 
             // Add logo definition into title tagline section
-            $wp_customize->get_control('logos_default')->section = 'title_tagline';
-            $wp_customize->get_control('logos_retina')->section = 'title_tagline';
+            $wp_customize->get_control('logos_default')->section = $tt;
+            $wp_customize->get_control('logos_retina')->section = $tt;
         }, 10, 2);
     }
 
