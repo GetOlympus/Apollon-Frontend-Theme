@@ -18,6 +18,3 @@ $_loop = [
 
 // Include template
 include __DIR__.S.'default.php';
-
-// Freedom
-unset($_loop);

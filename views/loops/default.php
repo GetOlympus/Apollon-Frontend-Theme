@@ -173,3 +173,6 @@ get_footer();
  * @param  array   $_loop
  */
 do_action('ol.apollon.loop_default_after', $_loop);
+
+// Freedom
+unset($_loop);

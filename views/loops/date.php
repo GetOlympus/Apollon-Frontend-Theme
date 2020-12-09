@@ -32,6 +32,3 @@ if (is_day()) {
 
 // Include template
 include __DIR__.S.'default.php';
-
-// Freedom
-unset($_loop);
