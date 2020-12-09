@@ -12,9 +12,7 @@ if (!isset($_block)) {
     die('You are not authorized to directly access to this page');
 }
 
-if (!empty($_block['data']['readingtime'])) {
-    echo sprintf(
-        '%s',
-        $_block['data']['readingtime']
-    );
-}
+echo empty($_block['data']['readingtime']) ? '' : sprintf(
+    '%s',
+    $_block['data']['readingtime']
+);

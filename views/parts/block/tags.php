@@ -13,7 +13,7 @@ if (!isset($_block)) {
 }
 
 echo empty($_block['data']['tags']) ? '' : sprintf(
-    '<div class="%s"><p class="%s">%s</p></div>',
+    '<footer class="%s"><p class="%s">%s</p></footer>',
     'uk-grid-margin uk-container uk-container-xsmall',
     'uk-text-center uk-text-small'.(empty($_block['css']) ? '' : ' '.$_block['css']),
     $_block['data']['tags']

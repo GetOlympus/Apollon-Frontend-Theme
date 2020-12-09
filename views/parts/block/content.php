@@ -13,11 +13,11 @@ if (!isset($_block)) {
 }
 
 echo sprintf(
-    '<div class="%s"><div class="%s">',
+    '<main class="%s"><div class="%s">',
     'uk-grid-margin uk-container uk-container-xsmall',
     'uk-panel'.(empty($_block['css']) ? '' : ' '.$_block['css'])
 );
 
-the_content();
+the_content($_block['data']['id']);
 
-echo '</div></div>';
+echo '</div></main>';

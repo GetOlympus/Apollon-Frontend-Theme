@@ -13,7 +13,7 @@ if (!isset($_block)) {
 }
 
 echo sprintf(
-    '<div class="%s"><div class="%s">',
+    '<aside class="%s"><div class="%s">',
     'uk-grid-margin uk-container uk-container-xsmall',
     'uk-panel comments'.(empty($_block['css']) ? '' : ' '.$_block['css'])
 );
@@ -22,4 +22,4 @@ apollonGetPart('comments.php', [
     'data' => $_block['data'],
 ]);
 
-echo '</div></div>';
+echo '</div></aside>';

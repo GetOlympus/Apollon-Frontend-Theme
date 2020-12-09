@@ -12,7 +12,7 @@ if (!isset($_block)) {
     die('You are not authorized to directly access to this page');
 }
 
-echo sprintf(
+echo empty($_block['data']['excerpt']) ? '' : sprintf(
     '<div class="%s"><div class="%s">%s</div></div>',
     'uk-grid-margin uk-container uk-container-xsmall',
     'uk-panel'.(empty($_block['css']) ? '' : ' '.$_block['css']),
