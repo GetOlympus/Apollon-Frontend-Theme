@@ -12,56 +12,29 @@ if (!isset($_searchform)) {
     die('You are not authorized to directly access to this page');
 }
 
-// Content starts
-$_searchform['html'] = [
-    'attrs' => [
-        'form'  => sprintf(
-            'action="%s" class="%s"',
-            $_searchform['args']['action'],
-            'uk-search uk-search-navbar uk-width-1-1 '.$_searchform['args']['formcss']
-        ),
-        'input' => sprintf(
-            'type="%s" name="%s" class="%s" placeholder="%s" %s',
-            'search',
-            's',
-            'uk-search-input '.$_searchform['args']['inputcss'],
-            $_searchform['args']['placeholder'],
-            'value="'.get_search_query().'"'
-        ),
-    ],
-    'icon'  => '<a href="#" class="uk-navbar-toggle" uk-search-icon></a>',
-];
+// Build args
+$a = $_searchform['options'];
+$a['inputcss'] = 'uk-search-input '.$a['inputcss'];
 
-$_searchform['html']['form'] = sprintf(
-    '<form %s><input %s/></form>',
-    $_searchform['html']['attrs']['form'],
-    $_searchform['html']['attrs']['input']
-);
+// Build search query
+$s = get_search_query();
 
+// Build content
+$_searchform['content'] = <<<html
+<div class="uk-navbar-item {$a['navbarcss']}">
+    <a href="#" class="uk-navbar-toggle" uk-search-icon></a>
 
-/**
- * Fires before displaying drop searchform.
- *
- * @param  array   $_searchform
- */
-do_action('ol.apollon.searchform_part_drop_before', $_searchform);
-
-?>
-
-<div class="uk-navbar-item <?php echo $_searchform['args']['navbarcss'] ?>">
-    <?php echo $_searchform['html']['icon'] ?>
-
-    <div class="uk-drop" uk-drop="mode:click; pos:left-center; offset:0">
-        <?php echo $_searchform['html']['form'] ?>
+    <div class="uk-drop" uk-drop="mode:click;pos:left-center;offset:0">
+        <form action="{$a['action']}" class="uk-search uk-search-navbar uk-width-1-1 {$a['formcss']}">
+            <input type="search" name="s" class="{$a['inputcss']}" placeholder="{$a['placeholder']}" value="$s"/>
+        </form>
     </div>
 </div>
+html;
 
-<?php
+// Freedom
+unset($a);
+unset($s);
 
-
-/**
- * Fires after displaying drop searchform.
- *
- * @param  array   $_searchform
- */
-do_action('ol.apollon.searchform_part_drop_after', $_searchform);
+// Include template
+include __DIR__.S.'default.php';

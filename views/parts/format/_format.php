@@ -12,28 +12,27 @@ if (!isset($_format)) {
     die('You are not authorized to directly access to this page');
 }
 
-// Include functions
-include __DIR__.S.'_function.php';
-
 the_post();
 
 // Content starts
 $_format = array_merge([
-    'template' => 'post', //'template' => get_post_type() ?: 'post',
+    'contents' => [],
+    'data'     => [],
+    'template' => 'default',
 ], $_format);
 
 
 /**
- * Override available format templates.
+ * Override available posttypes format.
  *
  * @return array
  */
 $_format['available'] = apply_filters('ol.apollon.format_available_files', [
-    'post'
+    'default', 'cover', 'horizontal', 'text', 'vertical'
 ]);
 
 if (empty($_format['template']) || !in_array($_format['template'], $_format['available'])) {
-    return;
+    $_format['template'] = $_format['available'][0];
 }
 
 $_format['filename'] = $_format['template'].'.php';

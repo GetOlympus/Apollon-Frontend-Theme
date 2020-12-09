@@ -30,11 +30,6 @@ $_adblocker = array_merge([
     'register'   => 0,
     'template'   => 'default',
 ], $_adblocker);
-/*
-    'content'    => get_option('adblock_content', []),
-    'register'   => get_option('adblock_register', 0),
-    'connection' => get_option('adblock_connection', 0),
-*/
 
 
 /**
@@ -47,7 +42,7 @@ $_adblocker['available'] = apply_filters('ol.apollon.adblocker_available_files',
 ]);
 
 if (empty($_adblocker['template']) || !in_array($_adblocker['template'], $_adblocker['available'])) {
-    return;
+    $_adblocker['template'] = $_adblocker['available'][0];
 }
 
 $_adblocker['filename'] = $_adblocker['template'].'.php';

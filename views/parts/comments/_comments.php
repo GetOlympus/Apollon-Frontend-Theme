@@ -28,14 +28,40 @@ if (!apply_filters('ol.apollon.comments_start', false) || post_password_required
 include __DIR__.S.'_function.php';
 
 
+// Content starts
+$_comments = array_merge([
+    'available' => [],
+    'data'      => [],
+    'labels'    => [],
+    'options'   => [],
+], $_comments);
+
+
 /**
- * Override comments default contents.
- *
- * @param  array   $contents
+ * Override default comments labels.
  *
  * @return array
  */
-$_comments = array_merge(apply_filters('ol.apollon.comments_default_contents', []), $_comments);
+$_comments['labels'] = apply_filters('ol.apollon.comments_labels', []);
+
+
+/**
+ * Override default comments options.
+ *
+ * @return array
+ */
+$_comments['options'] = apply_filters('ol.apollon.comments_options', array_merge([
+    'avatar'       => true,
+    'website'      => true,
+    'htmltags'     => false,
+    'header'       => true,
+    'formstacked'  => false,
+    'highlight'    => false,
+    'formposition' => 'bottom',
+    'navsposition' => 'bottom',
+    'formlayout'   => 'default',
+    'listlayout'   => 'default',
+], $_comments['options']));
 
 
 /**
@@ -47,12 +73,15 @@ $_comments['available'] = apply_filters('ol.apollon.comments_available_files', [
     'default', 'facebook'
 ]);
 
-// Check template availability
-if (empty($_comments['template']) || !in_array($_comments['template'], $_comments['available'])) {
-    return;
+// Override available form layout.
+if (!in_array($_comments['options']['formlayout'], $_comments['available'])) {
+    $_comments['options']['formlayout'] = $_comments['available'][0];
 }
 
-$_comments['filename'] = '_wrapper.php';
+// Override available list layout.
+if (!in_array($_comments['options']['listlayout'], $_comments['available'])) {
+    $_comments['options']['listlayout'] = $_comments['available'][0];
+}
 
 
 /**
@@ -71,7 +100,7 @@ $_comments = apply_filters('ol.apollon.comments_vars', $_comments);
 do_action('ol.apollon.comments_part_before', $_comments);
 
 // Include template
-include __DIR__.S.$_comments['filename'];
+include __DIR__.S.'wrapper.php';
 
 
 /**

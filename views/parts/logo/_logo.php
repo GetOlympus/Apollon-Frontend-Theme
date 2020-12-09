@@ -36,7 +36,7 @@ $_logo['available'] = apply_filters('ol.apollon.logo_available_files', [
 ]);
 
 if (empty($_logo['template']) || !in_array($_logo['template'], $_logo['available'])) {
-    return;
+    $_logo['template'] = $_logo['available'][0];
 }
 
 $_logo['filename'] = 'default.php';

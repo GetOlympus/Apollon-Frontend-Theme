@@ -45,7 +45,7 @@ if (empty($_ads['template']) || !in_array($_ads['template'], $_ads['available'])
     return;
 }
 
-$_ads['filename'] = '_default.php';
+$_ads['filename'] = 'default.php';
 
 
 /**
@@ -53,7 +53,7 @@ $_ads['filename'] = '_default.php';
  *
  * @return string
  */
-$_ads['code'] = apply_filters('ol.apollon.ads_'.$_ads['template'].'_option', get_option($_ads['template'], ''));
+$_ads['code'] = apply_filters('ol.apollon.ads_'.$_ads['template'].'_option', '');
 
 if (empty($_ads['code'])) {
     return;

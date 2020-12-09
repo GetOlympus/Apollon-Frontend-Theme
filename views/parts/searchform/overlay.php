@@ -14,24 +14,54 @@ if (!isset($_searchform)) {
 
 
 /**
- * Fires before displaying overlay searchform.
+ * Build main content after navs.
  *
- * @param  array   $_searchform
+ * @return string
  */
-do_action('ol.apollon.searchform_part_overlay_before', $_searchform);
+add_filter('ol.apollon.main_navs_'.$_searchform['nav'].'_after', function ($content) use ($_searchform) {
+    // Build args
+    $a = $_searchform['options'];
+    $a['inputcss'] = 'uk-search-input '.$a['inputcss'];
+    $a['toggle']   = 'target:.'.$_searchform['nav'].'-overlay;animation:uk-animation-fade';
 
-?>
+    // Build search query
+    $s = get_search_query();
 
-<div class="uk-navbar-item <?php echo $_searchform['args']['navbarcss'] ?>">
-    <a href="#" class="uk-navbar-toggle" uk-search-icon uk-toggle="target:.nav-overlay;animation:uk-animation-fade"></a>
+    // Display content
+    $content = <<<html
+<div class="uk-navbar-left uk-flex-1 {$_searchform['nav']}-overlay" hidden>
+    <div class="uk-navbar-item uk-width-expand">
+        <form action="{$a['action']}" class="uk-search uk-search-navbar uk-width-1-1 {$a['formcss']}">
+            <input type="search" name="s" class="{$a['inputcss']}" placeholder="{$a['placeholder']}" value="$s"/>
+        </form>
+
+        <a href="#" class="uk-navbar-toggle" uk-close uk-toggle="{$a['toggle']}"></a>
+    </div>
 </div>
+html;
 
-<?php
+    // Freedom
+    unset($a);
+    unset($s);
+
+    return $content;
+});
 
 
-/**
- * Fires after displaying overlay searchform.
- *
- * @param  array   $_searchform
- */
-do_action('ol.apollon.searchform_part_overlay_after', $_searchform);
+// Build args
+$a = $_searchform['options'];
+$a['inputcss'] = 'uk-search-input '.$a['inputcss'];
+$a['toggle']   = 'target:.'.$_searchform['nav'].'-overlay;animation:uk-animation-fade';
+
+// Build content
+$_searchform['content'] = <<<html
+<div class="uk-navbar-item {$a['navbarcss']}">
+    <a href="#" class="uk-navbar-toggle" uk-search-icon uk-toggle="{$a['toggle']}"></a>
+</div>
+html;
+
+// Freedom
+unset($a);
+
+// Include template
+include __DIR__.S.'default.php';

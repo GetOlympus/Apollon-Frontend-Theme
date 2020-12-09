@@ -12,60 +12,38 @@ if (!isset($_searchform)) {
     die('You are not authorized to directly access to this page');
 }
 
-// Content starts
-$_searchform['html'] = [
-    'attrs' => [
-        'form'  => sprintf(
-            'action="%s" class="%s"',
-            $_searchform['args']['action'],
-            'uk-search uk-search-large '.$_searchform['args']['formcss']
-        ),
-        'input' => sprintf(
-            'type="%s" name="%s" class="%s" placeholder="%s" %s',
-            'search',
-            's',
-            'uk-search-input uk-text-center '.$_searchform['args']['inputcss'],
-            $_searchform['args']['placeholder'],
-            'value="'.get_search_query().'" autofocus'
-        ),
-    ],
-    'icon'  => 'uk-navbar-toggle',
-];
+// Build args
+$a = $_searchform['options'];
+$a['inputcss'] = 'uk-search-input uk-text-center '.$a['inputcss'];
 
-$_searchform['html']['form'] = sprintf(
-    '<form %s><input %s/></form>',
-    $_searchform['html']['attrs']['form'],
-    $_searchform['html']['attrs']['input']
-);
+// Build search query
+$s = get_search_query();
 
+// Build autofocus
+$f = 'autofocus';
 
-/**
- * Fires before displaying modal searchform.
- *
- * @param  array   $_searchform
- */
-do_action('ol.apollon.searchform_part_modal_before', $_searchform);
-
-?>
-
-<a href="#search-modal" class="<?php echo $_searchform['html']['icon'] ?>" uk-toggle>
+// Build content
+$_searchform['content'] = <<<html
+<a href="#search-modal" class="uk-navbar-toggle" uk-toggle>
     <span uk-search-icon class="uk-margin-small-right"></span>
-    <?php echo $_searchform['args']['placeholder'] ?>
+    {$a['placeholder']}
 </a>
 
 <div id="search-modal" class="uk-modal-full uk-modal" uk-modal>
     <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
         <button type="button" class="uk-modal-close-full" uk-close></button>
-        <?php echo $_searchform['html']['form'] ?>
+
+        <form action="{$a['action']}" class="uk-search uk-search-large {$a['formcss']}">
+            <input type="search" name="s" class="{$a['inputcss']}" placeholder="{$a['placeholder']}" value="$s" $f/>
+        </form>
     </div>
 </div>
+html;
 
-<?php
+// Freedom
+unset($a);
+unset($f);
+unset($s);
 
-
-/**
- * Fires after displaying modal searchform.
- *
- * @param  array   $_searchform
- */
-do_action('ol.apollon.searchform_part_modal_after', $_searchform);
+// Include template
+include __DIR__.S.'default.php';

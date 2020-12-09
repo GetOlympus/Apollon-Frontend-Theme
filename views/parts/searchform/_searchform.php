@@ -26,7 +26,9 @@ if (!apply_filters('ol.apollon.searchform_start', false)) {
 
 // Content starts
 $_searchform = array_merge([
-    'args'     => [],
+    'content'  => '',
+    'options'  => [],
+    'nav'      => 'main',
     'template' => 'default',
 ], $_searchform);
 
@@ -37,7 +39,7 @@ $_searchform = array_merge([
  * @return array
  */
 $_searchform['available'] = apply_filters('ol.apollon.searchform_available_files', [
-    'default', 'drop', 'dropdown', 'full', 'modal', 'overlay', 'overlay-content'
+    'default', 'overlay', 'drop', 'dropdown', 'justify', 'dropbar', 'modal', 'full', 'simple'
 ]);
 
 // Check template availability
@@ -49,17 +51,17 @@ $_searchform['filename'] = $_searchform['template'].'.php';
 
 
 /**
- * Override default searchform args.
+ * Override default searchform options.
  *
  * @return array
  */
-$_searchform['args'] = array_merge(apply_filters('ol.apollon.searchform_default_args', [
+$_searchform['options'] = apply_filters('ol.apollon.searchform_options', array_merge([
     'action'      => OL_BLOG_HOME_URL_ESCAPED,
     'navbarcss'   => '',
     'formcss'     => '',
     'inputcss'    => '',
     'placeholder' => __('Search...', OL_APOLLON_DICTIONARY),
-]), $_searchform['args']);
+], $_searchform['options']));
 
 
 /**

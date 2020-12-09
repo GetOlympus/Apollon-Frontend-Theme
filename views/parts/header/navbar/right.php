@@ -14,21 +14,21 @@ if (!isset($_header)) {
 
 ?>
 
-<?php if (!empty($_header['options'][$nav.'nav_content_1'])) : ?>
-    <div class="uk-navbar-left">
-        <?php do_action('ol.apollon.header_build_navbar', $nav, 1, $_header['options']) ?>
+<?php if (!empty($_navbar['content_1'])) : ?>
+    <div class="<?php echo $nav ?>-overlay uk-navbar-left">
+        <?php do_action('ol.apollon.header_build_navbar', $nav, 1, $_navbar) ?>
     </div>
 <?php endif ?>
 
-<div class="uk-navbar-right">
+<div class="<?php echo $nav ?>-overlay uk-navbar-right">
     <?php
 
-    if (!empty($_header['options'][$nav.'nav_content_2'])) {
-        do_action('ol.apollon.header_build_navbar', $nav, 2, $_header['options']);
+    if (!empty($_navbar['content_2'])) {
+        do_action('ol.apollon.header_build_navbar', $nav, 2, $_navbar);
     }
 
-    if (!empty($_header['options'][$nav.'nav_content_3'])) {
-        do_action('ol.apollon.header_build_navbar', $nav, 3, $_header['options']);
+    if (!empty($_navbar['content_3'])) {
+        do_action('ol.apollon.header_build_navbar', $nav, 3, $_navbar);
     }
 
     ?>

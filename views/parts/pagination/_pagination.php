@@ -12,42 +12,48 @@ if (!isset($_pagination)) {
     die('You are not authorized to directly access to this page');
 }
 
-// Include functions
-include __DIR__.S.'_function.php';
+
+/**
+ * Check whether main pagination feature is enabled.
+ *
+ * @param  bool
+ *
+ * @return bool
+ */
+if (!apply_filters('ol.apollon.pagination_start', false)) {
+    return;
+}
 
 // Content starts
 $_pagination = array_merge([
-    'template' => 'center',
+    'css'     => '',
+    'options' => [],
 ], $_pagination);
 
-
-/**
- * Override available pagination templates.
- *
- * @return array
- */
-$_pagination['available'] = apply_filters('ol.apollon.pagination_available_files', [
-    'center', 'left', 'right'
-]);
-
 // Check template availability
-if (empty($_pagination['template']) || !in_array($_pagination['template'], $_pagination['available'])) {
-    return;
-}
-
-$_pagination['filename'] = '_default.php';
+$_pagination['template'] = apollonGetOption('pagination_template');
+$_pagination['filename'] = $_pagination['template'].'.php';
 
 
 /**
- * Build pagination items.
+ * Override default pagination options.
  *
  * @return array
  */
-$_pagination['items'] = apply_filters('ol.apollon.pagination_build_items', []);
-
-if (empty($_pagination['items'])) {
-    return;
-}
+$_pagination['options'] = apply_filters('ol.apollon.pagination_options', array_merge([
+    'first'         => false,
+    'previous'      => true,
+    'next'          => true,
+    'last'          => false,
+    'icons'         => true,
+    'range'         => 4,
+    'separator'     => '...',
+    'template'      => 'default',
+    'position'      => 'center',
+    'title'         => __('apollon.ct.features.pagination.layout.title.placeholder', OL_APOLLON_DICTIONARY),
+    'infinitelabel' => false,
+    'nums'          => true,
+], $_pagination['options']));
 
 
 /**

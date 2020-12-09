@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     die('You are not authorized to directly access to this page');
 }
 
-$_widget = isset($_inc, $_inc['vars']) ? $_inc['vars'] : [];
+$_widget = isset($args) ? $args : [];
 
 
 /**

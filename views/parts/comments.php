@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     die('You are not authorized to directly access to this page');
 }
 
-$_comments = isset($_inc['vars']) ? $_inc['vars'] : [];
+$_comments = isset($args) ? $args : [];
 
 
 /**

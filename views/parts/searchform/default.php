@@ -12,34 +12,29 @@ if (!isset($_searchform)) {
     die('You are not authorized to directly access to this page');
 }
 
-// Content starts
-$_searchform['html'] = [
-    'attrs' => [
-        'form'  => sprintf(
-            'action="%s" class="%s%s" %s',
-            $_searchform['args']['action'],
-            'uk-search uk-search-navbar ',
-            $_searchform['args']['formcss'],
-            ''
-        ),
-        'input' => sprintf(
-            'type="%s" name="%s" class="%s" placeholder="%s" %s',
-            'search',
-            's',
-            'uk-search-input '.$_searchform['args']['inputcss'],
-            $_searchform['args']['placeholder'],
-            'value="'.get_search_query().'"'
-        ),
-    ],
-    'icon'  => '<span uk-search-icon></span>',
-];
+// Checks content
+if (empty($_searchform['content'])) {
+    // Build args
+    $a = $_searchform['options'];
+    $a['inputcss'] = 'uk-search-input '.$a['inputcss'];
 
-$_searchform['html']['form'] = sprintf(
-    '<form %s>%s<input %s/></form>',
-    $_searchform['html']['attrs']['form'],
-    $_searchform['html']['icon'],
-    $_searchform['html']['attrs']['input']
-);
+    // Build search query
+    $s = get_search_query();
+
+    // Build content
+    $_searchform['content'] = <<<html
+<div class="uk-navbar-item {$a['navbarcss']}">
+    <form action="{$a['action']}" class="uk-search uk-search-navbar {$a['formcss']}">
+        <span uk-search-icon></span>
+        <input type="search" name="s" class="{$a['inputcss']}" placeholder="{$a['placeholder']}" value="$s"/>
+    </form>
+</div>
+html;
+
+    // Freedom
+    unset($a);
+    unset($s);
+}
 
 
 /**
@@ -49,13 +44,8 @@ $_searchform['html']['form'] = sprintf(
  */
 do_action('ol.apollon.searchform_part_default_before', $_searchform);
 
-?>
-
-<div class="uk-navbar-item <?php echo $_searchform['args']['navbarcss'] ?>">
-    <?php echo $_searchform['html']['form'] ?>
-</div>
-
-<?php
+// Display content
+echo $_searchform['content'];
 
 
 /**

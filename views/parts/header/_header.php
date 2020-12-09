@@ -12,9 +12,6 @@ if (!isset($_header)) {
     die('You are not authorized to directly access to this page');
 }
 
-// Include functions
-include __DIR__.S.'_function.php';
-
 // Content starts
 $_header = array_merge([
     'args'      => [],
@@ -142,8 +139,11 @@ $_header['options'] = apply_filters('ol.apollon.header_options', array_merge([
 
     // Navs
     'topnav_enable'  => false,
+    'topnav'         => [],
     'mainnav_enable' => false,
+    'mainnav'        => [],
     'subnav_enable'  => false,
+    'subnav'         => [],
 
     // Global
     'nav_menulabel'     => '',
@@ -153,9 +153,14 @@ $_header['options'] = apply_filters('ol.apollon.header_options', array_merge([
     // Dropdown
     'dropdown_click'    => false,
     'dropdown_position' => 'left',
-    'dropdown_dropbar'  => 'none',
+
+    // Extra search
+    'search_drop' => 'none',
+    'search_tpl'  => 'default',
 ], $_header['options']));
 
+// Define wether to use dropbar or not
+$_header['dropbar'] = 'none' !== $_header['options']['search_drop'] && 'dropbar' === $_header['options']['search_tpl'];
 
 /**
  * Override header vars.
@@ -173,7 +178,7 @@ $_header = apply_filters('ol.apollon.header_vars', $_header);
 do_action('ol.apollon.header_part_before', $_header);
 
 // Include template
-include __DIR__.S.'_wrapper.php';
+include __DIR__.S.'wrapper.php';
 
 
 /**

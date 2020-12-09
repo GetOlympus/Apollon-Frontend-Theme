@@ -30,10 +30,10 @@ $_widget['available'] = apply_filters('ol.apollon.widget_available_files', [
 
 // Check template availability
 if (empty($_widget['template']) || !in_array($_widget['template'], $_widget['available'])) {
-    return;
+    $_widget['template'] = $_widget['available'][0];
 }
 
-$_widget['filename'] = '_default.php';
+$_widget['filename'] = $_widget['template'].'.php';
 
 
 /**

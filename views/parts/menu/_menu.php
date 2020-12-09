@@ -14,24 +14,9 @@ if (!isset($_menu)) {
 
 // Content starts
 $_menu = array_merge([
-    'args'      => [],
-    'template'  => 'main_1',
+    'options' => [],
+    'menu' => 'main_1',
 ], $_menu);
-
-
-/**
- * Override available menu templates.
- *
- * @return array
- */
-$_menu['available'] = apply_filters('ol.apollon.menu_available_files', [
-    'top_1', 'top_2', 'top_3', 'main_1', 'main_2', 'main_3', 'sub_1', 'sub_2', 'sub_3'
-]);
-
-// Check template availability
-if (empty($_menu['template']) || !in_array($_menu['template'], $_menu['available'])) {
-    return;
-}
 
 
 /**
@@ -41,27 +26,24 @@ if (empty($_menu['template']) || !in_array($_menu['template'], $_menu['available
  *
  * @return bool
  */
-$_menu['is_enabled'] = apply_filters('ol.apollon.menu_check', has_nav_menu($_menu['template']));
-
-// Check menu
-if (!$_menu['is_enabled']) {
+if (!apply_filters('ol.apollon.menu_check', has_nav_menu($_menu['menu']))) {
     return;
 }
 
-$_menu['filename'] = '_default.php';
+$_menu['filename'] = 'default.php';
 
 
 /**
- * Override menu args.
+ * Override menu options.
  *
  * @return array
  */
-$_menu['args'] = apply_filters('ol.apollon.menu_args', array_merge([
+$_menu['options'] = apply_filters('ol.apollon.menu_options', array_merge([
     'container'  => false,
     'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
     'menu_class' => 'uk-navbar-nav',
     'walker'     => new ApollonFrontendTheme\MenuWalker(),
-], $_menu['args']));
+], $_menu['options']));
 
 
 /**

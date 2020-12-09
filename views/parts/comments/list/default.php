@@ -12,13 +12,19 @@ if (!isset($comment)) {
     die('You are not authorized to directly access to this page');
 }
 
+// Author highlight
+$data['_']['class'] = !$data['_']['highlight']
+    ? ' class="uk-comment"'
+    : comment_class('uk-comment', null, null, false);
+
+// Update author css class
+$data['_']['class'] = str_replace(' bypostauthor ', ' uk-comment-primary ', $data['_']['class']);
+
+// Use avatar
 $data['_']['avatar'] = !$data['_']['avatar'] ? '' : sprintf(
     '<div class="uk-width-auto">%s</div>',
     get_avatar($comment, 32, '', '', ['class' => 'uk-comment-avatar'])
 );
-
-$data['_']['class'] = !$data['_']['highlight'] ? ' class="uk-comment"' : comment_class('uk-comment', null, null, false);
-$data['_']['class'] = str_replace(' bypostauthor ', ' uk-comment-primary ', $data['_']['class']);
 
 return sprintf(
     '

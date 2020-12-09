@@ -12,9 +12,6 @@ if (!isset($_footer)) {
     die('You are not authorized to directly access to this page');
 }
 
-// Include functions
-include __DIR__.S.'_function.php';
-
 // Content starts
 $_footer = array_merge([
     'args'     => [],
@@ -29,7 +26,7 @@ $_footer = array_merge([
  *
  * @return array
  */
-$_footer['args'] = apply_filters('ol.apollon.footer_default_args', array_merge([], $_footer['args']));
+$_footer['args'] = apply_filters('ol.apollon.footer_args', array_merge([], $_footer['args']));
 
 
 /**
@@ -37,7 +34,7 @@ $_footer['args'] = apply_filters('ol.apollon.footer_default_args', array_merge([
  *
  * @return array
  */
-$_footer['labels'] = apply_filters('ol.apollon.footer_default_labels', array_merge([
+$_footer['labels'] = apply_filters('ol.apollon.footer_labels', array_merge([
     'author'   => __('apollon.th.footer.copyright', OL_APOLLON_DICTIONARY),
     'heart'    => '<span data-uk-icon="heart"></span>',
     'name'     => OL_BLOG_NAME,
@@ -51,7 +48,7 @@ $_footer['labels'] = apply_filters('ol.apollon.footer_default_labels', array_mer
  *
  * @return array
  */
-$_footer['urls'] = apply_filters('ol.apollon.footer_default_urls', array_merge([
+$_footer['urls'] = apply_filters('ol.apollon.footer_urls', array_merge([
     'homepage' => OL_BLOG_HOME,
     'logosrc'  => OL_TPL_DIR_URI.'/app/img/apollon-h.png',
 ], $_footer['urls']));
@@ -62,14 +59,17 @@ $_footer['urls'] = apply_filters('ol.apollon.footer_default_urls', array_merge([
  *
  * @return array
  */
-$_footer['options'] = apply_filters('ol.apollon.footer_default_options', array_merge([
+$_footer['options'] = apply_filters('ol.apollon.footer_options', array_merge([
     // Grid
     'grid_container' => 'medium',
 
     // Sections
     'topsection_enable'  => false,
+    'topsection'         => [],
     'mainsection_enable' => false,
+    'mainsection'        => [],
     'subsection_enable'  => false,
+    'subsection'         => [],
 ], $_footer['options']));
 
 
@@ -89,7 +89,7 @@ $_footer = apply_filters('ol.apollon.footer_vars', $_footer);
 do_action('ol.apollon.footer_part_before', $_footer);
 
 // Include template
-include __DIR__.S.'_wrapper.php';
+include __DIR__.S.'wrapper.php';
 
 
 /**

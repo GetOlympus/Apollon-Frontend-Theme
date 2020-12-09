@@ -28,11 +28,12 @@ if (!apply_filters('ol.apollon.sidebar_start', false)) {
 $_sidebar = array_merge([
     'background' => 'transparent',
     'css'        => '',
-    'paddingh'   => 'none',
-    'paddingv'   => 'none',
+    'mobile'     => true,
+    'override'   => false,
+    'sidebar'    => 'archive_1',
     'size'       => '',
     'sticky'     => false,
-    'template'   => 'main_1',
+    'template'   => 'default',
 ], $_sidebar);
 
 
@@ -42,15 +43,13 @@ $_sidebar = array_merge([
  * @return array
  */
 $_sidebar['available'] = apply_filters('ol.apollon.sidebar_available_files', [
-    'top_1', 'top_2', 'top_3', 'top_4', 'main_1', 'main_2', 'main_3', 'main_4', 'sub_1', 'sub_2', 'sub_3', 'sub_4'
+    'default', 'footer'
 ]);
 
 // Check template availability
 if (empty($_sidebar['template']) || !in_array($_sidebar['template'], $_sidebar['available'])) {
-    return;
+    $_sidebar['template'] = $_sidebar['available'][0];
 }
-
-$_sidebar['filename'] = '_default.php';
 
 
 /**
@@ -60,12 +59,11 @@ $_sidebar['filename'] = '_default.php';
  *
  * @return bool
  */
-$_sidebar['is_enabled'] = apply_filters('ol.apollon.sidebar_check', is_active_sidebar($_sidebar['template']));
-
-// Check sidebar
-if (!$_sidebar['is_enabled']) {
+if (!apply_filters('ol.apollon.sidebar_check', is_active_sidebar($_sidebar['sidebar']))) {
     return;
 }
+
+$_sidebar['filename'] = $_sidebar['template'].'.php';
 
 
 /**

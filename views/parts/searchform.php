@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     die('You are not authorized to directly access to this page');
 }
 
-$_searchform = isset($_inc, $_inc['vars']) ? $_inc['vars'] : [];
+$_searchform = isset($args) ? $args : [];
 
 
 /**
