@@ -35,7 +35,7 @@ $form = [
         $_comments['required']['req'] ? $_comments['required']['css'] : '',
         // field
         sprintf(
-            '<textarea id="%s" name="%s" class="uk-textarea" %s placeholder="%s"></textarea>',
+            '<textarea id="%s" name="%s" class="uk-textarea" %s placeholder="%s" rows="6"></textarea>',
             // ID
             'comment',
             // name

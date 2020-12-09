@@ -20,22 +20,12 @@ if (!isset($_post)) {
  */
 do_action('ol.apollon.post_default_before', $_post);
 
-
-if (has_action('ol.apollon.post_default_'.$_post['data']['postformat'].'_content', false)) {
-    /**
-     * Display format default post content.
-     *
-     * @param  array   $_post
-     */
-    do_action('ol.apollon.post_default_'.$_post['data']['postformat'].'_content', $_post);
-} else {
-    // Get post format
-    apollonGetPart('format.php', [
-        'contents' => $_post['contents'],
-        'data'     => $_post['data'],
-        'template' => $_post['template'],
-    ]);
-}
+// Get post format
+apollonGetPart('format.php', [
+    'contents' => $_post['contents'],
+    'data'     => $_post['data'],
+    'template' => $_post['template'],
+]);
 
 
 /**

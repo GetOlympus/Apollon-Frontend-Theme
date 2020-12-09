@@ -12,9 +12,7 @@ if (!isset($_element)) {
     die('You are not authorized to directly access to this page');
 }
 
-if (!empty($_element['data']['readingtime'])) {
-    echo sprintf(
-        '%s',
-        $_element['data']['readingtime']
-    );
-}
+echo empty($_element['data']['readingtime']) ? '' : sprintf(
+    '%s',
+    $_element['data']['readingtime']
+);

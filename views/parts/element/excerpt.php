@@ -12,7 +12,7 @@ if (!isset($_element)) {
     die('You are not authorized to directly access to this page');
 }
 
-echo sprintf(
+echo empty($_element['data']['excerpt']) ? '' : sprintf(
     '<div class="%s">%s</div>',
     'uk-panel uk-margin-remove-top uk-margin-small-bottom',
     $_element['data']['excerpt']
