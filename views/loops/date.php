@@ -20,13 +20,13 @@ $_loop = [
 
 // Set loop meta and title
 if (is_day()) {
-    $_loop['meta']  = __('Daily Archives', OL_APOLLON_DICTIONARY);
+    $_loop['meta']  = __('apollon.th.loop.date.day', OL_APOLLON_DICTIONARY);
     $_loop['title'] = get_the_date();
 } else if (is_month()) {
-    $_loop['meta']  = __('Monthly Archives', OL_APOLLON_DICTIONARY);
+    $_loop['meta']  = __('apollon.th.loop.date.month', OL_APOLLON_DICTIONARY);
     $_loop['title'] = get_the_date('F Y');
 } else if (is_year()) {
-    $_loop['meta']  = __('Yearly Archives', OL_APOLLON_DICTIONARY);
+    $_loop['meta']  = __('apollon.th.loop.date.year', OL_APOLLON_DICTIONARY);
     $_loop['title'] = get_the_date('Y');
 }
 

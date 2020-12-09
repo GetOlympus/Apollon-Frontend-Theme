@@ -26,21 +26,21 @@ $links = [
     'first'    => sprintf(
         '%s%s',
         !$opts['icons'] ? '' : '<span uk-icon="chevron-double-left"></span> ',
-        __('First', OL_APOLLON_DICTIONARY)
+        __('apollon.th.pagination.first', OL_APOLLON_DICTIONARY)
     ),
     'previous' => sprintf(
         '%s%s',
         !$opts['icons'] ? '' : '<span uk-pagination-previous></span> ',
-        __('Previous', OL_APOLLON_DICTIONARY)
+        __('apollon.th.pagination.previous', OL_APOLLON_DICTIONARY)
     ),
     'next'     => sprintf(
         '%s%s',
-        __('Next', OL_APOLLON_DICTIONARY),
+        __('apollon.th.pagination.next', OL_APOLLON_DICTIONARY),
         !$opts['icons'] ? '' : ' <span%s uk-pagination-next></span>',
     ),
     'last'     => sprintf(
         '%s%s',
-        __('Last', OL_APOLLON_DICTIONARY),
+        __('apollon.th.pagination.last', OL_APOLLON_DICTIONARY),
         !$opts['icons'] ? '' : ' <span uk-icon="chevron-double-right"></span>'
     ),
 ];

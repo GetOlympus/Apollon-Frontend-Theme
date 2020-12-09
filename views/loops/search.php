@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
 }
 
 $_loop = [
-    'meta'    => __('Search results for', OL_APOLLON_DICTIONARY),
+    'meta'    => __('apollon.th.loop.search', OL_APOLLON_DICTIONARY),
     'sidebar' => 'search',
     'title'   => get_search_query(),
 ];

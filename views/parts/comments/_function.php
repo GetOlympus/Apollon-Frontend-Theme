@@ -88,7 +88,8 @@ function customCommentsListBuilder($comment, $args, $depth, $mode = 'open')
     if (in_array($comment->comment_type, ['pingback', 'trackback'])) {
         $data['id']    = '';
         $data['class'] = 'post '.$comment->comment_type;
-        $data['ctn']   = '<p>'.__('Pingback:', OL_APOLLON_DICTIONARY).' '.get_comment_author_link().'</p>';
+        $data['ctn']   = '<p>'.__('apollon.th.comments.pingback', OL_APOLLON_DICTIONARY);
+        $data['ctn']  .= ' '.get_comment_author_link().'</p>';
 
         return $data;
     }

@@ -60,7 +60,7 @@ $_searchform['options'] = apply_filters('ol.apollon.searchform_options', array_m
     'navbarcss'   => '',
     'formcss'     => '',
     'inputcss'    => '',
-    'placeholder' => __('Search...', OL_APOLLON_DICTIONARY),
+    'placeholder' => __('apollon.th.searchform.placeholder', OL_APOLLON_DICTIONARY),
 ], $_searchform['options']));
 
 

@@ -109,25 +109,30 @@
     "apollon.cf.menus.top_1": "Top navbar 1st menu",
     "apollon.cf.menus.top_2": "Top navbar 2nd menu",
     "apollon.cf.menus.top_3": "Top navbar 3rd menu",
+    "apollon.cf.menus.top_4": "Top navbar 4th menu",
     "apollon.cf.menus.main_1": "Main navbar 1st menu",
     "apollon.cf.menus.main_2": "Main navbar 2nd menu",
     "apollon.cf.menus.main_3": "Main navbar 3rd menu",
+    "apollon.cf.menus.main_4": "Main navbar 4th menu",
     "apollon.cf.menus.sub_1": "Sub navbar 1st menu",
     "apollon.cf.menus.sub_2": "Sub navbar 2nd menu",
     "apollon.cf.menus.sub_3": "Sub navbar 3rd menu",
+    "apollon.cf.menus.sub_4": "Sub navbar 4th menu",
 
-    "apollon.cf.sidebars.top_1": "Top section 1st column",
-    "apollon.cf.sidebars.top_2": "Top section 2nd column",
-    "apollon.cf.sidebars.top_3": "Top section 3rd column",
-    "apollon.cf.sidebars.top_4": "Top section 4th column",
-    "apollon.cf.sidebars.main_1": "Main section 1st column",
-    "apollon.cf.sidebars.main_2": "Main section 2nd column",
-    "apollon.cf.sidebars.main_3": "Main section 3rd column",
-    "apollon.cf.sidebars.main_4": "Main section 4th column",
-    "apollon.cf.sidebars.sub_1": "Sub section 1st column",
-    "apollon.cf.sidebars.sub_2": "Sub section 2nd column",
-    "apollon.cf.sidebars.sub_3": "Sub section 3rd column",
-    "apollon.cf.sidebars.sub_4": "Sub section 4th column",
+    "apollon.cf.settings.adminfooter": "Build with ♥ by %s, with %s and for %s.",
+    "apollon.cf.settings.dashboard.title": "Hi there :)",
+    "apollon.cf.settings.dashboard.desc": "Welcome to your dashboard. Here is a simple box.",
+
+    "apollon.cf.sidebars.default": "Default #%d",
+    "apollon.cf.sidebars.archives": "Archives #%d",
+    "apollon.cf.sidebars.search": "Search page #%d",
+    "apollon.cf.sidebars.post": "Single post #%d",
+    "apollon.cf.sidebars.top": "Top section column #%d",
+    "apollon.cf.sidebars.main": "Main section column #%d",
+    "apollon.cf.sidebars.sub": "Sub section column #%d",
+
+    "apollon.cf.sizes.cover": "Cover – 500px width.",
+    "apollon.cf.sizes.featured": "Featured image – 1100px width.",
 
 
 
@@ -723,17 +728,8 @@
 
 
 
-    "apollon.th.share.twitter": "Share on Twitter",
-    "apollon.th.share.facebook": "Share on Facebook",
-    "apollon.th.share.google-plus": "Share on Google plus",
-    "apollon.th.share.pinterest": "Share on Pinterest",
-    "apollon.th.share.linkedin": "Share on LinkedIn",
-    "apollon.th.share.viber": "Share on Viber",
-    "apollon.th.share.vk": "Share on VK.com",
-    "apollon.th.share.reddit": "Share on Reddit",
-    "apollon.th.share.tumblr": "Share on Tumblr",
-    "apollon.th.share.viadeo": "Share on Viadeo",
-    "apollon.th.share.whatsapp": "Share on WhatsApp",
+    "apollon.th.404.title": "Oops! That page can't be found.",
+    "apollon.th.404.desc": "It looks like nothing was found at this location. Maybe try a search?",
 
     "apollon.th.comments.comments": "Comments",
     "apollon.th.comments.comment": "Comment",
@@ -754,12 +750,39 @@
     "apollon.th.comments.reply": "%1$s reply on &ldquo;%2$s&rdquo;",
     "apollon.th.comments.replies": "%1$s replies on &ldquo;%2$s&rdquo;",
     "apollon.th.comments.addcomment": "Reply",
+    "apollon.th.comments.time": "%1$s, %2$s",
+    "apollon.th.comments.pingback": "Pingback:",
+
+    "apollon.th.loop.author": "Author",
+    "apollon.th.loop.category": "Category",
+    "apollon.th.loop.date.day": "Daily Archives",
+    "apollon.th.loop.date.month": "Monthly Archives",
+    "apollon.th.loop.date.year": "Yearly Archives",
+    "apollon.th.loop.search": "Search results for",
+    "apollon.th.loop.tag": "Tag",
+    "apollon.th.loop.taxonomy": "Taxonomy",
 
     "apollon.th.nextprev.nextpost": "Next <span uk-pagination-next></span>",
     "apollon.th.nextprev.prevpost": "<span uk-pagination-previous></span> Previous",
 
-    "apollon.th.404.title": "Oops! That page can't be found.",
-    "apollon.th.404.desc": "It looks like nothing was found at this location. Maybe try a search?",
+    "apollon.th.pagination.first": "First",
+    "apollon.th.pagination.previous": "Previous",
+    "apollon.th.pagination.next": "Next",
+    "apollon.th.pagination.last": "Last",
+
+    "apollon.th.searchform.placeholder": "Search...",
+
+    "apollon.th.share.twitter": "Share on Twitter",
+    "apollon.th.share.facebook": "Share on Facebook",
+    "apollon.th.share.google-plus": "Share on Google plus",
+    "apollon.th.share.pinterest": "Share on Pinterest",
+    "apollon.th.share.linkedin": "Share on LinkedIn",
+    "apollon.th.share.viber": "Share on Viber",
+    "apollon.th.share.vk": "Share on VK.com",
+    "apollon.th.share.reddit": "Share on Reddit",
+    "apollon.th.share.tumblr": "Share on Tumblr",
+    "apollon.th.share.viadeo": "Share on Viadeo",
+    "apollon.th.share.whatsapp": "Share on WhatsApp",
 
     "apollon.th.footer.copyright": "<a href=\"https://github.com/crewstyle\" target=\"_blank\">created with ♥ by crewstyle</a>"
 }

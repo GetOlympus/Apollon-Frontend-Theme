@@ -47,7 +47,7 @@ return sprintf(
     $data['_']['author'],
     $data['_']['time']['c'],
     sprintf(
-        __('%1$s, %2$s', OL_APOLLON_DICTIONARY),
+        __('apollon.th.comments.time', OL_APOLLON_DICTIONARY),
         $data['_']['date'],
         $data['_']['time']['f']
     ),

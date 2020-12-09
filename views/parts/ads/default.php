@@ -14,15 +14,15 @@ if (!isset($_ads)) {
 
 // Content starts
 $_ads['html'] = sprintf(
-    __('<aside class="%s">%s%s</aside>'),
+    '<aside class="%s">%s%s</aside>',
     sprintf(
-        __('uk-card uk-card-body uk-card-%s uk-card-%s'),
+        'uk-card uk-card-body uk-card-%s uk-card-%s',
         $_ads['size'],
         $_ads['mode']
     ),
     $_ads['code'],
     $_ads['title'] ? sprintf(
-        __('<span class="%s">%s</span>'),
+        '<span class="%s">%s</span>',
         'uk-position-bottom-right',
         $_ads['title']
     ) : ''

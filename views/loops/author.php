@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
 }
 
 $_loop = [
-    'meta'     => __('Author', OL_APOLLON_DICTIONARY),
+    'meta'     => __('apollon.th.loop.author', OL_APOLLON_DICTIONARY),
     'sidebar'  => 'archives',
     //'subtitle' => get_the_author_meta('user_description'),
     'title'    => get_the_author(),

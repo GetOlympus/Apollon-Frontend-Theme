@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
 }
 
 $_loop = [
-    'meta'    => __('Taxonomy', OL_APOLLON_DICTIONARY),
+    'meta'    => __('apollon.th.loop.taxonomy', OL_APOLLON_DICTIONARY),
     'sidebar' => 'archives',
     'title'   => single_term_title('', false),
 ];

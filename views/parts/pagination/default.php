@@ -33,7 +33,7 @@ echo sprintf(
     sprintf(
         get_previous_posts_link('%s%s'),
         $_pagination['options']['icons'] ? '<span class="uk-margin-small-right" uk-pagination-previous></span> ' : '',
-        __('Previous', OL_APOLLON_DICTIONARY)
+        __('apollon.th.pagination.previous', OL_APOLLON_DICTIONARY)
     )
 );
 
@@ -43,7 +43,7 @@ echo sprintf(
     'expand' === $_pagination['options']['position'] ? ' class="uk-margin-auto-left"' : '',
     sprintf(
         get_next_posts_link('%s%s'),
-        __('Next', OL_APOLLON_DICTIONARY),
+        __('apollon.th.pagination.next', OL_APOLLON_DICTIONARY),
         $_pagination['options']['icons'] ? ' <span class="uk-margin-small-left" uk-pagination-next></span>' : ''
     )
 );
