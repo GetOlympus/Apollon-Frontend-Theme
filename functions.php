@@ -70,9 +70,6 @@ defined('VENDORPATH') or define('VENDORPATH', ROOTPATH.'vendor'.S);
 
 // Dictionary name
 define('OL_APOLLON_DICTIONARY', 'olympus-apollon');
-
-// Admin panel or not ~ Never used for now
-//define('OL_APOLLON_ISADMIN', defined('OL_ISADMIN') ? defined('OL_ISADMIN') : is_admin());
 // Customizer preview mode
 define('OL_APOLLON_ISCUSTOMIZER', is_customize_preview());
 // Resources path
@@ -102,7 +99,6 @@ require_once OL_APOLLON_SRCPATH.'walkers'.S.'MenuWalker.php';
  */
 
 if (!class_exists('ApollonFrontendTheme')) {
-
     /**
      * Olympus Apollon Frontend Theme.
      *
@@ -111,7 +107,6 @@ if (!class_exists('ApollonFrontendTheme')) {
      * @since      0.0.1
      *
      */
-
     class ApollonFrontendTheme extends \GetOlympus\Zeus\Zeus
     {
         protected $components = [
