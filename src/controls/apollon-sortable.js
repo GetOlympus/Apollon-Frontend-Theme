@@ -11,7 +11,10 @@ wp.customize.controlConstructor['apollon-multicheck'] = wp.customize.Control.ext
             stop: function() {
                 control.updateValue();
             }
-        }).disableSelection().find('.apollon-handle').click(function() {
+        }).disableSelection();
+
+        // Click event
+        control.container.find('.apollon-handle').click(function() {
             control.updateValue();
         });
     },
@@ -25,7 +28,7 @@ wp.customize.controlConstructor['apollon-multicheck'] = wp.customize.Control.ext
         var control = this,
             newValue = [];
 
-        this.sortableContainer.find('.apollon-handle input[type="checkbox"]').each(function() {
+        this.container.find('.apollon-handle input[type="checkbox"]').each(function() {
             if (jQuery(this).is(':checked')) {
                 newValue.push(jQuery(this).val());
             }
