@@ -166,6 +166,9 @@ if (!class_exists('ApollonFrontendTheme')) {
 
             // Include FOOTER hooks
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'footer.php';
+
+            // Include WORDPRESS hooks
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'wordpress.php';
         }
     }
 }

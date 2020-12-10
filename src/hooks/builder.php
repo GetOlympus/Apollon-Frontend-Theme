@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// INC FILES
-
 // INCLUDED FILES
 /*add_filter('ol.apollon.included_files', function ($files) {
     return array_merge($files, [
