@@ -92,7 +92,7 @@ if (!function_exists('apollonGetPart')) {
             'author.php'      => 'loops'.S.'author',
             'category.php'    => 'loops'.S.'category',
             'date.php'        => 'loops'.S.'date',
-            'index.php'       => 'loops'.S.'index',
+            'index.php'       => 'loops'.S.'front-page',
             'search.php'      => 'loops'.S.'search',
             'tag.php'         => 'loops'.S.'tag',
             'taxonomy.php'    => 'loops'.S.'taxonomy',
@@ -125,7 +125,7 @@ if (!function_exists('apollonGetPart')) {
             'widget.php'      => 'parts'.S.'widget',
 
             // Singles
-            'single.php'      => 'singles'.S.'default',
+            'single.php'      => 'singles'.S.'post',
             'single-post.php' => 'singles'.S.'post',
         ]);
 
@@ -149,7 +149,7 @@ if (!function_exists('apollonGetPart')) {
         do_action('ol.apollon.getpart_file_before', $_tpl, $vars);
 
         // Include template
-        get_template_part($_tpl, $slug, $vars);
+        apollonGetTemplate($_tpl, $vars, $slug);
 
 
         /**
@@ -159,5 +159,39 @@ if (!function_exists('apollonGetPart')) {
          * @param  array   $vars
          */
         do_action('ol.apollon.getpart_file_after', $_tpl, $vars);
+    }
+}
+
+if (!function_exists('apollonGetTemplate')) {
+    /**
+     * Include template.
+     *
+     * @param  string  $tpl
+     * @param  array   $vars
+     * @param  string  $slug
+     */
+    function apollonGetTemplate($tpl, $vars = [], $slug = null)
+    {
+        /**
+         * Fires before displaying file.
+         *
+         * @param  string  $tpl
+         * @param  string  $slug
+         * @param  array   $vars
+         */
+        do_action('ol.apollon.get_template_before', $tpl, $slug, $vars);
+
+        // Include template
+        get_template_part($tpl, $slug, $vars);
+
+
+        /**
+         * Fires after displaying inc.
+         *
+         * @param  string  $tpl
+         * @param  string  $slug
+         * @param  array   $vars
+         */
+        do_action('ol.apollon.get_template_after', $tpl, $slug, $vars);
     }
 }
