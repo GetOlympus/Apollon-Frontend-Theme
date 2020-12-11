@@ -22,6 +22,12 @@ the_post();
  */
 $_page = apply_filters('ol.apollon.page_image_vars', []);
 
+// Update vars
+$_page = array_merge($_page, [
+    'container' => apollonGetOption('layout_media_container'),
+    'content'   => apollonGetOption('layout_media_content'),
+]);
+
 // Details
 $_page['parent'] = [
     'link'  => get_permalink($post->post_parent),
@@ -43,31 +49,44 @@ do_action('ol.apollon.page_image_before', $_page);
 
 get_header();
 
-?>
+echo '<!-- container -->'."\n";
 
-<!-- container -->
-<section class="uk-section uk-section-default" uk-height-viewport="expand: true">
-    <div class="uk-container">
-        <h1 class="uk-h3 uk-text-center">
-            <?php echo $_page['parent']['title'] ?>
-        </h1>
+echo sprintf(
+    '<section class="uk-section uk-container uk-container-%s uk-flex uk-flex-center" uk-height-viewport="expand:true">',
+    $_page['container']
+);
 
-        <figure class="uk-text-center" role="img">
-            <?php echo $_page['image'] ?>
-        </figure>
+echo sprintf(
+    '<div class="uk-width-1-1@s uk-width-%s@m">',
+    $_page['content']
+);
 
-        <div class="uk-text-center">
-            <?php echo sprintf(
-                '<a href="%s" title="%s" class="uk-button">%s</a>',
-                $_page['parent']['link'],
-                esc_html($_page['parent']['title']),
-                '<span uk-icon="arrow-left"></span> '.$_page['parent']['title']
-            ) ?>
-        </div>
-    </div>
-</section>
+echo sprintf(
+    '<h1 class="%s">%s</h1>',
+    'uk-h3 uk-text-center',
+    $_page['parent']['title']
+);
 
-<?php
+echo sprintf(
+    '<figure class="%s" role="img">%s</figure>',
+    'uk-text-center',
+    $_page['image']
+);
+
+echo sprintf(
+    '<div class="%s">%s</div>',
+    'uk-text-center',
+    sprintf(
+        '<a href="%s" title="%s" class="uk-button">%s</a>',
+        $_page['parent']['link'],
+        esc_html($_page['parent']['title']),
+        '<span uk-icon="arrow-left"></span> '.$_page['parent']['title']
+    )
+);
+
+echo '</div>';
+
+echo '</section>';
 
 get_footer();
 
