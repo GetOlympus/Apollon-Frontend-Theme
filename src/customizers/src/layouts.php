@@ -104,7 +104,7 @@ $layouts = [
                         'label'       => __('apollon.ct.layouts.cpt._.columns.title', OL_APOLLON_DICTIONARY),
                         'description' => __('apollon.ct.layouts.cpt._.columns.desc', OL_APOLLON_DICTIONARY),
                         'priority'    => ++$priority,
-                        'type'        => 'range',
+                        'type'        => 'number',
                         'input_attrs' => [
                             'max'  => 5,
                             'min'  => 1,
@@ -113,7 +113,7 @@ $layouts = [
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('layout_default_columns'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeRange'],
+                                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
                             ]
                         ],
                     ],
@@ -255,7 +255,7 @@ $layouts = [
                         'label'       => __('apollon.ct.layouts.cpt._.columns.title', OL_APOLLON_DICTIONARY),
                         'description' => __('apollon.ct.layouts.cpt._.columns.desc', OL_APOLLON_DICTIONARY),
                         'priority'    => ++$priority,
-                        'type'        => 'range',
+                        'type'        => 'number',
                         'input_attrs' => [
                             'max'  => 5,
                             'min'  => 1,
@@ -264,7 +264,7 @@ $layouts = [
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('layout_default_columns'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeRange'],
+                                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
                             ]
                         ],
                     ],
@@ -412,7 +412,7 @@ $layouts = [
                         'label'       => __('apollon.ct.layouts.cpt._.columns.title', OL_APOLLON_DICTIONARY),
                         'description' => __('apollon.ct.layouts.cpt._.columns.desc', OL_APOLLON_DICTIONARY),
                         'priority'    => ++$priority,
-                        'type'        => 'range',
+                        'type'        => 'number',
                         'input_attrs' => [
                             'max'  => 5,
                             'min'  => 1,
@@ -421,7 +421,7 @@ $layouts = [
                         'settings'    => [
                             [
                                 'default'           => apollonGetDefault('layout_default_columns'),
-                                'sanitize_callback' => [$this, 'zeusSanitizeRange'],
+                                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
                             ]
                         ],
                     ],

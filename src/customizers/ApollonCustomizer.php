@@ -37,7 +37,6 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
     /**
      * @var string
      */
-    //protected $preview = OL_APOLLON_SRCPATH.'customizers'.S.'apollon-customizer.js';
     protected $preview = __DIR__.S.'apollon-customizer.js';
 
     /**
@@ -102,18 +101,9 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
          * Fires after registering contents through customizer.
          */
         add_action('ol.zeus.customizerhook_register_after', function ($wp_customize, $customizer) {
-            $hp = 'lt-homepage';
-            $st = 'static_front_page';
-            $tt = 'title_tagline';
-
-            // Move default homepage controls to Apollon
-            $wp_customize->get_section($hp)->description = $wp_customize->get_section($st)->description;
-            $wp_customize->get_control('show_on_front')->section = $hp;
-            $wp_customize->remove_section($st);
-
             // Add logo definition into title tagline section
-            $wp_customize->get_control('logos_default')->section = $tt;
-            $wp_customize->get_control('logos_retina')->section = $tt;
+            $wp_customize->get_control('logos_default')->section = 'title_tagline';
+            $wp_customize->get_control('logos_retina')->section = 'title_tagline';
         }, 10, 2);
     }
 

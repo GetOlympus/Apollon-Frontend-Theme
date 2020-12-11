@@ -40,6 +40,7 @@ add_filter('ol.apollon.posttypes_options', function ($posttype) {
         // From single
         'container'  => apollonGetOption('layout_'.$posttype.'_container'),
         'content'    => apollonGetOption('layout_'.$posttype.'_content'),
+        'avatar'     => apollonGetOption('layout_'.$posttype.'_avatar'),
         'feature'    => apollonGetOption('layout_'.$posttype.'_feature'),
         'extend'     => apollonGetOption('layout_'.$posttype.'_extend'),
         'header'     => apollonGetOption('layout_'.$posttype.'_header'),
