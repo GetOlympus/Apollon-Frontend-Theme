@@ -13,6 +13,7 @@ if (!isset($_element)) {
 }
 
 echo empty($_element['data']['readingtime']) ? '' : sprintf(
-    '%s',
+    '%s %s',
+    '<i uk-icon="future"></i>',
     $_element['data']['readingtime']
 );
