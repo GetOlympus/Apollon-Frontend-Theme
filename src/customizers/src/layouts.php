@@ -551,14 +551,14 @@ $layouts = [
                             ]
                         ],
                     ],
-                    'layout_page_extend' => [
-                        'label'       => __('apollon.ct.layouts.cpt._.extend.title', OL_APOLLON_DICTIONARY),
-                        'description' => __('apollon.ct.layouts.cpt._.extend.desc', OL_APOLLON_DICTIONARY),
+                    'layout_page_expand' => [
+                        'label'       => __('apollon.ct.layouts.cpt._.expand.title', OL_APOLLON_DICTIONARY),
+                        'description' => __('apollon.ct.layouts.cpt._.expand.desc', OL_APOLLON_DICTIONARY),
                         'priority'    => ++$priority,
                         'type'        => 'checkbox',
                         'settings'    => [
                             [
-                                'default'           => apollonGetDefault('layout_default_extend'),
+                                'default'           => apollonGetDefault('layout_default_expand'),
                                 'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
                             ]
                         ],
@@ -571,6 +571,7 @@ $layouts = [
                         '_classname'  => 'ApollonFrontendTheme\\Src\\Controls\\ApollonMulticheckControl',
                         'choices'     => [
                             'thumbnail'   => __('apollon._.cpt.thumbnail', OL_APOLLON_DICTIONARY),
+                            'overlay'     => __('apollon._.cpt.overlay', OL_APOLLON_DICTIONARY),
                             'title'       => __('apollon._.cpt.title', OL_APOLLON_DICTIONARY),
                             'comments'    => __('apollon._.cpt.comments', OL_APOLLON_DICTIONARY),
                             'readingtime' => __('apollon._.cpt.readingtime', OL_APOLLON_DICTIONARY),
@@ -1193,14 +1194,14 @@ foreach ($this->contents['posttypes'] as $type) {
                     ]
                 ],
             ],
-            'layout_'.$type.'_extend' => [
-                'label'       => __('apollon.ct.layouts.cpt._.extend.title', OL_APOLLON_DICTIONARY),
-                'description' => __('apollon.ct.layouts.cpt._.extend.desc', OL_APOLLON_DICTIONARY),
+            'layout_'.$type.'_expand' => [
+                'label'       => __('apollon.ct.layouts.cpt._.expand.title', OL_APOLLON_DICTIONARY),
+                'description' => __('apollon.ct.layouts.cpt._.expand.desc', OL_APOLLON_DICTIONARY),
                 'priority'    => ++$priority,
                 'type'        => 'checkbox',
                 'settings'    => [
                     [
-                        'default'           => apollonGetDefault('layout_default_extend'),
+                        'default'           => apollonGetDefault('layout_default_expand'),
                         'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
                     ]
                 ],
@@ -1213,6 +1214,7 @@ foreach ($this->contents['posttypes'] as $type) {
                 '_classname'  => 'ApollonFrontendTheme\\Src\\Controls\\ApollonMulticheckControl',
                 'choices'     => [
                     'thumbnail'   => __('apollon._.cpt.thumbnail', OL_APOLLON_DICTIONARY),
+                    'overlay'     => __('apollon._.cpt.overlay', OL_APOLLON_DICTIONARY),
                     'title'       => __('apollon._.cpt.title', OL_APOLLON_DICTIONARY),
                     'categories'  => __('apollon._.cpt.categories', OL_APOLLON_DICTIONARY),
                     'author'      => __('apollon._.cpt.author', OL_APOLLON_DICTIONARY),

@@ -42,7 +42,7 @@ add_filter('ol.apollon.posttypes_options', function ($posttype) {
         'content'    => apollonGetOption('layout_'.$posttype.'_content'),
         'avatar'     => apollonGetOption('layout_'.$posttype.'_avatar'),
         'feature'    => apollonGetOption('layout_'.$posttype.'_feature'),
-        'extend'     => apollonGetOption('layout_'.$posttype.'_extend'),
+        'expand'     => apollonGetOption('layout_'.$posttype.'_expand'),
         'header'     => apollonGetOption('layout_'.$posttype.'_header'),
         'sidebarpos' => apollonGetOption('layout_'.$posttype.'_sidebarpos'),
         'sidebar1'   => apollonGetOption('layout_'.$posttype.'_sidebar1'),

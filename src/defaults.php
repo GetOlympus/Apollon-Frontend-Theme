@@ -129,6 +129,7 @@ return [
     'comments_listlayout'   => 'default',
     'comments_formlayout'   => 'default',
     'comments_formstacked'  => false,
+    'comments_labels'       => true,
     'comments_highlight'    => false,
     'comments_formposition' => 'bottom',
     'comments_navsposition' => 'bottom',

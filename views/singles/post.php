@@ -51,9 +51,20 @@ get_header();
 echo '<!-- container -->'."\n";
 
 echo sprintf(
-    '<article class="uk-section uk-container uk-container-%s">',
-    $_single['options']['container']
+    '<article class="uk-section uk-container uk-container-%s%s">',
+    $_single['options']['container'],
+    !$_single['options']['expand'] ? '' : ' uk-padding-remove-top'
 );
+
+apollonGetPart('block.php', [
+    'data'    => $_single['data'],
+    'feature' => !$_single['options']['feature'] ? [] : [
+        'header' => $_single['options']['header'],
+        'width'  => $_single['options']['content'],
+    ],
+    'metas'   => isset($_single['contents']['metas']) ? $_single['contents']['metas'] : [],
+    'part'    => 'feature',
+]);
 
 echo sprintf(
     '<div class="uk-grid uk-flex-center uk-grid-%s" uk-grid>',

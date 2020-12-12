@@ -33,7 +33,7 @@ $_block = array_merge([
 $_block['available'] = apply_filters('ol.apollon.block_available_files', [
     'title', 'author', 'categories', 'tags', 'commentform', 'comments', 'content',
     'date', 'excerpt', 'metas', 'readingtime', 'readmore', 'thumbnail',
-    'social', 'nextprev', 'related'
+    'social', 'nextprev', 'related', 'feature', 'overlay',
 ]);
 
 // Check part availability
@@ -44,7 +44,7 @@ if (empty($_block['part']) || !in_array($_block['part'], $_block['available'])) 
 $_block['filename'] = $_block['part'].'.php';
 
 // Check data
-if (empty($_block['data'])) {
+if (empty($_block['data']) && 'overlay' !== $_block['part']) {
     return;
 }
 
