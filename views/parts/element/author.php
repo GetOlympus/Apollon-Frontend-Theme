@@ -12,7 +12,7 @@ if (!isset($_element)) {
     die('You are not authorized to directly access to this page');
 }
 
-echo  empty($_element['data']['author']) ? '' : sprintf(
+echo empty($_element['data']['author']) ? '' : sprintf(
     '%s %s',
     sprintf(
         '<i uk-icon="user" aria-hidden="%s"></i>',
