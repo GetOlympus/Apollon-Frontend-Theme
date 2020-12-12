@@ -134,6 +134,9 @@ return [
     'comments_formposition' => 'bottom',
     'comments_navsposition' => 'bottom',
 
+    'social_enable' => true,
+    'social_icons'  => ['twitter', 'facebook'],
+
     'backtotop_enable'   => false,
     'backtotop_label'    => '',
     'backtotop_icon'     => true,

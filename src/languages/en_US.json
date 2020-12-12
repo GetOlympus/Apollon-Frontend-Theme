@@ -411,6 +411,19 @@
     "apollon.ct.features.comments.layout.navsposition.bottom": "After the comments list",
     "apollon.ct.features.comments.layout.navsposition.top": "Before the comments list",
 
+    "apollon.ct.features.social.title": "Social share",
+    "apollon.ct.features.social.desc": "Turn on to display a Social share buttons.",
+    "apollon.ct.features.social.icons.title": "Icons",
+    "apollon.ct.features.social.icons.desc": "Choose which icons to display.",
+    "apollon.ct.features.social.icons.twitter": "<i class=\"dashicons dashicons-twitter\"></i> Twitter",
+    "apollon.ct.features.social.icons.facebook": "<i class=\"dashicons dashicons-facebook\"></i> Facebook",
+    "apollon.ct.features.social.icons.google-plus": "<i class=\"dashicons dashicons-google\"></i> Google plus",
+    "apollon.ct.features.social.icons.pinterest": "<i class=\"dashicons dashicons-pinterest\"></i> Pinterest",
+    "apollon.ct.features.social.icons.linkedin": "<i class=\"dashicons dashicons-linkedin\"></i> LinkedIn",
+    "apollon.ct.features.social.icons.reddit": "<i class=\"dashicons dashicons-reddit\"></i> Reddit",
+    "apollon.ct.features.social.icons.tumblr": "<i class=\"dashicons dashicons-minus\"></i> Tumblr",
+    "apollon.ct.features.social.icons.whatsapp": "<i class=\"dashicons dashicons-whatsapp\"></i> WhatsApp",
+
     "apollon.ct.features.backtotop.title": "Back to top",
     "apollon.ct.features.backtotop.desc": "Turn on to display a Back to top button.",
     "apollon.ct.features.backtotop.optimisation.title": "Button optimisation",
@@ -775,17 +788,15 @@
 
     "apollon.th.searchform.placeholder": "Search...",
 
-    "apollon.th.share.twitter": "Share on Twitter",
-    "apollon.th.share.facebook": "Share on Facebook",
-    "apollon.th.share.google-plus": "Share on Google plus",
-    "apollon.th.share.pinterest": "Share on Pinterest",
-    "apollon.th.share.linkedin": "Share on LinkedIn",
-    "apollon.th.share.viber": "Share on Viber",
-    "apollon.th.share.vk": "Share on VK.com",
-    "apollon.th.share.reddit": "Share on Reddit",
-    "apollon.th.share.tumblr": "Share on Tumblr",
-    "apollon.th.share.viadeo": "Share on Viadeo",
-    "apollon.th.share.whatsapp": "Share on WhatsApp",
+    "apollon.th.share.on": "Share on",
+    "apollon.th.share.twitter": "Twitter",
+    "apollon.th.share.facebook": "Facebook",
+    "apollon.th.share.google-plus": "Google plus",
+    "apollon.th.share.pinterest": "Pinterest",
+    "apollon.th.share.linkedin": "LinkedIn",
+    "apollon.th.share.reddit": "Reddit",
+    "apollon.th.share.tumblr": "Tumblr",
+    "apollon.th.share.whatsapp": "WhatsApp",
 
     "apollon.th.footer.copyright": "<a href=\"https://github.com/crewstyle\" target=\"_blank\">created with ♥ by crewstyle</a>"
 }

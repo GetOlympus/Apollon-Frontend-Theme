@@ -17,6 +17,9 @@ add_filter('ol.apollon.sidebar_start', function ($status) {
 add_filter('ol.apollon.comments_start', function ($status) {
     return (bool) !!apollonGetOption('comments_enable');
 });
+add_filter('ol.apollon.social_start', function ($status) {
+    return (bool) !!apollonGetOption('social_enable');
+});
 add_filter('ol.apollon.backtotop_start', function ($status) {
     return (bool) !!apollonGetOption('backtotop_enable');
 });

@@ -785,6 +785,62 @@ return [
                 'priority'          => ++$priority,
             ]),
 
+// SOCIAL
+            'ft-social' => [
+                'title'       => __('apollon.ct.features.social.title', OL_APOLLON_DICTIONARY),
+                'priority'    => ++$priority,
+
+                'controls'    => [
+                    'social_enable' => [
+                        'label'       => __(
+                            'apollon.ct.features.social.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.features.social.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'checkbox',
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('social_enable'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
+                            ]
+                        ],
+                    ],
+                    'social_icons' => [
+                        'label'       => __(
+                            'apollon.ct.features.social.icons.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.features.social.icons.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'apollon-multicheck',
+                        '_classname'  => 'ApollonFrontendTheme\\Src\\Controls\\ApollonMulticheckControl',
+                        'choices'     => [
+                            'twitter'     => __('apollon.ct.features.social.icons.twitter', OL_APOLLON_DICTIONARY),
+                            'facebook'    => __('apollon.ct.features.social.icons.facebook', OL_APOLLON_DICTIONARY),
+                            'google-plus' => __('apollon.ct.features.social.icons.google-plus', OL_APOLLON_DICTIONARY),
+                            'pinterest'   => __('apollon.ct.features.social.icons.pinterest', OL_APOLLON_DICTIONARY),
+                            'linkedin'    => __('apollon.ct.features.social.icons.linkedin', OL_APOLLON_DICTIONARY),
+                            'reddit'      => __('apollon.ct.features.social.icons.reddit', OL_APOLLON_DICTIONARY),
+                            'tumblr'      => __('apollon.ct.features.social.icons.tumblr', OL_APOLLON_DICTIONARY),
+                            'whatsapp'    => __('apollon.ct.features.social.icons.whatsapp', OL_APOLLON_DICTIONARY),
+                        ],
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('social_icons'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeMulticheck'],
+                            ]
+                        ],
+                    ],
+                ],
+            ],
+
 // BACK TO TOP
             'ft-backtotop' => [
                 'title'       => __('apollon.ct.features.backtotop.title', OL_APOLLON_DICTIONARY),

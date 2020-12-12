@@ -56,6 +56,10 @@ add_filter('ol.apollon.posttypes_social', function ($options, $data) {
         return '';
     }
 
+    if (!apply_filters('ol.apollon.social_start', false)) {
+        return;
+    }
+
     // Options
     $options = array_merge([
         'before'      => '<ul class="uk-iconnav">',
@@ -65,7 +69,9 @@ add_filter('ol.apollon.posttypes_social', function ($options, $data) {
     ], $options);
 
     // Socials button
-    $social = [
+    $social = apollonGetOption('social_icons');
+
+    $links = [
         'twitter'     => 'https://twitter.com/share?text=%TITLE%&amp;url=%LINK%',
         'facebook'    => 'https://www.facebook.com/sharer.php?u=%LINK%',
         'google-plus' => 'https://plus.google.com/share?url=%LINK%',
@@ -86,11 +92,11 @@ add_filter('ol.apollon.posttypes_social', function ($options, $data) {
     $list = $options['before'];
 
     // Iterate
-    foreach ($social as $icon => $url) {
+    foreach ($social as $icon) {
         $list .= $options['before_item'];
 
         $list .= sprintf(
-            '<a href="%s" title="%s" uk-icon="icon:%s" target="_blank"></a>',
+            '<a href="%s" title="%s" uk-icon="%s" target="_blank"></a>',
             str_replace(
                 [
                     '%LINK%',
@@ -102,9 +108,13 @@ add_filter('ol.apollon.posttypes_social', function ($options, $data) {
                     $content['title'],
                     $content['image']
                 ],
-                $url
+                $links[$icon]
             ),
-            __('apollon.th.share.'.$icon, OL_APOLLON_DICTIONARY),
+            sprintf(
+                '%s %s',
+                __('apollon.th.share.on', OL_APOLLON_DICTIONARY),
+                __('apollon.th.share.'.$icon, OL_APOLLON_DICTIONARY)
+            ),
             $icon
         );
 
