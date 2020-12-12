@@ -39,6 +39,7 @@ add_filter('ol.apollon.comments_options', function ($comments = []) {
         'htmltags'     => apollonGetOption('comments_htmltags'),
         'header'       => apollonGetOption('comments_header'),
         'formstacked'  => apollonGetOption('comments_formstacked'),
+        'labels'       => apollonGetOption('comments_labels'),
         'highlight'    => apollonGetOption('comments_highlight'),
         'formposition' => apollonGetOption('comments_formposition'),
         'navsposition' => apollonGetOption('comments_navsposition'),

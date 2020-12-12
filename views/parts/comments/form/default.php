@@ -22,7 +22,7 @@ $form = [
         // class
         '',
         // label
-        sprintf(
+        !$_comments['options']['labels'] ? '' : sprintf(
             $_comments['form']['label'],
             // class
             '',
@@ -50,7 +50,12 @@ $form = [
         'author' => sprintf(
             $_comments['form']['field'],
             '',
-            sprintf($_comments['form']['label'], '', 'author', $_comments['labels']['author']),
+            !$_comments['options']['labels'] ? '' : sprintf(
+                $_comments['form']['label'],
+                '',
+                'author',
+                $_comments['labels']['author']
+            ),
             $_comments['required']['req'] ? $_comments['required']['css'] : '',
             sprintf(
                 '<input type="%s" id="%s" name="%s" class="uk-input" value="%s" size="100" %s placeholder="%s"/>',
@@ -65,7 +70,12 @@ $form = [
         'email' => sprintf(
             $_comments['form']['field'],
             '',
-            sprintf($_comments['form']['label'], '', 'email', $_comments['labels']['email']),
+            !$_comments['options']['labels'] ? '' : sprintf(
+                $_comments['form']['label'],
+                '',
+                'email',
+                $_comments['labels']['email']
+            ),
             $_comments['required']['req'] ? $_comments['required']['css'] : '',
             sprintf(
                 '<input type="%s" id="%s" name="%s" class="uk-input" value="%s" %s placeholder="%s"/>',
@@ -100,7 +110,12 @@ if ($_comments['options']['website']) {
     $form['fields']['url'] = sprintf(
         $_comments['form']['field'],
         '',
-        sprintf($_comments['form']['label'], '', 'url', $_comments['labels']['url']),
+        !$_comments['options']['labels'] ? '' : sprintf(
+            $_comments['form']['label'],
+            '',
+            'url',
+            $_comments['labels']['url']
+        ),
         // required css
         $_comments['required']['req'] ? $_comments['required']['css'] : '',
         // field

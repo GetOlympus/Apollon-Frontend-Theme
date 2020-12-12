@@ -681,6 +681,24 @@ return [
                             ]
                         ],
                     ],
+                    'comments_labels' => [
+                        'label'       => __(
+                            'apollon.ct.features.comments.layout.labels.title',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'description' => __(
+                            'apollon.ct.features.comments.layout.labels.desc',
+                            OL_APOLLON_DICTIONARY
+                        ),
+                        'priority'    => ++$priority,
+                        'type'        => 'checkbox',
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('comments_labels'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
+                            ]
+                        ],
+                    ],
                     'comments_highlight' => [
                         'label'       => __(
                             'apollon.ct.features.comments.layout.highlight.title',
