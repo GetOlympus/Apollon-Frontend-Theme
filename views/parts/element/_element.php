@@ -14,7 +14,6 @@ if (!isset($_element)) {
 
 // Content starts
 $_element = array_merge([
-    'canvas' => false,
     'cover'  => false,
     'css'    => '',
     'data'   => [],

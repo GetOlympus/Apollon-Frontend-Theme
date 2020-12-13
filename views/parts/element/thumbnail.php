@@ -23,12 +23,12 @@ echo sprintf(
     $_element['data']['link'],
     $_element['data']['esc_title'],
     !empty($_element['css']) ? $_element['css'] : 'uk-display-block uk-margin-remove-top uk-margin-small-bottom',
-    !$_element['canvas'] ? '' : sprintf(
+    false === $_element['cover'] ? '' : sprintf(
         '<canvas width="%s" height="%d"></canvas>',
         '100%',
         $_element['data']['images']['height']
     ),
-    !$_element['canvas'] ? $_element['data']['images'][$_element['_size']] : str_replace(
+    false === $_element['cover'] ? $_element['data']['images'][$_element['_size']] : str_replace(
         'img ',
         'img uk-cover ',
         $_element['data']['images'][$_element['_size']]

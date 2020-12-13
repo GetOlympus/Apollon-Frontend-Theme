@@ -38,7 +38,6 @@ echo sprintf(
 );
 
 apollonGetPart('element.php', [
-    'canvas' => true,
     'cover'  => $_format['_coverstyle'],
     'css'    => 'uk-display-block uk-margin-remove uk-cover-container',
     'data'   => $_format['data'],

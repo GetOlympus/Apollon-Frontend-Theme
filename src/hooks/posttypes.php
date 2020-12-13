@@ -205,6 +205,8 @@ add_filter('ol.apollon.posttypes_vars', function ($vars = []) {
 
     // Build images
     if ($vars['has_thumb'] && $vars['get_thumb']) {
+        $vars['thumbnail'] = apollonGetOption('layout_'.$vars['posttype'].'s_thumbnail', $vars['thumbnail']);
+
         $vars['images']['thumbnail'] = get_the_post_thumbnail($vars['id'], $vars['thumbnail'], [
             'alt'       => $vars['esc_title'],
             'itemprop'  => 'contentURL',

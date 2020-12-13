@@ -30,7 +30,6 @@ if ('thumbnail' === array_key_first($_format['contents'])) {
         'css'  => 'uk-display-block uk-card-media-top uk-margin-remove',
         'data' => $_format['data'],
         'part' => 'thumbnail',
-        'size' => 'full',
     ]);
 }
 
@@ -58,7 +57,6 @@ if ('thumbnail' === array_key_last($_format['contents'])) {
         'css'  => 'uk-display-block uk-card-media-bottom uk-margin-remove',
         'data' => $_format['data'],
         'part' => 'thumbnail',
-        'size' => 'full',
     ]);
 }
 
