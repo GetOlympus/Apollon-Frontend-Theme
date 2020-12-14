@@ -21,11 +21,12 @@ if (!isset($_backtotop)) {
 do_action('ol.apollon.backtotop_part_default_before', $_backtotop);
 
 echo sprintf('
-    <a href="#" class="uk-position-fixed %s %s %s%s" uk-scroll%s>%s</a>',
+    <a href="#" class="f-backtotop uk-position-fixed %s %s %s%s" uk-scrollspy="%s"%s>%s</a>',
     'uk-position-'.$_backtotop['options']['margin'],
     'uk-position-bottom-'.$_backtotop['options']['position'],
     'uk-button uk-button-small uk-button-'.$_backtotop['options']['style'],
     !$_backtotop['options']['mobile'] ? '' : ' uk-visible@s',
+    'cls:uk-animation-fade;delay:500;offset-top:100',
     !$_backtotop['options']['icon'] ? '' : ' uk-icon="icon:chevron-up"',
     $_backtotop['options']['label']
 );

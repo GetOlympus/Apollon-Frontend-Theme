@@ -27,9 +27,9 @@ add_filter('ol.apollon.post_vars', function ($post = []) {
     // Update data
     $post['data'] = apply_filters('ol.apollon.posttypes_vars', [
         'avatar'    => 22,
-        'length'    => 20,
+        'length'    => apollonGetOption('layout_'.$posttype.'s_excerpt', 20),
         'posttype'  => $posttype,
-        'thumbnail' => 'thumbnail',
+        'thumbnail' => apollonGetOption('layout_'.$posttype.'s_thumbnail', 'thumbnail'),
     ]);
 
 
