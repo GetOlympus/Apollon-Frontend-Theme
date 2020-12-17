@@ -68,6 +68,8 @@ defined('VENDORPATH') or define('VENDORPATH', ROOTPATH.'vendor'.S);
  * Apollon constants
  */
 
+// CSS filename
+define('OL_APOLLON_CSS_FILENAME', 'variables.less');
 // Dictionary name
 define('OL_APOLLON_DICTIONARY', 'olympus-apollon');
 // Customizer preview mode
@@ -110,7 +112,7 @@ if (!class_exists('ApollonFrontendTheme')) {
     class ApollonFrontendTheme extends \GetOlympus\Zeus\Zeus
     {
         protected $components = [
-            'adminpages'  => OL_APOLLON_SRCPATH.'adminpages',
+            //'adminpages'  => OL_APOLLON_SRCPATH.'adminpages',
             'controls'    => OL_APOLLON_SRCPATH.'controls',
             'customizers' => OL_APOLLON_SRCPATH.'customizers',
             'sections'    => OL_APOLLON_SRCPATH.'sections',
@@ -148,6 +150,9 @@ if (!class_exists('ApollonFrontendTheme')) {
 
             // Include BUILDER & INC FILES hooks
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'builder.php';
+
+            // Include ASSETS hooks
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'assets.php';
 
             // Include FEATURES hooks
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'features.php';

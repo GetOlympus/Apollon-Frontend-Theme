@@ -8,7 +8,6 @@
  * @since      0.0.1
  */
 
-
 if (!function_exists('apollonGetDefault')) {
     /**
      * Main getter Apollon function to retrieve default option.
@@ -193,5 +192,50 @@ if (!function_exists('apollonGetTemplate')) {
          * @param  array   $vars
          */
         do_action('ol.apollon.get_template_after', $tpl, $slug, $vars);
+    }
+}
+
+if (!function_exists('apollonMinifyCss')) {
+    /**
+     * Minify CSS.
+     *
+     * @param  string  $css
+     *
+     * @return string
+     */
+    function apollonMinifyCss($css = '')
+    {
+        // Check css
+        if (!$css) {
+            return;
+        }
+
+        // Normalize whitespace
+        $css = preg_replace('/\s+/', ' ', $css);
+
+        // Remove ; before }
+        $css = preg_replace('/;(?=\s*})/', '', $css);
+
+        // Remove space after , : ; { } */ >
+        $css = preg_replace('/(,|:|;|\{|}|\*\/|>) /', '$1', $css);
+
+        // Remove space before , ; { }
+        $css = preg_replace('/ (,|;|\{|})/', '$1', $css);
+
+        // Strips leading 0 on decimal values (converts 0.5px into .5px)
+        $css = preg_replace('/(:| )0\.([0-9]+)(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css);
+
+        // Strips units if value is 0 (converts 0px to 0)
+        $css = preg_replace('/(:| )(\.?)0(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css);
+
+        // Trim
+        $css = trim($css);
+
+        /**
+         * Apply extra rules to css.
+         *
+         * @param  string  $css
+         */
+        return apply_filters('ol.apollon.minify_css', $css);
     }
 }

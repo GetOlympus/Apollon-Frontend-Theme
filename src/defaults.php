@@ -67,6 +67,9 @@ return [
     'color_purple_dark'  => '#403294',
     'color_purple_light' => '#eae6ff',
 
+    'navbar_height'   => 80,
+    'navbar_fontsize' => 16,
+
     'grid_container'   => 'large',
     'grid_columngap'   => 'default',
     'grid_rowgap'      => 'default',

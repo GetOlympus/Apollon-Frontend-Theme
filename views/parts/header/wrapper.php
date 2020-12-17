@@ -113,9 +113,10 @@ foreach (['top', 'main', 'sub'] as $nav) {
     $_navbar = $_header['options'][$nav.'nav'];
 
     echo sprintf(
-        '<nav class="uk-navbar-container uk-navbar-transparent%s uk-padding-%s">',
+        '<nav class="uk-navbar-container uk-navbar-transparent%s uk-padding-%s%s">',
         'none' !== $_navbar['background'] ? ' uk-background-'.$_navbar['background'] : '',
-        $_navbar['padding']
+        $_navbar['padding'],
+        'secondary' === $_navbar['background'] ? ' uk-light' : ''
     );
 
     // Check template

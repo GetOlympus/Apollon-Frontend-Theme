@@ -145,21 +145,21 @@ return [
                 'priority'          => ++$priority,
             ]),
 
-// COLOR
-            'gl-color' => [
-                'title'       => __('apollon.ct.general.color.title', OL_APOLLON_DICTIONARY),
-                'description' => __('apollon.ct.general.color.desc', OL_APOLLON_DICTIONARY),
+// COLORS
+            'gl-colors' => [
+                'title'       => __('apollon.ct.general.colors.title', OL_APOLLON_DICTIONARY),
+                'description' => __('apollon.ct.general.colors.desc', OL_APOLLON_DICTIONARY),
                 'priority'    => ++$priority,
 
                 'controls'    => [
     // PRIMARY
                     'main_header' => array_merge($this->contents['control_title'], [
                         'label'       => __(
-                            'apollon.ct.general.color.main.title',
+                            'apollon.ct.general.colors.main.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.main.desc',
+                            'apollon.ct.general.colors.main.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -167,11 +167,11 @@ return [
 
                     'color_primary' => [
                         'label'       => __(
-                            'apollon.ct.general.color.main.primary.title',
+                            'apollon.ct.general.colors.main.primary.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.main.primary.desc',
+                            'apollon.ct.general.colors.main.primary.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -185,11 +185,11 @@ return [
                     ],
                     'color_secondary' => [
                         'label'       => __(
-                            'apollon.ct.general.color.main.secondary.title',
+                            'apollon.ct.general.colors.main.secondary.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.main.secondary.desc',
+                            'apollon.ct.general.colors.main.secondary.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -203,11 +203,11 @@ return [
                     ],
                     'color_muted' => [
                         'label'       => __(
-                            'apollon.ct.general.color.main.muted.title',
+                            'apollon.ct.general.colors.main.muted.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.main.muted.desc',
+                            'apollon.ct.general.colors.main.muted.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -221,11 +221,11 @@ return [
                     ],
                     'color_neutral' => [
                         'label'       => __(
-                            'apollon.ct.general.color.main.neutral.title',
+                            'apollon.ct.general.colors.main.neutral.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.main.neutral.desc',
+                            'apollon.ct.general.colors.main.neutral.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -239,11 +239,11 @@ return [
                     ],
                     'color_background' => [
                         'label'       => __(
-                            'apollon.ct.general.color.main.background.title',
+                            'apollon.ct.general.colors.main.background.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.main.background.desc',
+                            'apollon.ct.general.colors.main.background.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -259,11 +259,11 @@ return [
     // SECONDARY
                     'secondary_header' => array_merge($this->contents['control_title'], [
                         'label'       => __(
-                            'apollon.ct.general.color.secondary.title',
+                            'apollon.ct.general.colors.secondary.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.secondary.desc',
+                            'apollon.ct.general.colors.secondary.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -271,11 +271,11 @@ return [
 
                     'color_red' => [
                         'label'       => __(
-                            'apollon.ct.general.color.secondary.red.title',
+                            'apollon.ct.general.colors.secondary.red.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.secondary.red.desc',
+                            'apollon.ct.general.colors.secondary.red.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -289,11 +289,11 @@ return [
                     ],
                     'color_yellow' => [
                         'label'       => __(
-                            'apollon.ct.general.color.secondary.yellow.title',
+                            'apollon.ct.general.colors.secondary.yellow.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.secondary.yellow.desc',
+                            'apollon.ct.general.colors.secondary.yellow.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -307,11 +307,11 @@ return [
                     ],
                     'color_green' => [
                         'label'       => __(
-                            'apollon.ct.general.color.secondary.green.title',
+                            'apollon.ct.general.colors.secondary.green.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.secondary.green.desc',
+                            'apollon.ct.general.colors.secondary.green.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -325,11 +325,11 @@ return [
                     ],
                     'color_blue' => [
                         'label'       => __(
-                            'apollon.ct.general.color.secondary.blue.title',
+                            'apollon.ct.general.colors.secondary.blue.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.secondary.blue.desc',
+                            'apollon.ct.general.colors.secondary.blue.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -343,11 +343,11 @@ return [
                     ],
                     'color_teal' => [
                         'label'       => __(
-                            'apollon.ct.general.color.secondary.teal.title',
+                            'apollon.ct.general.colors.secondary.teal.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.secondary.teal.desc',
+                            'apollon.ct.general.colors.secondary.teal.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -361,11 +361,11 @@ return [
                     ],
                     'color_purple' => [
                         'label'       => __(
-                            'apollon.ct.general.color.secondary.purple.title',
+                            'apollon.ct.general.colors.secondary.purple.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.secondary.purple.desc',
+                            'apollon.ct.general.colors.secondary.purple.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -381,11 +381,11 @@ return [
     // EXTENDED
                     'extended_header' => array_merge($this->contents['control_title'], [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.title',
+                            'apollon.ct.general.colors.extended.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.color.extended.desc',
+                            'apollon.ct.general.colors.extended.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -393,14 +393,14 @@ return [
 
                     'neutral_palette' => array_merge($this->contents['control_subtitle'], [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.neutral.title',
+                            'apollon.ct.general.colors.extended.neutral.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
                     ]),
                     'color_darkneutral_dark' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.darkneutral.dark.title',
+                            'apollon.ct.general.colors.extended.darkneutral.dark.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -414,7 +414,7 @@ return [
                     ],
                     'color_darkneutral_light' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.darkneutral.light.title',
+                            'apollon.ct.general.colors.extended.darkneutral.light.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -428,7 +428,7 @@ return [
                     ],
                     'color_midneutral_dark' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.midneutral.dark.title',
+                            'apollon.ct.general.colors.extended.midneutral.dark.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -442,7 +442,7 @@ return [
                     ],
                     'color_midneutral_light' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.midneutral.light.title',
+                            'apollon.ct.general.colors.extended.midneutral.light.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -456,7 +456,7 @@ return [
                     ],
                     'color_lightneutral_dark' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.lightneutral.dark.title',
+                            'apollon.ct.general.colors.extended.lightneutral.dark.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -470,7 +470,7 @@ return [
                     ],
                     'color_lightneutral_light' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.lightneutral.light.title',
+                            'apollon.ct.general.colors.extended.lightneutral.light.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -485,14 +485,14 @@ return [
 
                     'secondary_palette' => array_merge($this->contents['control_subtitle'], [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.secondary.title',
+                            'apollon.ct.general.colors.extended.secondary.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
                     ]),
                     'color_red_dark' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.red.dark.title',
+                            'apollon.ct.general.colors.extended.red.dark.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -506,7 +506,7 @@ return [
                     ],
                     'color_red_light' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.red.light.title',
+                            'apollon.ct.general.colors.extended.red.light.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -521,7 +521,7 @@ return [
 
                     'color_yellow_dark' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.yellow.dark.title',
+                            'apollon.ct.general.colors.extended.yellow.dark.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -535,7 +535,7 @@ return [
                     ],
                     'color_yellow_light' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.yellow.light.title',
+                            'apollon.ct.general.colors.extended.yellow.light.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -550,7 +550,7 @@ return [
 
                     'color_green_dark' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.green.dark.title',
+                            'apollon.ct.general.colors.extended.green.dark.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -564,7 +564,7 @@ return [
                     ],
                     'color_green_light' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.green.light.title',
+                            'apollon.ct.general.colors.extended.green.light.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -579,7 +579,7 @@ return [
 
                     'color_blue_dark' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.blue.dark.title',
+                            'apollon.ct.general.colors.extended.blue.dark.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -593,7 +593,7 @@ return [
                     ],
                     'color_blue_light' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.blue.light.title',
+                            'apollon.ct.general.colors.extended.blue.light.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -608,7 +608,7 @@ return [
 
                     'color_teal_dark' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.teal.dark.title',
+                            'apollon.ct.general.colors.extended.teal.dark.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -622,7 +622,7 @@ return [
                     ],
                     'color_teal_light' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.teal.light.title',
+                            'apollon.ct.general.colors.extended.teal.light.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -637,7 +637,7 @@ return [
 
                     'color_purple_dark' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.purple.dark.title',
+                            'apollon.ct.general.colors.extended.purple.dark.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -651,7 +651,7 @@ return [
                     ],
                     'color_purple_light' => [
                         'label'       => __(
-                            'apollon.ct.general.color.extended.purple.light.title',
+                            'apollon.ct.general.colors.extended.purple.light.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -666,20 +666,64 @@ return [
                 ],
             ],
 
-// GRID
-            'gl-grid' => [
-                'title'       => __('apollon.ct.general.grid.title', OL_APOLLON_DICTIONARY),
-                'description' => __('apollon.ct.general.grid.desc', OL_APOLLON_DICTIONARY),
+// NAVBARS
+            'gl-navbars' => [
+                'title'       => __('apollon.ct.general.navbars.title', OL_APOLLON_DICTIONARY),
+                'description' => __('apollon.ct.general.navbars.desc', OL_APOLLON_DICTIONARY),
+                'priority'    => ++$priority,
+
+                'controls'    => [
+                    'navbar_height' => [
+                        'label'       => __('apollon.ct.general.navbars.height.title', OL_APOLLON_DICTIONARY),
+                        'description' => __('apollon.ct.general.navbars.height.desc', OL_APOLLON_DICTIONARY),
+                        'priority'    => ++$priority,
+                        'type'        => 'number',
+                        'input_attrs' => [
+                            'min'  => 10,
+                            'max'  => 800,
+                            'step' => 1,
+                        ],
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('navbar_height'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
+                            ]
+                        ],
+                    ],
+                    'navbar_fontsize' => [
+                        'label'       => __('apollon.ct.general.navbars.fontsize.title', OL_APOLLON_DICTIONARY),
+                        'description' => __('apollon.ct.general.navbars.fontsize.desc', OL_APOLLON_DICTIONARY),
+                        'priority'    => ++$priority,
+                        'type'        => 'number',
+                        'input_attrs' => [
+                            'min'  => 10,
+                            'max'  => 800,
+                            'step' => 1,
+                        ],
+                        'settings'    => [
+                            [
+                                'default'           => apollonGetDefault('navbar_fontsize'),
+                                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
+                            ]
+                        ],
+                    ],
+                ],
+            ],
+
+// GRIDS
+            'gl-grids' => [
+                'title'       => __('apollon.ct.general.grids.title', OL_APOLLON_DICTIONARY),
+                'description' => __('apollon.ct.general.grids.desc', OL_APOLLON_DICTIONARY),
                 'priority'    => ++$priority,
 
                 'controls'    => [
                     'grid_container' => [
                         'label'       => __(
-                            'apollon.ct.general.grid.container.title',
+                            'apollon.ct.general.grids.container.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.grid.container.desc',
+                            'apollon.ct.general.grids.container.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -701,11 +745,11 @@ return [
                     ],
                     'grid_columngap' => [
                         'label'       => __(
-                            'apollon.ct.general.grid.columngap.title',
+                            'apollon.ct.general.grids.columngap.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.grid.columngap.desc',
+                            'apollon.ct.general.grids.columngap.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -726,11 +770,11 @@ return [
                     ],
                     'grid_rowgap' => [
                         'label'       => __(
-                            'apollon.ct.general.grid.rowgap.title',
+                            'apollon.ct.general.grids.rowgap.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.grid.rowgap.desc',
+                            'apollon.ct.general.grids.rowgap.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -751,11 +795,11 @@ return [
                     ],
                     'grid_divider' => [
                         'label'       => __(
-                            'apollon.ct.general.grid.divider.title',
+                            'apollon.ct.general.grids.divider.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.grid.divider.desc',
+                            'apollon.ct.general.grids.divider.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,
@@ -769,11 +813,11 @@ return [
                     ],
                     'grid_matchheight' => [
                         'label'       => __(
-                            'apollon.ct.general.grid.matchheight.title',
+                            'apollon.ct.general.grids.matchheight.title',
                             OL_APOLLON_DICTIONARY
                         ),
                         'description' => __(
-                            'apollon.ct.general.grid.matchheight.desc',
+                            'apollon.ct.general.grids.matchheight.desc',
                             OL_APOLLON_DICTIONARY
                         ),
                         'priority'    => ++$priority,

@@ -58,63 +58,69 @@ add_action('ol.apollon.header_build_navbar', function ($nav, $level, $options) {
 }, 10, 3);
 
 add_filter('ol.apollon.header_links', function ($links) {
-    return array_merge($links, [
+    $links = array_merge($links, [
         [
             'href' => 'https://fonts.googleapis.com/css?family=Karla|Source+Sans+Pro:400',
             'rel'  => 'stylesheet',
         ],
-        [
-            'href' => 'https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/css/uikit.min.css',
-            'rel'  => 'stylesheet',
-        ],
         /*
         [
-            'href' => $_header['urls']['themeuri'].'/app/css/apollon.css',
-            'rel'  => 'stylesheet',
-        ],
-        [
-            'href' => $_header['urls']['themeuri'].'/app/manifest.json',
+            'href' => OL_TPL_DIR_URI.'/app/manifest.json',
             'rel'  => 'manifest',
         ],
         [
-            'href'  => $_header['urls']['themeuri'].'/app/img/safari-pinned-tab.svg',
+            'href'  => OL_TPL_DIR_URI.'/app/img/safari-pinned-tab.svg',
             'color' => '#ffffff',
             'rel'   => 'mask-icon',
         ],
         [
-            'href'  => $_header['urls']['themeuri'].'/app/img/favicon.ico',
+            'href'  => OL_TPL_DIR_URI.'/app/img/favicon.ico',
             'sizes' => '16x16',
             'rel'   => 'icon',
             'type'  => 'icon',
         ],
         [
-            'href'  => $_header['urls']['themeuri'].'/app/img/favicon-57x57.png',
+            'href'  => OL_TPL_DIR_URI.'/app/img/favicon-57x57.png',
             'sizes' => '57x57',
             'rel'   => 'apple-touch-icon',
         ],
         [
-            'href'  => $_header['urls']['themeuri'].'/app/img/favicon-72x72.png',
+            'href'  => OL_TPL_DIR_URI.'/app/img/favicon-72x72.png',
             'sizes' => '72x72',
             'rel'   => 'apple-touch-icon',
         ],
         */
     ]);
+
+    // Check CSS in file
+    $links = !apply_filters('ol.apollon.assets_css_in_file', false) ? $links : array_merge($links, [
+        [
+            'href' => trailingslashit(get_stylesheet_directory_uri()).'app/css/apollon.less',
+            'rel'  => 'stylesheet/less',
+            'type' => 'text/css',
+        ],
+    ]);
+
+    return $links;
 });
 
 add_filter('ol.apollon.header_metas', function ($metas) {
+    $background = apollonGetOption('color_background');
+    $primary    = apollonGetOption('color_primary');
+
     return array_merge($metas, [
-        /*
-        [
-            'name'    => 'msapplication-TileColor',
-            'content' => '#ffffff',
-        ],
-        [
-            'name'    => 'msapplication-TileImage',
-            'content' => $_header['urls']['themeuri'].'/app/img/mstile-144x144.png',
-        ],
         [
             'name'    => 'theme-color',
-            'content' => '#ffffff',
+            'content' => $primary,
+        ],
+        [
+            'name'    => 'msapplication-TileColor',
+            'content' => $background,
+        ],
+        /*
+        [
+            'name'    => 'msapplication-TileImage',
+            'content' => OL_TPL_DIR_URI.'/app/img/mstile-144x144.png',
         ],
         */
     ]);
@@ -171,7 +177,7 @@ add_filter('ol.apollon.header_options', function ($options) {
 });
 
 add_filter('ol.apollon.header_scripts', function ($scripts) {
-    return array_merge($scripts, [
+    $scripts = array_merge($scripts, [
         [
             'src' => 'https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js',
         ],
@@ -179,43 +185,35 @@ add_filter('ol.apollon.header_scripts', function ($scripts) {
             'src' => 'https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js',
         ],
     ]);
+
+    // Check CSS in file
+    if (apply_filters('ol.apollon.assets_css_in_file', false)) {
+        $scripts = array_merge($scripts, [
+            [
+                'src' => '//cdn.jsdelivr.net/npm/less@latest',
+            ],
+        ]);
+    }
+
+    return $scripts;
 });
 
 // WP head
 
 add_action('ol.apollon.wp_head_after', function ($header) {
-    $primary = apollonGetOption('color_primary');
-
-    $styles = [];
-    $styles[':root'] = [
-        // UIKit
-        '--uk-animation-stroke'    => 'none',
-        '--uk-breakpoint-s'        => '640px',
-        '--uk-breakpoint-m'        => '960px',
-        '--uk-breakpoint-l'        => '1200px',
-        '--uk-breakpoint-xl'       => '1600px',
-        '--uk-leader-fill-content' => '.',
-
-        // WPBlock
-        '--wp-admin-theme-color' => $primary,
-        '--wp-admin-theme-color-darker-10' => $primary,
-        '--wp-admin-theme-color-darker-20' => $primary,
-    ];
-
-    $css = '';
-
-    foreach ($styles as $selector => $attrs) {
-        $css .= $selector.'{';
-
-        foreach ($attrs as $attr => $value) {
-            $css .= $attr.':'.$value.';';
-        }
-
-        $css .= '}';
+    // Check CSS in file
+    if (apply_filters('ol.apollon.assets_css_in_file', false) && !OL_APOLLON_ISCUSTOMIZER) {
+        return;
     }
-    echo '<style>'.$css.'</style>';
-});
 
+    // Get custom Apollon CSS
+    $output = apply_filters('ol.apollon.assets_output', '');
+
+    echo sprintf(
+        '<style type="text/css">%s</style>',
+        wp_strip_all_tags(apollonMinifyCss($output))
+    );
+});
 
 // LOGO
 
@@ -236,7 +234,6 @@ add_filter('ol.apollon.logo_image', function ($image) {
         'slogan' => $use_slogan ? OL_BLOG_DESCRIPTION : '',
     ]);
 });
-
 
 // WRAPPERS
 
