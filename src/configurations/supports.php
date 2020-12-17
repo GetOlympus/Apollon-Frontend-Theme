@@ -97,5 +97,8 @@ return [
      * Add your own theme supports here.
      */
     'woocommerce' => [],
+    'wc-product-gallery-slider'   => [],
+    'wc-product-gallery-zoom'     => [],
+    'wc-product-gallery-lightbox' => [],
     'auto-load-next-post' => [],
 ];
