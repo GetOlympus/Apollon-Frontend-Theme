@@ -17,7 +17,7 @@ if (!isset($_header)) {
 <!DOCTYPE html>
 <html<?php echo $_header['args']['htmlattrs'] ?>>
 <head>
-    <title><?php wp_title() ?></title>
+    <title><?php echo wp_title() ?></title>
 
     <?php
 
@@ -79,6 +79,8 @@ do_action('ol.apollon.main_wrapper_before', $_header);
 /**
  * Build main wrapper open.
  *
+ * @param  string
+ *
  * @return string
  */
 echo apply_filters('ol.apollon.main_wrapper_open', '<div class="uk-offcanvas-content">');
@@ -87,36 +89,40 @@ echo apply_filters('ol.apollon.main_wrapper_open', '<div class="uk-offcanvas-con
 /**
  * Build main header open.
  *
+ * @param  string
+ * @param  array
+ *
  * @return string
  */
 echo apply_filters('ol.apollon.main_header_open', sprintf(
     '<header class="uk-header uk-position-relative uk-position-z-index%s"%s>',
-    'none' === $_header['options']['nav_shadow']
+    'none' === $_header['options']['nav-shadow']
         ? ''
-        : ' uk-box-shadow-'.$_header['options']['nav_shadow'],
-    'static' === $_header['options']['nav_sticky']
+        : ' uk-box-shadow-'.$_header['options']['nav-shadow'],
+    'static' === $_header['options']['nav-sticky']
         ? ''
         : sprintf(
             ' uk-sticky="sel-target:.uk-header;cls-active:uk-navbar-sticky;animation:uk-animation-slide-top;%s"',
-            'scrollup' === $_header['options']['nav_sticky'] ? 'show-on-up:true;' : ''
+            'scrollup' === $_header['options']['nav-sticky'] ? 'show-on-up:true;' : ''
         )
-));
+), $_header['options']);
 
 // Iterate on navs
 
 foreach (['top', 'main', 'sub'] as $nav) {
     // Check if nav is enabled
-    if (!$_header['options'][$nav.'nav_enable']) {
+    if (!$_header['options']['nav-'.$nav.'-enable']) {
         continue;
     }
 
-    $_navbar = $_header['options'][$nav.'nav'];
+    $_navbar = $_header['options'][$nav];
 
     echo sprintf(
-        '<nav class="uk-navbar-container uk-navbar-transparent%s uk-padding-%s%s">',
+        '<nav class="%s uk-navbar-container uk-navbar-transparent%s uk-padding-%s uk-%s">',
+        'uk-nav-'.$nav,
         'none' !== $_navbar['background'] ? ' uk-background-'.$_navbar['background'] : '',
         $_navbar['padding'],
-        'secondary' === $_navbar['background'] ? ' uk-light' : ''
+        $_navbar['color']
     );
 
     // Check template
@@ -127,15 +133,15 @@ foreach (['top', 'main', 'sub'] as $nav) {
     echo sprintf(
         '<div id="%s" class="uk-container%s%s" uk-navbar="%s%s%s">',
         'nav-'.$nav,
-        $_navbar['fullwidth'] ? ' uk-container-expand' : '',
+        $_navbar['full-width'] ? ' uk-container-expand' : '',
         !$_navbar['mobile'] ? ' uk-visible@s' : '',
-        !$_header['options']['dropdown_click'] ? '' : 'mode:click;',
-        'default' === $_header['options']['dropdown_position']
+        !$_header['options']['dropdown-click'] ? '' : 'mode:click;',
+        'default' === $_header['options']['dropdown-position']
             ? ''
-            : 'boundary-align:true;align:'.$_header['options']['dropdown_position'].';',
-        !$_header['dropbar']
+            : 'boundary-align:true;align:'.$_header['options']['dropdown-position'].';',
+        !$_header['use-drop']
             ? ''
-            : 'dropbar:.uk-h-dropbar;dropbar-mode:'.$_header['options']['search_drop'],
+            : 'dropbar:.uk-h-dropbar;dropbar-mode:'.$_header['options']['dropbar'],
     );
 
     // Include template
@@ -156,6 +162,8 @@ foreach (['top', 'main', 'sub'] as $nav) {
     /**
      * Build main content after navbar.
      *
+     * @param  string
+     *
      * @return string
      */
     echo apply_filters('ol.apollon.main_navbar_'.$nav.'_after', '');
@@ -168,27 +176,55 @@ foreach (['top', 'main', 'sub'] as $nav) {
 /**
  * Build main header close.
  *
+ * @param  string
+ *
  * @return string
  */
 echo apply_filters('ol.apollon.main_header_close', '</header>');
 
 
 /**
+ * Check whether body header section is enabled.
+ *
+ * @param  bool
+ *
+ * @return bool
+ */
+if (apply_filters('ol.apollon.body_header_section_check', false)) {
+    /**
+     * Build body header section.
+     *
+     * @param  string
+     * @param  array
+     *
+     * @return string
+     */
+    echo apply_filters('ol.apollon.body_header_section', '', $_header['options']);
+}
+
+
+/**
  * Build body wrapper open.
+ *
+ * @param  string
+ * @param  array
  *
  * @return string
  */
 echo apply_filters('ol.apollon.body_wrapper_open', sprintf(
     '<div class="uk-container%s">',
-    'expand' === $_header['options']['grid_container']
+    'expand' === $_header['options']['grid-container']
         ? ''
-        : ' uk-container-'.$_header['options']['grid_container']
-));
+        : ' uk-container-'.$_header['options']['grid-container']
+), $_header['options']);
 
 
 /**
  * Build main dropbar content.
  *
+ * @param  string
+ * @param  bool
+ *
  * @return string
  */
-echo apply_filters('ol.apollon.main_dropbar_content', '<div class="uk-h-dropbar"></div>', $_header['dropbar']);
+echo apply_filters('ol.apollon.main_dropbar_content', '<div class="uk-h-dropbar"></div>', $_header['use-drop']);

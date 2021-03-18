@@ -108,7 +108,7 @@ $_header['metas'] = apply_filters('ol.apollon.header_metas', array_merge([
  *
  * @return array
  */
-$_header['links'] = apply_filters('ol.apollon.header_links', array_merge([
+$_header['links'] = apply_filters('ol.apollon.assets_links', array_merge([
     [
         'href' => 'http://gmpg.org/xfn/11',
         'rel'  => 'profile',
@@ -125,7 +125,7 @@ $_header['links'] = apply_filters('ol.apollon.header_links', array_merge([
  *
  * @return array
  */
-$_header['scripts'] = apply_filters('ol.apollon.header_scripts', array_merge([], $_header['scripts']));
+$_header['scripts'] = apply_filters('ol.apollon.assets_scripts', array_merge([], $_header['scripts']));
 
 
 /**
@@ -135,32 +135,32 @@ $_header['scripts'] = apply_filters('ol.apollon.header_scripts', array_merge([],
  */
 $_header['options'] = apply_filters('ol.apollon.header_options', array_merge([
     // Grid
-    'grid_container' => 'large',
+    'grid-container' => 'large',
 
     // Navs
-    'topnav_enable'  => false,
-    'topnav'         => [],
-    'mainnav_enable' => false,
-    'mainnav'        => [],
-    'subnav_enable'  => false,
-    'subnav'         => [],
+    'nav-top-enable'  => false,
+    'nav-top'         => [],
+    'nav-main-enable' => false,
+    'nav-main'        => [],
+    'nav-sub-enable'  => false,
+    'nav-sub'         => [],
 
     // Global
-    'nav_menulabel'     => '',
-    'nav_shadow'        => 'none',
-    'nav_sticky'        => 'none',
+    'nav-menu'   => '',
+    'nav-shadow' => 'none',
+    'nav-sticky' => 'none',
 
     // Dropdown
-    'dropdown_click'    => false,
-    'dropdown_position' => 'left',
+    'dropdown-click'    => false,
+    'dropdown-position' => 'left',
 
     // Extra search
-    'search_drop' => 'none',
-    'search_tpl'  => 'default',
+    'dropbar'       => 'none',
+    'header-layout' => 'default',
 ], $_header['options']));
 
 // Define wether to use dropbar or not
-$_header['dropbar'] = 'none' !== $_header['options']['search_drop'] && 'dropbar' === $_header['options']['search_tpl'];
+$_header['use-drop'] = 'none' !== $_header['options']['dropbar'] && 'dropbar' === $_header['options']['header-layout'];
 
 /**
  * Override header vars.

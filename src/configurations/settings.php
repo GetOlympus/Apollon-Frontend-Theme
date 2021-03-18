@@ -49,7 +49,7 @@ return [
     'admin-footer' => sprintf(
         __('apollon.cf.settings.adminfooter', OL_APOLLON_DICTIONARY),
         '<a href="https://github.com/crewstyle" target="_blank">Achraf Chouk</a>',
-        '<a href="http://www.wordpress.org/" title="Wordpress">WordPress</a>',
+        '<a href="https://www.wordpress.org/" title="Wordpress">WordPress</a>',
         '<b>WordPress developers</b>'
     ),
 
@@ -102,6 +102,7 @@ return [
         // ['dashboard_recent_drafts', 'dashboard', 'side'],
         // ['dashboard_secondary', 'dashboard', 'side'],
 
+        // Add a new dashboard box
         [
             'add',
             'dashboard_hello',

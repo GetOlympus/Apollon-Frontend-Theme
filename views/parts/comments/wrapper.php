@@ -13,7 +13,7 @@ if (!isset($_comments)) {
 }
 
 // Build form template vars
-$_comments['formlayout'] = include __DIR__.S.'form'.S.$_comments['options']['formlayout'].'.php';
+$_comments['formlayout'] = include __DIR__.S.'form'.S.$_comments['options']['form-layout'].'.php';
 
 
 /**
@@ -32,7 +32,7 @@ do_action('ol.apollon.comments_wrapper_before', $_comments);
  *
  * @return string
  */
-echo apply_filters('ol.apollon.build_separator', '', 'default');
+echo apply_filters('ol.apollon.component_separator', false);
 
 // Header
 if ($_comments['options']['header']) {
@@ -65,7 +65,7 @@ if ($_comments['options']['header']) {
 }
 
 // Form layout
-if ('top' === $_comments['options']['formposition']) {
+if ('top' === $_comments['options']['form-position']) {
     echo '<div class="uk-comment-list">';
 
     if ($_comments['data']['open']) {
@@ -89,7 +89,7 @@ if ($_comments['items']['count']) {
         'prev_text' => '<li><span uk-pagination-previous></span> '.$_comments['labels']['prevpage'].'</li>',
     ]);
 
-    if ('top' === $_comments['options']['navsposition']) {
+    if ('top' === $_comments['options']['navs-position']) {
         $page_css = false === strpos($links, 'prev page-numbers') ? ' only-next' : '';
 
         echo sprintf(
@@ -110,7 +110,7 @@ if ($_comments['items']['count']) {
 
     echo '</ul>';
 
-    if ('bottom' === $_comments['options']['navsposition']) {
+    if ('bottom' === $_comments['options']['navs-position']) {
         $page_css = false === strpos($links, 'prev page-numbers') ? ' only-next' : '';
 
         echo sprintf(
@@ -125,7 +125,7 @@ if ($_comments['items']['count']) {
 }
 
 // Form layout
-if ('bottom' === $_comments['options']['formposition']) {
+if ('bottom' === $_comments['options']['form-position']) {
     echo '<div class="uk-comment-list">';
 
     if ($_comments['data']['open']) {

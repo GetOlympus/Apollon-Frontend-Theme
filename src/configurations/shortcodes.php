@@ -28,7 +28,7 @@ return [
      * @var     string $key    The shortcode uniq key.
      * @param   string $file   The shortcode JS file.
      */
-    'html'          => false,
-    'nextpage'      => false,
-    'superquote'    => false
+    'html'       => false,
+    'nextpage'   => false,
+    'superquote' => false,
 ];

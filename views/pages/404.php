@@ -22,8 +22,8 @@ $_page = apply_filters('ol.apollon.page_404_vars', []);
 
 // Update vars
 $_page = array_merge($_page, [
-    'container' => apollonGetOption('layout_404_container'),
-    'content'   => apollonGetOption('layout_404_content'),
+    'container' => apollonGetOption('404-container'),
+    'content'   => apollonGetOption('404-content'),
 ]);
 
 

@@ -24,8 +24,8 @@ $_page = apply_filters('ol.apollon.page_image_vars', []);
 
 // Update vars
 $_page = array_merge($_page, [
-    'container' => apollonGetOption('layout_media_container'),
-    'content'   => apollonGetOption('layout_media_content'),
+    'container' => apollonGetOption('attachment-container'),
+    'content'   => apollonGetOption('attachment-content'),
 ]);
 
 // Details

@@ -19,17 +19,13 @@ $_loop = array_merge([
     'title'   => '',
 ], $_loop);
 
+// Check template
+if (!isset($_loop['template'])) {
+    $_loop['template'] = $_loop['sidebar'];
+}
+
 // Update vars
-$_loop = array_merge($_loop, [
-    'columns'    => apollonGetOption('layout_'.$_loop['sidebar'].'_columns'),
-    'container'  => apollonGetOption('layout_'.$_loop['sidebar'].'_container'),
-    'content'    => apollonGetOption('layout_'.$_loop['sidebar'].'_content'),
-    'gridgap'    => apollonGetOption('layout_'.$_loop['sidebar'].'_gridgap'),
-    'sidebarpos' => apollonGetOption('layout_'.$_loop['sidebar'].'_sidebarpos'),
-    'sidebar1'   => apollonGetOption('layout_'.$_loop['sidebar'].'_sidebar1'),
-    'sidebar2'   => apollonGetOption('layout_'.$_loop['sidebar'].'_sidebar2'),
-    'sidebars'   => apollonGetOption('layout_'.$_loop['sidebar'].'_sidebars'),
-]);
+$_loop = array_merge($_loop, apply_filters('ol.apollon.loops_options', $_loop['template']));
 
 
 /**
@@ -39,24 +35,12 @@ $_loop = array_merge($_loop, [
  */
 do_action('ol.apollon.loop_default_before', $_loop);
 
+// Include header template
+include_once __DIR__.S.'header'.S.'default.php';
+
 get_header();
 
 ?>
-
-<?php if (!empty($_loop['title'])) : ?>
-    <!-- title -->
-    <header class="uk-section uk-section-default uk-padding-remove-bottom" uk-height-viewport="expand: true">
-        <div class="uk-container">
-            <h3 class="uk-h2 uk-text-center">
-                <?php if (!empty($_loop['meta'])) : ?>
-                    <?php echo $_loop['meta'] ?>
-                <?php endif ?>
-
-                <?php echo $_loop['title'] ?>
-            </h3>
-        </div>
-    </header>
-<?php endif ?>
 
 <!-- container -->
 <section class="l-default uk-section uk-container uk-container-<?php echo $_loop['container'] ?>">
@@ -64,28 +48,18 @@ get_header();
 
         <!-- items -->
         <div class="<?php echo sprintf(
-            'uk-width-1-1@s uk-width-%s@m uk-child-width-1-%s uk-grid-%s',
+            'uk-width-1-1@s uk-width-%s@m uk-child-width-1-%s uk-grid-%s%s%s',
             $_loop['content'],
             $_loop['columns'],
-            $_loop['gridgap']
+            $_loop['gridgap'],
+            $_loop['divider'] ? ' uk-grid-divider' : '',
+            $_loop['match-height'] ? ' uk-grid-match' : ''
         ) ?>" uk-grid>
 
             <?php
 
             while (have_posts()) {
                 apollonGetPart('post.php', []);
-
-                if (1 >= $_loop['columns']) {
-                    /**
-                     * Build separator.
-                     *
-                     * @param  string  $separator
-                     * @param  string  $template
-                     *
-                     * @return string
-                     */
-                    echo apply_filters('ol.apollon.build_separator', '', 'default');
-                }
             }
 
             apollonGetPart('pagination.php', []);
@@ -103,55 +77,13 @@ get_header();
          */
         do_action('ol.apollon.loop_default_sidebar_before', $_loop);
 
-        // Display sidebars
-        if ('left' === $_loop['sidebarpos']) {
-            if ($_loop['sidebar1']) {
-                apollonGetPart('sidebar.php', [
-                    'css'      => 'uk-flex-first',
-                    'override' => $_loop['sidebars'],
-                    'sidebar'  => $_loop['sidebar'].'_1',
-                ]);
-            }
 
-            if ($_loop['sidebar2']) {
-                apollonGetPart('sidebar.php', [
-                    'css'      => 'uk-flex-first',
-                    'override' => $_loop['sidebars'],
-                    'sidebar'  => $_loop['sidebar'].'_2',
-                ]);
-            }
-        }
-
-        if ('center' === $_loop['sidebarpos'] && $_loop['sidebar1']) {
-            apollonGetPart('sidebar.php', [
-                'css'      => 'uk-flex-first',
-                'override' => $_loop['sidebars'],
-                'sidebar'  => $_loop['sidebar'].'_1',
-            ]);
-        }
-
-        if ('center' === $_loop['sidebarpos'] && $_loop['sidebar2']) {
-            apollonGetPart('sidebar.php', [
-                'override' => $_loop['sidebars'],
-                'sidebar'  => $_loop['sidebar'].'_2',
-            ]);
-        }
-
-        if ('right' === $_loop['sidebarpos']) {
-            if ($_loop['sidebar1']) {
-                apollonGetPart('sidebar.php', [
-                    'override' => $_loop['sidebars'],
-                    'sidebar'  => $_loop['sidebar'].'_1',
-                ]);
-            }
-
-            if ($_loop['sidebar2']) {
-                apollonGetPart('sidebar.php', [
-                    'override' => $_loop['sidebars'],
-                    'sidebar'  => $_loop['sidebar'].'_2',
-                ]);
-            }
-        }
+        /**
+         * Fires before displaying loop sidebar.
+         *
+         * @param  array   $_loop
+         */
+        do_action('ol.apollon.loop_default_sidebar', $_loop);
 
 
         /**

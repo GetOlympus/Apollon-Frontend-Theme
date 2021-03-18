@@ -51,16 +51,17 @@ $_comments['labels'] = apply_filters('ol.apollon.comments_labels', []);
  * @return array
  */
 $_comments['options'] = apply_filters('ol.apollon.comments_options', array_merge([
-    'avatar'       => true,
-    'website'      => true,
-    'htmltags'     => false,
-    'header'       => true,
-    'formstacked'  => false,
-    'highlight'    => false,
-    'formposition' => 'bottom',
-    'navsposition' => 'bottom',
-    'formlayout'   => 'default',
-    'listlayout'   => 'default',
+    'avatar'        => true,
+    'website'       => true,
+    'htmltags'      => false,
+    'header'        => true,
+    'list-layout'   => 'default',
+    'form-layout'   => 'default',
+    'form-stacked'  => false,
+    'labels'        => true,
+    'highlight'     => false,
+    'form-position' => 'bottom',
+    'navs-position' => 'bottom',
 ], $_comments['options']));
 
 
@@ -74,13 +75,13 @@ $_comments['available'] = apply_filters('ol.apollon.comments_available_files', [
 ]);
 
 // Override available form layout.
-if (!in_array($_comments['options']['formlayout'], $_comments['available'])) {
-    $_comments['options']['formlayout'] = $_comments['available'][0];
+if (!in_array($_comments['options']['form-layout'], $_comments['available'])) {
+    $_comments['options']['form-layout'] = $_comments['available'][0];
 }
 
 // Override available list layout.
-if (!in_array($_comments['options']['listlayout'], $_comments['available'])) {
-    $_comments['options']['listlayout'] = $_comments['available'][0];
+if (!in_array($_comments['options']['list-layout'], $_comments['available'])) {
+    $_comments['options']['list-layout'] = $_comments['available'][0];
 }
 
 

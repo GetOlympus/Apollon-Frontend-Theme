@@ -32,20 +32,20 @@ echo apply_filters('ol.apollon.main_footer_open', '<footer class="uk-footer">');
 
 foreach (['top', 'main', 'sub'] as $section) {
     // Check if section is enabled
-    if (!$_footer['options'][$section.'section_enable']) {
+    if (!$_footer['options']['section-'.$section.'-enable']) {
         continue;
     }
 
-    $_section = array_merge($_footer['options'][$section.'section'], ['contents' => []]);
+    $_section = array_merge($_footer['options'][$section], ['contents' => []]);
 
     foreach (range(1, 4) as $num) {
-        if (empty($_section['content_'.$num])) {
+        if (empty($_section['content-'.$num])) {
             continue;
         }
 
         $_section['contents'][$num] = [
-            'content' => $_section['content_'.$num],
-            'size'    => $_section['size_'.$num],
+            'content' => $_section['content-'.$num],
+            'size'    => $_section['size-'.$num],
         ];
     }
 
@@ -62,7 +62,7 @@ foreach (['top', 'main', 'sub'] as $section) {
 
     echo sprintf(
         '<div class="uk-container uk-container-%s">',
-        $_section['fullwidth'] ? 'expand' : $_footer['options']['grid_container']
+        $_section['full-width'] ? 'expand' : $_footer['options']['grid-container']
     );
 
     echo '<div class="uk-grid">';

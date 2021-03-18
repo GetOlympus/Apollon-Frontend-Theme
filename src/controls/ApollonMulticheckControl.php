@@ -9,11 +9,11 @@ class ApollonMulticheckControl extends \GetOlympus\Zeus\Control\Control
      */
     public static $scripts = [
         'sortable' => [
-            'src'        => __DIR__.S.'apollon-sortable.js',
-            'deps'       => [],
-            'ver'        => false,
-            'in_footer'  => true,
-            'media'      => 'all',
+            'src'       => __DIR__.S.'apollon-sortable.js',
+            'deps'      => [],
+            'ver'       => false,
+            'in_footer' => true,
+            'media'     => 'all',
         ]
     ];
 

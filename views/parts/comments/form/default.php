@@ -15,7 +15,7 @@ if (!isset($_comments)) {
 global $user_identity;
 
 $form = [
-    'class_form'    => 'uk-form-'.($_comments['options']['formstacked'] ? 'stacked' : 'horizontal'),
+    'class_form'    => 'uk-form-'.($_comments['options']['form-stacked'] ? 'stacked' : 'horizontal'),
     'class_submit'  => 'uk-button uk-button-primary',
     'comment_field' => sprintf(
         $_comments['form']['field'],

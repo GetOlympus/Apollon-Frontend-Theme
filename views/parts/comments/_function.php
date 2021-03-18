@@ -125,7 +125,7 @@ function customCommentsListBuilder($comment, $args, $depth, $mode = 'open')
     ];
 
     // Works on contents
-    $data['ctn'] = include __DIR__.S.'list'.S.$data['listlayout'].'.php';
+    $data['ctn'] = include __DIR__.S.'list'.S.$data['list-layout'].'.php';
 
     return $data;
 }

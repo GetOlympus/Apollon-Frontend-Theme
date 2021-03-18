@@ -15,19 +15,19 @@ if (!isset($_navbar)) {
 ?>
 
 <div class="<?php echo $nav ?>-overlay uk-navbar-center">
-    <?php if (!empty($_navbar['content_1'])) : ?>
+    <?php if (!empty($_navbar['content-1'])) : ?>
         <div class="uk-navbar-center-left">
             <?php do_action('ol.apollon.header_build_navbar', $nav, 1, $_navbar) ?>
         </div>
     <?php endif ?>
 
     <div class="uk-navbar-item">
-        <?php if (!empty($_navbar['content_2'])) : ?>
+        <?php if (!empty($_navbar['content-2'])) : ?>
             <?php do_action('ol.apollon.header_build_navbar', $nav, 2, $_navbar) ?>
         <?php endif ?>
     </div>
 
-    <?php if (!empty($_navbar['content_3'])) : ?>
+    <?php if (!empty($_navbar['content-3'])) : ?>
         <div class="uk-navbar-center-right">
             <?php do_action('ol.apollon.header_build_navbar', $nav, 3, $_navbar) ?>
         </div>

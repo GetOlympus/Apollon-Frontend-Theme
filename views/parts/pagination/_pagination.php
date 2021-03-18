@@ -31,7 +31,7 @@ $_pagination = array_merge([
 ], $_pagination);
 
 // Check template availability
-$_pagination['template'] = apollonGetOption('pagination_template');
+$_pagination['template'] = apollonGetOption('pagination-template');
 $_pagination['filename'] = $_pagination['template'].'.php';
 
 

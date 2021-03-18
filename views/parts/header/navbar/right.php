@@ -14,7 +14,7 @@ if (!isset($_header)) {
 
 ?>
 
-<?php if (!empty($_navbar['content_1'])) : ?>
+<?php if (!empty($_navbar['content-1'])) : ?>
     <div class="<?php echo $nav ?>-overlay uk-navbar-left">
         <?php do_action('ol.apollon.header_build_navbar', $nav, 1, $_navbar) ?>
     </div>
@@ -23,11 +23,11 @@ if (!isset($_header)) {
 <div class="<?php echo $nav ?>-overlay uk-navbar-right">
     <?php
 
-    if (!empty($_navbar['content_2'])) {
+    if (!empty($_navbar['content-2'])) {
         do_action('ol.apollon.header_build_navbar', $nav, 2, $_navbar);
     }
 
-    if (!empty($_navbar['content_3'])) {
+    if (!empty($_navbar['content-3'])) {
         do_action('ol.apollon.header_build_navbar', $nav, 3, $_navbar);
     }
 

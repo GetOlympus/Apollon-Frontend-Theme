@@ -13,10 +13,9 @@ if (!defined('ABSPATH')) {
 }
 
 $_loop = [
-    'sidebar' => 'default',
+    'sidebar'  => 'default',
+    'template' => 'homepage',
 ];
-
-//apollonGetOption('layout_hp_posttypes'),
 
 // Include template
 include __DIR__.S.'default.php';

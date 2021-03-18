@@ -68,8 +68,6 @@ defined('VENDORPATH') or define('VENDORPATH', ROOTPATH.'vendor'.S);
  * Apollon constants
  */
 
-// CSS filename
-define('OL_APOLLON_CSS_FILENAME', 'variables.less');
 // Dictionary name
 define('OL_APOLLON_DICTIONARY', 'olympus-apollon');
 // Customizer preview mode
@@ -78,6 +76,8 @@ define('OL_APOLLON_ISCUSTOMIZER', is_customize_preview());
 define('OL_APOLLON_RESOURCESPATH', ROOTPATH.'resources'.S);
 // Sources path
 define('OL_APOLLON_SRCPATH', ROOTPATH.'src'.S);
+// UIKit version
+define('OL_APOLLON_UIKIT', '3.6.17');
 
 
 /**
@@ -151,6 +151,9 @@ if (!class_exists('ApollonFrontendTheme')) {
             // Include BUILDER & INC FILES hooks
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'builder.php';
 
+            // Include COMPONENTS hooks
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'components.php';
+
             // Include ASSETS hooks
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'assets.php';
 
@@ -161,6 +164,7 @@ if (!class_exists('ApollonFrontendTheme')) {
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'header.php';
 
             // Include LAYOUTS hooks
+            include_once OL_APOLLON_SRCPATH.'hooks'.S.'loops.php';
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'posttypes.php';
             include_once OL_APOLLON_SRCPATH.'hooks'.S.'sidebars.php';
 

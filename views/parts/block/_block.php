@@ -55,10 +55,10 @@ if (empty($_block['data']) && 'overlay' !== $_block['part']) {
  * @return array
  */
 $_block['labels'] = apply_filters('ol.apollon.block_labels', array_merge([
-    'by'       => __('apollon._.cpt.by', OL_APOLLON_DICTIONARY),
-    'on'       => __('apollon._.cpt.on', OL_APOLLON_DICTIONARY),
-    'readmore' => __('apollon._.cpt.readmore', OL_APOLLON_DICTIONARY),
-    'share'    => __('apollon._.cpt.share', OL_APOLLON_DICTIONARY),
+    'by'       => __('apollon._.by', OL_APOLLON_DICTIONARY),
+    'on'       => __('apollon._.on', OL_APOLLON_DICTIONARY),
+    'readmore' => __('apollon._.readmore', OL_APOLLON_DICTIONARY),
+    'share'    => __('apollon._.share', OL_APOLLON_DICTIONARY),
 ], $_block['labels']));
 
 

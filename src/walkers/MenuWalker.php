@@ -124,7 +124,10 @@ class MenuWalker extends \Walker_Nav_Menu
         if ($args->has_children) {
             $output .= apply_filters(
                 'ol.apollon.menu_walker_before_children_dropdown',
-                '<div class="uk-navbar-dropdown"><ul class="uk-nav uk-navbar-dropdown-nav">'
+                sprintf(
+                    '<div class="uk-navbar-dropdown uk-box-shadow-%s"><ul class="uk-nav uk-navbar-dropdown-nav">',
+                    apollonGetOption('dropdown-shadow', 'small')
+                )
             );
         }
     }

@@ -11,11 +11,16 @@
  * @see      https://developer.wordpress.org/reference/functions/register_sidebar/
  */
 
-$before_widget = '<div id="%1$s" class="uk-section uk-padding-remove uk-margin-medium-bottom %2$s">';
-$after_widget  = '</div>';
-
-$before_title = '<h4 class="uk-h4 uk-text-small">';
-$after_title  = '</h4>';
+// Config
+$config = [
+    'name'          => '',
+    'description'   => '',
+    'class'         => 's-sidebar',
+    'before_widget' => '<div id="%1$s" class="uk-section uk-padding-remove uk-margin-medium-bottom %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4 class="uk-h4 uk-text-small">',
+    'after_title'   => '</h4>',
+];
 
 return [
     /**
@@ -23,195 +28,77 @@ return [
      * @param   array   $args   The sidebar arguments.
      */
 
+    // Default sidebars
+    'default-1' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.default', OL_APOLLON_DICTIONARY), 1),
+    ]),
+    'default-2' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.default', OL_APOLLON_DICTIONARY), 2),
+    ]),
+
     // Archives sidebars
-    'default_1' => [
-        'name'          => sprintf(__('apollon.cf.sidebars.default', OL_APOLLON_DICTIONARY), 1),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'default_2' => [
-        'name'          => sprintf(__('apollon.cf.sidebars.default', OL_APOLLON_DICTIONARY), 2),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
+    'archives-1' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.archives', OL_APOLLON_DICTIONARY), 1),
+    ]),
+    'archives-2' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.archives', OL_APOLLON_DICTIONARY), 2),
+    ]),
 
-    'archives_1' => [
-        'name'          => sprintf(__('apollon.cf.sidebars.archives', OL_APOLLON_DICTIONARY), 1),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'archives_2' => [
-        'name'          => sprintf(__('apollon.cf.sidebars.archives', OL_APOLLON_DICTIONARY), 2),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
+    // Search sidebars
+    'search-1' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.search', OL_APOLLON_DICTIONARY), 1),
+    ]),
+    'search-2' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.search', OL_APOLLON_DICTIONARY), 2),
+    ]),
 
-    'search_1' => [
-        'name'          => sprintf(__('apollon.cf.sidebars.search', OL_APOLLON_DICTIONARY), 1),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'search_2' => [
-        'name'          => sprintf(__('apollon.cf.sidebars.search', OL_APOLLON_DICTIONARY), 2),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
+    // Single sidebars
+    'post-1' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.post', OL_APOLLON_DICTIONARY), 1),
+    ]),
+    'post-2' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.post', OL_APOLLON_DICTIONARY), 2),
+    ]),
 
+    // Top sidebars
+    'top-1' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.top', OL_APOLLON_DICTIONARY), 1),
+    ]),
+    'top-2' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.top', OL_APOLLON_DICTIONARY), 2),
+    ]),
+    'top-3' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.top', OL_APOLLON_DICTIONARY), 3),
+    ]),
+    'top-4' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.top', OL_APOLLON_DICTIONARY), 4),
+    ]),
 
-    // Singles sidebars
-    'post_1' => [
-        'name'          => sprintf(__('apollon.cf.sidebars.post', OL_APOLLON_DICTIONARY), 1),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'post_2' => [
-        'name'          => sprintf(__('apollon.cf.sidebars.post', OL_APOLLON_DICTIONARY), 2),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
+    // Main sidebars
+    'main-1' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.main', OL_APOLLON_DICTIONARY), 1),
+    ]),
+    'main-2' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.main', OL_APOLLON_DICTIONARY), 2),
+    ]),
+    'main-3' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.main', OL_APOLLON_DICTIONARY), 3),
+    ]),
+    'main-4' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.main', OL_APOLLON_DICTIONARY), 4),
+    ]),
 
-
-    // Footer sidebars
-    'top_1'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.top', OL_APOLLON_DICTIONARY), 1),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'top_2'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.top', OL_APOLLON_DICTIONARY), 2),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'top_3'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.top', OL_APOLLON_DICTIONARY), 3),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'top_4'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.top', OL_APOLLON_DICTIONARY), 4),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-
-    'main_1'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.main', OL_APOLLON_DICTIONARY), 1),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'main_2'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.main', OL_APOLLON_DICTIONARY), 2),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'main_3'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.main', OL_APOLLON_DICTIONARY), 3),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'main_4'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.main', OL_APOLLON_DICTIONARY), 4),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-
-    'sub_1'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.sub', OL_APOLLON_DICTIONARY), 1),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'sub_2'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.sub', OL_APOLLON_DICTIONARY), 2),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'sub_3'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.sub', OL_APOLLON_DICTIONARY), 3),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
-    'sub_4'  => [
-        'name'          => sprintf(__('apollon.cf.sidebars.sub', OL_APOLLON_DICTIONARY), 4),
-        'description'   => '',
-        'class'         => 's-sidebar',
-        'before_widget' => $before_widget,
-        'after_widget'  => $after_widget,
-        'before_title'  => $before_title,
-        'after_title'   => $after_title,
-    ],
+    // Sub sidebars
+    'sub-1' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.sub', OL_APOLLON_DICTIONARY), 1),
+    ]),
+    'sub-2' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.sub', OL_APOLLON_DICTIONARY), 2),
+    ]),
+    'sub-3' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.sub', OL_APOLLON_DICTIONARY), 3),
+    ]),
+    'sub-4' => array_merge($config, [
+        'name' => sprintf(__('apollon.cf.sidebars.sub', OL_APOLLON_DICTIONARY), 4),
+    ]),
 ];

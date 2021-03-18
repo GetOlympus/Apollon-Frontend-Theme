@@ -19,7 +19,6 @@ return [
      * Set to "false" to remove the theme support.
      */
 
-
     /**
      * Special case: for post type support, use the "post_type" key
      *
@@ -41,7 +40,6 @@ return [
             'remove' => ['thumbnail'],
         ],
     ],
-
 
     /**
      * @see http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Formats
@@ -91,7 +89,6 @@ return [
      * @see http://codex.wordpress.org/Function_Reference/add_theme_support#Title_Tag
      */
     'title-tag' => [],
-
 
     /**
      * Add your own theme supports here.
