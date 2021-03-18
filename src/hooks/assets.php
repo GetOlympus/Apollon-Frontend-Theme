@@ -44,7 +44,7 @@ add_filter('ol.apollon.assets_links', function ($links) {
     ]);
 
     // Check CSS in file or inline
-    if (!apply_filters('ol.apollon.assets_css_in_file', false) || OL_APOLLON_ISCUSTOMIZER) {
+    if (!apply_filters('ol.apollon.assets_css_in_file', false)) {
         return $links;
     }
 
