@@ -42,5 +42,5 @@ return [
             'ver'   => false,
             'media' => 'all',
         ],*/
-    ]
+    ],
 ];
