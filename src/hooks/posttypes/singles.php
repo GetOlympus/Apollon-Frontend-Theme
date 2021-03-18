@@ -26,7 +26,7 @@ add_filter('ol.apollon.single_vars', function ($single = []) {
 
     // Update data
     $single['data'] = apply_filters('ol.apollon.posttypes_vars', [
-        'avatar'      => apollonGetOption('layout_'.$posttype.'_avatar') ? 22 : 0,
+        'avatar'      => apollonGetOption($posttype.'-avatar') ? 22 : 0,
         'get_content' => false,
         'length'      => false,
         'posttype'    => $posttype,

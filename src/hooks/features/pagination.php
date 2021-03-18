@@ -10,16 +10,17 @@
 
 add_filter('ol.apollon.pagination_options', function ($options) {
     return [
-        'title'         => apollonGetOption('pagination_title'),
-        'first'         => apollonGetOption('pagination_first'),
-        'previous'      => apollonGetOption('pagination_previous'),
-        'next'          => apollonGetOption('pagination_next'),
-        'last'          => apollonGetOption('pagination_last'),
-        'icons'         => apollonGetOption('pagination_icons'),
-        'range'         => apollonGetOption('pagination_range'),
-        'separator'     => apollonGetOption('pagination_separator'),
-        'position'      => apollonGetOption('pagination_position'),
-        'infinitelabel' => apollonGetOption('pagination_infinitelabel'),
-        'nums'          => apollonGetOption('pagination_nums'),
+        'first'          => apollonGetOption('pagination-first'),
+        'previous'       => apollonGetOption('pagination-previous'),
+        'next'           => apollonGetOption('pagination-next'),
+        'last'           => apollonGetOption('pagination-last'),
+        'icons'          => apollonGetOption('pagination-icons'),
+        'range'          => apollonGetOption('pagination-range'),
+        'separator'      => apollonGetOption('pagination-separator'),
+        'nums'           => apollonGetOption('pagination-nums'),
+        'template'       => apollonGetOption('pagination-template'),
+        'position'       => apollonGetOption('pagination-position'),
+        'title'          => apollonGetOption('pagination-title'),
+        'infinite-label' => apollonGetOption('pagination-infinite-label'),
     ];
 });

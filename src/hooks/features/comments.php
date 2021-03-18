@@ -34,17 +34,17 @@ add_filter('ol.apollon.comments_labels', function ($comments = []) {
 
 add_filter('ol.apollon.comments_options', function ($comments = []) {
     return [
-        'avatar'       => apollonGetOption('comments_avatar'),
-        'website'      => apollonGetOption('comments_website'),
-        'htmltags'     => apollonGetOption('comments_htmltags'),
-        'header'       => apollonGetOption('comments_header'),
-        'formstacked'  => apollonGetOption('comments_formstacked'),
-        'labels'       => apollonGetOption('comments_labels'),
-        'highlight'    => apollonGetOption('comments_highlight'),
-        'formposition' => apollonGetOption('comments_formposition'),
-        'navsposition' => apollonGetOption('comments_navsposition'),
-        'formlayout'   => apollonGetOption('comments_formlayout'),
-        'listlayout'   => apollonGetOption('comments_listlayout'),
+        'avatar'        => apollonGetOption('comments-avatar'),
+        'website'       => apollonGetOption('comments-website'),
+        'htmltags'      => apollonGetOption('comments-htmltags'),
+        'header'        => apollonGetOption('comments-header'),
+        'list-layout'   => apollonGetOption('comments-list-layout'),
+        'form-layout'   => apollonGetOption('comments-form-layout'),
+        'form-stacked'  => apollonGetOption('comments-form-stacked'),
+        'labels'        => apollonGetOption('comments-labels'),
+        'highlight'     => apollonGetOption('comments-highlight'),
+        'form-position' => apollonGetOption('comments-form-position'),
+        'navs-position' => apollonGetOption('comments-navs-position'),
     ];
 });
 

@@ -10,11 +10,11 @@
 
 add_filter('ol.apollon.backtotop_options', function ($options) {
     return [
-        'label'    => apollonGetOption('backtotop_label'),
-        'icon'     => apollonGetOption('backtotop_icon'),
-        'mobile'   => apollonGetOption('backtotop_mobile'),
-        'margin'   => apollonGetOption('backtotop_margin'),
-        'position' => apollonGetOption('backtotop_position'),
-        'style'    => apollonGetOption('backtotop_style'),
+        'label'    => apollonGetOption('backtotop-label'),
+        'icon'     => apollonGetOption('backtotop-icon'),
+        'mobile'   => apollonGetOption('backtotop-mobile'),
+        'margin'   => apollonGetOption('backtotop-margin'),
+        'position' => apollonGetOption('backtotop-position'),
+        'style'    => apollonGetOption('backtotop-style'),
     ];
 });

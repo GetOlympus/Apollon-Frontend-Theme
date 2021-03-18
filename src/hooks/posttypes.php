@@ -10,9 +10,14 @@
 
 add_filter('ol.apollon.posttypes_contents', function ($posttype, $usecontent = false, $field = 'elements') {
     // Get vars from DB
-    $elements   = apollonGetOption('layout_'.$posttype.'_'.$field);
-    $metas      = apollonGetOption('layout_'.$posttype.'_metas');
-    $usecontent = $usecontent ? apollonGetOption('layout_'.$posttype.'_usecontent') : false;
+    $elements   = apollonGetOption($posttype.'-'.$field);
+
+    if (empty($elements)) {
+        return [];
+    }
+
+    $metas      = apollonGetOption($posttype.'-metas');
+    $usecontent = $usecontent ? apollonGetOption($posttype.'-usecontent') : false;
 
     $return = [];
 
@@ -33,22 +38,32 @@ add_filter('ol.apollon.posttypes_contents', function ($posttype, $usecontent = f
 }, 10, 3);
 
 add_filter('ol.apollon.posttypes_options', function ($posttype) {
-    return [
+    $options = [
         // From list
-        'gridgap'    => apollonGetOption('layout_'.$posttype.'s_gridgap'),
+        'gridgap'    => apollonGetOption('homepage-gridgap'),
 
         // From single
-        'container'  => apollonGetOption('layout_'.$posttype.'_container'),
-        'content'    => apollonGetOption('layout_'.$posttype.'_content'),
-        'avatar'     => apollonGetOption('layout_'.$posttype.'_avatar'),
-        'feature'    => apollonGetOption('layout_'.$posttype.'_feature'),
-        'expand'     => apollonGetOption('layout_'.$posttype.'_expand'),
-        'header'     => apollonGetOption('layout_'.$posttype.'_header'),
-        'sidebarpos' => apollonGetOption('layout_'.$posttype.'_sidebarpos'),
-        'sidebar1'   => apollonGetOption('layout_'.$posttype.'_sidebar1'),
-        'sidebar2'   => apollonGetOption('layout_'.$posttype.'_sidebar2'),
-        'sidebars'   => apollonGetOption('layout_'.$posttype.'_sidebars'),
+        'container'  => apollonGetOption($posttype.'-container'),
+        'content'    => apollonGetOption($posttype.'-content'),
+        'avatar'     => apollonGetOption($posttype.'-avatar'),
+        'feature'    => apollonGetOption($posttype.'-feature'),
+        'expand'     => apollonGetOption($posttype.'-expand'),
+        'header'     => apollonGetOption($posttype.'-header'),
+        'sidebarpos' => apollonGetOption($posttype.'-sidebarpos'),
+        'sidebar1'   => apollonGetOption($posttype.'-sidebar1'),
+        'sidebar2'   => apollonGetOption($posttype.'-sidebar2'),
+        'sidebars'   => apollonGetOption($posttype.'-sidebars'),
     ];
+
+    foreach ($options as $opt => $value) {
+        if (!empty($value)) {
+            continue;
+        }
+
+        $options[$opt] = apollonGetDefault(('gridgap' === $opt ? 'homepage-' : 'post-').$opt);
+    }
+
+    return $options;
 });
 
 add_filter('ol.apollon.posttypes_social', function ($options, $data) {
@@ -69,18 +84,8 @@ add_filter('ol.apollon.posttypes_social', function ($options, $data) {
     ], $options);
 
     // Socials button
-    $social = apollonGetOption('social_icons');
-
-    $links = [
-        'twitter'     => 'https://twitter.com/share?text=%TITLE%&amp;url=%LINK%',
-        'facebook'    => 'https://www.facebook.com/sharer.php?u=%LINK%',
-        'google-plus' => 'https://plus.google.com/share?url=%LINK%',
-        'pinterest'   => 'https://www.pinterest.com/pin/create/button/?url=%LINK%&amp;media=%IMG%&amp;description=%TITLE%',
-        'linkedin'    => 'https://www.linkedin.com/shareArticle?mini=true&amp;url=%LINK%&amp;title=%TITLE%',
-        'reddit'      => 'https://www.reddit.com/submit?url=%LINK%&amp;title=%TITLE%',
-        'tumblr'      => 'https://www.tumblr.com/widgets/share/tool?canonicalUrl=%LINK%',
-        'whatsapp'    => 'whatsapp://send?text=%LINK%',
-    ];
+    $links  = apollonGetSocials('urls');
+    $social = apollonGetOption('social-icons');
 
     // Content
     $content = [
@@ -113,7 +118,7 @@ add_filter('ol.apollon.posttypes_social', function ($options, $data) {
             sprintf(
                 '%s %s',
                 __('apollon.th.share.on', OL_APOLLON_DICTIONARY),
-                __('apollon.th.share.'.$icon, OL_APOLLON_DICTIONARY)
+                __('apollon._.'.$icon, OL_APOLLON_DICTIONARY)
             ),
             $icon
         );
@@ -127,7 +132,7 @@ add_filter('ol.apollon.posttypes_social', function ($options, $data) {
 }, 10, 2);
 
 add_filter('ol.apollon.posttypes_template', function ($posttype) {
-    return apollonGetOption('layout_'.$posttype.'_template');
+    return apollonGetOption($posttype.'-loop-template');
 });
 
 add_filter('ol.apollon.posttypes_vars', function ($vars = []) {

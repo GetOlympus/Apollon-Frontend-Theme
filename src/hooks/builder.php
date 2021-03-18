@@ -95,15 +95,3 @@ add_filter('ol.apollon.build_categories', function ($categories, $use_link = tru
 
     return $cats;
 }, 10, 3);
-
-/**
- * Build separator.
- *
- * @param  string  $separator
- * @param  string  $template
- *
- * @return string
- */
-add_filter('ol.apollon.build_separator', function ($separator, $template) {
-    return '<hr class="uk-divider-icon uk-divider-fill"/>';
-}, 10, 2);

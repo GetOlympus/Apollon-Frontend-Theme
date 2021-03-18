@@ -9,7 +9,7 @@
  */
 
 add_filter('ol.apollon.post_contents', function ($posttype) {
-    return apply_filters('ol.apollon.posttypes_contents', $posttype.'s', true);
+    return apply_filters('ol.apollon.posttypes_contents', $posttype.'-loop', true);
 });
 
 add_filter('ol.apollon.post_options', function ($posttype) {
@@ -17,7 +17,7 @@ add_filter('ol.apollon.post_options', function ($posttype) {
 });
 
 add_filter('ol.apollon.post_template', function ($posttype) {
-    return apply_filters('ol.apollon.posttypes_template', $posttype.'s');
+    return apply_filters('ol.apollon.posttypes_template', $posttype);
 });
 
 add_filter('ol.apollon.post_vars', function ($post = []) {
@@ -27,9 +27,9 @@ add_filter('ol.apollon.post_vars', function ($post = []) {
     // Update data
     $post['data'] = apply_filters('ol.apollon.posttypes_vars', [
         'avatar'    => 22,
-        'length'    => apollonGetOption('layout_'.$posttype.'s_excerpt', 20),
+        'length'    => apollonGetOption($posttype.'-loop-excerpt', 20),
         'posttype'  => $posttype,
-        'thumbnail' => apollonGetOption('layout_'.$posttype.'s_thumbnail', 'thumbnail'),
+        'thumbnail' => apollonGetOption($posttype.'-loop-thumbnail', 'thumbnail'),
     ]);
 
 

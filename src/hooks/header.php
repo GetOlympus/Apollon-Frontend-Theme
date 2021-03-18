@@ -11,16 +11,17 @@
 add_action('ol.apollon.header_build_navbar', function ($nav, $level, $options) {
     // Build useful vars
     $level = (string) $level;
-    $navcontent = 'content_'.$level;
+    $navcontent = 'content-'.$level;
 
     if (!isset($options[$navcontent]) || empty($options[$navcontent])) {
         return;
     }
 
     $content = $options[$navcontent];
+    $substr  = substr($content, 0, 9);
 
     // Check content
-    if (!in_array($content, ['custom', 'logo', 'menu', 'search'])) {
+    if (!in_array($content, ['custom', 'logo', 'search']) && 'location-' !== $substr) {
         return;
     }
 
@@ -28,8 +29,8 @@ add_action('ol.apollon.header_build_navbar', function ($nav, $level, $options) {
     if ('custom' === $content) {
         echo apply_filters('ol.apollon.navbar_custom_text', sprintf(
             '<span class="uk-navbar-item %s">%s</span>',
-            $nav.'nav-customtext',
-            $options['customtext']
+            'nav-'.$nav.'-custom-text',
+            $options['custom-text']
         ));
 
         return;
@@ -41,72 +42,25 @@ add_action('ol.apollon.header_build_navbar', function ($nav, $level, $options) {
         $_vars = [
             'css' => 'uk-navbar-item uk-logo',
         ];
-    } else if ('menu' === $content) {
-        $_file = 'menu.php';
-        $_vars = [
-            'menu' => $nav.'_'.$level,
-        ];
     } else if ('search' === $content) {
         $_file = 'searchform.php';
         $_vars = [
             'nav'      => $nav,
-            'template' => apollonGetOption('searchform_headerlayout'),
+            'template' => apollonGetOption('searchform-header-layout'),
+        ];
+    } else if ('location-' === $substr) {
+        $_file = 'menu.php';
+        $_vars = [
+            'menu' => substr($content, 9),
         ];
     }
 
     apollonGetPart($_file, $_vars);
 }, 10, 3);
 
-add_filter('ol.apollon.header_links', function ($links) {
-    $links = array_merge($links, [
-        [
-            'href' => 'https://fonts.googleapis.com/css?family=Karla|Source+Sans+Pro:400',
-            'rel'  => 'stylesheet',
-        ],
-        /*
-        [
-            'href' => OL_TPL_DIR_URI.'/app/manifest.json',
-            'rel'  => 'manifest',
-        ],
-        [
-            'href'  => OL_TPL_DIR_URI.'/app/img/safari-pinned-tab.svg',
-            'color' => '#ffffff',
-            'rel'   => 'mask-icon',
-        ],
-        [
-            'href'  => OL_TPL_DIR_URI.'/app/img/favicon.ico',
-            'sizes' => '16x16',
-            'rel'   => 'icon',
-            'type'  => 'icon',
-        ],
-        [
-            'href'  => OL_TPL_DIR_URI.'/app/img/favicon-57x57.png',
-            'sizes' => '57x57',
-            'rel'   => 'apple-touch-icon',
-        ],
-        [
-            'href'  => OL_TPL_DIR_URI.'/app/img/favicon-72x72.png',
-            'sizes' => '72x72',
-            'rel'   => 'apple-touch-icon',
-        ],
-        */
-    ]);
-
-    // Check CSS in file
-    $links = !apply_filters('ol.apollon.assets_css_in_file', false) ? $links : array_merge($links, [
-        [
-            'href' => trailingslashit(get_stylesheet_directory_uri()).'app/css/apollon.less',
-            'rel'  => 'stylesheet/less',
-            'type' => 'text/css',
-        ],
-    ]);
-
-    return $links;
-});
-
 add_filter('ol.apollon.header_metas', function ($metas) {
-    $background = apollonGetOption('color_background');
-    $primary    = apollonGetOption('color_primary');
+    $background = apollonGetOption('global-background');
+    $primary    = apollonGetOption('global-link-color');
 
     return array_merge($metas, [
         [
@@ -129,89 +83,83 @@ add_filter('ol.apollon.header_metas', function ($metas) {
 add_filter('ol.apollon.header_options', function ($options) {
     $options = array_merge($options, [
         // Grid
-        'grid_container' => apollonGetOption('grid_container'),
+        'grid-container' => apollonGetOption('website-grid-container'),
 
         // Navs
-        'topnav_enable'  => apollonGetOption('topnav_enable'),
-        'mainnav_enable' => apollonGetOption('mainnav_enable'),
-        'subnav_enable'  => apollonGetOption('subnav_enable'),
+        'nav-top-enable'  => apollonGetOption('nav-top-enable'),
+        'nav-main-enable' => apollonGetOption('nav-main-enable'),
+        'nav-sub-enable'  => apollonGetOption('nav-sub-enable'),
 
         // Global
-        'nav_menulabel' => apollonGetOption('nav_menulabel'),
-        'nav_shadow'    => apollonGetOption('nav_shadow'),
-        'nav_sticky'    => apollonGetOption('nav_sticky'),
+        'nav-menu'   => apollonGetOption('website-nav-menu'),
+        'nav-shadow' => apollonGetOption('website-nav-shadow'),
+        'nav-sticky' => apollonGetOption('website-nav-sticky'),
 
         // Dropdown
-        'dropdown_click'    => apollonGetOption('dropdown_click'),
-        'dropdown_position' => apollonGetOption('dropdown_position'),
+        'dropdown-click'    => apollonGetOption('website-dropdown-click'),
+        'dropdown-position' => apollonGetOption('website-dropdown-position'),
 
         // Extra search
-        'search_drop' => apollonGetOption('searchform_dropbar'),
-        'search_tpl'  => apollonGetOption('searchform_headerlayout'),
+        'dropbar'       => apollonGetOption('searchform-dropbar'),
+        'header-layout' => apollonGetOption('searchform-header-layout'),
     ]);
 
     // Iterate on navs
-    foreach (['topnav', 'mainnav', 'subnav'] as $nav) {
+    foreach (['top', 'main', 'sub'] as $nav) {
         // Check availability
-        if (!$options[$nav.'_enable']) {
+        if (!$options['nav-'.$nav.'-enable']) {
             continue;
         }
 
         // Define vars
         $options[$nav] = [
-            'customtext' => apollonGetOption($nav.'_customtext'),
-            'content_1'  => apollonGetOption($nav.'_content_1'),
-            'content_2'  => apollonGetOption($nav.'_content_2'),
-            'content_3'  => apollonGetOption($nav.'_content_3'),
-            'mobile'     => apollonGetOption($nav.'_mobile'),
-            'template'   => apollonGetOption($nav.'_template'),
-            'fullwidth'  => apollonGetOption($nav.'_fullwidth'),
-            'background' => apollonGetOption($nav.'_background'),
-            'fontsize'   => apollonGetOption($nav.'_fontsize'),
-            'lineheight' => apollonGetOption($nav.'_lineheight'),
-            'padding'    => apollonGetOption($nav.'_padding'),
+            'custom-text' => apollonGetOption('nav-'.$nav.'-custom-text'),
+            'content-1'   => apollonGetOption('nav-'.$nav.'-content-1'),
+            'content-2'   => apollonGetOption('nav-'.$nav.'-content-2'),
+            'content-3'   => apollonGetOption('nav-'.$nav.'-content-3'),
+            'mobile'      => apollonGetOption('nav-'.$nav.'-mobile'),
+            'template'    => apollonGetOption('nav-'.$nav.'-template'),
+            'full-width'  => apollonGetOption('nav-'.$nav.'-full-width'),
+            'color'       => apollonGetOption('nav-'.$nav.'-color'),
+            'background'  => apollonGetOption('nav-'.$nav.'-background'),
+            'font-size'   => apollonGetOption('nav-'.$nav.'-font-size'),
+            'height'      => apollonGetOption('nav-'.$nav.'-height'),
+            'padding'     => apollonGetOption('nav-'.$nav.'-padding'),
         ];
     }
 
     return $options;
 });
 
-add_filter('ol.apollon.header_scripts', function ($scripts) {
-    $scripts = array_merge($scripts, [
-        [
-            'src' => 'https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js',
-        ],
-        [
-            'src' => 'https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js',
-        ],
-    ]);
-
-    // Check CSS in file
-    if (apply_filters('ol.apollon.assets_css_in_file', false)) {
-        $scripts = array_merge($scripts, [
-            [
-                'src' => '//cdn.jsdelivr.net/npm/less@latest',
-            ],
-        ]);
-    }
-
-    return $scripts;
-});
-
 // WP head
 
 add_action('ol.apollon.wp_head_after', function ($header) {
+    // Check customizer mode
+    if (OL_APOLLON_ISCUSTOMIZER) {
+        // Get custom Apollon CSS
+        $output  = apply_filters('ol.apollon.assets_output', '');
+        $baseurl = apply_filters('ol.apollon.assets_base_url', null);
+
+        echo sprintf(
+            '<style type="text/less">%s%s%s</style><script src="%s"></script>',
+            '@import "'.$baseurl.'wordpress.less";'."\n",
+            '@import "'.$baseurl.'uikit/src/less/uikit.less";'."\n\n",
+            wp_strip_all_tags($output),
+            '//cdn.jsdelivr.net/npm/less@3.13'
+        );
+    }
+
     // Check CSS in file
-    if (apply_filters('ol.apollon.assets_css_in_file', false) && !OL_APOLLON_ISCUSTOMIZER) {
+    if (apply_filters('ol.apollon.assets_css_in_file', false)) {
         return;
     }
 
     // Get custom Apollon CSS
-    $output = apply_filters('ol.apollon.assets_output', '');
+    $output = apollonGetOption('theme-style', '');
 
     echo sprintf(
         '<style type="text/css">%s</style>',
-        wp_strip_all_tags(apollonMinifyCss($output))
+        wp_strip_all_tags($output)
     );
 });
 
@@ -223,14 +171,14 @@ add_filter('ol.apollon.logo_contents', function ($contents) {
 
 add_filter('ol.apollon.logo_image', function ($image) {
     // Get `logos_retina`
-    $default    = apollonGetOption('logos_default');
-    $retina     = apollonGetOption('logos_retina');
-    $use_slogan = apollonGetOption('logos_slogan');
+    $default    = apollonGetOption('logo-default');
+    $retina     = apollonGetOption('logo-retina');
+    $use_slogan = apollonGetOption('logo-slogan');
 
     return array_merge($image, [
         'src'    => !empty($default) ? $default : (!empty($retina) ? $retina : OL_TPL_DIR_URI.'/app/img/apollon-h.png'),
-        'height' => apollonGetOption('logos_maxheight'),
-        'width'  => apollonGetOption('logos_maxwidth'),
+        'height' => apollonGetOption('logo-max-height'),
+        'width'  => apollonGetOption('logo-max-width'),
         'slogan' => $use_slogan ? OL_BLOG_DESCRIPTION : '',
     ]);
 });
@@ -238,7 +186,7 @@ add_filter('ol.apollon.logo_image', function ($image) {
 // WRAPPERS
 
 add_filter('ol.apollon.body_wrapper_open', function ($header) {
-    $grid = apollonGetOption('grid_container');
+    $grid = apollonGetOption('website-grid-container');
 
     return sprintf(
         '<div class="uk-container%s">',

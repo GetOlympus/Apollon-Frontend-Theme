@@ -26,7 +26,7 @@ add_action('ol.apollon.footer_build_navbar', function ($section, $level, $conten
     if ('copyright' === $content) {
         echo apply_filters('ol.apollon.section_copyright', sprintf(
             '<span class="uk-navbar-item uk-link-text %s">%s</span>',
-            $section.'section-copyright',
+            'section-'.$section.'-copyright',
             __('apollon.th.footer.copyright', OL_APOLLON_DICTIONARY)
         ));
 
@@ -63,36 +63,38 @@ add_action('ol.apollon.footer_build_navbar', function ($section, $level, $conten
 add_filter('ol.apollon.footer_options', function ($options) {
     $options = array_merge($options, [
         // Grid
-        'grid_container' => apollonGetOption('grid_container'),
+        'grid-container' => apollonGetOption('grid-container'),
 
         // Sections
-        'topsection_enable'  => apollonGetOption('topsection_enable'),
-        'mainsection_enable' => apollonGetOption('mainsection_enable'),
-        'subsection_enable'  => apollonGetOption('subsection_enable'),
+        'section-top-enable'  => apollonGetOption('section-top-enable'),
+        'section-main-enable' => apollonGetOption('section-main-enable'),
+        'section-sub-enable'  => apollonGetOption('section-sub-enable'),
     ]);
 
     // Iterate on sections
-    foreach (['topsection', 'mainsection', 'subsection'] as $section) {
+    foreach (['top', 'main', 'sub'] as $nav) {
         // Check availability
-        if (!$options[$section.'_enable']) {
+        if (!$options['section-'.$nav.'-enable']) {
             continue;
         }
 
         // Define vars
-        $options[$section] = [
-            'content_1'  => apollonGetOption($section.'_content_1'),
-            'content_2'  => apollonGetOption($section.'_content_2'),
-            'content_3'  => apollonGetOption($section.'_content_3'),
-            'content_4'  => apollonGetOption($section.'_content_4'),
-            'size_1'     => apollonGetOption($section.'_size_1'),
-            'size_2'     => apollonGetOption($section.'_size_2'),
-            'size_3'     => apollonGetOption($section.'_size_3'),
-            'size_4'     => apollonGetOption($section.'_size_4'),
-            'fullwidth'  => apollonGetOption($section.'_fullwidth'),
-            'background' => apollonGetOption($section.'_background'),
-            'fontsize'   => apollonGetOption($section.'_fontsize'),
-            'lineheight' => apollonGetOption($section.'_lineheight'),
-            'padding'    => apollonGetOption($section.'_padding'),
+        $options[$nav] = [
+            'content-1'   => apollonGetOption('section-'.$nav.'-content-1'),
+            'content-2'   => apollonGetOption('section-'.$nav.'-content-2'),
+            'content-3'   => apollonGetOption('section-'.$nav.'-content-3'),
+            'content-4'   => apollonGetOption('section-'.$nav.'-content-4'),
+            'mobile'      => apollonGetOption('section-'.$nav.'-mobile'),
+            'size-1'      => apollonGetOption('section-'.$nav.'-size-1'),
+            'size-2'      => apollonGetOption('section-'.$nav.'-size-2'),
+            'size-3'      => apollonGetOption('section-'.$nav.'-size-3'),
+            'size-4'      => apollonGetOption('section-'.$nav.'-size-4'),
+            'template'    => apollonGetOption('section-'.$nav.'-template'),
+            'full-width'  => apollonGetOption('section-'.$nav.'-full-width'),
+            'background'  => apollonGetOption('section-'.$nav.'-background'),
+            'font-size'   => apollonGetOption('section-'.$nav.'-font-size'),
+            'line-height' => apollonGetOption('section-'.$nav.'-line-height'),
+            'padding'     => apollonGetOption('section-'.$nav.'-padding'),
         ];
     }
 
