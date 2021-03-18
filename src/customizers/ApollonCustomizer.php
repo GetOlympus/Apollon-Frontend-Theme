@@ -18,18 +18,16 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
     protected $contents = [
         'control_subtitle' => [
             'type'        => 'apollon-header',
-            'style'       => 'background:#f9f9fc;font-size:14px;line-height:16px',
             '_classname'  => 'ApollonFrontendTheme\\Src\\Controls\\ApollonHeaderControl',
         ],
         'control_title'    => [
-            'type'        => 'apollon-header',
-            'style'       => 'margin-top:30px',
-            '_classname'  => 'ApollonFrontendTheme\\Src\\Controls\\ApollonHeaderControl',
+            'type'       => 'apollon-header',
+            'style'      => 'margin-top:30px',
+            '_classname' => 'ApollonFrontendTheme\\Src\\Controls\\ApollonHeaderControl',
         ],
         'section_title'    => [
             'type'              => 'apollon-custom',
             'description_style' => 'font-weight:200;margin:0',
-            'section_style'     => 'background:transparent;border-width:0 0 1px;padding:30px 10px 10px 16px',
             '_classname'        => 'ApollonFrontendTheme\\Src\\Sections\\ApollonCustomSection',
         ],
     ];
@@ -45,45 +43,59 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
     protected function setVars() : void
     {
         // Post types
-        $this->contents['posttypes']      = get_post_types();
-        $this->contents['posttypes']      = array_diff($this->contents['posttypes'], [
-            'attachment', 'media', 'nav_menu_item', 'customize_changeset',
-            'revision', 'custom_css', 'oembed_cache', 'user_request', 'wp_block'
-        ]);
+        $this->contents['posttypes']      = [];
         // Posts per page
         $this->contents['posts_per_page'] = get_option('posts_per_page');
         // List all sidebars
         $this->contents['sidebars']       = $GLOBALS['wp_registered_sidebars'];
         // Nav & section contents
         $this->contents['navs_contents']  = [
-            ''          => __('apollon._.contents.none', OL_APOLLON_DICTIONARY),
-            'logo'      => __('apollon._.contents.logo', OL_APOLLON_DICTIONARY),
-            'copyright' => __('apollon._.contents.copyright', OL_APOLLON_DICTIONARY),
-            'custom'    => __('apollon._.contents.custom', OL_APOLLON_DICTIONARY),
-            'menu'      => __('apollon._.contents.menu', OL_APOLLON_DICTIONARY),
-            'search'    => __('apollon._.contents.search', OL_APOLLON_DICTIONARY),
-            'sidebar'   => __('apollon._.contents.sidebar', OL_APOLLON_DICTIONARY),
+            ''          => __('apollon._.none', OL_APOLLON_DICTIONARY),
+            'logo'      => __('apollon._.logo', OL_APOLLON_DICTIONARY),
+            'copyright' => __('apollon._.copyright', OL_APOLLON_DICTIONARY),
+            'custom'    => __('apollon._.custom', OL_APOLLON_DICTIONARY),
+            'search'    => __('apollon._.search', OL_APOLLON_DICTIONARY),
+            'sidebar'   => __('apollon._.sidebar', OL_APOLLON_DICTIONARY),
         ];
 
-        // Get PHPs
-        $phps = [
+        // Get searchable post types only registered through `register_post_type` function
+        $posttypes = get_post_types(['exclude_from_search' => false/*'public' => true, '_builtin' => false,*/]);
+        $posttypes = array_diff($posttypes, [
+            'attachment', 'media', 'nav_menu_item', 'customize_changeset',
+            'revision', 'custom_css', 'oembed_cache', 'user_request', 'wp_block'
+        ]);
+
+        if ($posttypes) {
+            foreach ($posttypes as $type) {
+                $post = get_post_type_object($type);
+                $this->contents['posttypes'][$post->name] = $post->labels->singular_name;
+            }
+        }
+
+        // Get files
+        $files = [
             'apollon.php',
-            'general.php',
+            'design.php',
+            'components.php',
             'features.php',
-            'header.php',
-            'layouts.php',
-            'footer.php',
+            'layout.php',
         ];
 
         // Main PHP resources path
         $path = __DIR__.S.'src'.S;
 
+        // Initialize priority
+        $priority = 0;
+
         // Iterate on all PHPs
-        foreach ($phps as $php) {
+        foreach ($files as $idx => $file) {
             // Check file
-            if (!file_exists($file = realpath($path.$php))) {
+            if (!file_exists($file = realpath($path.$file))) {
                 continue;
             }
+
+            // Update priority
+            $priority = (int) (($idx + 1) * 1000);
 
             // Build contents
             $panels = include $file;
@@ -101,9 +113,10 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
          * Fires after registering contents through customizer.
          */
         add_action('ol.zeus.customizerhook_register_after', function ($wp_customize, $customizer) {
-            // Add logo definition into title tagline section
-            $wp_customize->get_control('logos_default')->section = 'title_tagline';
-            $wp_customize->get_control('logos_retina')->section = 'title_tagline';
+            // Add logo options into title tagline section
+            foreach (['default', 'retina', 'max-width', 'max-height', 'slogan'] as $control) {
+                $wp_customize->get_control('logo-'.$control)->section = 'title_tagline';
+            }
         }, 10, 2);
     }
 
