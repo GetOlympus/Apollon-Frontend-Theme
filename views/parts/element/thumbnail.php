@@ -23,21 +23,14 @@ echo sprintf(
     $_element['data']['link'],
     $_element['data']['esc_title'],
     !empty($_element['css']) ? $_element['css'] : 'uk-display-block uk-margin-remove-top uk-margin-small-bottom',
-    false === $_element['cover'] ? '' : sprintf(
+    false === $_element['canvas'] ? '' : sprintf(
         '<canvas width="%s" height="%d"></canvas>',
         '100%',
         $_element['data']['images']['height']
     ),
-    false === $_element['cover'] ? $_element['data']['images'][$_element['_size']] : str_replace(
+    false === $_element['canvas'] ? $_element['data']['images'][$_element['_size']] : str_replace(
         'img ',
         'img uk-cover ',
         $_element['data']['images'][$_element['_size']]
     )
-);
-
-echo false === $_element['cover'] ? '' : sprintf(
-    '<a href="%s" title="%s" class="uk-overlay%s uk-position-cover"></a>',
-    $_element['data']['link'],
-    $_element['data']['esc_title'],
-    !empty($_element['cover']) ? ' uk-overlay-'.$_element['cover'] : ''
 );

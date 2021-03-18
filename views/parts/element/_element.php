@@ -14,7 +14,7 @@ if (!isset($_element)) {
 
 // Content starts
 $_element = array_merge([
-    'cover'  => false,
+    'canvas' => false,
     'css'    => '',
     'data'   => [],
     'grid'   => false,
@@ -32,7 +32,7 @@ $_element = array_merge([
  */
 $_element['available'] = apply_filters('ol.apollon.element_available_files', [
     'title', 'author', 'categories', 'comments', 'content', 'date',
-    'excerpt', 'metas', 'readingtime', 'readmore', 'thumbnail',
+    'excerpt', 'metas', 'overlay', 'readingtime', 'readmore', 'thumbnail',
     '_el_close', '_el_open',
 ]);
 
@@ -55,9 +55,9 @@ if (empty($_element['data']) && !in_array($_element['part'], ['_el_close', '_el_
  * @return array
  */
 $_element['labels'] = apply_filters('ol.apollon.element_labels', array_merge([
-    'by'       => __('apollon._.cpt.by', OL_APOLLON_DICTIONARY),
-    'on'       => __('apollon._.cpt.on', OL_APOLLON_DICTIONARY),
-    'readmore' => __('apollon._.cpt.readmore', OL_APOLLON_DICTIONARY),
+    'by'       => __('apollon._.by', OL_APOLLON_DICTIONARY),
+    'on'       => __('apollon._.on', OL_APOLLON_DICTIONARY),
+    'readmore' => __('apollon._.readmore', OL_APOLLON_DICTIONARY),
 ], $_element['labels']));
 
 

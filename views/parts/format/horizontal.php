@@ -21,7 +21,7 @@ if (!isset($_format)) {
 do_action('ol.apollon.format_horizontal_before', $_format);
 
 apollonGetPart('element.php', [
-    'css'  => 'f-p-horizontal uk-child-width-expand uk-grid-column-medium uk-grid-row-small uk-link-reset',
+    'css'  => 'f-p-horizontal uk-child-width-expand uk-grid-column-medium uk-grid-row-small',
     'grid' => true,
     'part' => '_el_open',
 ]);

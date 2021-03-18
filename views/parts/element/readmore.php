@@ -12,16 +12,16 @@ if (!isset($_element)) {
     die('You are not authorized to directly access to this page');
 }
 
-$_element['_icon']  = apollonGetOption('layout_'.$_element['data']['posttype'].'s_readmoreicon');
-$_element['_style'] = apollonGetOption('layout_'.$_element['data']['posttype'].'s_readmorestyle');
-$_element['_title'] = apollonGetOption('layout_'.$_element['data']['posttype'].'s_readmoretitle');
+$_element['_title'] = apollonGetOption($_element['data']['posttype'].'-loop-readmoretitle');
+$_element['_style'] = apollonGetOption($_element['data']['posttype'].'-loop-readmorestyle');
+$_element['_icon']  = apollonGetOption($_element['data']['posttype'].'-loop-readmoreicon');
 
 echo sprintf(
     '<a href="%s" title="%s" class="%s %s">%s%s</a>',
     $_element['data']['link'],
     $_element['data']['esc_title'],
     'uk-button uk-button-'.$_element['_style'],
-    'uk-margin-remove-top uk-margin-small-bottom',
+    'uk-margin-remove-top uk-margin-small-bottom uk-width-auto',
     $_element['_title'],
     !$_element['_icon'] ? '' : ' <i uk-icon="arrow-right"></i>'
 );

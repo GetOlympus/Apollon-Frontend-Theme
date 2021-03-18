@@ -21,7 +21,7 @@ if (!isset($_format)) {
 do_action('ol.apollon.format_text_before', $_format);
 
 apollonGetPart('element.php', [
-    'css'  => 'f-p-text uk-link-reset',
+    'css'  => 'f-p-text',
     'part' => '_el_open',
 ]);
 

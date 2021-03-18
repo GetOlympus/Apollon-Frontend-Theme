@@ -13,11 +13,10 @@ if (!isset($_format)) {
 }
 
 // Starts here
-$_format['_coverpos']   = apollonGetOption('layout_'.$_format['data']['posttype'].'s_coverpos');
-$_format['_coverstyle'] = apollonGetOption('layout_'.$_format['data']['posttype'].'s_coverstyle');
-$_format['_covertext']  = 'default' === $_format['_coverstyle']
+$_format['cover-style'] = apollonGetOption($_format['data']['posttype'].'-loop-coverstyle');
+$_format['cover-text']  = 'default' === $_format['cover-style']
     ? ' uk-dark'
-    : ('primary' === $_format['_coverstyle'] ? ' uk-light' : '');
+    : ('primary' === $_format['cover-style'] ? ' uk-light' : '');
 
 
 /**
@@ -28,7 +27,7 @@ $_format['_covertext']  = 'default' === $_format['_coverstyle']
 do_action('ol.apollon.format_cover_before', $_format);
 
 apollonGetPart('element.php', [
-    'css'  => 'f-p-cover uk-link-reset',
+    'css'  => 'f-p-cover',
     'part' => '_el_open',
 ]);
 
@@ -38,17 +37,22 @@ echo sprintf(
 );
 
 apollonGetPart('element.php', [
-    'cover'  => $_format['_coverstyle'],
-    'css'    => 'uk-display-block uk-margin-remove uk-cover-container',
+    'canvas' => true,
+    'css'    => 'uk-overlay uk-overlay-primary uk-position-cover uk-overflow-hidden',
     'data'   => $_format['data'],
     'part'   => 'thumbnail',
     'size'   => 'full',
 ]);
 
+apollonGetPart('element.php', [
+    'css'  => 'uk-overlay-'.$_format['cover-style'],
+    'data' => $_format['data'],
+    'part' => 'overlay',
+]);
+
 echo sprintf(
-    '<div class="%s uk-padding-small uk-margin-remove-first-child%s">',
-    'uk-position-'.$_format['_coverpos'],
-    $_format['_covertext']
+    '<div class="uk-padding-small uk-margin-remove-first-child uk-position-relative%s">',
+    $_format['cover-text']
 );
 
 foreach ($_format['contents'] as $key => $value) {
