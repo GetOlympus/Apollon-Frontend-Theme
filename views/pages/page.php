@@ -65,7 +65,7 @@ apollonGetPart('block.php', [
 
 echo sprintf(
     '<div class="uk-grid uk-flex-center uk-grid-%s" uk-grid>',
-    $_page['options']['gridgap']
+    $_page['options']['gap']
 );
 
 echo '<!-- content -->'."\n";
@@ -110,10 +110,10 @@ echo '</main>';
 do_action('ol.apollon.page_sidebar_before', $_page);
 
 // Display sidebars
-if ('left' === $_page['options']['sidebarpos']) {
+if ('left' === $_page['options']['sidebar-position']) {
     echo '<!-- sidebar -->'."\n";
 
-    if ($_page['options']['sidebar1']) {
+    if ($_page['options']['sidebar-1']) {
         apollonGetPart('sidebar.php', [
             'css'      => 'uk-flex-first',
             'override' => $_page['options']['sidebars'],
@@ -121,7 +121,7 @@ if ('left' === $_page['options']['sidebarpos']) {
         ]);
     }
 
-    if ($_page['options']['sidebar2']) {
+    if ($_page['options']['sidebar-2']) {
         apollonGetPart('sidebar.php', [
             'css'      => 'uk-flex-first',
             'override' => $_page['options']['sidebars'],
@@ -130,7 +130,7 @@ if ('left' === $_page['options']['sidebarpos']) {
     }
 }
 
-if ('center' === $_page['options']['sidebarpos'] && $_page['options']['sidebar1']) {
+if ('center' === $_page['options']['sidebar-position'] && $_page['options']['sidebar-1']) {
     apollonGetPart('sidebar.php', [
         'css'      => 'uk-flex-first',
         'override' => $_page['options']['sidebars'],
@@ -138,24 +138,24 @@ if ('center' === $_page['options']['sidebarpos'] && $_page['options']['sidebar1'
     ]);
 }
 
-if ('center' === $_page['options']['sidebarpos'] && $_page['options']['sidebar2']) {
+if ('center' === $_page['options']['sidebar-position'] && $_page['options']['sidebar-2']) {
     apollonGetPart('sidebar.php', [
         'override' => $_page['options']['sidebars'],
         'sidebar'  => 'page_2',
     ]);
 }
 
-if ('right' === $_page['options']['sidebarpos']) {
+if ('right' === $_page['options']['sidebar-position']) {
     echo '<!-- sidebar -->'."\n";
 
-    if ($_page['options']['sidebar1']) {
+    if ($_page['options']['sidebar-1']) {
         apollonGetPart('sidebar.php', [
             'override' => $_page['options']['sidebars'],
             'sidebar'  => 'page_1',
         ]);
     }
 
-    if ($_page['options']['sidebar2']) {
+    if ($_page['options']['sidebar-2']) {
         apollonGetPart('sidebar.php', [
             'override' => $_page['options']['sidebars'],
             'sidebar'  => 'page_2',

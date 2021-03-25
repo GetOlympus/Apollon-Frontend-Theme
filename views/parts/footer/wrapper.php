@@ -54,15 +54,16 @@ foreach (['top', 'main', 'sub'] as $section) {
     }
 
     echo sprintf(
-        '<section id="%s" class="uk-section uk-section-%s uk-padding-%s uk-preserve-color">',
+        '<section id="%s" class="uk-section uk-section-%s uk-padding-%s uk-%s">',
         'section-'.$section,
         $_section['background'],
-        $_section['padding']
+        $_section['padding'],
+        $_section['color']
     );
 
     echo sprintf(
-        '<div class="uk-container uk-container-%s">',
-        $_section['full-width'] ? 'expand' : $_footer['options']['grid-container']
+        '<div class="uk-container%s">',
+        $_section['full-width'] ? ' uk-container-expand' : ''
     );
 
     echo '<div class="uk-grid">';

@@ -27,7 +27,7 @@ if (!apply_filters('ol.apollon.ads_start', false)) {
 // Content starts
 $_ads = array_merge([
     'mode'     => 'muted',
-    'template' => 'global-header',
+    'template' => 'header',
     'title'    => false,
 ], $_ads);
 
@@ -38,7 +38,7 @@ $_ads = array_merge([
  * @return array
  */
 $_ads['available'] = apply_filters('ol.apollon.ads_available_files', [
-    'global-footer', 'global-header', 'global-pre-header'
+    'footer', 'header', 'pre-header'
 ]);
 
 if (empty($_ads['template']) || !in_array($_ads['template'], $_ads['available'])) {

@@ -12,9 +12,9 @@ if (!isset($_element)) {
     die('You are not authorized to directly access to this page');
 }
 
-$_element['_title'] = apollonGetOption($_element['data']['posttype'].'-loop-readmoretitle');
-$_element['_style'] = apollonGetOption($_element['data']['posttype'].'-loop-readmorestyle');
-$_element['_icon']  = apollonGetOption($_element['data']['posttype'].'-loop-readmoreicon');
+$_element['_title'] = apollonGetOption($_element['data']['posttype'].'-loop-readmore-title');
+$_element['_style'] = apollonGetOption($_element['data']['posttype'].'-loop-readmore-style');
+$_element['_icon']  = apollonGetOption($_element['data']['posttype'].'-loop-readmore-icon');
 
 echo sprintf(
     '<a href="%s" title="%s" class="%s %s">%s%s</a>',

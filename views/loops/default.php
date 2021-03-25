@@ -35,9 +35,6 @@ $_loop = array_merge($_loop, apply_filters('ol.apollon.loops_options', $_loop['t
  */
 do_action('ol.apollon.loop_default_before', $_loop);
 
-// Include header template
-include_once __DIR__.S.'header'.S.'default.php';
-
 get_header();
 
 ?>
@@ -51,7 +48,7 @@ get_header();
             'uk-width-1-1@s uk-width-%s@m uk-child-width-1-%s uk-grid-%s%s%s',
             $_loop['content'],
             $_loop['columns'],
-            $_loop['gridgap'],
+            $_loop['gap'],
             $_loop['divider'] ? ' uk-grid-divider' : '',
             $_loop['match-height'] ? ' uk-grid-match' : ''
         ) ?>" uk-grid>

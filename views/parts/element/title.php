@@ -12,8 +12,8 @@ if (!isset($_element)) {
     die('You are not authorized to directly access to this page');
 }
 
-$_element['_tag']     = apollonGetOption($_element['data']['posttype'].'-loop-titletag');
-$_element['_display'] = apollonGetOption($_element['data']['posttype'].'-loop-titledisplay');
+$_element['_tag']     = apollonGetOption($_element['data']['posttype'].'-loop-title-tag');
+$_element['_display'] = apollonGetOption($_element['data']['posttype'].'-loop-title-display');
 
 echo sprintf(
     '<%s class="%s %s">%s</%s>',

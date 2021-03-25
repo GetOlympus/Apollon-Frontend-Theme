@@ -80,10 +80,11 @@ do_action('ol.apollon.main_wrapper_before', $_header);
  * Build main wrapper open.
  *
  * @param  string
+ * @param  array
  *
  * @return string
  */
-echo apply_filters('ol.apollon.main_wrapper_open', '<div class="uk-offcanvas-content">');
+echo apply_filters('ol.apollon.main_wrapper_open', '<div class="uk-offcanvas-content">', $_header);
 
 
 /**
@@ -95,7 +96,7 @@ echo apply_filters('ol.apollon.main_wrapper_open', '<div class="uk-offcanvas-con
  * @return string
  */
 echo apply_filters('ol.apollon.main_header_open', sprintf(
-    '<header class="uk-header uk-position-relative uk-position-z-index%s"%s>',
+    '<header class="uk-header uk-position-relative%s"%s>',
     'none' === $_header['options']['nav-shadow']
         ? ''
         : ' uk-box-shadow-'.$_header['options']['nav-shadow'],
@@ -118,11 +119,10 @@ foreach (['top', 'main', 'sub'] as $nav) {
     $_navbar = $_header['options'][$nav];
 
     echo sprintf(
-        '<nav class="%s uk-navbar-container uk-navbar-transparent%s uk-padding-%s uk-%s">',
-        'uk-nav-'.$nav,
+        '<nav class="uk-nav-%s uk-navbar-container uk-navbar-transparent%s uk-padding-%s uk-preserve-color">',
+        $nav,
         'none' !== $_navbar['background'] ? ' uk-background-'.$_navbar['background'] : '',
-        $_navbar['padding'],
-        $_navbar['color']
+        $_navbar['padding']
     );
 
     // Check template
@@ -131,8 +131,7 @@ foreach (['top', 'main', 'sub'] as $nav) {
 
     // Container options
     echo sprintf(
-        '<div id="%s" class="uk-container%s%s" uk-navbar="%s%s%s">',
-        'nav-'.$nav,
+        '<div class="uk-container%s%s" uk-navbar="%s%s%s">',
         $_navbar['full-width'] ? ' uk-container-expand' : '',
         !$_navbar['mobile'] ? ' uk-visible@s' : '',
         !$_header['options']['dropdown-click'] ? '' : 'mode:click;',
@@ -213,9 +212,9 @@ if (apply_filters('ol.apollon.body_header_section_check', false)) {
  */
 echo apply_filters('ol.apollon.body_wrapper_open', sprintf(
     '<div class="uk-container%s">',
-    'expand' === $_header['options']['grid-container']
+    'expand' === $_header['options']['container']
         ? ''
-        : ' uk-container-'.$_header['options']['grid-container']
+        : ' uk-container-'.$_header['options']['container']
 ), $_header['options']);
 
 

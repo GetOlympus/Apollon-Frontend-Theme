@@ -135,7 +135,7 @@ $_header['scripts'] = apply_filters('ol.apollon.assets_scripts', array_merge([],
  */
 $_header['options'] = apply_filters('ol.apollon.header_options', array_merge([
     // Grid
-    'grid-container' => 'large',
+    'container' => 'large',
 
     // Navs
     'nav-top-enable'  => false,

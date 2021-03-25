@@ -61,7 +61,7 @@ $_footer['urls'] = apply_filters('ol.apollon.footer_urls', array_merge([
  */
 $_footer['options'] = apply_filters('ol.apollon.footer_options', array_merge([
     // Grid
-    'grid-container' => 'medium',
+    'container' => 'medium',
 
     // Sections
     'section-top-enable'  => false,

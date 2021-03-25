@@ -13,7 +13,7 @@ if (!isset($_format)) {
 }
 
 // Starts here
-$_format['cover-style'] = apollonGetOption($_format['data']['posttype'].'-loop-coverstyle');
+$_format['cover-style'] = apollonGetOption($_format['data']['posttype'].'-loop-cover-style');
 $_format['cover-text']  = 'default' === $_format['cover-style']
     ? ' uk-dark'
     : ('primary' === $_format['cover-style'] ? ' uk-light' : '');

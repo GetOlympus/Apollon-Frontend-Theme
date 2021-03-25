@@ -14,7 +14,7 @@ if (!isset($_format)) {
 
 
 // Starts here
-$_format['vertical-style'] = apollonGetOption($_format['data']['posttype'].'-loop-verticalstyle');
+$_format['vertical-style'] = apollonGetOption($_format['data']['posttype'].'-loop-vertical-style');
 
 
 /**
@@ -31,14 +31,17 @@ apollonGetPart('element.php', [
 
 if ('thumbnail' === array_key_first($_format['contents'])) {
     apollonGetPart('element.php', [
-        'css'  => 'uk-display-block uk-card-media-top uk-margin-remove',
+        'css'  => sprintf(
+            'uk-display-block uk-card-media-top uk-margin-remove uk-card-%s',
+            $_format['vertical-style']
+        ),
         'data' => $_format['data'],
         'part' => 'thumbnail',
     ]);
 }
 
 echo sprintf(
-    '<div class="uk-card-%s uk-card-body">',
+    '<div class="uk-card uk-card-%s uk-card-body">',
     $_format['vertical-style']
 );
 

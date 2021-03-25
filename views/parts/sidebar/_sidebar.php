@@ -36,6 +36,9 @@ $_sidebar = array_merge([
     'template'   => 'default',
 ], $_sidebar);
 
+// Override sidebar if needed
+$_sidebar['sidebar'] = $_sidebar['override'] ? 'default-1' : $_sidebar['sidebar'];
+
 
 /**
  * Override available sidebar templates.
