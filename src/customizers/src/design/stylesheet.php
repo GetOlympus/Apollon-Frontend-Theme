@@ -22,12 +22,6 @@ return [
                     'inline' => __('apollon.cz.design.stylesheet.location.inline', OL_APOLLON_DICTIONARY),
                     'css'    => __('apollon.cz.design.stylesheet.location.css', OL_APOLLON_DICTIONARY),
                 ],
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('css-location'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeRadio'],
-                    ],
-                ],
             ],
         ],
     ],

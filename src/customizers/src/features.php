@@ -17,7 +17,7 @@ return [
         'sections' => array_merge(
             include_once __DIR__.S.'features'.S.'core.php',
             include_once __DIR__.S.'features'.S.'theme.php',
-            include_once __DIR__.S.'features'.S.'extra.php',
+            //include_once __DIR__.S.'features'.S.'extra.php',
         ),
     ],
 ];

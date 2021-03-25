@@ -73,11 +73,22 @@ return [
 
     // Dropdown
     $slug.'-dropdown' => [
-        'title'    => __('apollon.cz.components.dropdown.title', OL_APOLLON_DICTIONARY),
+        'title'    => 'Dropdown',
         'priority' => ++$priority,
         'controls' => [
+            'dropdown-color' => [
+                'label'    => __('apollon._.color', OL_APOLLON_DICTIONARY),
+                'priority' => ++$priority,
+                'type'     => 'select',
+                'choices'  => [
+                    'default' => __('apollon._.default', OL_APOLLON_DICTIONARY),
+                    'muted'   => __('apollon._.muted', OL_APOLLON_DICTIONARY),
+                    'link'    => __('apollon._.link', OL_APOLLON_DICTIONARY),
+                    'inverse' => __('apollon._.inverse', OL_APOLLON_DICTIONARY),
+                ],
+            ],
             'dropdown-background' => [
-                'label'    => __('apollon.cz.components.dropdown.background.title', OL_APOLLON_DICTIONARY),
+                'label'    => __('apollon._.background', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'select',
                 'choices'  => [
@@ -86,15 +97,9 @@ return [
                     'secondary' => __('apollon._.secondary', OL_APOLLON_DICTIONARY),
                     'primary'   => __('apollon._.primary', OL_APOLLON_DICTIONARY),
                 ],
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('dropdown-background'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                    ],
-                ],
             ],
             'dropdown-shadow' => [
-                'label'    => __('apollon.cz.components.dropdown.shadow.title', OL_APOLLON_DICTIONARY),
+                'label'    => __('apollon._.shadow', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'select',
                 'choices'  => [
@@ -103,11 +108,22 @@ return [
                     'medium' => __('apollon._.medium', OL_APOLLON_DICTIONARY),
                     'large'  => __('apollon._.large', OL_APOLLON_DICTIONARY),
                 ],
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('dropdown-shadow'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                    ],
+            ],
+            'dropdown-click' => [
+                'label'    => __('apollon.cz.components.dropdown.click.title', OL_APOLLON_DICTIONARY),
+                'priority' => ++$priority,
+                'type'     => 'checkbox',
+            ],
+            'dropdown-position' => [
+                'label'    => __('apollon.cz.components.dropdown.position.title', OL_APOLLON_DICTIONARY),
+                'priority' => ++$priority,
+                'type'     => 'select',
+                'choices'  => [
+                    'default' => __('apollon._.default', OL_APOLLON_DICTIONARY),
+                    'left'    => __('apollon._.left', OL_APOLLON_DICTIONARY),
+                    'center'  => __('apollon._.center', OL_APOLLON_DICTIONARY),
+                    'right'   => __('apollon._.right', OL_APOLLON_DICTIONARY),
+                    //'justify' => __('apollon._.justify', OL_APOLLON_DICTIONARY),
                 ],
             ],
         ],

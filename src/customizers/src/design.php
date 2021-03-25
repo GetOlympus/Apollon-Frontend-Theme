@@ -17,7 +17,8 @@ return [
         'sections' => array_merge(
             include_once __DIR__.S.'design'.S.'stylesheet.php',
             include_once __DIR__.S.'design'.S.'foundations.php',
-            include_once __DIR__.S.'design'.S.'buttons.php',
+            include_once __DIR__.S.'design'.S.'forms.php',
+            include_once __DIR__.S.'design'.S.'elements.php',
             include_once __DIR__.S.'design'.S.'spacings.php',
             include_once __DIR__.S.'design'.S.'responsive.php',
         ),

@@ -17,13 +17,11 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
      */
     protected $contents = [
         'control_subtitle' => [
-            'type'        => 'apollon-header',
-            '_classname'  => 'ApollonFrontendTheme\\Src\\Controls\\ApollonHeaderControl',
+            'type' => 'apollon-header',
         ],
         'control_title'    => [
-            'type'       => 'apollon-header',
-            'style'      => 'margin-top:30px',
-            '_classname' => 'ApollonFrontendTheme\\Src\\Controls\\ApollonHeaderControl',
+            'type'  => 'apollon-header',
+            'style' => 'margin-top:30px',
         ],
         'section_title'    => [
             'type'              => 'apollon-custom',
@@ -77,8 +75,8 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
             'apollon.php',
             'design.php',
             'components.php',
-            'features.php',
             'layout.php',
+            'features.php',
         ];
 
         // Main PHP resources path
@@ -242,6 +240,8 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
         foreach ($controls as $controlid => $control) {
             $classname = '';
 
+            $control = array_merge($this->getControlOptionsFromType($control['type'], $controlid), $control);
+
             // Add custom classname
             if (isset($control['_classname'])) {
                 $classname = $control['_classname'];
@@ -258,5 +258,115 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
             // Add control
             $this->addControl($controlid, $control, $classname);
         }
+    }
+
+    /**
+     * Get control options.
+     *
+     * @param  string
+     * @param  string
+     *
+     * @return array
+     */
+    protected function getControlOptionsFromType($type, $slug) : array
+    {
+        if (empty($type)) {
+            return [];
+        }
+
+        $default = apollonGetDefault($slug);
+        $options = [];
+
+        if (in_array($type, ['text', 'email', 'tel', 'url', 'search', 'password'])) {
+            $options = [
+                'input_attrs' => [
+                    'placeholder' => $default,
+                ],
+                'settings'    => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeText'],
+                ]],
+            ];
+        } else if ('number' === $type) {
+            $options = [
+                'input_attrs' => [
+                    'min'         => 0,
+                    'max'         => 100,
+                    'step'        => 1,
+                    'placeholder' => $default,
+                ],
+                'settings'    => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
+                ]],
+            ];
+        } else if ('textarea' === $type) {
+            $options = [
+                'input_attrs' => [
+                    'placeholder' => $default,
+                ],
+                'settings'    => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeTextarea'],
+                ]],
+            ];
+        } else if ('select' === $type) {
+            $options = [
+                'choices'  => [],
+                'settings' => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
+                ]],
+            ];
+        } else if ('checkbox' === $type) {
+            $options = [
+                'settings' => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
+                ]],
+            ];
+        } else if ('radio' === $type) {
+            $options = [
+                'choices'  => [],
+                'settings' => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeRadio'],
+                ]],
+            ];
+        } else if ('color' === $type) {
+            $options = [
+                'input_attrs' => [
+                    'placeholder' => $default,
+                ],
+                'settings'    => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeColor'],
+                ]],
+            ];
+        } else if ('image' === $type) {
+            $options = [
+                'settings' => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeImage'],
+                ]],
+            ];
+        } else if ('apollon-header' === $type) {
+            $options = [
+                '_classname' => 'ApollonFrontendTheme\\Src\\Controls\\ApollonHeaderControl',
+            ];
+        } else if ('apollon-multicheck' === $type) {
+            $options = [
+                '_classname' => 'ApollonFrontendTheme\\Src\\Controls\\ApollonMulticheckControl',
+                'choices'    => [],
+                'settings'   => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeMulticheck'],
+                ]],
+            ];
+        }
+
+        $options['type'] = $type;
+
+        return $options;
     }
 }

@@ -53,12 +53,6 @@ return [
                 'description' => __('apollon.cz.components.divider.icon.desc', OL_APOLLON_DICTIONARY),
                 'priority'    => ++$priority,
                 'type'        => 'checkbox',
-                'settings'    => [
-                    [
-                        'default'           => apollonGetDefault('divider-icon'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
         ],
     ],

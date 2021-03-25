@@ -23,57 +23,41 @@ return [
             'breakpoint-small' => [
                 'label'       => __('apollon._.small', OL_APOLLON_DICTIONARY),
                 'priority'    => ++$priority,
-                'type'        => 'text',
+                'type'        => 'number',
                 'input_attrs' => [
+                    'min'         => 0,
+                    'step'        => 1,
                     'placeholder' => apollonGetDefault('breakpoint-small'),
-                ],
-                'settings'    => [
-                    [
-                        'default'           => apollonGetDefault('breakpoint-small'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeText'],
-                    ],
                 ],
             ],
             'breakpoint-medium' => [
                 'label'       => __('apollon._.medium', OL_APOLLON_DICTIONARY),
                 'priority'    => ++$priority,
-                'type'        => 'text',
+                'type'        => 'number',
                 'input_attrs' => [
+                    'min'         => 0,
+                    'step'        => 1,
                     'placeholder' => apollonGetDefault('breakpoint-medium'),
-                ],
-                'settings'    => [
-                    [
-                        'default'           => apollonGetDefault('breakpoint-medium'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeText'],
-                    ],
                 ],
             ],
             'breakpoint-large' => [
                 'label'       => __('apollon._.large', OL_APOLLON_DICTIONARY),
                 'priority'    => ++$priority,
-                'type'        => 'text',
+                'type'        => 'number',
                 'input_attrs' => [
+                    'min'         => 0,
+                    'step'        => 1,
                     'placeholder' => apollonGetDefault('breakpoint-large'),
-                ],
-                'settings'    => [
-                    [
-                        'default'           => apollonGetDefault('breakpoint-large'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeText'],
-                    ],
                 ],
             ],
             'breakpoint-xlarge' => [
                 'label'       => __('apollon._.xlarge', OL_APOLLON_DICTIONARY),
                 'priority'    => ++$priority,
-                'type'        => 'text',
+                'type'        => 'number',
                 'input_attrs' => [
+                    'min'         => 0,
+                    'step'        => 1,
                     'placeholder' => apollonGetDefault('breakpoint-xlarge'),
-                ],
-                'settings'    => [
-                    [
-                        'default'           => apollonGetDefault('breakpoint-xlarge'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeText'],
-                    ],
                 ],
             ],
         ],

@@ -35,25 +35,12 @@ return [
                 'label'    => __('apollon.cz.features.social.enable.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'checkbox',
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('social-enable'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
             'social-icons' => [
-                'label'      => __('apollon.cz.features.social.icons.title', OL_APOLLON_DICTIONARY),
-                'priority'   => ++$priority,
-                'type'       => 'apollon-multicheck',
-                '_classname' => 'ApollonFrontendTheme\\Src\\Controls\\ApollonMulticheckControl',
-                'choices'    => $icons,
-                'settings'   => [
-                    [
-                        'default'           => apollonGetDefault('social-icons'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeMulticheck'],
-                    ],
-                ],
+                'label'    => __('apollon.cz.features.social.icons.title', OL_APOLLON_DICTIONARY),
+                'priority' => ++$priority,
+                'type'     => 'apollon-multicheck',
+                'choices'  => $icons,
             ],
         ],
     ],
@@ -67,55 +54,30 @@ return [
                 'label'    => __('apollon.cz.features.backtotop.enable.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'checkbox',
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('backtotop-enable'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
 
+            // Optimization
             $slug.'-backtotop-optimisation' => array_merge($this->contents['control_subtitle'], [
                 'label'    => __('apollon.cz.features.backtotop.optimisation.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
             ]),
             'backtotop-label' => [
-                'label'       => __('apollon.cz.features.backtotop.label.title', OL_APOLLON_DICTIONARY),
-                'priority'    => ++$priority,
-                'type'        => 'text',
-                'input_attrs' => [
-                    'placeholder' => apollonGetDefault('backtotop-label'),
-                ],
-                'settings'    => [
-                    [
-                        'default'           => apollonGetDefault('backtotop-label'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeText'],
-                    ],
-                ],
+                'label'    => __('apollon.cz.features.backtotop.label.title', OL_APOLLON_DICTIONARY),
+                'priority' => ++$priority,
+                'type'     => 'text',
             ],
             'backtotop-icon' => [
                 'label'    => __('apollon.cz.features.backtotop.icon.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'checkbox',
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('backtotop-icon'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
             'backtotop-mobile' => [
                 'label'    => __('apollon.cz.features.backtotop.mobile.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'checkbox',
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('backtotop-mobile'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
 
+            // Layout
             $slug.'-backtotop-layout' => array_merge($this->contents['control_subtitle'], [
                 'label'    => __('apollon.cz.features.backtotop.layout.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
@@ -128,12 +90,6 @@ return [
                     'small' => __('apollon._.small', OL_APOLLON_DICTIONARY),
                     'large' => __('apollon._.large', OL_APOLLON_DICTIONARY),
                 ],
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('backtotop-margin'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                    ],
-                ],
             ],
             'backtotop-position' => [
                 'label'    => __('apollon.cz.features.backtotop.position.title', OL_APOLLON_DICTIONARY),
@@ -143,12 +99,6 @@ return [
                     'left'   => __('apollon._.left', OL_APOLLON_DICTIONARY),
                     'center' => __('apollon._.center', OL_APOLLON_DICTIONARY),
                     'right'  => __('apollon._.right', OL_APOLLON_DICTIONARY),
-                ],
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('backtotop-position'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                    ],
                 ],
             ],
             'backtotop-style' => [
@@ -161,12 +111,6 @@ return [
                     'secondary' => __('apollon._.secondary', OL_APOLLON_DICTIONARY),
                     'primary'   => __('apollon._.primary', OL_APOLLON_DICTIONARY),
                     'link'      => __('apollon._.link', OL_APOLLON_DICTIONARY),
-                ],
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('backtotop-style'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                    ],
                 ],
             ],
         ],
@@ -181,12 +125,6 @@ return [
                 'label'    => __('apollon.cz.features.breadcrumb.enable.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'checkbox',
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('breadcrumb-enable'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
         ],
     ],
@@ -201,12 +139,6 @@ return [
                 'label'    => __('apollon.cz.features.opengraph.enable.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'checkbox',
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('opengraph-enable'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
             'opengraph-twitter' => [
                 'label'       => __('apollon.cz.features.opengraph.twitter.title', OL_APOLLON_DICTIONARY),
@@ -214,12 +146,6 @@ return [
                 'type'        => 'text',
                 'input_attrs' => [
                     'placeholder' => __('apollon.cz.features.opengraph.twitter.placeholder', OL_APOLLON_DICTIONARY),
-                ],
-                'settings'    => [
-                    [
-                        'default'           => apollonGetDefault('opengraph-twitter'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeText'],
-                    ],
                 ],
             ],
             'opengraph-facebook' => [
@@ -229,12 +155,6 @@ return [
                 'input_attrs' => [
                     'placeholder' => __('apollon.cz.features.opengraph.facebook.placeholder', OL_APOLLON_DICTIONARY),
                 ],
-                'settings'    => [
-                    [
-                        'default'           => apollonGetDefault('opengraph-facebook'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeText'],
-                    ],
-                ],
             ],
             'opengraph-facebookapp' => [
                 'label'       => __('apollon.cz.features.opengraph.facebookapp.title', OL_APOLLON_DICTIONARY),
@@ -242,12 +162,6 @@ return [
                 'type'        => 'text',
                 'input_attrs' => [
                     'placeholder' => __('apollon.cz.features.opengraph.facebookapp.placeholder', OL_APOLLON_DICTIONARY),
-                ],
-                'settings'    => [
-                    [
-                        'default'           => apollonGetDefault('opengraph-facebookapp'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeText'],
-                    ],
                 ],
             ],
         ],

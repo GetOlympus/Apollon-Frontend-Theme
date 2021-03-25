@@ -27,12 +27,6 @@ foreach (['top', 'main', 'sub'] as $nav) {
         'label'    => __('apollon.cz.layout.footer.default.enable.title', OL_APOLLON_DICTIONARY),
         'priority' => ++$priority,
         'type'     => 'checkbox',
-        'settings' => [
-            [
-                'default'           => apollonGetDefault('section-'.$nav.'-enable'),
-                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-            ],
-        ],
     ];
 
     // Contents
@@ -47,12 +41,6 @@ foreach (['top', 'main', 'sub'] as $nav) {
             'priority' => ++$priority,
             'type'     => 'select',
             'choices'  => $_contents,
-            'settings' => [
-                [
-                    'default'           => apollonGetDefault('section-'.$nav.'-content-'.$i),
-                    'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                ],
-            ],
         ];
     }
 
@@ -65,12 +53,6 @@ foreach (['top', 'main', 'sub'] as $nav) {
         'label'    => __('apollon.cz.layout.header.default.mobile.title', OL_APOLLON_DICTIONARY),
         'priority' => ++$priority,
         'type'     => 'checkbox',
-        'settings' => [
-            [
-                'default'           => apollonGetDefault('section-'.$nav.'-mobile'),
-                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-            ],
-        ],
     ];
 
     for ($i = 1; $i < 5; $i++) {
@@ -94,12 +76,6 @@ foreach (['top', 'main', 'sub'] as $nav) {
                 'auto'   => __('apollon._.auto', OL_APOLLON_DICTIONARY),
                 'expand' => __('apollon._.expand', OL_APOLLON_DICTIONARY),
             ],
-            'settings' => [
-                [
-                    'default'           => apollonGetDefault('section-'.$nav.'-size-'.$i),
-                    'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-                ],
-            ],
         ];
     }
 
@@ -108,32 +84,18 @@ foreach (['top', 'main', 'sub'] as $nav) {
         'label'    => __('apollon.cz.layout.header.default.layout.title', OL_APOLLON_DICTIONARY),
         'priority' => ++$priority,
     ]);
-    /*$controls['section-'.$nav.'-template'] = [
-        'label'    => __('apollon.cz.layout.header.default.template.title', OL_APOLLON_DICTIONARY),
-        'priority' => ++$priority,
-        'type'     => 'select',
-        'choices'  => [
-            'left'   => __('apollon._.left', OL_APOLLON_DICTIONARY),
-            'right'  => __('apollon._.right', OL_APOLLON_DICTIONARY),
-            'center' => __('apollon._.center', OL_APOLLON_DICTIONARY),
-            'expand' => __('apollon._.expand', OL_APOLLON_DICTIONARY),
-        ],
-        'settings' => [
-            [
-                'default'           => apollonGetDefault('section-'.$nav.'-template'),
-                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-            ]
-        ],
-    ];*/
     $controls['section-'.$nav.'-full-width'] = [
         'label'    => __('apollon.cz.layout.header.default.full-width.title', OL_APOLLON_DICTIONARY),
         'priority' => ++$priority,
         'type'     => 'checkbox',
-        'settings' => [
-            [
-                'default'           => apollonGetDefault('section-'.$nav.'-full-width'),
-                'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-            ]
+    ];
+    $controls['section-'.$nav.'-color'] = [
+        'label'    => __('apollon.cz.layout.header.default.color.title', OL_APOLLON_DICTIONARY),
+        'priority' => ++$priority,
+        'type'     => 'select',
+        'choices'  => [
+            'dark'  => __('apollon._.dark', OL_APOLLON_DICTIONARY),
+            'light' => __('apollon._.light', OL_APOLLON_DICTIONARY),
         ],
     ];
     $controls['section-'.$nav.'-background'] = [
@@ -146,44 +108,16 @@ foreach (['top', 'main', 'sub'] as $nav) {
             'secondary' => __('apollon._.secondary', OL_APOLLON_DICTIONARY),
             'primary'   => __('apollon._.primary', OL_APOLLON_DICTIONARY),
         ],
-        'settings'    => [
-            [
-                'default'           => apollonGetDefault('section-'.$nav.'-background'),
-                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-            ]
-        ],
     ];
     $controls['section-'.$nav.'-font-size'] = [
-        'label'       => __('apollon.cz.layout.header.default.font-size.title', OL_APOLLON_DICTIONARY),
-        'priority'    => ++$priority,
-        'type'        => 'number',
-        'input_attrs' => [
-            'min'  => 1,
-            'max'  => 100,
-            'step' => 1,
-        ],
-        'settings'    => [
-            [
-                'default'           => apollonGetDefault('section-'.$nav.'-font-size'),
-                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
-            ],
-        ],
+        'label'    => __('apollon.cz.layout.header.default.font-size.title', OL_APOLLON_DICTIONARY),
+        'priority' => ++$priority,
+        'type'     => 'number',
     ];
     $controls['section-'.$nav.'-line-height'] = [
-        'label'       => __('apollon.cz.layout.header.default.line-height.title', OL_APOLLON_DICTIONARY),
-        'priority'    => ++$priority,
-        'type'        => 'number',
-        'input_attrs' => [
-            'min'  => 1,
-            'max'  => 100,
-            'step' => 1,
-        ],
-        'settings'    => [
-            [
-                'default'           => apollonGetDefault('section-'.$nav.'-line-height'),
-                'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
-            ],
-        ],
+        'label'    => __('apollon.cz.layout.header.default.line-height.title', OL_APOLLON_DICTIONARY),
+        'priority' => ++$priority,
+        'type'     => 'number',
     ];
     $controls['section-'.$nav.'-padding'] = [
         'label'    => __('apollon.cz.layout.header.default.padding.title', OL_APOLLON_DICTIONARY),
@@ -193,12 +127,6 @@ foreach (['top', 'main', 'sub'] as $nav) {
             'default' => __('apollon._.default', OL_APOLLON_DICTIONARY),
             'small'   => __('apollon._.small', OL_APOLLON_DICTIONARY),
             'large'   => __('apollon._.large', OL_APOLLON_DICTIONARY),
-        ],
-        'settings'    => [
-            [
-                'default'           => apollonGetDefault('section-'.$nav.'-padding'),
-                'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
-            ],
         ],
     ];
 }

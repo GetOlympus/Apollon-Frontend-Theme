@@ -24,12 +24,6 @@ return [
                 'label'    => __('apollon.cz.features.navs.enable.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'checkbox',
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('navs-enable'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
         ],
     ],
@@ -43,12 +37,6 @@ return [
                 'label'    => __('apollon.cz.features.ads.enable.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'checkbox',
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('ads-enable'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
         ],
     ],
@@ -62,12 +50,6 @@ return [
                 'label'    => __('apollon.cz.features.adblocker.enable.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,
                 'type'     => 'checkbox',
-                'settings' => [
-                    [
-                        'default'           => apollonGetDefault('adblocker-enable'),
-                        'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
-                    ],
-                ],
             ],
         ],
     ],
