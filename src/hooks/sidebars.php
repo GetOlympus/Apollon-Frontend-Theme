@@ -19,9 +19,9 @@ add_filter('ol.apollon.sidebar_vars', function ($sidebar) {
 
     // Get options
     return array_merge($sidebar, [
-        'background' => apollonGetOption('sidebar'.$layout.'-background'),
-        'mobile'     => apollonGetOption('sidebar'.$layout.'-mobile'),
-        'size'       => !empty($sidebar['size']) ? $sidebar['size'] : apollonGetOption('sidebar'.$layout.'-size'),
-        'sticky'     => apollonGetOption('sidebar'.$layout.'-sticky'),
+        'background' => apollonGetOption('sidebar-'.$layout.'-background'),
+        'mobile'     => apollonGetOption('sidebar-'.$layout.'-mobile'),
+        'size'       => !empty($sidebar['size']) ? $sidebar['size'] : apollonGetOption('sidebar-'.$layout.'-size'),
+        'sticky'     => apollonGetOption('sidebar-'.$layout.'-sticky'),
     ]);
 });

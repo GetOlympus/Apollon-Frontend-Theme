@@ -63,7 +63,7 @@ add_action('ol.apollon.footer_build_navbar', function ($section, $level, $conten
 add_filter('ol.apollon.footer_options', function ($options) {
     $options = array_merge($options, [
         // Grid
-        'grid-container' => apollonGetOption('grid-container'),
+        'container' => apollonGetOption('website-container'),
 
         // Sections
         'section-top-enable'  => apollonGetOption('section-top-enable'),
@@ -89,8 +89,8 @@ add_filter('ol.apollon.footer_options', function ($options) {
             'size-2'      => apollonGetOption('section-'.$nav.'-size-2'),
             'size-3'      => apollonGetOption('section-'.$nav.'-size-3'),
             'size-4'      => apollonGetOption('section-'.$nav.'-size-4'),
-            'template'    => apollonGetOption('section-'.$nav.'-template'),
             'full-width'  => apollonGetOption('section-'.$nav.'-full-width'),
+            'color'       => apollonGetOption('section-'.$nav.'-color'),
             'background'  => apollonGetOption('section-'.$nav.'-background'),
             'font-size'   => apollonGetOption('section-'.$nav.'-font-size'),
             'line-height' => apollonGetOption('section-'.$nav.'-line-height'),

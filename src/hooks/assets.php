@@ -10,10 +10,6 @@
 
 add_filter('ol.apollon.assets_links', function ($links) {
     $links = array_merge($links, [
-        [
-            'href' => 'https://fonts.googleapis.com/css?family=Karla|Source+Sans+Pro:400',
-            'rel'  => 'stylesheet',
-        ],
         /*
         [
             'href' => OL_TPL_DIR_URI.'/app/manifest.json',
@@ -82,14 +78,7 @@ add_filter('ol.apollon.assets_output', function ($output = '') {
 }, 10, 1);
 
 add_filter('ol.apollon.assets_scripts', function ($scripts) {
-    return array_merge($scripts, [
-        [
-            'src' => '//cdn.jsdelivr.net/npm/uikit@'.OL_APOLLON_UIKIT.'/dist/js/uikit.min.js',
-        ],
-        [
-            'src' => '//cdn.jsdelivr.net/npm/uikit@'.OL_APOLLON_UIKIT.'/dist/js/uikit-icons.min.js',
-        ],
-    ]);
+    return array_merge($scripts, []);
 }, 10, 1);
 
 // INCLUDES

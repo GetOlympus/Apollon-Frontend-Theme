@@ -17,7 +17,7 @@ add_filter('ol.apollon.posttypes_contents', function ($posttype, $usecontent = f
     }
 
     $metas      = apollonGetOption($posttype.'-metas');
-    $usecontent = $usecontent ? apollonGetOption($posttype.'-usecontent') : false;
+    $usecontent = $usecontent ? apollonGetOption($posttype.'-use-content') : false;
 
     $return = [];
 
@@ -39,20 +39,16 @@ add_filter('ol.apollon.posttypes_contents', function ($posttype, $usecontent = f
 
 add_filter('ol.apollon.posttypes_options', function ($posttype) {
     $options = [
-        // From list
-        'gridgap'    => apollonGetOption('homepage-gridgap'),
-
-        // From single
-        'container'  => apollonGetOption($posttype.'-container'),
-        'content'    => apollonGetOption($posttype.'-content'),
-        'avatar'     => apollonGetOption($posttype.'-avatar'),
-        'feature'    => apollonGetOption($posttype.'-feature'),
-        'expand'     => apollonGetOption($posttype.'-expand'),
-        'header'     => apollonGetOption($posttype.'-header'),
-        'sidebarpos' => apollonGetOption($posttype.'-sidebarpos'),
-        'sidebar1'   => apollonGetOption($posttype.'-sidebar1'),
-        'sidebar2'   => apollonGetOption($posttype.'-sidebar2'),
-        'sidebars'   => apollonGetOption($posttype.'-sidebars'),
+        'container'        => apollonGetOption($posttype.'-container'),
+        'content'          => apollonGetOption($posttype.'-content'),
+        'avatar'           => apollonGetOption($posttype.'-avatar'),
+        'feature'          => apollonGetOption($posttype.'-feature'),
+        'expand'           => apollonGetOption($posttype.'-expand'),
+        'header'           => apollonGetOption($posttype.'-header'),
+        'sidebar-position' => apollonGetOption($posttype.'-sidebar-position'),
+        'sidebar-1'        => apollonGetOption($posttype.'-sidebar-1'),
+        'sidebar-2'        => apollonGetOption($posttype.'-sidebar-2'),
+        'sidebars'         => apollonGetOption($posttype.'-sidebars'),
     ];
 
     foreach ($options as $opt => $value) {
@@ -60,8 +56,10 @@ add_filter('ol.apollon.posttypes_options', function ($posttype) {
             continue;
         }
 
-        $options[$opt] = apollonGetDefault(('gridgap' === $opt ? 'homepage-' : 'post-').$opt);
+        $options[$opt] = apollonGetDefault('post-'.$opt);
     }
+
+    $options['gap'] = apollonGetDefault('website-gap');
 
     return $options;
 });

@@ -83,7 +83,7 @@ add_filter('ol.apollon.header_metas', function ($metas) {
 add_filter('ol.apollon.header_options', function ($options) {
     $options = array_merge($options, [
         // Grid
-        'grid-container' => apollonGetOption('website-grid-container'),
+        'container' => apollonGetOption('website-container'),
 
         // Navs
         'nav-top-enable'  => apollonGetOption('nav-top-enable'),
@@ -91,13 +91,13 @@ add_filter('ol.apollon.header_options', function ($options) {
         'nav-sub-enable'  => apollonGetOption('nav-sub-enable'),
 
         // Global
-        'nav-menu'   => apollonGetOption('website-nav-menu'),
-        'nav-shadow' => apollonGetOption('website-nav-shadow'),
-        'nav-sticky' => apollonGetOption('website-nav-sticky'),
+        'nav-menu'   => apollonGetOption('nav-menu'),
+        'nav-shadow' => apollonGetOption('nav-shadow'),
+        'nav-sticky' => apollonGetOption('nav-sticky'),
 
         // Dropdown
-        'dropdown-click'    => apollonGetOption('website-dropdown-click'),
-        'dropdown-position' => apollonGetOption('website-dropdown-position'),
+        'dropdown-click'    => apollonGetOption('dropdown-click'),
+        'dropdown-position' => apollonGetOption('dropdown-position'),
 
         // Extra search
         'dropbar'       => apollonGetOption('searchform-dropbar'),
@@ -186,7 +186,7 @@ add_filter('ol.apollon.logo_image', function ($image) {
 // WRAPPERS
 
 add_filter('ol.apollon.body_wrapper_open', function ($header) {
-    $grid = apollonGetOption('website-grid-container');
+    $grid = apollonGetOption('website-container');
 
     return sprintf(
         '<div class="uk-container%s">',
