@@ -71,7 +71,7 @@ if (!function_exists('apollonGetPart')) {
      */
     function apollonGetPart($file, $vars = [], $slug = null)
     {
-        $show_on_front = apollonGetOption('wp_showonfront');
+        $show_on_front = apollonGetOption('wp-showonfront');
 
         /**
          * Override included files.
