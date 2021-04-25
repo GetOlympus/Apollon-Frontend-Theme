@@ -12,6 +12,17 @@ return [
     'title'    => __('apollon.cz.layout.configurations.title', OL_APOLLON_DICTIONARY),
     'priority' => ++$priority,
     'controls' => [
+        // Body
+        $slug.'-website-body-title' => array_merge($this->contents['control_subtitle'], [
+            'label'    => __('apollon.cz.layout.configurations.body.title', OL_APOLLON_DICTIONARY),
+            'priority' => ++$priority,
+        ]),
+        'website-body-background' => [
+            'label'    => __('apollon.cz.layout.configurations.body-background.title', OL_APOLLON_DICTIONARY),
+            'priority' => ++$priority,
+            'type'     => 'color',
+        ],
+
         // Border
         $slug.'-website-border-title' => array_merge($this->contents['control_subtitle'], [
             'label'    => __('apollon.cz.layout.configurations.border.title', OL_APOLLON_DICTIONARY),
@@ -37,7 +48,7 @@ return [
         'website-border-width' => [
             'label'    => __('apollon.cz.layout.configurations.border-width.title', OL_APOLLON_DICTIONARY),
             'priority' => ++$priority,
-            'type'     => 'text',
+            'type'     => 'number',
         ],
     ],
 ];
