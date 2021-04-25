@@ -30,13 +30,13 @@ $links = [
     ),
     'previous' => sprintf(
         '%s%s',
-        !$opts['icons'] ? '' : '<span uk-pagination-previous></span> ',
+        !$opts['icons'] ? '' : '<span uk-icon="chevron-left"></span> ',
         __('apollon.th.pagination.previous', OL_APOLLON_DICTIONARY)
     ),
     'next'     => sprintf(
         '%s%s',
         __('apollon.th.pagination.next', OL_APOLLON_DICTIONARY),
-        !$opts['icons'] ? '' : ' <span%s uk-pagination-next></span>',
+        !$opts['icons'] ? '' : ' <span uk-icon="chevron-right"></span>',
     ),
     'last'     => sprintf(
         '%s%s',
@@ -71,7 +71,7 @@ if ($opts['first']) {
             !$opts['previous'] && 'expand' === $opts['position'] ? ' uk-margin-auto-right' : ''
         ),
         1 < $current ? '' : '<span>',
-        1 < $current ? '<a href="'.get_pagenum_link(1).'">'.$links['first'].'</a>' : $links['first'],
+        1 < $current ? '<a href="'.get_pagenum_link(1).'" class="uk-button">'.$links['first'].'</a>' : '',
         1 < $current ? '' : '</span>'
     );
 }
@@ -85,7 +85,7 @@ if ($opts['previous']) {
             'expand' === $opts['position'] ? ' uk-margin-auto-right' : ''
         ),
         1 < $current ? '' : '<span>',
-        1 < $current ? get_previous_posts_link($links['previous']) : $links['previous'],
+        1 < $current ? str_replace('<a ', '<a class="uk-button" ', get_previous_posts_link($links['previous'])) : '',
         1 < $current ? '' : '</span>'
     );
 }
@@ -107,8 +107,8 @@ if ($opts['nums']) {
             $items[] = sprintf(
                 $template,
                 $i === $current ? 'uk-active' : '',
-                $i === $current ? '<span>' : '',
-                $i === $current ? $i : '<a href="'.get_pagenum_link($i).'">'.$i.'</a>',
+                $i === $current ? '<span class="uk-button">' : '',
+                $i === $current ? $i : '<a href="'.get_pagenum_link($i).'" class="uk-button">'.$i.'</a>',
                 $i === $current ? '</span>' : ''
             );
         }
@@ -116,8 +116,14 @@ if ($opts['nums']) {
 
     // Separator item
     if ($opts['separator'] && $current < $pages - $opts['range']) {
-        $items[] = '<li class="uk-disabled"><span>'.$opts['separator'].'</span></li>';
-        $items[] = sprintf($template, '', '', '<a href="'.get_pagenum_link($pages).'">'.$pages.'</a>', '');
+        $items[] = '<li class="uk-disabled"><span class="uk-button">'.$opts['separator'].'</span></li>';
+        $items[] = sprintf(
+            $template,
+            '',
+            '',
+            '<a href="'.get_pagenum_link($pages).'" class="uk-button">'.$pages.'</a>',
+            ''
+        );
     }
 }
 
@@ -130,7 +136,7 @@ if ($opts['next']) {
             'expand' === $opts['position'] ? ' uk-margin-auto-left' : ''
         ),
         $current < $pages ? '' : '<span>',
-        $current < $pages ? get_next_posts_link($links['next']) : $links['next'],
+        $current < $pages ? str_replace('<a ', '<a class="uk-button" ', get_next_posts_link($links['next'])) : '',
         $current < $pages ? '' : '</span>'
     );
 }
@@ -144,7 +150,7 @@ if ($opts['last']) {
             !$opts['next'] && 'expand' === $opts['position'] ? ' uk-margin-auto-left' : ''
         ),
         $current < $pages ? '' : '<span>',
-        $current < $pages ? '<a href="'.get_pagenum_link($pages).'">'.$links['last'].'</a>' : $links['last'],
+        $current < $pages ? '<a href="'.get_pagenum_link($pages).'" class="uk-button">'.$links['last'].'</a>' : '',
         $current < $pages ? '' : '</span>'
     );
 }
