@@ -18,7 +18,7 @@ add_action('ol.apollon.footer_build_navbar', function ($section, $level, $conten
     }
 
     // Check content
-    if (!in_array($content, ['logo', 'copyright', 'search', 'sidebar'])) {
+    if (!in_array($content, ['logo', 'copyright', 'search', 'sidebar', 'title'])) {
         return;
     }
 
@@ -39,6 +39,12 @@ add_action('ol.apollon.footer_build_navbar', function ($section, $level, $conten
         $_vars = [
             'css' => 'uk-panel uk-width-1-1',
         ];
+    } else if ('title' === $content) {
+        $_file = 'logo.php';
+        $_vars = [
+            'css'      => 'uk-panel uk-width-1-1',
+            'template' => 'title',
+        ];
     } else if ('search' === $content) {
         $_file = 'searchform.php';
         $_vars = [
@@ -48,7 +54,7 @@ add_action('ol.apollon.footer_build_navbar', function ($section, $level, $conten
         $_file = 'sidebar.php';
         $_vars = [
             'size'     => $contents['size'],
-            'sidebar'  => $section.'_'.$level,
+            'sidebar'  => $section.'-'.$level,
             'template' => 'footer',
         ];
     }
@@ -64,6 +70,7 @@ add_filter('ol.apollon.footer_options', function ($options) {
     $options = array_merge($options, [
         // Grid
         'container' => apollonGetOption('website-container'),
+        'padding'   => apollonGetOption('website-padding'),
 
         // Sections
         'section-top-enable'  => apollonGetOption('section-top-enable'),
@@ -92,8 +99,6 @@ add_filter('ol.apollon.footer_options', function ($options) {
             'full-width'  => apollonGetOption('section-'.$nav.'-full-width'),
             'color'       => apollonGetOption('section-'.$nav.'-color'),
             'background'  => apollonGetOption('section-'.$nav.'-background'),
-            'font-size'   => apollonGetOption('section-'.$nav.'-font-size'),
-            'line-height' => apollonGetOption('section-'.$nav.'-line-height'),
             'padding'     => apollonGetOption('section-'.$nav.'-padding'),
         ];
     }

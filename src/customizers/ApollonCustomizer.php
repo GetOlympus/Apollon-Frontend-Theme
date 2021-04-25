@@ -50,6 +50,7 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
         $this->contents['navs_contents']  = [
             ''          => __('apollon._.none', OL_APOLLON_DICTIONARY),
             'logo'      => __('apollon._.logo', OL_APOLLON_DICTIONARY),
+            'title'     => __('apollon._.title', OL_APOLLON_DICTIONARY),
             'copyright' => __('apollon._.copyright', OL_APOLLON_DICTIONARY),
             'custom'    => __('apollon._.custom', OL_APOLLON_DICTIONARY),
             'search'    => __('apollon._.search', OL_APOLLON_DICTIONARY),

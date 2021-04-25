@@ -211,10 +211,9 @@ if (apply_filters('ol.apollon.body_header_section_check', false)) {
  * @return string
  */
 echo apply_filters('ol.apollon.body_wrapper_open', sprintf(
-    '<div class="uk-container%s">',
-    'expand' === $_header['options']['container']
-        ? ''
-        : ' uk-container-'.$_header['options']['container']
+    '<div class="uk-container uk-container-%s%s">',
+    $_header['options']['container'],
+    $_header['options']['padding'] ? '' : ' uk-padding-remove'
 ), $_header['options']);
 
 

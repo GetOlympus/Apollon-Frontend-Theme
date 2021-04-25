@@ -21,7 +21,7 @@ add_action('ol.apollon.header_build_navbar', function ($nav, $level, $options) {
     $substr  = substr($content, 0, 9);
 
     // Check content
-    if (!in_array($content, ['custom', 'logo', 'search']) && 'location-' !== $substr) {
+    if (!in_array($content, ['custom', 'logo', 'search', 'title']) && 'location-' !== $substr) {
         return;
     }
 
@@ -41,6 +41,12 @@ add_action('ol.apollon.header_build_navbar', function ($nav, $level, $options) {
         $_file = 'logo.php';
         $_vars = [
             'css' => 'uk-navbar-item uk-logo',
+        ];
+    } else if ('title' === $content) {
+        $_file = 'logo.php';
+        $_vars = [
+            'css'      => 'uk-navbar-item uk-logo',
+            'template' => 'title',
         ];
     } else if ('search' === $content) {
         $_file = 'searchform.php';
@@ -84,6 +90,7 @@ add_filter('ol.apollon.header_options', function ($options) {
     $options = array_merge($options, [
         // Grid
         'container' => apollonGetOption('website-container'),
+        'padding'   => apollonGetOption('website-padding'),
 
         // Navs
         'nav-top-enable'  => apollonGetOption('nav-top-enable'),
@@ -184,15 +191,6 @@ add_filter('ol.apollon.logo_image', function ($image) {
 });
 
 // WRAPPERS
-
-add_filter('ol.apollon.body_wrapper_open', function ($header) {
-    $grid = apollonGetOption('website-container');
-
-    return sprintf(
-        '<div class="uk-container%s">',
-        'expand' === $grid ? '' : ' uk-container-'.$grid
-    );
-});
 
 add_filter('ol.apollon.main_dropbar_content', function ($dropbar, $status) {
     return $status ? $dropbar : '';

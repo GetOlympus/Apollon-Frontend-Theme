@@ -54,11 +54,10 @@ foreach (['top', 'main', 'sub'] as $section) {
     }
 
     echo sprintf(
-        '<section id="%s" class="uk-section uk-section-%s uk-padding-%s uk-%s">',
+        '<section class="uk-footnav-%s uk-section uk-section-%s uk-padding-%s uk-preserve-color">',
         'section-'.$section,
         $_section['background'],
-        $_section['padding'],
-        $_section['color']
+        $_section['padding']
     );
 
     echo sprintf(
