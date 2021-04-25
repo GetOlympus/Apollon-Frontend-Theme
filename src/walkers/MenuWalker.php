@@ -1,10 +1,12 @@
 <?php
 
+namespace ApollonFrontendTheme;
+
 if (!class_exists('Walker_Nav_Menu')) {
     require_once(ABSPATH.'wp-includes/class-walker-nav-menu.php');
 }
 
-class MenuWalker extends Walker_Nav_Menu
+class MenuWalker extends \Walker_Nav_Menu
 {
     /**
      * Starts the list before the elements are added.
@@ -13,7 +15,7 @@ class MenuWalker extends Walker_Nav_Menu
      * @param int $depth
      * @param array $args
      */
-    public function start_lvl(&$output, $depth = 0, $args = [])
+    public function start_lvl(&$output, $depth = 0, $args = []) // phpcs:ignore
     {
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
         $output .= $indent."\n";
@@ -26,7 +28,7 @@ class MenuWalker extends Walker_Nav_Menu
      * @param int $depth
      * @param array $args
      */
-    public function end_lvl(&$output, $depth = 0, $args = [])
+    public function end_lvl(&$output, $depth = 0, $args = []) // phpcs:ignore
     {
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
         $output .= $indent."\n";
@@ -42,7 +44,7 @@ class MenuWalker extends Walker_Nav_Menu
      * @param array $args
      * @param string $output
      */
-    public function display_element($element, &$children_elements, $max_depth, $depth = 0, $args, &$output)
+    public function display_element($element, &$children_elements, $max_depth, $depth, $args, &$output) // phpcs:ignore
     {
         $id_field = $this->db_fields['id'];
 
@@ -62,7 +64,7 @@ class MenuWalker extends Walker_Nav_Menu
      * @param array $args
      * @param int $id
      */
-    public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0)
+    public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0) // phpcs:ignore
     {
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
         $output .= $indent;
@@ -122,7 +124,10 @@ class MenuWalker extends Walker_Nav_Menu
         if ($args->has_children) {
             $output .= apply_filters(
                 'ol.apollon.menu_walker_before_children_dropdown',
-                '<div class="uk-navbar-dropdown"><ul class="uk-nav uk-navbar-dropdown-nav">'
+                sprintf(
+                    '<div class="uk-navbar-dropdown uk-box-shadow-%s"><ul class="uk-nav uk-navbar-dropdown-nav">',
+                    apollonGetOption('dropdown-shadow', 'small')
+                )
             );
         }
     }
@@ -135,7 +140,7 @@ class MenuWalker extends Walker_Nav_Menu
      * @param int $depth
      * @param array $args
      */
-    public function end_el(&$output, $item, $depth = 0, $args = [])
+    public function end_el(&$output, $item, $depth = 0, $args = []) // phpcs:ignore
     {
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
         $output .= $indent;

@@ -12,8 +12,4 @@ if (!defined('ABSPATH')) {
     die('You are not authorized to directly access to this page');
 }
 
-$_inc = [
-    'filename' => basename(__FILE__),
-];
-
-include OL_APOLLON_VIEWSPATH.'_inc.php';
+apollonGetPart(basename(__FILE__));

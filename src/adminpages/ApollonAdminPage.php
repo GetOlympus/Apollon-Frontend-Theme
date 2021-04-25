@@ -34,7 +34,7 @@ class ApollonAdminPage extends \GetOlympus\Zeus\AdminPage\AdminPage
         ];
 
         // Main JSONS resources path
-        $path = OL_APOLLON_RESOURCESPATH.'adminpages'.S;
+        $path = __DIR__.S.'src'.S;
 
         // Iterate
         foreach ($jsons as $json) {

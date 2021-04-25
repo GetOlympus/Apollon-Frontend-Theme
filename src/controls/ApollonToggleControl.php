@@ -12,7 +12,7 @@ class ApollonToggleControl extends \GetOlympus\Zeus\Control\Control
     /**
      * An Underscore (JS) template for this control's content (but not its container).
      */
-    protected function content_template()
+    protected function content_template() // phpcs:ignore
     {
         $input = sprintf(
             '<input type="checkbox" name="%s" id="%s" value="%s" %s%s />',
@@ -53,7 +53,7 @@ class ApollonToggleControl extends \GetOlympus\Zeus\Control\Control
     /**
      * JSON
      */
-    public function json()
+    public function json() // phpcs:ignore
     {
         $json = parent::json();
 

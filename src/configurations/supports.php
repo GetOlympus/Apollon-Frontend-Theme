@@ -19,7 +19,6 @@ return [
      * Set to "false" to remove the theme support.
      */
 
-
     /**
      * Special case: for post type support, use the "post_type" key
      *
@@ -41,7 +40,6 @@ return [
             'remove' => ['thumbnail'],
         ],
     ],
-
 
     /**
      * @see http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Formats
@@ -92,10 +90,12 @@ return [
      */
     'title-tag' => [],
 
-
     /**
      * Add your own theme supports here.
      */
     'woocommerce' => [],
+    'wc-product-gallery-slider'   => [],
+    'wc-product-gallery-zoom'     => [],
+    'wc-product-gallery-lightbox' => [],
     'auto-load-next-post' => [],
 ];

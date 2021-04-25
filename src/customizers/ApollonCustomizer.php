@@ -17,19 +17,15 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
      */
     protected $contents = [
         'control_subtitle' => [
-            'type'        => 'apollon-header',
-            'style'       => 'background:#f9f9fc;font-size:14px;line-height:16px',
-            '_classname'  => 'ApollonFrontendTheme\\Src\\Controls\\ApollonHeaderControl',
+            'type' => 'apollon-header',
         ],
         'control_title'    => [
-            'type'        => 'apollon-header',
-            'style'       => 'margin-top:30px',
-            '_classname'  => 'ApollonFrontendTheme\\Src\\Controls\\ApollonHeaderControl',
+            'type'  => 'apollon-header',
+            'style' => 'margin-top:30px',
         ],
         'section_title'    => [
             'type'              => 'apollon-custom',
             'description_style' => 'font-weight:200;margin:0',
-            'section_style'     => 'background:transparent;border-width:0 0 1px;padding:30px 10px 10px 16px',
             '_classname'        => 'ApollonFrontendTheme\\Src\\Sections\\ApollonCustomSection',
         ],
     ];
@@ -37,45 +33,68 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
     /**
      * @var string
      */
-    protected $preview = OL_APOLLON_SRCPATH.'customizers'.S.'apollon-customizer.js';
+    protected $preview = __DIR__.S.'apollon-customizer.js';
 
     /**
      * Prepare variables.
      */
     protected function setVars() : void
     {
-        // Define extra usefull ocntents
-        $this->contents['posttypes']      = get_post_types();
+        // Post types
+        $this->contents['posttypes']      = [];
+        // Posts per page
         $this->contents['posts_per_page'] = get_option('posts_per_page');
+        // List all sidebars
         $this->contents['sidebars']       = $GLOBALS['wp_registered_sidebars'];
+        // Nav & section contents
         $this->contents['navs_contents']  = [
-            ''        => __('apollon._.contents.none', OL_APOLLON_DICTIONARY),
-            'logo'    => __('apollon._.contents.logo', OL_APOLLON_DICTIONARY),
-            'custom'  => __('apollon._.contents.custom', OL_APOLLON_DICTIONARY),
-            'menu'    => __('apollon._.contents.menu', OL_APOLLON_DICTIONARY),
-            'search'  => __('apollon._.contents.search', OL_APOLLON_DICTIONARY),
-            'sidebar' => __('apollon._.contents.sidebar', OL_APOLLON_DICTIONARY),
+            ''          => __('apollon._.none', OL_APOLLON_DICTIONARY),
+            'logo'      => __('apollon._.logo', OL_APOLLON_DICTIONARY),
+            'title'     => __('apollon._.title', OL_APOLLON_DICTIONARY),
+            'copyright' => __('apollon._.copyright', OL_APOLLON_DICTIONARY),
+            'custom'    => __('apollon._.custom', OL_APOLLON_DICTIONARY),
+            'search'    => __('apollon._.search', OL_APOLLON_DICTIONARY),
+            'sidebar'   => __('apollon._.sidebar', OL_APOLLON_DICTIONARY),
         ];
 
-        // Get PHPs
-        $phps = [
+        // Get searchable post types only registered through `register_post_type` function
+        $posttypes = get_post_types(['exclude_from_search' => false/*'public' => true, '_builtin' => false,*/]);
+        $posttypes = array_diff($posttypes, [
+            'attachment', 'media', 'nav_menu_item', 'customize_changeset',
+            'revision', 'custom_css', 'oembed_cache', 'user_request', 'wp_block'
+        ]);
+
+        if ($posttypes) {
+            foreach ($posttypes as $type) {
+                $post = get_post_type_object($type);
+                $this->contents['posttypes'][$post->name] = $post->labels->singular_name;
+            }
+        }
+
+        // Get files
+        $files = [
             'apollon.php',
-            'general.php',
+            'design.php',
+            'components.php',
+            'layout.php',
             'features.php',
-            'header.php',
-            'layouts.php',
-            'footer.php',
         ];
 
         // Main PHP resources path
-        $path = OL_APOLLON_RESOURCESPATH.'customizers'.S;
+        $path = __DIR__.S.'src'.S;
+
+        // Initialize priority
+        $priority = 0;
 
         // Iterate on all PHPs
-        foreach ($phps as $php) {
+        foreach ($files as $idx => $file) {
             // Check file
-            if (!file_exists($file = realpath($path.$php))) {
+            if (!file_exists($file = realpath($path.$file))) {
                 continue;
             }
+
+            // Update priority
+            $priority = (int) (($idx + 1) * 1000);
 
             // Build contents
             $panels = include $file;
@@ -93,17 +112,10 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
          * Fires after registering contents through customizer.
          */
         add_action('ol.zeus.customizerhook_register_after', function ($wp_customize, $customizer) {
-            $hp = 'lt-homepage';
-            $st = 'static_front_page';
-
-            // Move default homepage controls to Apollon
-            $wp_customize->get_section($hp)->description = $wp_customize->get_section($st)->description;
-            $wp_customize->get_control('show_on_front')->section = 'lt-homepage';
-            $wp_customize->remove_section($st);
-
-            // Add logo definition into title tagline section
-            $wp_customize->get_control('logos_default')->section = 'title_tagline';
-            $wp_customize->get_control('logos_retina')->section = 'title_tagline';
+            // Add logo options into title tagline section
+            foreach (['default', 'retina', 'max-width', 'max-height', 'slogan'] as $control) {
+                $wp_customize->get_control('logo-'.$control)->section = 'title_tagline';
+            }
         }, 10, 2);
     }
 
@@ -229,6 +241,8 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
         foreach ($controls as $controlid => $control) {
             $classname = '';
 
+            $control = array_merge($this->getControlOptionsFromType($control['type'], $controlid), $control);
+
             // Add custom classname
             if (isset($control['_classname'])) {
                 $classname = $control['_classname'];
@@ -245,5 +259,115 @@ class ApollonCustomizer extends \GetOlympus\Zeus\Customizer\Customizer
             // Add control
             $this->addControl($controlid, $control, $classname);
         }
+    }
+
+    /**
+     * Get control options.
+     *
+     * @param  string
+     * @param  string
+     *
+     * @return array
+     */
+    protected function getControlOptionsFromType($type, $slug) : array
+    {
+        if (empty($type)) {
+            return [];
+        }
+
+        $default = apollonGetDefault($slug);
+        $options = [];
+
+        if (in_array($type, ['text', 'email', 'tel', 'url', 'search', 'password'])) {
+            $options = [
+                'input_attrs' => [
+                    'placeholder' => $default,
+                ],
+                'settings'    => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeText'],
+                ]],
+            ];
+        } else if ('number' === $type) {
+            $options = [
+                'input_attrs' => [
+                    'min'         => 0,
+                    'max'         => 100,
+                    'step'        => 1,
+                    'placeholder' => $default,
+                ],
+                'settings'    => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeNumber'],
+                ]],
+            ];
+        } else if ('textarea' === $type) {
+            $options = [
+                'input_attrs' => [
+                    'placeholder' => $default,
+                ],
+                'settings'    => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeTextarea'],
+                ]],
+            ];
+        } else if ('select' === $type) {
+            $options = [
+                'choices'  => [],
+                'settings' => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeSelect'],
+                ]],
+            ];
+        } else if ('checkbox' === $type) {
+            $options = [
+                'settings' => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeCheckbox'],
+                ]],
+            ];
+        } else if ('radio' === $type) {
+            $options = [
+                'choices'  => [],
+                'settings' => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeRadio'],
+                ]],
+            ];
+        } else if ('color' === $type) {
+            $options = [
+                'input_attrs' => [
+                    'placeholder' => $default,
+                ],
+                'settings'    => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeColor'],
+                ]],
+            ];
+        } else if ('image' === $type) {
+            $options = [
+                'settings' => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeImage'],
+                ]],
+            ];
+        } else if ('apollon-header' === $type) {
+            $options = [
+                '_classname' => 'ApollonFrontendTheme\\Src\\Controls\\ApollonHeaderControl',
+            ];
+        } else if ('apollon-multicheck' === $type) {
+            $options = [
+                '_classname' => 'ApollonFrontendTheme\\Src\\Controls\\ApollonMulticheckControl',
+                'choices'    => [],
+                'settings'   => [[
+                    'default'           => $default,
+                    'sanitize_callback' => [$this, 'zeusSanitizeMulticheck'],
+                ]],
+            ];
+        }
+
+        $options['type'] = $type;
+
+        return $options;
     }
 }
