@@ -15,7 +15,21 @@ if (!isset($_format)) {
 
 // Starts here
 $_format['vertical-style'] = apollonGetOption($_format['data']['posttype'].'-loop-vertical-style');
+$_format['wrapper-opener'] = '<div class="uk-card uk-card-%s uk-card-body">';
+$_format['first'] = false;
+$_format['last']  = false;
 
+// Set first position
+if ('thumbnail' === array_key_first($_format['contents'])) {
+    $_format['first'] = true;
+    unset($_format['contents']['thumbnail']);
+}
+
+// Set last position
+if ('thumbnail' === array_key_last($_format['contents'])) {
+    $_format['last'] = true;
+    unset($_format['contents']['thumbnail']);
+}
 
 /**
  * Fires before displaying vertical format.
@@ -29,7 +43,7 @@ apollonGetPart('element.php', [
     'part' => '_el_open',
 ]);
 
-if ('thumbnail' === array_key_first($_format['contents'])) {
+if ($_format['first']) {
     apollonGetPart('element.php', [
         'css'  => sprintf(
             'uk-display-block uk-card-media-top uk-margin-remove uk-card-%s',
@@ -40,13 +54,23 @@ if ('thumbnail' === array_key_first($_format['contents'])) {
     ]);
 }
 
-echo sprintf(
-    '<div class="uk-card uk-card-%s uk-card-body">',
-    $_format['vertical-style']
-);
+echo sprintf($_format['wrapper-opener'], $_format['vertical-style']);
 
 foreach ($_format['contents'] as $key => $value) {
     if ('thumbnail' === $key) {
+        echo '</div>';
+
+        apollonGetPart('element.php', [
+            'css'  => sprintf(
+                'uk-display-block uk-card-media uk-margin-remove uk-card-%s',
+                $_format['vertical-style']
+            ),
+            'data' => $_format['data'],
+            'part' => 'thumbnail',
+        ]);
+
+        echo sprintf($_format['wrapper-opener'], $_format['vertical-style']);
+
         continue;
     }
 
@@ -59,7 +83,7 @@ foreach ($_format['contents'] as $key => $value) {
 
 echo '</div>';
 
-if ('thumbnail' === array_key_last($_format['contents'])) {
+if ($_format['last']) {
     apollonGetPart('element.php', [
         'css'  => 'uk-display-block uk-card-media-bottom uk-margin-remove',
         'data' => $_format['data'],

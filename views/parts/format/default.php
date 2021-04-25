@@ -21,6 +21,7 @@ if (!isset($_format)) {
 do_action('ol.apollon.format_default_before', $_format);
 
 apollonGetPart('element.php', [
+    'css'  => 'f-p-default',
     'part' => '_el_open',
 ]);
 
