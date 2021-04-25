@@ -40,6 +40,7 @@ add_filter('ol.apollon.posttypes_contents', function ($posttype, $usecontent = f
 add_filter('ol.apollon.posttypes_options', function ($posttype) {
     $options = [
         'container'        => apollonGetOption($posttype.'-container'),
+        'padding'          => apollonGetOption($posttype.'-padding'),
         'content'          => apollonGetOption($posttype.'-content'),
         'avatar'           => apollonGetOption($posttype.'-avatar'),
         'feature'          => apollonGetOption($posttype.'-feature'),

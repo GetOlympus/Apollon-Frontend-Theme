@@ -14,6 +14,7 @@ add_filter('ol.apollon.loops_options', function ($loop) {
 
     $options = [
         'container'        => apollonGetOption($target.'-container'),
+        'padding'          => apollonGetOption($target.'-padding'),
         'content'          => apollonGetOption($target.'-content'),
         'columns'          => apollonGetOption($target.'-columns'),
         'gap'              => apollonGetOption($target.'-gap'),
@@ -59,8 +60,9 @@ add_action('ol.apollon.loop_default_before', function ($loop) {
 
     add_filter('ol.apollon.body_header_section', function ($header, $options) use ($loop) {
         // Define vars
-        $container = 'expand' === $options['container'] ? '' : ' uk-container-'.$options['container'];
-        $title = $loop['title'];
+        $container = ' uk-container-'.$options['container'];
+        $padding   = $options['padding'] ? '' : ' uk-padding-remove';
+        $title     = $loop['title'];
 
 /*
 <header class="uk-section uk-section-default uk-padding-remove-bottom" uk-height-viewport="expand:true">
@@ -76,8 +78,8 @@ add_action('ol.apollon.loop_default_before', function ($loop) {
         // Build header
         $header = <<<EOT
     <!-- title -->
-    <section class="uk-section uk-section-primary" uk-height-viewport="expand:true">
-        <div class="uk-container $container">
+    <section class="uk-section uk-section-primary uk-preserve-color" uk-height-viewport="expand:true">
+        <div class="uk-container $container $padding">
             <h1 class="uk-h2">{$loop['title']}</h1>
             <h2 class="uk-h3 uk-margin-remove-top">{$loop['meta']}</h2>
         </div>

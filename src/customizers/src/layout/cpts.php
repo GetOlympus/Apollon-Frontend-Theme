@@ -196,6 +196,11 @@ foreach ($this->contents['posttypes'] as $name => $title) {
                     'expand'  => __('apollon._.expand', OL_APOLLON_DICTIONARY),
                 ],
             ],
+            $name.'-padding' => [
+                'label'    => __('apollon.cz.layout.default.grid-padding.title', OL_APOLLON_DICTIONARY),
+                'priority' => ++$priority,
+                'type'     => 'checkbox',
+            ],
             $name.'-content' => [
                 'label'    => __('apollon.cz.layout.default.grid-content.title', OL_APOLLON_DICTIONARY),
                 'priority' => ++$priority,

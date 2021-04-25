@@ -30,6 +30,11 @@ return [
                 'expand' => __('apollon._.expand', OL_APOLLON_DICTIONARY),
             ],
         ],
+        'website-padding' => [
+            'label'    => __('apollon.cz.layout.default.grid-padding.title', OL_APOLLON_DICTIONARY),
+            'priority' => ++$priority,
+            'type'     => 'checkbox',
+        ],
         'website-content' => [
             'label'    => __('apollon.cz.layout.default.grid-content.title', OL_APOLLON_DICTIONARY),
             'priority' => ++$priority,

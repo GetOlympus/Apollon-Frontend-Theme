@@ -54,6 +54,11 @@ foreach (['homepage', 'archives', 'search'] as $s) {
             'expand' => __('apollon._.expand', OL_APOLLON_DICTIONARY),
         ],
     ];
+    $sections[$slug.'-loops-'.$s]['controls'][$s.'-padding'] = [
+        'label'    => __('apollon.cz.layout.default.grid-padding.title', OL_APOLLON_DICTIONARY),
+        'priority' => ++$priority,
+        'type'     => 'checkbox',
+    ];
     $sections[$slug.'-loops-'.$s]['controls'][$s.'-content'] = [
         'label'    => __('apollon.cz.layout.default.grid-content.title', OL_APOLLON_DICTIONARY),
         'priority' => ++$priority,

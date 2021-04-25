@@ -49,6 +49,11 @@ foreach (['frontpage', 'page'] as $p) {
             'expand' => __('apollon._.expand', OL_APOLLON_DICTIONARY),
         ],
     ];
+    $pages[$slug.'-pages-'.$p]['controls'][$p.'-padding'] = [
+        'label'    => __('apollon.cz.layout.default.grid-padding.title', OL_APOLLON_DICTIONARY),
+        'priority' => ++$priority,
+        'type'     => 'checkbox',
+    ];
     $pages[$slug.'-pages-'.$p]['controls'][$p.'-content'] = [
         'label'    => __('apollon.cz.layout.default.grid-content.title', OL_APOLLON_DICTIONARY),
         'priority' => ++$priority,
@@ -176,6 +181,11 @@ foreach (['404', 'attachment'] as $p) {
                     'xlarge' => __('apollon._.xlarge', OL_APOLLON_DICTIONARY),
                     'expand' => __('apollon._.expand', OL_APOLLON_DICTIONARY),
                 ],
+            ],
+            $p.'-padding' => [
+                'label'    => __('apollon.cz.layout.default.gird-padding.title', OL_APOLLON_DICTIONARY),
+                'priority' => ++$priority,
+                'type'     => 'checkbox',
             ],
             $p.'-content' => [
                 'label'    => __('apollon.cz.layout.default.grid-content.title', OL_APOLLON_DICTIONARY),
