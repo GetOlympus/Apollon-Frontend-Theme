@@ -68,7 +68,7 @@ apollonGetPart('block.php', [
 
 echo sprintf(
     '<div class="uk-grid uk-flex-center uk-grid-%s" uk-grid>',
-    $_single['options']['gridgap']
+    $_single['options']['gap']
 );
 
 echo '<!-- content -->'."\n";
@@ -113,55 +113,55 @@ echo '</main>';
 do_action('ol.apollon.single_post_sidebar_before', $_single);
 
 // Display sidebars
-if ('left' === $_single['options']['sidebarpos']) {
+if ('left' === $_single['options']['sidebar-position']) {
     echo '<!-- sidebar -->'."\n";
 
-    if ($_single['options']['sidebar1']) {
+    if ($_single['options']['sidebar-1']) {
         apollonGetPart('sidebar.php', [
             'css'      => 'uk-flex-first',
             'override' => $_single['options']['sidebars'],
-            'sidebar'  => $_single['posttype'].'_1',
+            'sidebar'  => $_single['posttype'].'-1',
         ]);
     }
 
-    if ($_single['options']['sidebar2']) {
+    if ($_single['options']['sidebar-2']) {
         apollonGetPart('sidebar.php', [
             'css'      => 'uk-flex-first',
             'override' => $_single['options']['sidebars'],
-            'sidebar'  => $_single['posttype'].'_2',
+            'sidebar'  => $_single['posttype'].'-2',
         ]);
     }
 }
 
-if ('center' === $_single['options']['sidebarpos'] && $_single['options']['sidebar1']) {
+if ('center' === $_single['options']['sidebar-position'] && $_single['options']['sidebar-1']) {
     apollonGetPart('sidebar.php', [
         'css'      => 'uk-flex-first',
         'override' => $_single['options']['sidebars'],
-        'sidebar'  => $_single['posttype'].'_1',
+        'sidebar'  => $_single['posttype'].'-1',
     ]);
 }
 
-if ('center' === $_single['options']['sidebarpos'] && $_single['options']['sidebar2']) {
+if ('center' === $_single['options']['sidebar-position'] && $_single['options']['sidebar-2']) {
     apollonGetPart('sidebar.php', [
         'override' => $_single['options']['sidebars'],
-        'sidebar'  => $_single['posttype'].'_2',
+        'sidebar'  => $_single['posttype'].'-2',
     ]);
 }
 
-if ('right' === $_single['options']['sidebarpos']) {
+if ('right' === $_single['options']['sidebar-position']) {
     echo '<!-- sidebar -->'."\n";
 
-    if ($_single['options']['sidebar1']) {
+    if ($_single['options']['sidebar-1']) {
         apollonGetPart('sidebar.php', [
             'override' => $_single['options']['sidebars'],
-            'sidebar'  => $_single['posttype'].'_1',
+            'sidebar'  => $_single['posttype'].'-1',
         ]);
     }
 
-    if ($_single['options']['sidebar2']) {
+    if ($_single['options']['sidebar-2']) {
         apollonGetPart('sidebar.php', [
             'override' => $_single['options']['sidebars'],
-            'sidebar'  => $_single['posttype'].'_2',
+            'sidebar'  => $_single['posttype'].'-2',
         ]);
     }
 }
