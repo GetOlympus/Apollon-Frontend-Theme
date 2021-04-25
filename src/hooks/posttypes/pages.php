@@ -46,3 +46,21 @@ add_filter('ol.apollon.page_vars', function ($page = []) {
 
     return $page;
 });
+
+// Pages
+
+add_action('ol.apollon.page_front_before', function ($options) {
+    add_filter('ol.apollon.body_wrapper_open', function ($header) {
+        $default = apollonGetOption('frontpage-use-default');
+        $target  = $default ? 'website' : 'frontpage';
+
+        $container = apollonGetOption($target.'-container');
+        $padding   = apollonGetOption($target.'-padding');
+
+        return sprintf(
+            '<div class="uk-container uk-container-%s%s">',
+            $container,
+            $padding ? '' : ' uk-padding-remove'
+        );
+    });
+});
