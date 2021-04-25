@@ -103,21 +103,11 @@ foreach (['top', 'main', 'sub'] as $nav) {
         'priority' => ++$priority,
         'type'     => 'select',
         'choices'  => [
-            'none'      => __('apollon._.default', OL_APOLLON_DICTIONARY),
+            'default'   => __('apollon._.default', OL_APOLLON_DICTIONARY),
             'muted'     => __('apollon._.muted', OL_APOLLON_DICTIONARY),
             'secondary' => __('apollon._.secondary', OL_APOLLON_DICTIONARY),
             'primary'   => __('apollon._.primary', OL_APOLLON_DICTIONARY),
         ],
-    ];
-    $controls['section-'.$nav.'-font-size'] = [
-        'label'    => __('apollon.cz.layout.header.default.font-size.title', OL_APOLLON_DICTIONARY),
-        'priority' => ++$priority,
-        'type'     => 'number',
-    ];
-    $controls['section-'.$nav.'-line-height'] = [
-        'label'    => __('apollon.cz.layout.header.default.line-height.title', OL_APOLLON_DICTIONARY),
-        'priority' => ++$priority,
-        'type'     => 'number',
     ];
     $controls['section-'.$nav.'-padding'] = [
         'label'    => __('apollon.cz.layout.header.default.padding.title', OL_APOLLON_DICTIONARY),
