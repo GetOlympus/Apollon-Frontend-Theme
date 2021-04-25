@@ -23,7 +23,7 @@ do_action('ol.apollon.logo_part_default_before', $_logo);
 echo sprintf(
     '<a href="%s" title="%s" class="%s">%s%s</a>',
     $_logo['image']['url'],
-    $_logo['image']['title'],
+    $_logo['image']['esc_title'],
     $_logo['css'],
     sprintf(
         '<img src="%s" alt="%s" width="%d" />',
