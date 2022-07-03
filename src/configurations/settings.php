@@ -46,9 +46,10 @@ return [
      *
      * @see     https://developer.wordpress.org/reference/hooks/admin_footer_text/
      */
-    'admin-footer' => sprintf('Build with ♥ by %s, with %s and for %s.',
+    'admin-footer' => sprintf(
+        __('apollon.cf.settings.adminfooter', OL_APOLLON_DICTIONARY),
         '<a href="https://github.com/crewstyle" target="_blank">Achraf Chouk</a>',
-        '<a href="http://www.wordpress.org/" title="Wordpress">WordPress</a>',
+        '<a href="https://www.wordpress.org/" title="Wordpress">WordPress</a>',
         '<b>WordPress developers</b>'
     ),
 
@@ -101,7 +102,13 @@ return [
         // ['dashboard_recent_drafts', 'dashboard', 'side'],
         // ['dashboard_secondary', 'dashboard', 'side'],
 
-        ['add', 'dashboard_hello', 'Hi there :)', 'Welcome to your dashboard. Here is a simple box.'],
+        // Add a new dashboard box
+        [
+            'add',
+            'dashboard_hello',
+            __('apollon.cf.settings.dashboard.title', OL_APOLLON_DICTIONARY),
+            __('apollon.cf.settings.dashboard.desc', OL_APOLLON_DICTIONARY)
+        ],
     ],
 
     /**

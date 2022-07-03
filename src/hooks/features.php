@@ -8,63 +8,40 @@
  * @since      0.0.1
  */
 
-
-// FEATURES
-
 add_filter('ol.apollon.searchform_start', function ($status) {
-    return (bool) !!apollonGetOption('searchform_enable');
+    return (bool) !!apollonGetOption('searchform-enable');
 });
 add_filter('ol.apollon.sidebar_start', function ($status) {
-    return (bool) !!apollonGetOption('sidebar_enable');
+    return (bool) !!apollonGetOption('sidebar-enable');
 });
 add_filter('ol.apollon.comments_start', function ($status) {
-    return (bool) !!apollonGetOption('comments_enable');
+    return (bool) !!apollonGetOption('comments-enable');
 });
-add_filter('ol.apollon.nav_start', function ($status) {
-    return (bool) !!apollonGetOption('navs_enable');
+add_filter('ol.apollon.social_start', function ($status) {
+    return (bool) !!apollonGetOption('social-enable');
+});
+add_filter('ol.apollon.backtotop_start', function ($status) {
+    return (bool) !!apollonGetOption('backtotop-enable');
+});
+add_filter('ol.apollon.pagination_start', function ($status) {
+    return (bool) !!apollonGetOption('pagination-enable');
+});
+add_filter('ol.apollon.breadcrumb_start', function ($status) {
+    return (bool) !!apollonGetOption('breadcrumb-enable');
+});
+add_filter('ol.apollon.navs_start', function ($status) {
+    return (bool) !!apollonGetOption('navs-enable');
 });
 add_filter('ol.apollon.ads_start', function ($status) {
-    return (bool) !!apollonGetOption('ads_enable');
+    return (bool) !!apollonGetOption('ads-enable');
 });
 add_filter('ol.apollon.adblocker_start', function ($status) {
-    return (bool) !!apollonGetOption('adblocker_enable');
+    return (bool) !!apollonGetOption('adblocker-enable');
 });
 
+// INCLUDES
 
-// ARCHIVES
-
-add_filter('ol.apollon.archive_sidebar_order', function ($tpl) {
-    return /*isset($apollon['features-sidebar-'.$tpl.'-order'])
-        ? $apollon['features-sidebar-'.$tpl.'-order']
-        : */[];
-});
-
-
-// COMMENTS
-
-add_filter('ol.apollon.comments_build_default_data', function ($data, $mode = 'data') {
-    $build = 'data' === $mode ? [
-        'htmltags'     => [],//$apollon['features-comments-htmltags'],
-        'stacked'      => [],//$apollon['features-comments-formstacked'],
-        'website'      => [],//$apollon['features-comments-website'],
-        'commenttitle' => [],//$apollon['features-comments-title'],
-        'formposition' => [],//$apollon['features-comments-formposition'],
-        'navsposition' => [],//$apollon['features-comments-navsposition'],
-    ] : [
-        'avatar'       => [],//$apollon['features-comments-avatar'],
-        'highlight'    => [],//$apollon['features-comments-highlight'],
-    ];
-
-    return array_merge($build, $data);
-}, 10, 2);
-add_filter('ol.apollon.comments_default_contents', function ($contents) {
-    return [
-        'template' => apply_filters('ol.apollon.comments_list_display', 'default'),
-    ];
-});
-add_filter('ol.apollon.comments_form_display', function ($tpl) {
-    return apollonGetOption('comments_formlayout');
-});
-add_filter('ol.apollon.comments_list_display', function ($tpl) {
-    return apollonGetOption('comments_listlayout');
-});
+include __DIR__.S.'features'.S.'archives.php';
+include __DIR__.S.'features'.S.'backtotop.php';
+include __DIR__.S.'features'.S.'comments.php';
+include __DIR__.S.'features'.S.'pagination.php';

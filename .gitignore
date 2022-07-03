@@ -4,6 +4,10 @@
 # @since 0.0.1
 ##############################################
 
+# Auto generated file
+app/css/main.css
+app/css/variables.less
+
 # Composer
 node_modules/
 vendor/

@@ -4,12 +4,12 @@
  * @version 1.0.0
  */
 
-(function($){
+(function ($) {
     var $head = $('head'),
         $body = $('body');
 
-    wp.customize('color_primary', function(_value) {
-        _value.bind(function(_newvalue) {
+    wp.customize('color_primary', function (_value) {
+        _value.bind(function (_newvalue) {
             var $child = $('style.apollon-gt-color_primary');
 
             if (_newvalue) {
@@ -158,8 +158,8 @@
      * HEADER
      */
 
-    wp.customize('topnav_customtext', function(_value) {
-        _value.bind(function(_newvalue) {
+    wp.customize('topnav_customtext', function (_value) {
+        _value.bind(function (_newvalue) {
             var $child = $('.topnav-customtext');
 
             if (_newvalue && $child.length) {
@@ -168,8 +168,8 @@
         });
     });
 
-    wp.customize('mainnav_customtext', function(_value) {
-        _value.bind(function(_newvalue) {
+    wp.customize('mainnav_customtext', function (_value) {
+        _value.bind(function (_newvalue) {
             var $child = $('.mainnav-customtext');
 
             if (_newvalue && $child.length) {
@@ -178,8 +178,8 @@
         });
     });
 
-    wp.customize('subnav_customtext', function(_value) {
-        _value.bind(function(_newvalue) {
+    wp.customize('subnav_customtext', function (_value) {
+        _value.bind(function (_newvalue) {
             var $child = $('.subnav-customtext');
 
             if (_newvalue && $child.length) {
@@ -290,15 +290,15 @@
      */
 
     // Site title
-    wp.customize('blogname', function(_val) {
-        _val.bind(function(_new_val) {
+    wp.customize('blogname', function (_val) {
+        _val.bind(function (_new_val) {
             $('.site-logo-text').text(_new_val);
         });
     });
 
     // Site description
-    wp.customize('blogdescription', function(_val) {
-        _val.bind(function(_new_val) {
+    wp.customize('blogdescription', function (_val) {
+        _val.bind(function (_new_val) {
             $('#site-description h2').text(_new_val);
         });
     });

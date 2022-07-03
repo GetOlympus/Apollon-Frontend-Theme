@@ -20,5 +20,6 @@ return [
      * @param   string      $name   Add to media selection dropdown ~~ Put an empty string if you do not want this ~~
      */
     //'size_key'    => [size_width,     size_height,    size_crop_or_not,   size_label_in_dropdown],
-    'feat-large'    => [1100, 673, true, __('Featured image – 1100px width.', OL_APOLLON_DICTIONARY)],
+    'cover'    => [500, 500, true, sprintf(__('apollon.cf.sizes.cover', OL_APOLLON_DICTIONARY), 500)],
+    'featured' => [1100, 673, true, sprintf(__('apollon.cf.sizes.featured', OL_APOLLON_DICTIONARY), 1100)],
 ];

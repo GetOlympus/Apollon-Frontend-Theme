@@ -12,35 +12,41 @@ return [
     /**
      * @see https://developer.wordpress.org/reference/functions/wp_enqueue_script/
      */
-    'scripts'   => [
+    'scripts' => [
         /**
          * @var     string  $handle The file uniq handle.
          * @param   string  $args   The file arguments.
          */
-        'jquery'        => false,
-        'jquery-migrate'=> false,
+        'jquery'         => false,
+        'jquery-migrate' => false,
 
-        /*'jqueryfooter'  => [
-            'src'       => includes_url('/js/jquery/jquery.js'),
+        'uikitjs' => [
+            'src'       => '//cdn.jsdelivr.net/npm/uikit@'.OL_APOLLON_UIKIT.'/dist/js/uikit.min.js',
             'deps'      => [],
             'ver'       => false,
-            'in_footer' => true,
-        ],*/
+            'in_footer' => false,
+        ],
+        'uikiticonsjs' => [
+            'src'       => '//cdn.jsdelivr.net/npm/uikit@'.OL_APOLLON_UIKIT.'/dist/js/uikit-icons.min.js',
+            'deps'      => ['uikitjs'],
+            'ver'       => false,
+            'in_footer' => false,
+        ],
     ],
 
     /**
      * @see https://developer.wordpress.org/reference/functions/wp_enqueue_style/
      */
-    'styles'    => [
+    'styles'  => [
         /**
          * @var     string  $handle The file uniq handle.
          * @param   string  $args   The file arguments.
          */
-        /*'gfonts'        => [
-            'src'   => 'https://fonts.googleapis.com/css?family=Oswald|Merriweather',
+        'gfonts' => [
+            'src'   => 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap',
             'deps'  => [],
             'ver'   => false,
             'media' => 'all',
-        ],*/
-    ]
+        ],
+    ],
 ];

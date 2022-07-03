@@ -8,9 +8,6 @@
  * @since      0.0.1
  */
 
-
-// INC FILES
-
 // INCLUDED FILES
 /*add_filter('ol.apollon.included_files', function ($files) {
     return array_merge($files, [
@@ -26,23 +23,14 @@ add_filter('ol.apollon.archives_files', function ($files) {
 
 // PARTS BUILDERS
 add_filter('ol.apollon.menu_account_before_check', function ($opts) {
-    $_inc = [
-        'filename' => 'searchform.php',
-        'part'     => true,
-        'vars'     => [
-            'template' => 'modal',
-            'args'     => [
-                'navbar'     => true,
-                'searchicon' => true,
-            ],
+    apollonGetPart('searchform.php', [
+        'template' => 'modal',
+        'args'     => [
+            'navbar'     => true,
+            'searchicon' => true,
         ],
-    ];
-
-    include OL_APOLLON_VIEWSPATH.'_inc.php';
+    ]);
 });/**/
-
-
-// BUILDER
 
 /**
  * Build attributes.
@@ -99,7 +87,7 @@ add_filter('ol.apollon.build_categories', function ($categories, $use_link = tru
     foreach ($categories as $cat) {
         $cats .= (!empty($cats) ? $separator : '');
         $cats .= !$use_link ? strip_tags($cat->cat_name) : sprintf(
-            __('<a href="%s">%s</a>'),
+            '<a href="%s">%s</a>',
             get_category_link($cat),
             strip_tags($cat->cat_name)
         );
@@ -107,31 +95,3 @@ add_filter('ol.apollon.build_categories', function ($categories, $use_link = tru
 
     return $cats;
 }, 10, 3);
-
-/**
- * Build included files.
- *
- * @param  array   $files
- *
- * @return array
- */
-add_filter('ol.apollon.build_inc_files', function ($files) {
-    $show_on_front = apollonGetOption('wp_showonfront', 'wp_showonfront');
-
-    return array_merge($files, [
-        // Front page special case
-        'front-page.php' => ('page' === $show_on_front ? 'pages' : 'archives').S.'front-page.php',
-    ]);
-}, 10, 3);
-
-/**
- * Build separator.
- *
- * @param  string  $separator
- * @param  string  $template
- *
- * @return string
- */
-add_filter('ol.apollon.build_separator', function ($separator, $template) {
-    return '<hr class="uk-divider-icon uk-divider-fill"/>';
-}, 10, 2);
